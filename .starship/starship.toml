@@ -1,37 +1,18 @@
-format = """
-[](#9A348E)\
-$os\
-$username\
-[](bg:#DA627D fg:#9A348E)\
-$directory\
-[](fg:#DA627D bg:#FCA17D)\
-$git_branch\
-[](fg:#FCA17D bg:#86BBD8)\
-$c\
-$java\
-$nodejs\
-$python\
-[](fg:#86BBD8 bg:#06969A)\
-$docker_context\
-[](fg:#06969A bg:#33658A)\
-$time\
-[ ](fg:#33658A)\
-"""
-
+# Options
+format = "$os$all"
 add_newline = true 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
+
+# Sections
 [username]
 show_always = true
-style_user = "bg:#9A348E"
-style_root = "bg:#9A348E"
-format = '[$user ]($style)'
+style_user = "fg:#262626 bg:#D8FA3B"
+style_root = "fg:#262626 bg:#D8FA3B"
+format = "[$user ]($style)"
 disabled = false
 
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
 [os]
-style = "bg:#9A348E"
+style = "fg:#262626 bg:#D8FA3B"
+format = "[░▒▓ $symbol]($style)"
 disabled = false
 
 [os.symbols]
@@ -39,64 +20,58 @@ Windows = " "
 Ubuntu = " "
 
 [directory]
-style = "bg:#DA627D"
-format = "[ $path ]($style)"
+style = "bg:#CF73E6"
+format = "[ \ue5ff $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
-
-# Here is how you can shorten some long paths by text replacement
-# similar to mapped_locations in Oh My Posh:
-[directory.substitutions]
-"Documents" = " "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-# Keep in mind that the order matters. For example:
-# "Important Documents" = "  "
-# will not be replaced, because "Documents" was already substituted before.
-# So either put "Important Documents" before "Documents" or use the substituted version:
-# "Important  " = "  "
 
 # git
 [git_branch]
 symbol = ""
-style = "bg:#FCA17D"
-format = '[ $symbol $branch ]($style)'
+style = "fg:#262626 bg:#F0D50C"
+format = "[ $symbol $branch ]($style)"
 
 [git_status]
-style = "bg:#FCA17D"
-format = '[$all_status$ahead_behind ]($style)'
+# disable the git status if performance is bad
+disabled = true
+style = "fg:#262626 bg:#F0D50C"
+format = "[$all_status$ahead_behind ]($style)"
 
 # languages
 [c]
+style = "bg:#57BA37"
 symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+format = "[ $symbol ($version) ]($style)"
 
 [java]
+style = "bg:#57BA37"
 symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+format = "[ $symbol ($version) ]($style)"
 
 [nodejs]
+style = "bg:#57BA37"
 symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+format = "[ $symbol ($version) ]($style)"
 
 [python]
-python_binary = 'python3'
+style = "bg:#57BA37"
 symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($virtualenv) ]($style)'
+format = '[ $symbol (\($virtualenv\) )]($style)'
+python_binary = "python3"
 
-# misc
+# Misc
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[ $time ]($style)'
+# Hour:minute format
+time_format = "%R" 
+style = " bg:#91AADF"
+format = "[ $time ]($style)[](fg:#91AADF)"
 
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[ $symbol $context ]($style) $path'
+[character]
+format = " "
+
+[line_break]
+disabled = true
+
+[cmd_duration]
+disabled = true
