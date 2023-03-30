@@ -1,5 +1,18 @@
 # Options
-format = "$os$all"
+format = """
+$os\
+$username\
+$directory\
+$git_branch\
+$git_status\
+$c\
+$java\
+$nodejs\
+$python\
+$time\
+$character\
+"""
+
 add_newline = true 
 
 # Sections
@@ -62,16 +75,12 @@ python_binary = "python3"
 # Misc
 [time]
 disabled = false
-# Hour:minute format
 time_format = "%R" 
 style = " bg:#91AADF"
-format = "[ $time ]($style)[](fg:#91AADF)"
+format = "[ $time ]($style)[](fg:#91AADF)"
 
 [character]
 format = " "
 
 [line_break]
-disabled = true
-
-[cmd_duration]
 disabled = true
