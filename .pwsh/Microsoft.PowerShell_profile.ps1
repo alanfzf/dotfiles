@@ -29,26 +29,6 @@ function silent_audio(){
   ffmpeg -f lavfi -i anullsrc=r=11025:cl=mono -t 5 -acodec mp3 out.mp3
 }
 
-function pdoc(){
-  Param
-  (
-   [Parameter(Mandatory=$true, Position=0)]
-   [string] $file
-  )
-  pandoc $file --wrap=preserve -f markdown-implicit_figures+hard_line_breaks --lua-filter "$home\obsidian-callouts.lua" -o "$home\Desktop\$file.pdf"
-  # pandoc $file --wrap=preserve -f markdown-implicit_figures+hard_line_breaks+yaml_metadata_block -o "$home\Desktop\$file.pdf"
-}
-
-function gen_docs(){
-  $files = Get-ChildItem -Filter *.md -File -Name -Path .
-  foreach ($file in $files){
-    pdoc $file
-    Write-Host "Done exporting: $file"
-  }
-}
-
-
-
 Import-Module PSReadLine
 Set-PSReadLineOption -EditMode vi 
 $ENV:STARSHIP_CONFIG = "$HOME\.starship\starship.toml"
