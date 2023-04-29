@@ -1,31 +1,24 @@
-# Options
 format = """
+[░▒▓](#a3aed2)\
 $os\
-$username\
+[](bg:#769ff0 fg:#a3aed2)\
 $directory\
+[](fg:#769ff0 bg:#394260)\
 $git_branch\
 $git_status\
-$c\
-$java\
+[](fg:#394260 bg:#212736)\
 $nodejs\
 $python\
+[](fg:#212736 bg:#1d2230)\
 $time\
-$character\
-"""
+[ ](fg:#1d2230)\
+$line_break$character"""
 
 add_newline = true 
 
-# Sections
-[username]
-show_always = true
-style_user = "fg:#262626 bg:#D8FA3B"
-style_root = "fg:#262626 bg:#D8FA3B"
-format = "[$user ]($style)"
-disabled = false
-
 [os]
-style = "fg:#262626 bg:#D8FA3B"
-format = "[░▒▓ $symbol]($style)"
+style = "bg:#a3aed2 fg:#090c0c"
+format = "[ $symbol ]($style)"
 disabled = false
 
 [os.symbols]
@@ -33,54 +26,39 @@ Windows = " "
 Ubuntu = " "
 
 [directory]
-style = "bg:#CF73E6"
-format = "[ \ue5ff $path ]($style)"
+style = "fg:#e3e5e5 bg:#769ff0"
+format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
-# git
 [git_branch]
 symbol = ""
-style = "fg:#262626 bg:#F0D50C"
-format = "[ $symbol $branch ]($style)"
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
 
 [git_status]
-# disable the git status if performance is bad
 disabled = true
-style = "fg:#262626 bg:#F0D50C"
-format = "[$all_status$ahead_behind ]($style)"
-
-# languages
-[c]
-style = "bg:#57BA37"
-symbol = " "
-format = "[ $symbol ($version) ]($style)"
-
-[java]
-style = "bg:#57BA37"
-symbol = " "
-format = "[ $symbol ($version) ]($style)"
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 
 [nodejs]
-style = "bg:#57BA37"
 symbol = ""
-format = "[ $symbol ($version) ]($style)"
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [python]
-style = "bg:#57BA37"
 symbol = ""
-format = '[ $symbol (\($virtualenv\) )]($style)'
-python_binary = "python3"
+style = "bg:#212736"
+format = '[[ $symbol (\($virtualenv\) )](fg:#769ff0 bg:#212736)]($style)'
 
-# Misc
 [time]
-disabled = false
-time_format = "%R" 
-style = " bg:#91AADF"
-format = "[ $time ]($style)[](fg:#91AADF)"
+disabled=false
+time_format = "%R"# Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 
 [character]
-format = " "
+disabled=false
 
 [line_break]
-disabled = true
+disabled=false
