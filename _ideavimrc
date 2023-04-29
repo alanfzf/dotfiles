@@ -1,0 +1,24 @@
+"Enable plugins
+set NERDTree 
+
+"Keymap
+map <Space> <Leader>
+map <leader>e :NERDTreeToggle<CR>
+map <S-l> :bnext<CR>
+map <S-h> :bprevious<CR>
+
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+
+
+"General options
+set number
+set relativenumber
+set sw=2 "set tab as 2 spaces.
+set clipboard=unnamed "allow paste from external sources.
+set nowrap 
+set encoding=utf-8
+set nohlsearch
+set scrolloff=8
