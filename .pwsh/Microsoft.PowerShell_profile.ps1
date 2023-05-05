@@ -1,5 +1,13 @@
 Set-Alias vi nvim
 
+function rf(){
+  Param(
+    [Parameter(Mandatory=$true, Position=0)]
+    [string] $path
+  )
+  rm -r -Force $path
+}
+
 function new_ts_project(){
   npm init -y
   # dependencies
