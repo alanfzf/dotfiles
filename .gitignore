@@ -2,11 +2,11 @@
 # Track this files
 !.pwsh/
 !.starship/
-!windows-terminal/
+!.windows_terminal/
 !.obsidian.vimrc
 !.vimrc
 !_ideavimrc
 
 # misc
-!readme.md
+!README.md
 !.gitignore
