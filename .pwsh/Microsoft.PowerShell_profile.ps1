@@ -38,8 +38,8 @@ function silent_audio(){
 }
 
 # import modules
-Import-Module -Name Terminal-Icons
 Import-Module PSReadLine
+# Import-Module -Name Terminal-Icons
 
 # custom prompt
 Set-PSReadLineOption -EditMode vi 
