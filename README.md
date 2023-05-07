@@ -5,6 +5,6 @@ to personalize my Windows Environment
 
 Use the following script to automatically setup this config.
 
-```powershell
+```bash
 iex ((New-Object System.Net.WebClient).DownloadString("https://gist.githubusercontent.com/alanfvn/94c90d4b637a232c597437cefe248f00/raw"))
 ```
