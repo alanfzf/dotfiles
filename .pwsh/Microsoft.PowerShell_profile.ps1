@@ -37,11 +37,12 @@ function silent_audio(){
   ffmpeg -f lavfi -i anullsrc=r=11025:cl=mono -t 5 -acodec mp3 out.mp3
 }
 
-# import modules
+# PSReadLine
 Import-Module PSReadLine
-# Import-Module -Name Terminal-Icons
+Set-PSReadLineOption -EditMode emacs
+Set-PSReadlineOption -BellStyle None
+Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
 
-# custom prompt
-Set-PSReadLineOption -EditMode vi 
+# Starship
 $ENV:STARSHIP_CONFIG = "$HOME\.starship\starship.toml"
 Invoke-Expression (&starship init powershell)
