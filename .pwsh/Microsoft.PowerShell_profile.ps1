@@ -2,13 +2,23 @@ Set-Alias vi nvim
 
 function rf(){
   Param(
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter()]
     [string] $path
   )
-  rm -r -Force $path
+  if (-not [string]::IsNullOrEmpty($Type)) {
+    rm -r -Force $path
+  }
 }
 
-function new_ts_project(){
+function la(){
+  Param(
+    [Parameter()]
+    [string] $path
+  )
+  ls $path -Force
+}
+
+function NewTsProject(){
   npm init -y
   # dependencies
   npm install typescript --save-dev
@@ -25,15 +35,15 @@ function new_ts_project(){
   mkdir src
 }
 
-function pyright(){
+function PyRight(){
  New-Item "pyrightconfig.json" -type file -value '{"executionEnvironments": [{"root": "src"}]}'
 }
 
-function acenv(){
+function AcEnv(){
   .\env\Scripts\activate
 }
 
-function silent_audio(){
+function SilentAudio(){
   ffmpeg -f lavfi -i anullsrc=r=11025:cl=mono -t 5 -acodec mp3 out.mp3
 }
 
