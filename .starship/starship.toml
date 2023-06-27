@@ -23,7 +23,6 @@ truncation_length = 3
 truncation_symbol = "…/"
 style = "bold #50fa7b"
 
-
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "

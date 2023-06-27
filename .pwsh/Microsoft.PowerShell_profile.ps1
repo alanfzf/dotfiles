@@ -1,22 +1,38 @@
 Set-Alias vi nvim
+Set-Alias shutdown Stop-Computer
+Set-Alias python py
 
 function rf(){
   Param(
     [Parameter()]
-    [string] $path
+    [string] $Path
   )
-  if (-not [string]::IsNullOrEmpty($Type)) {
-    rm -r -Force $path
+  if (-not [string]::IsNullOrEmpty($Path)) {
+    rm -r -Force $Path
   }
 }
 
 function la(){
   Param(
     [Parameter()]
-    [string] $path
+    [string] $Path
   )
-  ls $path -Force
+  ls $Path -Force
 }
+
+function pth(){
+  param(
+      [Parameter()]
+      [String]$File
+  )
+
+  if (Test-Path -Path $File) {
+    $item = Get-Item -Path $File
+    Write-Host "Copying path $($item.FullName)"
+    $item.FullName | Set-Clipboard
+  }
+}
+
 
 function NewTsProject(){
   npm init -y
