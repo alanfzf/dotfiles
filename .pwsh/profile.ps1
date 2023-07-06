@@ -8,16 +8,16 @@ function rf(){
     [string] $Path
   )
   if (-not [string]::IsNullOrEmpty($Path)) {
-    rm -r -Force $Path
+    Remove-Item -r -Force $Path
   }
 }
 
-function la(){
+function ll(){
   Param(
     [Parameter()]
     [string] $Path
   )
-  ls $Path -Force
+  Get-ChildItem $Path -Force
 }
 
 function pth(){
