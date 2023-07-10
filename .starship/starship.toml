@@ -1,30 +1,77 @@
-[character]
-error_symbol = "[λ](bold #ff5555)"
-success_symbol = "[λ](bold #50fa7b)"
+# ==== PROMPT CONFIG ====
+add_newline = true
+palette = 'colors'
 
-[cmd_duration]
-style = "bold #f1fa8c"
+[palettes.colors]
+green = '#50fa7b' 
+yellow = '#f1fa8c'
+red = '#ff5555'
+purple = '#bd93f9'
+pink ='#ff79c6'
+blue = '#8be9fd'
 
-[git_branch]
-style = "bold #ff79c6"
+# ==== OS ====
+[os]
+disabled = true
 
-[git_status]
-style = "bold #ff5555"
+[os.symbols]
+Windows = " "
 
 [hostname]
-style = "bold #bd93f9"
+style = "bold purple"
 
 [username]
+disabled = false
 format = "[$user]($style) on "
-style_user = "bold #8be9fd"
+style_user = "bold blue"
 
 [directory]
+use_os_path_sep = false
 truncation_length = 3
 truncation_symbol = "…/"
-style = "bold #50fa7b"
+style = "bold green"
 
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+# ==== SHELL ====
+[shell]
+disabled = true
+powershell_indicator = '_'
+
+# ==== GIT ====
+[git_branch]
+style = "bold pink"
+
+[git_status]
+disabled = false # disable if if you feel performance issues on windows
+style = "bold red"
+
+[git_metrics]
+added_style = 'bold purple'
+deleted_style = 'bold purple'
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+# ==== LANGUAGES ====
+[nodejs]
+symbol = '󰎙'
+
+[lua]
+symbol = '󰢱'
+
+[docker_context]
+symbol = '󰡨'
+
+[python]
+symbol = '󰌠'
+
+[rust]
+symbol = '󱘗'
+
+[package]
+symbol = '󰏔'
+
+# ==== MISC ====
+[cmd_duration]
+style = "bold yellow"
+
+[character]
+error_symbol = "[λ](bold red)"
+success_symbol = "[λ](bold green)"
