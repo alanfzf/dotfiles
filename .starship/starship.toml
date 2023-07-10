@@ -22,8 +22,10 @@ style = "bold purple"
 
 [username]
 disabled = false
+show_always = true
+# style_root = 'black bold'
+# style_user = 'white bold'
 format = "[$user]($style) on "
-style_user = "bold blue"
 
 [directory]
 use_os_path_sep = false
@@ -70,6 +72,7 @@ symbol = '󰏔'
 
 # ==== MISC ====
 [cmd_duration]
+disabled = false
 style = "bold yellow"
 
 [character]
