@@ -1,6 +1,8 @@
 Set-Alias vi nvim
 Set-Alias shutdown Stop-Computer
 Set-Alias python py
+Set-Alias lg lazygit
+
 
 function rf(){
   Param(
