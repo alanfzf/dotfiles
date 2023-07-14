@@ -3,7 +3,6 @@ Set-Alias shutdown Stop-Computer
 Set-Alias python py
 Set-Alias lg lazygit
 
-
 function rf(){
   Param(
     [Parameter()]
@@ -67,7 +66,7 @@ function SilentAudio(){
 
 # PSReadLine
 Import-Module PSReadLine
-Set-PSReadLineOption -EditMode emacs
+Set-PSReadLineOption -EditMode vi 
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
 
