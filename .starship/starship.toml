@@ -53,22 +53,22 @@ format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
 
 # ==== LANGUAGES ====
 [nodejs]
-symbol = '󰎙'
+symbol = '󰎙 '
 
 [lua]
-symbol = '󰢱'
+symbol = '󰢱 '
 
 [docker_context]
-symbol = '󰡨'
+symbol = '󰡨 '
 
 [python]
-symbol = '󰌠'
+symbol = '󰌠 '
 
 [rust]
-symbol = '󱘗'
+symbol = '󱘗 '
 
 [package]
-symbol = '󰏔'
+symbol = '󰏔 '
 
 # ==== MISC ====
 [cmd_duration]
