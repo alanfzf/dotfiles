@@ -34,18 +34,17 @@ config.color_scheme = "One Half Dark (Modded)"
 config.font_size = 14
 config.hide_tab_bar_if_only_one_tab = true
 config.win32_system_backdrop = 'Acrylic'
-config.window_background_opacity = 0.55
+config.window_background_opacity = 0.60
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.default_prog = { "pwsh.exe" }
-  -- table.insert(config.launch_menu, { label = "PowerShell", args = {"powershell.exe", "-NoLogo"} })
 end
 
 -- keybinds
-config.leader = { 
-  key = 'a', 
-  mods = 'CTRL', 
+config.leader = {
+  key = 'a',
+  mods = 'CTRL',
   timeout_milliseconds = 1000
 }
 config.keys = {
