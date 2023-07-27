@@ -30,7 +30,7 @@ config.color_schemes = {
   }
 }
 
-config.color_scheme = "One Half Dark (Modded)"
+config.color_scheme = "One Half Dark"
 config.font_size = 14
 config.hide_tab_bar_if_only_one_tab = true
 config.win32_system_backdrop = 'Acrylic'
@@ -43,7 +43,7 @@ end
 
 -- keybinds
 config.leader = {
-  key = 'a',
+  key = 't',
   mods = 'CTRL',
   timeout_milliseconds = 1000
 }
@@ -57,6 +57,7 @@ config.keys = {
   { key = '-', mods = 'LEADER', action = wezterm.action.SplitHorizontal({ domain = 'CurrentPaneDomain' })},
   { key = '=', mods = 'LEADER', action = wezterm.action.SplitVertical({ domain = 'CurrentPaneDomain' })},
   { key = "]", mods="LEADER", action="TogglePaneZoomState" },
+  { key = "p", mods="LEADER", action=wezterm.action({PasteFrom='Clipboard'})},
 }
 
 return config
