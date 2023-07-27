@@ -64,6 +64,13 @@ function SilentAudio(){
   ffmpeg -f lavfi -i anullsrc=r=11025:cl=mono -t 5 -acodec mp3 out.mp3
 }
 
+function Top(){
+  While(1) {
+    Get-Process | Sort-Object -des cpu | Select-Object -f 15 | 
+    Format-Table -a; Start-Sleep 1; Clear-Host
+  }
+}
+
 # PSReadLine
 Import-Module PSReadLine
 Set-PSReadLineOption -EditMode vi 
