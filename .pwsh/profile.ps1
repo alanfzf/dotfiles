@@ -64,6 +64,10 @@ function SilentAudio(){
   ffmpeg -f lavfi -i anullsrc=r=11025:cl=mono -t 5 -acodec mp3 out.mp3
 }
 
+function Gs {
+  git status
+}
+
 function Top(){
   While(1) {
     Get-Process | Sort-Object -des cpu | Select-Object -f 15 | 
@@ -73,7 +77,7 @@ function Top(){
 
 # PSReadLine
 Import-Module PSReadLine
-Set-PSReadLineOption -EditMode vi 
+Set-PSReadLineOption -EditMode Emacs
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
 
