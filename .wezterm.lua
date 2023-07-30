@@ -30,15 +30,15 @@ config.color_schemes = {
   }
 }
 
-config.color_scheme = "Dracula"
+config.color_scheme = "Tokyo Night"
 config.font_size = 14
 config.hide_tab_bar_if_only_one_tab = true
-config.win32_system_backdrop = 'Acrylic'
 config.window_background_opacity = 0.80
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.default_prog = { "pwsh.exe" }
+  config.win32_system_backdrop = 'Acrylic'
 end
 
 -- keybinds
@@ -47,6 +47,7 @@ config.leader = {
   mods = 'CTRL',
   timeout_milliseconds = 1000
 }
+
 config.keys = {
   { key = "h", mods = "LEADER", action=wezterm.action({ActivatePaneDirection="Left"})},
   { key = "j", mods = "LEADER", action=wezterm.action({ActivatePaneDirection="Down"})},
@@ -56,6 +57,9 @@ config.keys = {
   { key = '-', mods = 'LEADER', action = wezterm.action.SplitVertical({ domain = 'CurrentPaneDomain' })},
   { key = "]", mods="LEADER", action="TogglePaneZoomState" },
   { key = "p", mods="LEADER", action=wezterm.action({PasteFrom='Clipboard'})},
+  -- make this action yank the selection { key = "y", mods="LEADER", action=wezterm.action({PasteFrom='Clipboard'})},
+  { key = 'o', mods = 'LEADER', action =wezterm.action.PaneSelect },
+
 }
 
 return config

@@ -1,7 +1,7 @@
 Set-Alias vi nvim
-Set-Alias shutdown Stop-Computer
 Set-Alias python py
 Set-Alias lg lazygit
+Set-Alias shutdown Stop-Computer
 
 function rf(){
   Param(
@@ -12,6 +12,7 @@ function rf(){
     Remove-Item -r -Force $Path
   }
 }
+
 
 function ll(){
   Param(

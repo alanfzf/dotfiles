@@ -1,31 +1,19 @@
 # ==== PROMPT CONFIG ====
 add_newline = true
-palette = 'colors'
+# palette = 'colors'
 
-[palettes.colors]
-green = '#50fa7b' 
-yellow = '#f1fa8c'
-red = '#ff5555'
-purple = '#bd93f9'
-pink ='#ff79c6'
+[palettes.dracula]
 blue = '#8be9fd'
+green = '#50fa7b' 
+pink ='#ff79c6'
+purple = '#bd93f9'
+red = '#ff5555'
+yellow = '#f1fa8c'
 
 # ==== OS ====
-[os]
-disabled = true
-
-[os.symbols]
-Windows = " "
-
-[hostname]
-style = "bold purple"
-
 [username]
 disabled = false
-show_always = true
-# style_root = 'black bold'
-# style_user = 'white bold'
-format = "[$user]($style) on "
+show_always = false
 
 [directory]
 use_os_path_sep = false
@@ -33,23 +21,29 @@ truncation_length = 3
 truncation_symbol = "…/"
 style = "bold green"
 
-# ==== SHELL ====
-[shell]
-disabled = true
-powershell_indicator = '_'
-
-# ==== GIT ====
+# ==== [GIT] ====
 [git_branch]
-style = "bold pink"
-
-[git_status]
-disabled = false # disable if if you feel performance issues on windows
-style = "bold red"
+symbol = ' '
 
 [git_metrics]
 added_style = 'bold purple'
 deleted_style = 'bold purple'
 format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[git_status]
+format = '[\($all_status$ahead_behind\)]($style) '
+style = "bold green"
+conflicted = "🏳"
+up_to_date = " "
+untracked = " "
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = "≡"
+modified = " "
+staged = '[++\($count\)](green)'
+renamed = "󰖷 "
+deleted = " "
 
 # ==== LANGUAGES ====
 [nodejs]
@@ -68,13 +62,15 @@ symbol = '󰌠 '
 symbol = '󱘗 '
 
 [package]
-symbol = '󰏔 '
+symbol = '󰏗 '
 
 # ==== MISC ====
 [cmd_duration]
 disabled = false
-style = "bold yellow"
 
 [character]
-error_symbol = "[λ](bold red)"
-success_symbol = "[λ](bold green)"
+error_symbol = "[\\$](bold red)"
+success_symbol = "[\\$](bold green)"
+
+# ==== MORE INTERESTING STUFF TO IMPLEMENT ====
+# https://starship.rs/config/#battery
