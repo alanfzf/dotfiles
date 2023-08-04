@@ -2,6 +2,7 @@ Set-Alias vi nvim
 Set-Alias python py
 Set-Alias lg lazygit
 Set-Alias shutdown Stop-Computer
+Remove-Alias sl -Force
 
 function rf(){
   Param(

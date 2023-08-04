@@ -1,4 +1,5 @@
 local wezterm = require('wezterm')
+local act = wezterm.action
 local config = {}
 
 config.color_schemes = {
@@ -35,6 +36,7 @@ config.font_size = 14
 config.hide_tab_bar_if_only_one_tab = true
 config.window_background_opacity = 0.80
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
+config.audible_bell  = "Disabled"
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.default_prog = { "pwsh.exe" }
@@ -49,17 +51,18 @@ config.leader = {
 }
 
 config.keys = {
-  { key = "h", mods = "LEADER", action=wezterm.action({ActivatePaneDirection="Left"})},
-  { key = "j", mods = "LEADER", action=wezterm.action({ActivatePaneDirection="Down"})},
-  { key = "k", mods = "LEADER", action=wezterm.action({ActivatePaneDirection="Up"})},
-  { key = "l", mods = "LEADER", action=wezterm.action({ActivatePaneDirection="Right"})},
-  { key = '=', mods = 'LEADER', action = wezterm.action.SplitHorizontal({ domain = 'CurrentPaneDomain' })},
-  { key = '-', mods = 'LEADER', action = wezterm.action.SplitVertical({ domain = 'CurrentPaneDomain' })},
+  { key = "h", mods = "LEADER", action=act({ActivatePaneDirection="Left"})},
+  { key = "j", mods = "LEADER", action=act({ActivatePaneDirection="Down"})},
+  { key = "k", mods = "LEADER", action=act({ActivatePaneDirection="Up"})},
+  { key = "l", mods = "LEADER", action=act({ActivatePaneDirection="Right"})},
+  { key = '=', mods = 'LEADER', action = act.SplitHorizontal({ domain = 'CurrentPaneDomain' })},
+  { key = '-', mods = 'LEADER', action = act.SplitVertical({ domain = 'CurrentPaneDomain' })},
   { key = "]", mods="LEADER", action="TogglePaneZoomState" },
-  { key = "p", mods="LEADER", action=wezterm.action({PasteFrom='Clipboard'})},
-  -- make this action yank the selection { key = "y", mods="LEADER", action=wezterm.action({PasteFrom='Clipboard'})},
-  { key = 'o', mods = 'LEADER', action =wezterm.action.PaneSelect },
-
+  { key = "p", mods="LEADER", action=act({PasteFrom='Clipboard'})},
+  { key = "y", mods="LEADER", action=act({CopyTo="Clipboard"})},
+  { key = 'o', mods = 'LEADER', action =act.PaneSelect },
+  { key = 'f', mods = 'SHIFT|CTRL', action = act.Search({ CaseInSensitiveString = '' })},
+  -- activate copy mode shift ctrl x
 }
 
 return config
