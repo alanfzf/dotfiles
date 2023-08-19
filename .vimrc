@@ -26,8 +26,11 @@ map <C-l> <C-w>l
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 " navigate trough buffers
-map <S-l> :bnext<CR>
-map <S-h> :bprevious<CR>
+map <S-l> $
+map <S-h> ^
+
+map <A-l> :bnext<CR>
+map <A-h> :bprevious<CR>
 "Clear search
 map <leader>h :nohlsearch<Bar>:echo<CR>""
 "Open file tree

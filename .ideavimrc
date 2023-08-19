@@ -4,8 +4,10 @@ set NERDTree
 "Keymap
 map <Space> <Leader>
 map <leader>e :NERDTreeToggle<CR>
-map <S-l> :bnext<CR>
-map <S-h> :bprevious<CR>
+map <S-l> $
+map <S-h> ^
+map <A-l> :bnext<CR>
+map <A-h> :bprevious<CR>
 
 map <C-h> <C-w>h
 map <C-l> <C-w>l
