@@ -111,7 +111,7 @@ function SetupDotFiles{
   & $gitCmd clone "https://github.com/alanfvn/nvim-config" $nvimFolder
 
   # **** CREATE SYMLINKS ****
-  Get-ChildItem -Path $ConfigFolder | Where-Object {$_.Name -notin $IgnoredFiles } | ForEach-Object {
+  Get-ChildItem -Path $cfgFolder | Where-Object {$_.Name -notin $ignoredFiles } | ForEach-Object {
     $destPath = "$HOME/$($_.Name)"
     $targetPath = $_.FullName
     New-Item -ItemType SymbolicLink -Path $destPath -Target $targetPath -Force
