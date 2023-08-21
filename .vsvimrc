@@ -5,6 +5,7 @@ set sw=2
 set shiftwidth=2
 set tabstop=2
 set expandtab
+set autoindent
 "other options
 set nowrap
 set scrolloff=8
@@ -35,3 +36,7 @@ map <A-h> :bprevious<CR>
 map <leader>h :nohlsearch<Bar>:echo<CR>""
 "Open file tree
 map <leader>e :Lex 30<CR>
+
+"  Other
+nnoremap <c-d> <PageDown>
+nnoremap <c-u> <PageUp>

@@ -77,6 +77,26 @@ function Top(){
   }
 }
 
+function Sed($file, $find, $replace) {
+    (Get-Content $file).replace("$find", $replace) | Set-Content $file
+}
+
+function Which($name) {
+    Get-Command $name | Select-Object -ExpandProperty Definition
+}
+
+function Touch($file) {
+    "" | Out-File $file -Encoding ASCII
+}
+
+function Grep($regex, $dir) {
+    if ( $dir ) {
+        Get-ChildItem $dir | select-string $regex
+        return
+    }
+    $input | select-string $regex
+}
+
 # PSReadLine
 Import-Module PSReadLine
 Set-PSReadLineOption -EditMode Emacs
@@ -84,5 +104,5 @@ Set-PSReadlineOption -BellStyle None
 Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
 
 # Starship
-$ENV:STARSHIP_CONFIG = "$HOME\.starship\starship.toml"
+$ENV:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
 Invoke-Expression (&starship init powershell)
