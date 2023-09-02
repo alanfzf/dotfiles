@@ -121,7 +121,7 @@ function SetupDotFiles{
   $wtConfig  = Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*" | Select-Object -First 1 -Expand FullName
   $wtConfig = "$wtConfig\LocalState\settings.json"
   $originalContent = Get-Content -Path $wtConfig -Raw | ConvertFrom-Json
-  $newContent = Get-Content -Path "$cfgFolder/.config/.windows_terminal/settings.json" -Raw | ConvertFrom-Json
+  $newContent = Get-Content -Path "$cfgFolder/.config/windows_terminal/settings.json" -Raw | ConvertFrom-Json
 
   $newContent.PSObject.Properties | ForEach-Object {
       $propertyName = $_.Name
@@ -139,7 +139,7 @@ function SetupDotFiles{
   $jsonFile | Set-Content -Path $wtConfig
 
   # **** SET POWERSHELL PROFILE ****
-  $pwsProfile = "$cfgFolder/.config/.pwsh/profile.ps1"
+  $pwsProfile = "$cfgFolder/.config/pwsh/profile.ps1"
   $profileFolder = Split-Path -Path $PROFILE -Parent
   New-Item -ItemType Directory -Path $profileFolder -Force
   New-Item -ItemType SymbolicLink -Path $PROFILE -Target $pwsProfile -Force
