@@ -30,7 +30,6 @@ disabled = false
 
 [git_status]
 disabled = false
-# format = '[\($all_status$ahead_behind\)]($style) '
 # style = "bold green"
 # conflicted = "🏳"
 # up_to_date = " "

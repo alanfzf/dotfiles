@@ -43,6 +43,8 @@
       "opacity": 90,
       "padding": "0",
       "scrollbarState": "hidden",
+      "suppressApplicationTitle": true,
+      "tabTitle": "\ud83c\udf27\ufe0f",
       "useAcrylic": false
     } 
   },
@@ -64,7 +66,7 @@
       "cyan": "#55FFFF",
       "foreground": "#FFFFFF",
       "green": "#55FF55",
-      "name": "Dark Pastel",
+      "name": "Dark-Pastel",
       "purple": "#FF55FF",
       "red": "#FF5555",
       "selectionBackground": "#B5D5FF",
@@ -93,29 +95,6 @@
       "selectionBackground": "#44475A",
       "white": "#BBBBBB",
       "yellow": "#F1FA8C"
-    },
-    {
-      "background": "#073642",
-      "black": "#073642",
-      "blue": "#6C71C4",
-      "brightBlack": "#073642",
-      "brightBlue": "#6C71C4",
-      "brightCyan": "#2AA198",
-      "brightGreen": "#859900",
-      "brightPurple": "#D33682",
-      "brightRed": "#CB4B16",
-      "brightWhite": "#FDF6E3",
-      "brightYellow": "#B58900",
-      "cursorColor": "#EEE8D5",
-      "cyan": "#2AA198",
-      "foreground": "#9CABAB",
-      "green": "#859900",
-      "name": "Solarized Dark Patched",
-      "purple": "#D33682",
-      "red": "#CB4B16",
-      "selectionBackground": "#CB4B16",
-      "white": "#EEE8D5",
-      "yellow": "#B58900"
     },
     {
       "background": "#001B26",
