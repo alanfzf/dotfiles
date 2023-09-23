@@ -31,7 +31,7 @@ config.color_schemes = {
   }
 }
 
-config.color_scheme = 'Ayu Mirage'
+config.color_scheme = 'Dracula'
 config.font_size = 14
 config.hide_tab_bar_if_only_one_tab = true
 config.window_background_opacity = 0.80
@@ -45,7 +45,7 @@ end
 
 -- keybinds
 config.leader = {
-  key = 't',
+  key = 'q',
   mods = 'CTRL',
   timeout_milliseconds = 1000
 }
