@@ -2,7 +2,7 @@
 # * CONSTANTS *
 # =====================
 $apps = "C:\Apps"
-$temp = $env:TEMP
+$temp = "$env:TEMP\files\"
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
 $mingwUrl = "https://github.com/niXman/mingw-builds-binaries/releases/download/13.1.0-rt_v11-rev1/x86_64-13.1.0-release-posix-seh-ucrt-rt_v11-rev1.7z"
 $wingetUrl = "https://aka.ms/getwinget"
@@ -13,7 +13,7 @@ if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]:
 }
 
 if(-not($PSVersionTable.PSVersion.Major -ge 7)){
-  $wingetFile = "$temp\winget.msixbundle"
+  $wingetFile = "./winget.msixbundle"
   $dependencies = @(
       "Microsoft.PowerShell"
       "Microsoft.WindowsTerminal"
@@ -75,6 +75,7 @@ function CleanTemp {
 # =====================
 function InstallPrograms {
   New-Item -ItemType Directory -Path $apps -Force 
+  New-Item -ItemType Directory -Path $temp -Force
   # **** INSTALL WINGET PACKAGES ****
   $Packages = @(
     "7zip.7zip"
@@ -87,6 +88,7 @@ function InstallPrograms {
     "VideoLAN.VLC"
     "JesseDuffield.lazygit"
     "sharkdp.fd"
+    "junegunn.fzf"
   )
   # The override parameters make git not add itself to the context menu
   winget install -e --accept-source-agreements --accept-package-agreements --silent Git.Git --override "/VERYSILENT /COMPONENTS="

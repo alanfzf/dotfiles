@@ -30,5 +30,4 @@ New-ItemProperty -LiteralPath 'HKLM:\SOFTWARE\Classes\*\shell\nvim' -Name 'Icon'
 New-ItemProperty -LiteralPath 'HKLM:\SOFTWARE\Classes\*\shell\nvim\command' -Name '(default)' -Value 'wt -p "PowerShell" --title Neovim nvim.exe "%1"' -PropertyType String -Force -ea SilentlyContinue;
 
 # **** MAKE CAPS ACT AS CTRL ****
-if((Test-Path -LiteralPath "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout") -ne $true) {  New-Item "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout" -force -ea SilentlyContinue };
-New-ItemProperty -LiteralPath 'HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout' -Name 'Scancode Map' -Value ([byte[]](0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02,0x00,0x00,0x00,0x1d,0x00,0x3a,0x00,0x00,0x00,0x00,0x00)) -PropertyType Binary -Force -ea SilentlyContinue;
+# USE POWERTOYS FOR THIS
