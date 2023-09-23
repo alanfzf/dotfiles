@@ -87,6 +87,7 @@ function InstallPrograms {
     "VideoLAN.VLC"
     "JesseDuffield.lazygit"
     "sharkdp.fd"
+    "junegunn.fzf"
   )
   # The override parameters make git not add itself to the context menu
   winget install -e --accept-source-agreements --accept-package-agreements --silent Git.Git --override "/VERYSILENT /COMPONENTS="
