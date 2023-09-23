@@ -12,11 +12,8 @@ if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]:
    Exit
 }
 
-New-Item -ItemType Directory -Path $apps -Force 
-New-Item -ItemType Directory -Path $temp -Force
-
 if(-not($PSVersionTable.PSVersion.Major -ge 7)){
-  $wingetFile = "$temp\winget.msixbundle"
+  $wingetFile = "./winget.msixbundle"
   $dependencies = @(
       "Microsoft.PowerShell"
       "Microsoft.WindowsTerminal"
@@ -77,6 +74,8 @@ function CleanTemp {
 # * SETUP FUNCTIONS *
 # =====================
 function InstallPrograms {
+  New-Item -ItemType Directory -Path $apps -Force 
+  New-Item -ItemType Directory -Path $temp -Force
   # **** INSTALL WINGET PACKAGES ****
   $Packages = @(
     "7zip.7zip"
