@@ -97,8 +97,13 @@ function Grep($regex, $dir) {
     $input | select-string $regex
 }
 
+function Ex($dir) {
+  explorer $dir
+}
+
 # PSReadLine
 Import-Module PSReadLine
+Import-Module Z
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
