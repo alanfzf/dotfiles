@@ -97,7 +97,13 @@ function Grep($regex, $dir) {
     $input | select-string $regex
 }
 
-function Ex($dir) {
+function Ex {
+
+  param(
+      [Parameter()]
+      [String]$dir = '.'
+  )
+
   explorer $dir
 }
 
