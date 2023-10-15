@@ -1,10 +1,8 @@
 # =====================
 # * CONSTANTS *
 # =====================
-$apps = "C:\Apps"
 $temp = "$env:TEMP\files\"
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
-$mingwUrl = "https://github.com/niXman/mingw-builds-binaries/releases/download/13.1.0-rt_v11-rev1/x86_64-13.1.0-release-posix-seh-ucrt-rt_v11-rev1.7z"
 $wingetUrl = "https://aka.ms/getwinget"
 
 if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
@@ -74,7 +72,6 @@ function CleanTemp {
 # * SETUP FUNCTIONS *
 # =====================
 function InstallPrograms {
-  New-Item -ItemType Directory -Path $apps -Force 
   New-Item -ItemType Directory -Path $temp -Force
   # **** INSTALL WINGET PACKAGES ****
   $Packages = @(
@@ -89,18 +86,20 @@ function InstallPrograms {
     "JesseDuffield.lazygit"
     "sharkdp.fd"
     "junegunn.fzf"
+    "zig.zig"
   )
   # The override parameters make git not add itself to the context menu
   winget install -e --accept-source-agreements --accept-package-agreements --silent Git.Git --override "/VERYSILENT /COMPONENTS="
   foreach ($package in $packages) { winget install -e --accept-source-agreements --accept-package-agreements --silent $package }
 
   # **** INSTALL NON WINGET STUFF ****
-  $mingwFolder = DownloadAndDecompress $mingwUrl
   $fontFolder = DownloadAndDecompress $fontUrl -CreateFolder
-  Move-Item -Path $mingwFolder.FullName -Destination $apps
   InstallFonts $fontFolder.FullName
   CleanTemp
-  [Environment]::SetEnvironmentVariable("Path", $env:Path +";$apps\$($mingwFolder.Name)\bin", [EnvironmentVariableTarget]::Machine)
+}
+
+function InstallPSModules {
+  Install-Module -Name z -Confirm:$False -Force
 }
 
 function SetupDotFiles{
