@@ -107,6 +107,11 @@ function Ex {
   explorer $dir
 }
 
+function Sudo {
+  Start-Process wt -Verb runAs -ArgumentList "pwsh.exe -NoExit -Command &{Set-Location $PWD}"
+}
+
+
 # PSReadLine
 Import-Module PSReadLine
 Import-Module Z
