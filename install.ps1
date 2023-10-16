@@ -1,38 +1,20 @@
+#Requires -RunAsAdministrator
+#Requires -Version 7.0
+
 # =====================
 # * CONSTANTS *
 # =====================
-$temp = "$env:TEMP\files\"
+$temp = "$env:TEMP/files/"
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
-$wingetUrl = "https://aka.ms/getwinget"
-
-if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-   Write-Host "You must run this script as Administrator!"  -ForegroundColor Red
-   Exit
-}
-
-if(-not($PSVersionTable.PSVersion.Major -ge 7)){
-  $wingetFile = "./winget.msixbundle"
-  $dependencies = @(
-      "Microsoft.PowerShell"
-      "Microsoft.WindowsTerminal"
-  )
-
-  Invoke-WebRequest -Uri $wingetUrl -OutFile $wingetFile
-  Add-AppxPackage $wingetFile; Remove-Item $wingetFile
-
-  $dependencies | ForEach-Object { winget install -e --accept-source-agreements --accept-package-agreements --silent $_ }
-
-  Write-Host "Installed the required dependencies, but this script requires PowerShell 7 to run!" -ForegroundColor Yellow
-  Write-Host "Please re-execute this script again with PowerShell 7" -ForegroundColor Red
-  Exit
-}
-
 
 # =====================
 # * UTILITY FUNCTIONS *
 # =====================
 function DownloadAndDecompress {
-  param([String]$Url, [Switch]$CreateFolder)
+  param(
+      [String]$Url, 
+      [Switch]$CreateFolder
+  )
 
   $fileName = [System.IO.Path]::GetFileName($Url)
   $outFile = Join-Path $temp $fileName
@@ -46,7 +28,7 @@ function DownloadAndDecompress {
   }
   & "${env:ProgramFiles}\7-Zip\7z.exe" x $outFile "-o$outputFolder" -y | Out-Null
 
-  # return the latest created folder
+  # Return the latest created folder
   return Get-ChildItem -Path $temp -Directory | Sort-Object CreationTime -Descending | Select-Object -First 1
 }
 
