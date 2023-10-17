@@ -112,6 +112,17 @@ function Sudo {
 }
 
 
+function Invoke-Starship-PreCommand {
+  $loc = $executionContext.SessionState.Path.CurrentLocation;
+  $prompt = "$([char]27)]9;12$([char]7)"
+  if ($loc.Provider.Name -eq "FileSystem")
+  {
+    $prompt += "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\"
+  }
+  $host.ui.Write($prompt)
+}
+
+
 # PSReadLine
 Import-Module PSReadLine
 Import-Module Z
@@ -121,4 +132,5 @@ Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
 
 # Starship
 $ENV:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
+Invoke-Starship-PreCommand
 Invoke-Expression (&starship init powershell)
