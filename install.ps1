@@ -210,6 +210,7 @@ function RemovePrograms{
 # DO THE SETUP
 # =====================
 InstallPrograms
+InstallPSModules
 SetupDotFiles
 WindowsTweaks
 RemovePrograms
