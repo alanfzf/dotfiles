@@ -4,6 +4,15 @@
     {
       "command": 
       {
+        "action": "splitPane",
+        "split": "right",
+        "splitMode": "duplicate"
+      },
+      "keys": "alt+shift+plus"
+    },
+    {
+      "command": 
+      {
         "action": "copy",
         "singleLine": false
       },
@@ -11,6 +20,15 @@
     },
     {
       "command": "paste"
+    },
+    {
+      "command": 
+      {
+        "action": "splitPane",
+        "split": "auto",
+        "splitMode": "duplicate"
+      },
+      "keys": "alt+shift+d"
     },
     {
       "command": "find",
@@ -21,13 +39,8 @@
       "keys": "ctrl+v"
     },
     {
-      "command": 
-      {
-        "action": "splitPane",
-        "split": "auto",
-        "splitMode": "duplicate"
-      },
-      "keys": "alt+shift+d"
+      "command": "unbound",
+      "keys": "alt+shift+\\"
     },
     {
       "command": "togglePaneZoom",
