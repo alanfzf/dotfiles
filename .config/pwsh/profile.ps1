@@ -2,9 +2,11 @@ Set-Alias vi nvim
 Set-Alias python py
 Set-Alias lg lazygit
 Set-Alias shutdown Stop-Computer
+Set-Alias cat bat
+Set-Alias ls eza
 Remove-Alias sl -Force
 
-function rf(){
+function Rf(){
   Param(
     [Parameter()]
     [string] $Path
@@ -14,21 +16,11 @@ function rf(){
   }
 }
 
-
-function ll(){
-  Param(
-    [Parameter()]
-    [string] $Path
-  )
-  Get-ChildItem $Path -Force
-}
-
-function pth(){
+function Pth(){
   param(
       [Parameter()]
       [String]$File
   )
-
   if (Test-Path -Path $File) {
     $item = Get-Item -Path $File
     Write-Host "Copying path $($item.FullName)"
@@ -59,51 +51,33 @@ function PyRight(){
 }
 
 function AcEnv(){
-  .\env\Scripts\activate
-}
-
-function SilentAudio(){
-  ffmpeg -f lavfi -i anullsrc=r=11025:cl=mono -t 5 -acodec mp3 out.mp3
+  $script = fd -I activate.ps1 -1;
+  & $script
 }
 
 function Gs {
   git status
 }
 
-function Top(){
-  While(1) {
-    Get-Process | Sort-Object -des cpu | Select-Object -f 15 | 
-    Format-Table -a; Start-Sleep 1; Clear-Host
-  }
-}
-
 function Sed($file, $find, $replace) {
-    (Get-Content $file).replace("$find", $replace) | Set-Content $file
+  (Get-Content $file).replace("$find", $replace) | Set-Content $file
 }
 
 function Which($name) {
-    Get-Command $name | Select-Object -ExpandProperty Definition
+  Get-Command $name | Select-Object -ExpandProperty Definition
 }
 
 function Touch($file) {
+  if (-not (Test-Path -Path $file)){
     "" | Out-File $file -Encoding ASCII
-}
-
-function Grep($regex, $dir) {
-    if ( $dir ) {
-        Get-ChildItem $dir | select-string $regex
-        return
-    }
-    $input | select-string $regex
+  }
 }
 
 function Ex {
-
   param(
       [Parameter()]
       [String]$dir = '.'
   )
-
   explorer $dir
 }
 
@@ -115,8 +89,7 @@ function Sudo {
 function Invoke-Starship-PreCommand {
   $loc = $executionContext.SessionState.Path.CurrentLocation;
   $prompt = "$([char]27)]9;12$([char]7)"
-  if ($loc.Provider.Name -eq "FileSystem")
-  {
+  if ($loc.Provider.Name -eq "FileSystem"){
     $prompt += "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\"
   }
   $host.ui.Write($prompt)
@@ -132,5 +105,4 @@ Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
 
 # Starship
 $ENV:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
-Invoke-Starship-PreCommand
 Invoke-Expression (&starship init powershell)
