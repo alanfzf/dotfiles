@@ -1,0 +1,41 @@
+general {
+        separator = " | "
+        colors = true
+        interval = 5
+}
+
+order += "run_watch DHCP"
+order += "wireless wlan0"
+order += "ethernet eth0"
+order += "battery 0"
+order += "tztime guatemala"
+
+wireless wlan0 {
+        format_up = "  (%quality at %essid, %bitrate) %ip"
+        format_down = "  "
+}
+
+ethernet eth0 {
+        format_up = "󰈀  %ip (%speed)"
+        format_down = "󰈀  "
+}
+
+battery 0 {
+        format = "%status %percentage"
+        format_down = "No battery"
+        status_chr = "⚡ CHR"
+        status_bat = "   BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhclient*.pid"
+}
+
+tztime guatemala {
+        format = "  %Y-%m-%d %H:%M %Z"
+        timezone = "America/Guatemala"
+}
