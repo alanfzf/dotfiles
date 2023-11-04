@@ -99,9 +99,13 @@ function Invoke-Starship-PreCommand {
 # PSReadLine
 Import-Module PSReadLine
 Import-Module Z
-Set-PSReadLineOption -EditMode Emacs
+Set-PSReadLineOption -EditMode vi
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
+
+Set-PSReadLineKeyHandler -Key 'H' -Function BeginningOfLine -ViMode Command
+Set-PSReadLineKeyHandler -Key 'L' -Function EndOfLine -ViMode Command 
+
 
 # Starship
 $ENV:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
