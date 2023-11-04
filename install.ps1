@@ -71,6 +71,7 @@ function InstallPrograms {
     "zig.zig"
     "sharkdp.bat"
     "eza-community.eza"
+    "Microsoft.PowerToys"
   )
   # The override parameters make git not add itself to the context menu
   winget install -e --accept-source-agreements --accept-package-agreements --silent Git.Git --override "/VERYSILENT /COMPONENTS="
