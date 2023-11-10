@@ -52,7 +52,12 @@
     "defaults":{
       "bellStyle": "none",
       "cursorShape": "filledBox",
-      "font": { "face": "JetBrainsMono Nerd Font" },
+      "font": { 
+        "face": "JetBrainsMono Nerd Font" 
+        "features": {
+          "calt": 0
+        }
+      },
       "opacity": 90,
       "padding": "0",
       "scrollbarState": "hidden",
