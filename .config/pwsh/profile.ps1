@@ -99,12 +99,11 @@ function Invoke-Starship-PreCommand {
 # PSReadLine
 Import-Module PSReadLine
 Import-Module Z
-Set-PSReadLineOption -EditMode vi
+Set-PSReadLineOption -EditMode emacs
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
-
-Set-PSReadLineKeyHandler -Key 'H' -Function BeginningOfLine -ViMode Command
-Set-PSReadLineKeyHandler -Key 'L' -Function EndOfLine -ViMode Command 
+# Set-PSReadLineKeyHandler -Key 'H' -Function BeginningOfLine -ViMode Command
+# Set-PSReadLineKeyHandler -Key 'L' -Function EndOfLine -ViMode Command 
 
 
 # Starship
