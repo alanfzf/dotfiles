@@ -53,7 +53,7 @@
       "bellStyle": "none",
       "cursorShape": "filledBox",
       "font": { 
-        "face": "JetBrainsMono Nerd Font" 
+        "face": "JetBrainsMono Nerd Font",
         "features": {
           "calt": 0
         }
@@ -175,5 +175,6 @@
       "white": "#D3C6AA",
       "yellow": "#DFA000"
     },
-  ]
+  ],
+  "useAcrylicInTabRow": true
 }
