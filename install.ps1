@@ -68,7 +68,6 @@ function InstallPrograms {
     "JesseDuffield.lazygit"
     "sharkdp.fd"
     "junegunn.fzf"
-    "zig.zig"
     "sharkdp.bat"
     "eza-community.eza"
     "Microsoft.PowerToys"
