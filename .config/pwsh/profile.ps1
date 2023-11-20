@@ -3,8 +3,12 @@ Set-Alias python py
 Set-Alias lg lazygit
 Set-Alias shutdown Stop-Computer
 Set-Alias cat bat
-Set-Alias ls eza
 Remove-Alias sl -Force
+Remove-Alias ls -Force
+
+function ls(){
+  eza -s extension
+}
 
 function Rf(){
   Param(
