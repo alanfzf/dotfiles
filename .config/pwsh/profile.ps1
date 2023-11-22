@@ -7,7 +7,7 @@ Remove-Alias sl -Force
 Remove-Alias ls -Force
 
 function ls(){
-  eza -s extension
+  eza -s extension $args
 }
 
 function Rf(){
@@ -99,16 +99,12 @@ function Invoke-Starship-PreCommand {
   $host.ui.Write($prompt)
 }
 
-
 # PSReadLine
 Import-Module PSReadLine
 Import-Module Z
 Set-PSReadLineOption -EditMode emacs
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
-# Set-PSReadLineKeyHandler -Key 'H' -Function BeginningOfLine -ViMode Command
-# Set-PSReadLineKeyHandler -Key 'L' -Function EndOfLine -ViMode Command 
-
 
 # Starship
 $ENV:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
