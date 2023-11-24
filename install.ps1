@@ -170,6 +170,9 @@ function WindowsTweaks {
   # **** DATE TWEAKS **** 
   Set-ItemProperty -Path $RegPathDate -Name sShortDate -Value "yyyy-MM-dd";
   Set-ItemProperty -Path $RegPathDate -Name sShortTime -Value "HH:mm";
+
+  # **** ENABLE DEV MODE *****
+  reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /t REG_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d "1"
 }
 
 function RemovePrograms{
