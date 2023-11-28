@@ -67,17 +67,17 @@
     },
     "list": [
       {
-        "commandline": "%SystemRoot%\\System32\\cmd.exe",
-        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-        "hidden": false,
-        "name": "Command Prompt"
-      },
-      {
         "commandline": "pwsh.exe --nologo",
         "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
         "hidden": false,
         "name": "PowerShell",
         "source": "Windows.Terminal.PowershellCore"
+      },
+      {
+        "commandline": "%SystemRoot%\\System32\\cmd.exe",
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "hidden": false,
+        "name": "Command Prompt"
       }
     ]
   },
@@ -175,6 +175,27 @@
       "white": "#D3C6AA",
       "yellow": "#DFA000"
     },
+    {
+      "background" : "#1f2430",
+      "black" : "#191e2a",
+      "blue" : "#6dcbfa",
+      "brightBlack" : "#686868",
+      "brightBlue" : "#73d0ff",
+      "brightCyan" : "#95e6cb",
+      "brightGreen" : "#bae67e",
+      "brightPurple" : "#d4bfff",
+      "brightRed" : "#f28779",
+      "brightWhite" : "#ffffff",
+      "brightYellow" : "#ffd580",
+      "cyan" : "#90e1c6",
+      "foreground" : "#cbccc6",
+      "green" : "#a6cc70",
+      "name" : "Ayu Mirage",
+      "purple" : "#cfbafa",
+      "red" : "#ed8274",
+      "white" : "#c7c7c7",
+      "yellow" : "#fad07b"
+    }
   ],
   "useAcrylicInTabRow": true
 }

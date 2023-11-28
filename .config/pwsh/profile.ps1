@@ -21,10 +21,12 @@ function Rf(){
 }
 
 function Pth(){
-  param(
-      [Parameter()]
-      [String]$File
-  )
+
+  [CmdletBinding()]
+    Param (
+        [Parameter(ValueFromPipeline = $true)] 
+        [String]$File
+        )
   if (Test-Path -Path $File) {
     $item = Get-Item -Path $File
     Write-Host "Copying path $($item.FullName)"
@@ -59,9 +61,7 @@ function AcEnv(){
   & $script
 }
 
-function Gs {
-  git status
-}
+function Gs { git status }
 
 function Sed($file, $find, $replace) {
   (Get-Content $file).replace("$find", $replace) | Set-Content $file
@@ -78,11 +78,13 @@ function Touch($file) {
 }
 
 function Ex {
-  param(
-      [Parameter()]
-      [String]$dir = '.'
+
+  [CmdletBinding()]
+  Param (
+      [Parameter(ValueFromPipeline = $true)] 
+      [String]$Dir = '.'
   )
-  explorer $dir
+  explorer $Dir
 }
 
 function Sudo {
@@ -104,7 +106,15 @@ Import-Module PSReadLine
 Import-Module Z
 Set-PSReadLineOption -EditMode emacs
 Set-PSReadlineOption -BellStyle None
-Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
+# Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+
+# Autocompleteion for Arrow keys
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+Set-PSReadLineOption -ShowToolTips
+Set-PSReadLineOption -PredictionSource History
 
 # Starship
 $ENV:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
