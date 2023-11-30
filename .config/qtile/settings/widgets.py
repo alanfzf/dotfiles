@@ -60,8 +60,13 @@ primary_widgets = [
 
     separator(),
     powerline('color4', 'dark'),
-    icon(bg="color4", text=' '), # Icon: nf-fa-download
-    widget.Battery( **base(bg='color4')),
+    widget.Battery(
+        **base(bg='color4'),
+        charge_char='󱐋',
+        empty_char=' ',
+        full_char=' ',
+        discharge_char=' ',
+    ),
 
     # INTERNET STATUS
     powerline('color3', 'color4'),
