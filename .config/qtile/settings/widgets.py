@@ -2,26 +2,18 @@ from libqtile import widget
 from .theme import colors
 
 def base(fg='text', bg='dark'): 
-    return {
-        'foreground': colors[fg],
-        'background': colors[bg]
-    }
+    return { 'foreground': colors[fg], 'background': colors[bg] }
 
 def separator():
     return widget.Sep(**base(), linewidth=0, padding=5)
 
 
 def icon(fg='text', bg='dark', fontsize=16, text="?"):
-    return widget.TextBox( **base(fg, bg), fontsize=fontsize, text=text, padding=3)
+    return widget.TextBox(**base(fg, bg), fontsize=fontsize, text=text, padding=3)
 
 
 def powerline(fg="light", bg="dark"):
-    return widget.TextBox(
-        **base(fg, bg),
-        text="", # Icon: nf-oct-triangle_left
-        fontsize=37,
-        padding=0
-    )
+    return widget.TextBox( **base(fg, bg), text="", fontsize=37, padding=0)
 
 
 def workspaces(): 
@@ -62,25 +54,24 @@ primary_widgets = [
     powerline('color4', 'dark'),
     widget.Battery(
         **base(bg='color4'),
-        charge_char='󱐋',
-        empty_char=' ',
-        full_char=' ',
-        discharge_char=' ',
+        charge_char='󱐋', empty_char=' ',
+        full_char=' ', discharge_char=' ',
+        uknown_char="", format="{char} {percent:2.0%} {watt:.2f} W"
     ),
 
     # INTERNET STATUS
     powerline('color3', 'color4'),
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
-    widget.Net(**base(bg='color3'), interface='wlp2s0'),
+    widget.Net(**base(bg='color3'), interface='wlp2s0', prefix='M'),
 
     # CURRENT LAYOUT
     powerline('color2', 'color3'),
-    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
+    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.55),
     widget.CurrentLayout(**base(bg='color2'), padding=5),
 
     # CALENDAR
     powerline('color1', 'color2'),
-    icon(bg="color1", fontsize=17, text='󰃰 '), # Icon: nf-md-calendar_clock
+    icon(bg="color1", fontsize=17, text='󰃰 '),
     widget.Clock(**base(bg='color1'), format='%Y/%m/%d - %H:%M '),
 
     # OTHER STUFF
@@ -95,6 +86,7 @@ secondary_widgets = [
     widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
     widget.CurrentLayout(**base(bg='color1'), padding=5),
     powerline('color2', 'color1'),
+
     widget.Clock(**base(bg='color2'), format='%Y/%m/%d - %H:%M '),
     powerline('dark', 'color2'),
 ]
@@ -104,4 +96,5 @@ widget_defaults = {
     'fontsize': 14,
     'padding': 2,
 }
+
 extension_defaults = widget_defaults.copy()
