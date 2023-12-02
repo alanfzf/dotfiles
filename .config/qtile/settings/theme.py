@@ -1,29 +1,19 @@
-from os import path
-import subprocess
-import json
-
-from .path import qtile_path
-
-
 def load_theme():
-    theme = "dark-grey"
-
-    config = path.join(qtile_path, "config.json")
-    if path.isfile(config):
-        with open(config) as f:
-            theme = json.load(f)["theme"]
-    else:
-        with open(config, "w") as f:
-            f.write(f'{{"theme": "{theme}"}}\n')
-
-
-    theme_file = path.join(qtile_path, "themes", f'{theme}.json')
-    if not path.isfile(theme_file):
-        raise Exception(f'"{theme_file}" does not exist')
-
-    with open(path.join(theme_file)) as f:
-        return json.load(f)
-
+    theme = {
+        "dark": [ "#212121", "#212121" ],
+        "grey": [ "#353c4a", "#353c4a" ],
+        "light": [ "#f1ffff", "#f1ffff" ],
+        "text": [ "#0f101a", "#0f101a" ],
+        "focus": [ "#a151d3", "#a151d3" ],
+        "active": [ "#f1ffff", "#f1ffff" ],
+        "inactive": [ "#4c566a", "#4c566a" ],
+        "urgent": [ "#F07178", "#F07178" ],
+        "color1": [ "#a151d3", "#a151d3" ],
+        "color2": [ "#F07178", "#F07178" ],
+        "color3": [ "#fb9f7f", "#fb9f7f" ],
+        "color4": [ "#ffd47e", "#ffd47e" ]
+    }
+    return theme
 
 if __name__ == "settings.theme":
     colors = load_theme()
