@@ -47,9 +47,14 @@ keys = [
 
     # My own keymaps
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "b", lazy.spawn("microsoft-edge --force-device-scale-factor=1.2"), desc="Spawn the browser"),
+    Key([mod], "b", lazy.spawn("microsoft-edge"), desc="Spawn the browser"),
     Key([mod], "e", lazy.spawn("thunar"), desc="Spawn the file explorer"),
 
+    # Screenshots
     Key([mod], "s", lazy.spawn("scrot")),
     Key([mod, "shift"], "s", lazy.spawn("scrot -s")),
+
+    # Brightness
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]
