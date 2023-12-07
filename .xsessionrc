@@ -1,0 +1,4 @@
+setxkbmap -option ctrl:nocaps
+setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
+picom &
+./.fehbg
