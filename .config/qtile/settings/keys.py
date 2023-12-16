@@ -51,8 +51,9 @@ keys = [
     Key([mod], "e", lazy.spawn("thunar"), desc="Spawn the file explorer"),
 
     # Screenshots
-    Key([mod], "s", lazy.spawn("scrot")),
-    Key([mod, "shift"], "s", lazy.spawn("scrot -s")),
+
+    Key([mod], "s", lazy.spawn("scrot -e 'xclip -selection clipboard -t image/png -i $f'")),
+    Key([mod, "shift"], "s", lazy.spawn("scrot -s -e 'xclip -selection clipboard -t image/png -i $f'")),
 
     # Brightness
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
