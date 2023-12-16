@@ -1,0 +1,15 @@
+{
+  "name": "custom-snips",
+  "contributes": {
+    "snippets": [
+      {
+        "language": ["markdown"],
+        "path": "./languages/markdown.json"
+      },
+      {
+        "language": ["plaintex", "tex"],
+        "path": "./languages/latex.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+plugin/
+spell/
+lazy-lock.json
+lua/plugins/dev.lua
