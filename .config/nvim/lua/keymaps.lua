@@ -33,7 +33,7 @@ keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 -- Go to specific directories
 keymap("n", "<leader>c", "<cmd>e $MYVIMRC<CR>")
-keymap("n", "<leader>n", "<cmd>e ~/OneDrive/Notes/<CR>")
+keymap("n", "<leader>n", "<cmd>e ~/Notes/<CR>")
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>")
 -- Better window navigation
@@ -75,4 +75,4 @@ keymap("n", "<leader>e", "<cmd>Telescope file_browser path=%:p:h select_buffer=t
 -- LSP
 keymap("n", "<leader>li", "<cmd>LspInfo<CR>")
 -- LAZYGIT
-keymap("n", "<leader>lg", "<cmd>tabnew<CR>:term lazygit<CR>i", opts)
+keymap("n", "<leader>lg", ":let $VIM_DIR=expand('%:p:h')<CR>:tabnew<CR>:terminal<CR>Acd $VIM_DIR && lazygit && exit<CR>", opts)
