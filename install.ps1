@@ -87,13 +87,14 @@ function InstallPSModules {
 }
 
 function SetupDotFiles{
+  # TODO: THIS NEEDS A WHOLE FUCKING REWRITE
+
   $gitCmd = "${env:ProgramFiles}\Git\bin\git.exe"
   $cfgFolder = "$HOME/dot_files"
   $nvimFolder = "$HOME/AppData/Local/nvim/"
   $ignoredFiles = @(".gitignore", "README.md", "scripts", "install.ps1", "install.sh")
 
-  & $gitCmd clone "https://github.com/alanfvn/dot-files" $cfgFolder 
-  & $gitCmd clone "https://github.com/alanfvn/nvim-config" $nvimFolder
+  & $gitCmd clone "https://github.com/alanfzf/dotfiles" $cfgFolder 
 
   # **** CREATE SYMLINKS ****
   Get-ChildItem -Path $cfgFolder | Where-Object {$_.Name -notin $ignoredFiles } | ForEach-Object {

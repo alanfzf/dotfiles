@@ -20,8 +20,3 @@ for item in "${DOTS[@]}"; do
   rm -rf "$target"
   ln -sf "$source" "$target"
 done
-
-#sed -i "/^deb cdrom:/s/^/#/" /etc/apt/sources.list
-#sudo apt update
-#sudo apt install build-essential -y
-#sudo apt install pulseaudio pavucontrol kitty feh
