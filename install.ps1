@@ -121,7 +121,7 @@ function SetupDotFiles{
   foreach ($entry in $symLinks.GetEnumerator()) {
     $symPath = $entry.Key;
     $symTarget = $entry.Value;
-    Remove-Item -Path $symPath -Force -Recurse;
+    Remove-Item -Path $symPath -Force -Recurse -ErrorAction SilentlyContinue;
     New-Item -ItemType SymbolicLink -Path $symPath -Target $symTarget -Force
   }
 }

@@ -18,5 +18,5 @@ This repository contains some configuration files that i use to personalize my e
 ```powershell
 # Enable script execution
 Set-ExecutionPolicy Bypass
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/alanfzf/dotfiles/master/install.ps1'))
+iwr https://raw.githubusercontent.com/alanfzf/dotfiles/master/install.ps1 | iex
 ```
