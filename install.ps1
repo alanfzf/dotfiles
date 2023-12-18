@@ -211,8 +211,8 @@ function RemovePrograms{
 # DO THE SETUP
 # =====================
 InstallPrograms
-InstallPSModules
 SetupDotFiles
+InstallPSModules
 WindowsTweaks
 RemovePrograms
 CleanTemp
