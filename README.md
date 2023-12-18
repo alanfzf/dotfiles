@@ -1,5 +1,5 @@
 # Dot files
-This repository contains some configuration files that i use to personalize my environment
+This repository contains some configuration files that i use to personalize my environment.
 
 ## Linux Setup
 
@@ -9,15 +9,11 @@ This repository contains some configuration files that i use to personalize my e
 ```
 
 ## Windows Setup
-<!-- ```bash
+<!-- 
+```bash
 & ([scriptblock]::Create((New-Object System.Net.WebClient).DownloadString(''))) 'parameter'
-``` -->
-
-```powershell
-# If you don't have Powershell 7 and Windows Terminal, you need to install them first
-Set-ExecutionPolicy Bypass
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/alanfzf/dotfiles/master/scripts/install_basics.ps1'))
-```
+``` 
+-->
 
 ```powershell
 # Enable script execution
