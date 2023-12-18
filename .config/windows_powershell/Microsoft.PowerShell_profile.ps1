@@ -3,10 +3,10 @@ Set-Alias python py
 Set-Alias lg lazygit
 Set-Alias shutdown Stop-Computer
 Set-Alias cat bat
-Remove-Alias sl -Force
-Remove-Alias ls -Force
+Remove-Alias sl -Force -ErrorAction SilentlyContinue
+Remove-Alias ls -Force -ErrorAction SilentlyContinue
 
-function ls(){
+function Ls(){
   eza -s extension $args
 }
 
@@ -106,7 +106,6 @@ Import-Module PSReadLine
 Import-Module Z
 Set-PSReadLineOption -EditMode emacs
 Set-PSReadlineOption -BellStyle None
-# Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 # Autocompleteion for Arrow keys
@@ -117,5 +116,5 @@ Set-PSReadLineOption -ShowToolTips
 Set-PSReadLineOption -PredictionSource History
 
 # Starship
-$ENV:STARSHIP_CONFIG = "$HOME\.config\starship.toml"
+$ENV:STARSHIP_CONFIG = "$HOME\starship.toml"
 Invoke-Expression (&starship init powershell)

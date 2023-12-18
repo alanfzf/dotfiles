@@ -1,11 +1,24 @@
 #Requires -RunAsAdministrator
-#Requires -Version 7.0
+#Requires -Version 5.0
 
 # =====================
 # * CONSTANTS *
 # =====================
 $temp = "$env:TEMP/files/"
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
+New-Item -ItemType Directory -Path $temp -Force
+
+# =======================
+# * Handle Powershell 5 *
+# =======================
+if($PSVersionTable.PSVersion.Major -lt 7){
+  $wingetFile = Join-Path $temp "winget.msixbundle"
+  (New-Object Net.WebClient).DownloadFile("https://aka.ms/getwinget", $wingetFile);
+  Add-AppxPackage $wingetFile;
+  @("Microsoft.PowerShell", "Microsoft.WindowsTerminal") | ForEach-Object { winget install -e --accept-source-agreements --accept-package-agreements --silent $_ }
+  Read-Host -Prompt "Successfully installed requirmenets, please re-launch this script with Windows Terminal and Powershell-7..." | Out-Null
+  Exit
+}
 
 # =====================
 # * UTILITY FUNCTIONS *
@@ -35,7 +48,8 @@ function DownloadAndDecompress {
 function InstallFonts {
   param ([String]$fontFolder)
   $destFolder = (New-Object -ComObject Shell.Application).Namespace(0x14)
-  $foundFonts = Get-ChildItem -Path "$fontFolder\*" -Include '*.ttf','*.ttc','*.otf' -Recurse 
+  $foundFonts = Get-ChildItem -Path "$fontFolder/*" -Include '*.ttf','*.ttc','*.otf' -Recurse 
+
   foreach($font in $foundFonts){
     $fontFullName = $font.FullName
     $fontName = $font.Name
@@ -45,16 +59,13 @@ function InstallFonts {
 }
 
 function CleanTemp {
-  Get-ChildItem -Path $temp -Force | ForEach-Object {
-    $_ | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue
-  }
+  Get-ChildItem -Path $temp -Force | ForEach-Object { $_ | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue }
 }
 
 # =====================
 # * SETUP FUNCTIONS *
 # =====================
 function InstallPrograms {
-  New-Item -ItemType Directory -Path $temp -Force
   # **** INSTALL WINGET PACKAGES ****
   $Packages = @(
     "7zip.7zip"
@@ -75,11 +86,9 @@ function InstallPrograms {
   # The override parameters make git not add itself to the context menu
   winget install -e --accept-source-agreements --accept-package-agreements --silent Git.Git --override "/VERYSILENT /COMPONENTS="
   foreach ($package in $packages) { winget install -e --accept-source-agreements --accept-package-agreements --silent $package }
-
   # **** INSTALL NON WINGET STUFF ****
   $fontFolder = DownloadAndDecompress $fontUrl -CreateFolder
   InstallFonts $fontFolder.FullName
-  CleanTemp
 }
 
 function InstallPSModules {
@@ -87,48 +96,34 @@ function InstallPSModules {
 }
 
 function SetupDotFiles{
-  # TODO: THIS NEEDS A WHOLE FUCKING REWRITE
-
+  # Git related stuff
   $gitCmd = "${env:ProgramFiles}\Git\bin\git.exe"
-  $cfgFolder = "$HOME/dot_files"
-  $nvimFolder = "$HOME/AppData/Local/nvim/"
-  $ignoredFiles = @(".gitignore", "README.md", "scripts", "install.ps1", "install.sh")
+  $dotfiles = "$HOME/dotfiles/"
+  & $gitCmd clone "https://github.com/alanfzf/dotfiles" $dotfiles
 
-  & $gitCmd clone "https://github.com/alanfzf/dotfiles" $cfgFolder 
+  # weird fucking paths
+  $wtPath = Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*" | Select-Object -First 1 -Expand FullName
+  $wtPath =  "$wtPath/LocalState/"
+  $profilePath = Split-Path -Path $PROFILE -Parent
 
   # **** CREATE SYMLINKS ****
-  Get-ChildItem -Path $cfgFolder | Where-Object {$_.Name -notin $ignoredFiles } | ForEach-Object {
-    $destPath = "$HOME/$($_.Name)"
-    $targetPath = $_.FullName
-    New-Item -ItemType SymbolicLink -Path $destPath -Target $targetPath -Force
+  $symLinks = @{
+    # realPath = targetPath
+    "$env:LOCALAPPDATA/nvim/" = "$dotfiles/.config/nvim/"
+    "$env:APPDATA/lazygit/"   = "$dotfiles/.config/lazygit/"
+    "$wtPath"                 = "$dotfiles/.config/windows_terminal/"
+    "$profilePath"            = "$dotfiles/.config/windows_powershell/"
+    "$HOME/starship.toml"     = "$dotfiles/.config/starship.toml"
+    "$HOME/.ideavimrc"        = "$dotfiles/.ideavimrc"
+    "$HOME/.vsvimrc"          = "$dotfiles/.vsvimrc"
   }
 
-  # **** SET WINDOWS TERMINAL SETTINGS ****
-  $wtConfig  = Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*" | Select-Object -First 1 -Expand FullName
-  $wtConfig = "$wtConfig\LocalState\settings.json"
-  $originalContent = Get-Content -Path $wtConfig -Raw | ConvertFrom-Json
-  $newContent = Get-Content -Path "$cfgFolder/.config/windows_terminal/settings.json" -Raw | ConvertFrom-Json
-
-  $newContent.PSObject.Properties | ForEach-Object {
-      $propertyName = $_.Name
-      $propertyValue = $_.Value
-
-      if ($originalContent.PSObject.Properties[$propertyName]) {
-          $originalContent.$propertyName = $propertyValue
-      }
-      else {
-          $originalContent | Add-Member -MemberType NoteProperty -Name $propertyName -Value $propertyValue
-      }
+  foreach ($entry in $symLinks.GetEnumerator()) {
+    $symPath = $entry.Key;
+    $symTarget = $entry.Value;
+    Remove-Item -Path $symPath -Force -Recurse;
+    New-Item -ItemType SymbolicLink -Path $symPath -Target $symTarget -Force
   }
-
-  $jsonFile = $originalContent | ConvertTo-Json -Depth 10
-  $jsonFile | Set-Content -Path $wtConfig
-
-  # **** SET POWERSHELL PROFILE ****
-  $pwsProfile = "$cfgFolder/.config/pwsh/profile.ps1"
-  $profileFolder = Split-Path -Path $PROFILE -Parent
-  New-Item -ItemType Directory -Path $profileFolder -Force
-  New-Item -ItemType SymbolicLink -Path $PROFILE -Target $pwsProfile -Force
 }
 
 function WindowsTweaks {
@@ -220,4 +215,5 @@ InstallPSModules
 SetupDotFiles
 WindowsTweaks
 RemovePrograms
+CleanTemp
 Stop-Process -ProcessName explorer
