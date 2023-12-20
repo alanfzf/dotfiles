@@ -9,13 +9,13 @@ M.servers = {
   -- EMMET
   emmet_language_server = {
     single_file_support = true,
-    filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact"}
+    filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "blade"}
   },
   -- POWERSHELL
   -- HTML
   html = {
     single_file_support = true,
-    filetypes = { "html", "htmldjango" }
+    filetypes = { "html", "htmldjango", "blade"}
   },
   -- LUA
   lua_ls = {

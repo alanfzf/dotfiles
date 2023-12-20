@@ -12,6 +12,9 @@ return {
     }
   },
   config = function()
+    -- add new filetype
+    vim.filetype.add({ pattern = { ['.*%.blade%.php'] = 'blade'} })
+
     local parser_configs  = require "nvim-treesitter.parsers".get_parser_configs()
     local treesitter = require("nvim-treesitter.configs")
 
@@ -43,7 +46,7 @@ return {
       autopairs = { enable = true, },
       autotag = {
         enable = true,
-        filetypes = { "html", "xml", "typescriptreact", "jsx", "htmldjango", "php" }
+        filetypes = { "html", "xml", "typescriptreact", "jsx", "htmldjango", "blade"}
       },
     })
 
@@ -56,10 +59,6 @@ return {
       },
       filetype = "blade"
     }
-    vim.filetype.add({
-      pattern = {
-        ['.*%.blade%.php'] = 'blade',
-      },
-    })
+
   end
 }

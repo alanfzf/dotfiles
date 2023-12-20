@@ -10,3 +10,4 @@ alias cat batcat
 alias lg lazygit
 
 starship init fish | source
+zoxide init fish | source
