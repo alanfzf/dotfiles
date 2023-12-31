@@ -75,4 +75,4 @@ keymap("n", "<leader>e", "<cmd>Telescope file_browser path=%:p:h select_buffer=t
 -- LSP
 keymap("n", "<leader>li", "<cmd>LspInfo<CR>")
 -- LAZYGIT
-keymap("n", "<leader>lg", ":let $VIM_DIR=expand('%:p:h')<CR>:tabnew<CR>:terminal<CR>Acd $VIM_DIR && lazygit && exit<CR>", opts)
+keymap("n", "<leader>lg", ":tabnew term://%:p:h//lazygit<CR>A", opts)
