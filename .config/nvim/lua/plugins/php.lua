@@ -1,3 +1,4 @@
 return {
-  "https://github.com/jwalton512/vim-blade"
+  "jwalton512/vim-blade",
+  ft="blade"
 }

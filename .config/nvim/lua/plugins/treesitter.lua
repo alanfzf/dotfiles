@@ -44,8 +44,5 @@ return {
       autopairs = { enable = true },
       autotag = { enable = true },
     })
-
-    -- add new filetype
-    vim.filetype.add({ pattern = { ['.*%.blade%.php'] = 'blade'} })
   end
 }
