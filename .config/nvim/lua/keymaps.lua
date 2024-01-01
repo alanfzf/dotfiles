@@ -76,3 +76,8 @@ keymap("n", "<leader>e", "<cmd>Telescope file_browser path=%:p:h select_buffer=t
 keymap("n", "<leader>li", "<cmd>LspInfo<CR>")
 -- LAZYGIT
 keymap("n", "<leader>lg", ":tabnew term://%:p:h//lazygit<CR>A", opts)
+-- GIT SIGNGS
+keymap("n", "<leader>gh", ":Gitsigns next_hunk<CR>", opts)
+keymap("n", "<leader>gH", ":Gitsigns prev_hunk<CR>", opts)
+keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
+keymap("n", "<leader>gb", ":Gitsigns blame_line<CR>", opts)

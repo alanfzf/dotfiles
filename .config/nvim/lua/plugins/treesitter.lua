@@ -7,15 +7,13 @@ return {
       "windwp/nvim-ts-autotag",
       event = "VeryLazy",
       config = function ()
-        require('nvim-ts-autotag').setup({})
+        require('nvim-ts-autotag').setup({
+          filetypes = { "html", "xml", "typescriptreact", "jsx", "htmldjango", "blade", "php"}
+        })
       end
     }
   },
   config = function()
-    -- add new filetype
-    vim.filetype.add({ pattern = { ['.*%.blade%.php'] = 'blade'} })
-
-    local parser_configs  = require "nvim-treesitter.parsers".get_parser_configs()
     local treesitter = require("nvim-treesitter.configs")
 
     -- basic treesitter setup
@@ -43,22 +41,11 @@ return {
         enable = true,
         disable  = { "htmldjango" , "php"}
       },
-      autopairs = { enable = true, },
-      autotag = {
-        enable = true,
-        filetypes = { "html", "xml", "typescriptreact", "jsx", "htmldjango", "blade"}
-      },
+      autopairs = { enable = true },
+      autotag = { enable = true },
     })
 
-    -- additional parsers setup
-    parser_configs.blade = {
-      install_info = {
-        url = "https://github.com/EmranMR/tree-sitter-blade",
-        files = {"src/parser.c"},
-        branch = "main",
-      },
-      filetype = "blade"
-    }
-
+    -- add new filetype
+    vim.filetype.add({ pattern = { ['.*%.blade%.php'] = 'blade'} })
   end
 }

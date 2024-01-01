@@ -16,8 +16,8 @@ return {
       end,
       config = function ()
         require('ts_context_commentstring').setup({
-          custom_calculation = function (_node, language_tree)
-            if vim.bo.filetype == 'blade' and language_tree._lang ~= 'javascript' then
+          custom_calculation = function (_node, _language_tree)
+            if vim.bo.filetype == 'blade' then
               return '{{-- %s --}}'
             end
           end,
