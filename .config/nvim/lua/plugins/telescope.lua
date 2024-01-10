@@ -42,6 +42,17 @@ return {
       },
       pickers = {
         colorscheme = { enable_preview = true },
+        find_files = {
+          hidden = true,
+          find_command = {
+            "rg",
+            "--files",
+            "--glob",
+            "!{.git/*,.svelte-kit/*,target/*,node_modules/*}",
+            "--path-separator",
+            "/",
+          },
+        },
       },
       extensions = {
         file_browser = {
