@@ -39,7 +39,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 -- fold 
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = vim.treesitter.foldexpr()
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.cmd[[set nofoldenable]]
 -- misc
 vim.opt.shortmess:append "c"
