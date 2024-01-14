@@ -1,20 +1,18 @@
 # MULTIMONITOR SUPPORT
 
-# import subprocess
 from libqtile.config import Screen
 from libqtile import bar
-# from libqtile.log_utils import logger
-
+from libqtile.log_utils import logger
 from .widgets import primary_widgets, secondary_widgets
+
+import subprocess
 
 
 def status_bar(widgets):
     return bar.Bar(widgets, size=30)
 
-
 screens = [Screen(top=status_bar(primary_widgets))]
 
-"""
 xrandr = "xrandr | grep -w 'connected' | cut -d ' ' -f 2 | wc -l"
 
 command = subprocess.run(
@@ -34,4 +32,3 @@ else:
 if connected_monitors > 1:
     for _ in range(1, connected_monitors):
         screens.append(Screen(top=status_bar(secondary_widgets)))
-"""
