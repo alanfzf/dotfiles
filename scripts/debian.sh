@@ -10,7 +10,7 @@ sudo apt install -y xorg xserver-xorg xclip python3 python3-pip python3-venv pyt
 sudo apt install -y lightdm slick-greeter picom gvfs-backends pipewire pipewire-pulse 
 
 # Install os management related apps
-sudo apt install -y fish thunar kitty feh scrot brightnessctl pulseaudio rofi
+sudo apt install -y fish thunar kitty feh scrot brightnessctl pulseaudio rofi volumeicon-alsa
 
 # Install tools
 sudo apt install -y wget curl fuse build-essential git gh fzf fd-find nodejs npm tmux bat ripgrep
