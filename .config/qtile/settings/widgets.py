@@ -62,7 +62,7 @@ primary_widgets = [
     # INTERNET STATUS
     powerline('color3', 'color4'),
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
-    widget.Net(**base(bg='color3'), interface='wlp2s0', prefix='M'),
+    widget.Net(**base(bg='color3'), prefix='M'),
 
     # CURRENT LAYOUT
     powerline('color2', 'color3'),
