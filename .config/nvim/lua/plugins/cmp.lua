@@ -30,10 +30,12 @@ return {
     local lua_snip = require("luasnip")
     local snip_loader = require('luasnip/loaders/from_vscode')
     -- Load my snippets
+    -- Im 100% sure this is bad, and it can be achieved in a better way but i couldn't find the proper way.
     snip_loader.lazy_load()
     snip_loader.lazy_load({paths=vim.fn.stdpath("config").. "/snippets/" })
-    -- Im 100% sure this is bad, and it can be achieved in a better way
-    -- but i couldn't find the proper way.
+    -- additional configs
+    lua_snip.filetype_extend("php", {"phpdoc"})
+
 
     local kind_icons = {
       Text = "󰉿",

@@ -39,7 +39,7 @@ return {
       },
       indent = {
         enable = true,
-        disable  = { "htmldjango" , "php"}
+        disable  = { "htmldjango" }
       },
       autopairs = { enable = true },
       autotag = { enable = true },

@@ -2,6 +2,9 @@ local M = {}
 
 -- list of available servers: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 M.servers = {
+  cssls = {
+    filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "blade"}
+  },
   intelephense = {},
   texlab = {},
   -- MARKDOWN 
