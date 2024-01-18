@@ -32,6 +32,9 @@ sudo update-grub
 # sudo apt remove ifupdown
 # systemctl restart network-manager
 
+# Disable audio power saving
+echo 0 > /sys/module/snd_hda_intel/parameters/power_save
+
 # Enable Bluetooth
 systemctl --user --now enable pipewire pipewire-pulse
 
