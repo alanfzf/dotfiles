@@ -62,6 +62,12 @@ symbol = '󱘗 '
 [package]
 symbol = '󰏗 '
 
+
+# cloud
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+symbol = ' '
+
 # ==== MISC ====
 [cmd_duration]
 disabled = false
@@ -70,6 +76,7 @@ disabled = false
 error_symbol = "[λ](bold red)"
 success_symbol = "[λ](bold green)"
 vimcmd_symbol = "[λ](bold yellow)"
+
 
 # ==== MORE INTERESTING STUFF TO IMPLEMENT ====
 # https://starship.rs/config/#battery
