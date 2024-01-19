@@ -52,11 +52,40 @@ primary_widgets = [
 
     separator(),
     powerline('color4', 'dark'),
-    widget.Battery(
+
+    # widget.Battery(
+    #     **base(bg='color4'),
+    #     charge_char='󱐋', empty_char=' ',
+    #     full_char=' ', discharge_char=' ',
+    #     uknown_char="", format="{char} {percent:2.0%} {watt:.2f} W"
+    # ),
+
+    widget.OpenWeather(
         **base(bg='color4'),
-        charge_char='󱐋', empty_char=' ',
-        full_char=' ', discharge_char=' ',
-        uknown_char="", format="{char} {percent:2.0%} {watt:.2f} W"
+        app_key="925ab512a04b339933f00836149ce9db",
+        cityid="3598119",
+        format="{location_city}: {icon} {main_temp} {units_temperature}°",
+        weather_symbols={
+            "Unknown": "",  # nf-fa-question
+            "01d": "",      # nf-weather-day_sunny
+            "01n": "",      # nf-weather-moon_full
+            "02d": "",      # nf-weather-day_cloudy
+            "02n": "",      # nf-weather-night_cloudy
+            "03d": "",      # nf-weather-cloud
+            "03n": "",      # nf-weather-cloud
+            "04d": "",      # nf-weather-cloudy
+            "04n": "",      # nf-weather-cloudy
+            "09d": "",      # nf-weather-day_showers
+            "09n": "",      # nf-weather-night_showers
+            "10d": "",      # nf-weather-rain
+            "10n": "",      # nf-weather-rain
+            "11d": "",      # nf-weather-thunderstorm
+            "11n": "",      # nf-weather-thunderstorm
+            "13d": "",      # nf-weather-snow
+            "13n": "",      # nf-weather-snow
+            "50d": "",      # nf-weather-fog
+            "50n": "",      # nf-weather-fog
+        }
     ),
 
     # INTERNET STATUS
