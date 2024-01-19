@@ -5,7 +5,11 @@ M.servers = {
   cssls = {
     filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "blade"}
   },
-  intelephense = {},
+  intelephense = {
+    init_options = {
+          globalStoragePath = os.getenv('HOME') .. '/.local/share/intelephense'
+      }
+  },
   texlab = {},
   -- MARKDOWN 
   marksman = {},
