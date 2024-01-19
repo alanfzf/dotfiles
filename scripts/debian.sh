@@ -53,3 +53,8 @@ setxkbmap -option ctrl:nocaps
 picom &
 ~/.fehbg
 EOF
+
+# Disable audio saving
+sudo cat > /etc/modprobe.d/alsa-base.conf <<EOF
+options snd-hda-intel power_save=0
+EOF
