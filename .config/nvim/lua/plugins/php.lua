@@ -5,6 +5,6 @@ return {
   },
   {
     "https://github.com/ccaglak/larago.nvim",
-    ft="blade"
+    ft="php"
   }
 }
