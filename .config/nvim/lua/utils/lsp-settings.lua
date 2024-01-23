@@ -7,7 +7,7 @@ M.servers = {
   },
   intelephense = {
     init_options = {
-          globalStoragePath = os.getenv('HOME') .. '/.local/share/intelephense'
+          globalStoragePath =  vim.fn.expand('$HOME/.intelephense')
       }
   },
   texlab = {},
