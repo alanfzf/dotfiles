@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Install qtile: https://www.youtube.com/live/Dk_UmUvKDrg?si=_n1OzLhtnTKvwRFD
 # Fix Wifi: https://www.reddit.com/r/debian/s/8V6hVfU8x1
 
 TEMPDIR=$(mktemp -d)
 NERDURL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz"
+QTURL="https://github.com/qtile/qtile"
 
 # Basic window manager stuff 
 sudo apt install -y \
@@ -40,11 +40,6 @@ sudo fc-cache -f -v
 sudo sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=-1/' /etc/default/grub
 sudo update-grub
 
-# Fix WiFi
-# sudo sed -i 's/managed=false/managed=true/' /etc/NetworkManager/NetworkManager.conf
-# sudo apt remove ifupdown
-# systemctl restart network-manager
-
 # Create desktop entry for qtile
 sudo cat > /usr/share/xsessions/qtile.desktop << EOF
 [Desktop Entry]
@@ -52,13 +47,6 @@ Name=qtile
 Exec=qtile start
 Type=Application
 Keywords=wm;tiling
-EOF
-
-# Load programs at startup
-sudo cat > ~/.xsessionrc <<EOF
-setxkbmap -option ctrl:nocaps
-picom &
-~/.fehbg
 EOF
 
 # Disable audio saving
@@ -71,3 +59,13 @@ echo 0 > /sys/module/snd_hda_intel/parameters/power_save
 
 # Enable Bluetooth
 systemctl --user --now enable pipewire pipewire-pulse
+
+# **** INSTALL QTILE ****
+QTDIR=~/.local/src/
+mkdir -p $QTDIR
+cd $QTDIR
+python 3 -m venv qtile_venv
+cd ./qtile_venv
+git clone $QTURL
+./bin/pip install qtile/.
+cp ./bin/qtile /usr/local/bin/
