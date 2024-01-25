@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOTFILES="$(dirname "$(readlink -f "$0")")"
-DOTS=(".xsessionrc" ".tmux.conf" ".ideavimrc")
+DOTS=(".xsessionrc" ".tmux.conf" ".ideavimrc" ".zshrc")
 
 # ***** SETUP DOTFILES *****
 for item in "$DOTFILES/.config"/*; do
