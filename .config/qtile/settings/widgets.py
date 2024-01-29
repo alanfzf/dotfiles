@@ -11,9 +11,8 @@ def separator():
 def icon(fg='text', bg='dark', fontsize=16, text="?"):
     return widget.TextBox(**base(fg, bg), fontsize=fontsize, text=text, padding=3)
 
-
 def powerline(fg="light", bg="dark"):
-    return widget.TextBox( **base(fg, bg), text="", fontsize=37, padding=0)
+    return widget.TextBox(**base(fg, bg), text="", fontsize=37, padding=0)
 
 
 def workspaces(): 
@@ -23,10 +22,8 @@ def workspaces():
             **base(fg='light'),
             font='JetBrainsMono Nerd Font',
             fontsize=19,
-            margin_y=3,
-            margin_x=0,
-            padding_y=8,
-            padding_x=5,
+            margin_y=3, margin_x=0,
+            padding_y=8, padding_x=5,
             borderwidth=1,
             active=colors['active'],
             inactive=colors['inactive'],
@@ -59,32 +56,22 @@ primary_widgets = [
     #     full_char=' ', discharge_char=' ',
     #     uknown_char="", format="{char} {percent:2.0%} {watt:.2f} W"
     # ),
-
     widget.OpenWeather(
         **base(bg='color4'),
         app_key="925ab512a04b339933f00836149ce9db",
         cityid="3598119",
         format="{location_city}: {icon} {main_temp} {units_temperature}°",
         weather_symbols={
-            "Unknown": "",  # nf-fa-question
-            "01d": "",      # nf-weather-day_sunny
-            "01n": "",      # nf-weather-moon_full
-            "02d": "",      # nf-weather-day_cloudy
-            "02n": "",      # nf-weather-night_cloudy
-            "03d": "",      # nf-weather-cloud
-            "03n": "",      # nf-weather-cloud
-            "04d": "",      # nf-weather-cloudy
-            "04n": "",      # nf-weather-cloudy
-            "09d": "",      # nf-weather-day_showers
-            "09n": "",      # nf-weather-night_showers
-            "10d": "",      # nf-weather-rain
-            "10n": "",      # nf-weather-rain
-            "11d": "",      # nf-weather-thunderstorm
-            "11n": "",      # nf-weather-thunderstorm
-            "13d": "",      # nf-weather-snow
-            "13n": "",      # nf-weather-snow
-            "50d": "",      # nf-weather-fog
-            "50n": "",      # nf-weather-fog
+            "Unknown": "",
+            "01d": "", "01n": "",
+            "02d": "", "02n": "",
+            "03d": "", "03n": "",
+            "04d": "", "04n": "",
+            "09d": "", "09n": "",
+            "10d": "", "10n": "",
+            "11d": "", "11n": "",
+            "13d": "", "13n": "",
+            "50d": "", "50n": "",
         }
     ),
 
@@ -105,7 +92,8 @@ primary_widgets = [
 
     # OTHER STUFF
     powerline('dark', 'color1'),
-    widget.Systray(background=colors['dark'], padding=5),
+    widget.Systray(background=colors['dark'], padding=8),
+    widget.Spacer(length=20, background=colors['dark']),
 ]
 
 secondary_widgets = [
