@@ -1,4 +1,6 @@
 # ==== PROMPT CONFIG ====
+format="""$all"""
+right_format="""$aws"""
 add_newline = true
 # palette = 'colors'
 
