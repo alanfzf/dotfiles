@@ -8,7 +8,7 @@ return {
       event = "VeryLazy",
       config = function ()
         require('nvim-ts-autotag').setup({
-          filetypes = { "html", "xml", "typescriptreact", "jsx", "htmldjango", "blade", "php"}
+          filetypes = { "html", "xml", "typescriptreact", "javascriptreact", "jsx", "tsx", "htmldjango", "blade", "php"}
         })
       end
     }
