@@ -10,7 +10,7 @@ from settings.path import qtile_path
 # Drag floating layouts.
 dgroups_key_binder = None
 jgroups_app_rules = []
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
