@@ -25,13 +25,14 @@ return {
         "html", "htmldjango", "markdown", "markdown_inline",
         "javascript", "jsdoc", "json", "python", "tsx", "typescript",
         -- i use vimtex so idk about these ones
-        "latex", "bibtex",
+        "bibtex",
         -- git related
         "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore",
         -- occasionally use
         "bash", "css", "dockerfile", "toml", "yaml",
       },
       auto_install = true,
+      ignore_install = { "latex" },
       highlight = {
         enable = true,
         additional_vim_regex_higlighting = false,
