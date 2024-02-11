@@ -4,8 +4,8 @@ This repository contains some configuration files that i use to personalize my e
 ## Linux Setup
 
 ```bash
-# TODO:
-
+git clone https://github.com/alanfzf/dotfiles ~/.dotfiles
+stow -d ~/.dotfiles .
 ```
 
 ## Windows Setup

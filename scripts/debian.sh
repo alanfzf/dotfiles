@@ -26,7 +26,7 @@ sudo apt install -y \
 # Tools
 sudo apt install -y \
   wget curl fuse build-essential git gh fzf \
-  fd-find nodejs npm tmux bat ripgrep
+  fd-find nodejs npm tmux bat ripgrep stow
 
 cd $TEMPDIR
 
@@ -47,11 +47,6 @@ Name=qtile
 Exec=qtile start
 Type=Application
 Keywords=wm;tiling
-EOF
-
-# Disable audio saving
-sudo cat > /etc/modprobe.d/alsa-base.conf <<EOF
-options snd-hda-intel power_save=0
 EOF
 
 # Disable audio power saving

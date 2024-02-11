@@ -1,0 +1,6 @@
+^scripts$
+^install.ps1$
+^/README.*
+^/LICENSE.*
+\.git
+\.gitignore
