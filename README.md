@@ -5,7 +5,7 @@ This repository contains some configuration files that i use to personalize my e
 
 ```bash
 git clone https://github.com/alanfzf/dotfiles ~/.dotfiles
-stow -d ~/.dotfiles .
+./install.sh
 ```
 
 ## Windows Setup
