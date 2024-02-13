@@ -2,7 +2,10 @@
 
 # Fix Wifi: https://www.reddit.com/r/debian/s/8V6hVfU8x1
 
+# DIRS
 TEMPDIR=$(mktemp -d)
+QTDIR="$HOME/.local/src/"
+# URLS
 NERDURL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz"
 QTURL="https://github.com/qtile/qtile"
 
@@ -26,7 +29,7 @@ sudo apt install -y \
 # Tools
 sudo apt install -y \
   wget curl fuse build-essential git gh fzf \
-  fd-find nodejs npm tmux bat ripgrep stow
+  fd-find nodejs npm tmux bat ripgrep zoxide
 
 cd $TEMPDIR
 
@@ -56,7 +59,6 @@ echo 0 > /sys/module/snd_hda_intel/parameters/power_save
 systemctl --user --now enable pipewire pipewire-pulse
 
 # **** INSTALL QTILE ****
-QTDIR=~/.local/src/
 mkdir -p $QTDIR
 cd $QTDIR
 python 3 -m venv qtile_venv
