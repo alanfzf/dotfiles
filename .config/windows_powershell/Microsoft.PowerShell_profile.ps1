@@ -103,7 +103,6 @@ function Invoke-Starship-PreCommand {
 
 # PSReadLine
 Import-Module PSReadLine
-Import-Module Z
 Set-PSReadLineOption -EditMode emacs
 Set-PSReadlineOption -BellStyle None
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
@@ -118,3 +117,4 @@ Set-PSReadLineOption -PredictionSource History
 # Starship
 $ENV:STARSHIP_CONFIG = "$HOME\starship.toml"
 Invoke-Expression (&starship init powershell)
+Invoke-Expression (& { (zoxide init powershell | Out-String) })

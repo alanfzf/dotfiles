@@ -82,6 +82,7 @@ function InstallPrograms {
     "sharkdp.bat"
     "eza-community.eza"
     "Microsoft.PowerToys"
+    "ajeetdsouza.zoxide"
   )
   # The override parameters make git not add itself to the context menu
   winget install -e --accept-source-agreements --accept-package-agreements --silent Git.Git --override "/VERYSILENT /COMPONENTS="
@@ -89,10 +90,6 @@ function InstallPrograms {
   # **** INSTALL NON WINGET STUFF ****
   $fontFolder = DownloadAndDecompress $fontUrl -CreateFolder
   InstallFonts $fontFolder.FullName
-}
-
-function InstallPSModules {
-  Install-Module -Name z -Confirm:$False -Force
 }
 
 function SetupDotFiles{
@@ -212,7 +209,6 @@ function RemovePrograms{
 # =====================
 InstallPrograms
 SetupDotFiles
-InstallPSModules
 WindowsTweaks
 RemovePrograms
 CleanTemp
