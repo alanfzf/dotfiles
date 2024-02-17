@@ -61,6 +61,9 @@ symbol = '󰌠 '
 [rust]
 symbol = '󱘗 '
 
+[php]
+symbol = ' '
+
 [package]
 symbol = '󰏗 '
 
