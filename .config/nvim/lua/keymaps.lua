@@ -19,7 +19,7 @@ keymap('c', '<C-N>', '<Down>', { noremap = true })
 keymap('c', '<C-P>', '<Up>', { noremap = true })
 keymap('c', '<M-b>', '<S-Left>', { noremap = true })
 keymap('c', '<M-f>', '<S-Right>', { noremap = true })
-keymap('c', '<C-K>', [[<C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>]], { noremap = true})
+keymap('c', '<C-K>', [[<C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>]], { noremap = true })
 
 --[[ * NORMAL MODE *  ]]
 keymap('n', "cc", "\"_cc")
@@ -65,13 +65,13 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 --[[ * OTHER PLUGINS *  ]]
--- TELESCOPE
-keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
-keymap("n", "<leader>fc", "<cmd>Telescope colorscheme<CR>", opts)
-keymap("n", "<leader>fp",  "<cmd>Telescope projects<cr>", opts)
-keymap("n", "<leader>e", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", opts)
+-- FZF LUA
+keymap("n", "<leader>ff", "<cmd>FzfLua files<CR>", opts)
+keymap("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>", opts)
+keymap("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", opts)
+keymap("n", "<leader>fc", "<cmd>FzfLua colorschemes<CR>", opts)
+-- OIL NVIM
+keymap("n", "<leader>e", "<cmd>Oil<CR>", opts)
 -- LSP
 keymap("n", "<leader>li", "<cmd>LspInfo<CR>")
 -- LAZYGIT

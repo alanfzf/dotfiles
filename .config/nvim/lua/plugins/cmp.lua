@@ -5,18 +5,10 @@ return {
     "CmdlineEnter",
   },
   dependencies = {
-    {"hrsh7th/cmp-buffer"},
-    {"hrsh7th/cmp-nvim-lsp"},
-    {"hrsh7th/cmp-path"},
-    {"saadparwaiz1/cmp_luasnip"},
-    {
-      "Jezda1337/cmp_bootstrap",
-      config = function ()
-        require("bootstrap-cmp.config"):setup({
-          file_types = { "html", "javascriptreact", "jsx", "htmldjango"},
-        })
-      end
-    },
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-path" },
+    { "saadparwaiz1/cmp_luasnip" },
     {
       "L3MON4D3/LuaSnip",
       event = "InsertEnter",
@@ -32,10 +24,9 @@ return {
     -- Load my snippets
     -- Im 100% sure this is bad, and it can be achieved in a better way but i couldn't find the proper way.
     snip_loader.lazy_load()
-    snip_loader.lazy_load({paths=vim.fn.stdpath("config").. "/snippets/" })
+    snip_loader.lazy_load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
     -- additional configs
-    lua_snip.filetype_extend("php", {"phpdoc"})
-
+    lua_snip.filetype_extend("php", { "phpdoc" })
 
     local kind_icons = {
       Text = "󰉿",
@@ -77,17 +68,17 @@ return {
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ['<C-b>'] = cmp.mapping.scroll_docs(-1),
         ['<C-f>'] = cmp.mapping.scroll_docs(1),
-        ['<CR>'] = cmp.mapping.confirm({ select = false}),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
       }),
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'bootstrap' },
-        { name = 'path'}
+        { name = 'path' }
       },
       formatting = {
-        fields = { "abbr","kind", "menu" },
+        fields = { "abbr", "kind", "menu" },
         format = function(entry, vim_item)
           vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
           vim_item.menu = ({

@@ -12,7 +12,6 @@ return {
         javascript = { "string", "template_string" },
         java = false,
       },
-      disable_filetype = { "TelescopePrompt"},
       disable_in_visualblock = true,
       fast_wrap = {
         map = "<M-e>",
