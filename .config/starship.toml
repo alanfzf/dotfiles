@@ -32,18 +32,6 @@ disabled = false
 
 [git_status]
 disabled = false
-# style = "bold green"
-# conflicted = "🏳"
-# up_to_date = " "
-# untracked = " "
-# ahead = "⇡${count}"
-# diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-# behind = "⇣${count}"
-# stashed = "≡"
-# modified = " "
-# staged = '[++\($count\)](green)'
-# renamed = "󰖷 "
-# deleted = " "
 
 # ==== LANGUAGES ====
 [nodejs]
@@ -81,7 +69,6 @@ disabled = false
 error_symbol = "[λ](bold red)"
 success_symbol = "[λ](bold green)"
 vimcmd_symbol = "[λ](bold yellow)"
-
 
 # ==== MORE INTERESTING STUFF TO IMPLEMENT ====
 # https://starship.rs/config/#battery
