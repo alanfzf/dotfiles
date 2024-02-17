@@ -1,22 +1,19 @@
 #!/bin/bash
 
 DOTFILES="$(dirname "$(readlink -f "$0")")"
-DOTS=(".xsessionrc" ".tmux.conf" ".ideavimrc" ".zshrc" ".latexmkrc")
+IGNORE="$DOTFILES/.ignore-slink"
 
-# ***** SETUP DOTFILES *****
-for item in "$DOTFILES/.config"/*; do
-  name=$(basename "$item")
-  target="$HOME/.config/$name"
-
-  rm -rf "$target"
-  ln -sf "$item" "$target"
+find $DOTFILES -maxdepth 1 -type f | grep -vf "$IGNORE" | while read source; do
+  target="$HOME/$(basename $source)"
+  rm -rf $target
+  ln -sf $source $target
 done
 
+# create .config dir
+mkdir -p "$HOME/.config/"
 
-for item in "${DOTS[@]}"; do
-  source="$DOTFILES/$item"
-  target="$HOME/$item"
-
-  rm -rf "$target"
-  ln -sf "$source" "$target"
+find "$DOTFILES/.config/" -mindepth 1 -maxdepth 1 | while read source; do
+  target="$HOME/.config/$(basename $source)"
+  rm -rf $target
+  ln -sf $source $target
 done

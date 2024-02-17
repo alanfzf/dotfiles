@@ -1,0 +1,4 @@
+.gitignore
+install.sh
+install.ps1
+README.*
