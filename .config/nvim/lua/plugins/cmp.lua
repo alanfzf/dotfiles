@@ -1,9 +1,5 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = {
-    "InsertEnter",
-    "CmdlineEnter",
-  },
   dependencies = {
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-nvim-lsp" },
@@ -11,7 +7,6 @@ return {
     { "saadparwaiz1/cmp_luasnip" },
     {
       "L3MON4D3/LuaSnip",
-      event = "InsertEnter",
       dependencies = {
         "rafamadriz/friendly-snippets",
       },
@@ -19,14 +14,12 @@ return {
   },
   config = function()
     local cmp = require("cmp")
-    local lua_snip = require("luasnip")
-    local snip_loader = require('luasnip/loaders/from_vscode')
+    local luasnip = require("luasnip")
     -- Load my snippets
-    -- Im 100% sure this is bad, and it can be achieved in a better way but i couldn't find the proper way.
-    snip_loader.lazy_load()
-    snip_loader.lazy_load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = {"./snippets/", vim.o.runtimepath} })
     -- additional configs
-    lua_snip.filetype_extend("php", { "phpdoc" })
+    luasnip.filetype_extend("javascript", { "jsdoc" })
+    luasnip.filetype_extend("php", { "phpdoc", "blade" })
 
     local kind_icons = {
       Text = "󰉿",
