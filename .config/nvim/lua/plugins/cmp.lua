@@ -16,7 +16,8 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     -- Load my snippets
-    require("luasnip.loaders.from_vscode").lazy_load({ paths = {"./snippets/", vim.o.runtimepath} })
+    require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_vscode").lazy_load({ paths =  "./snippets/" })
     -- additional configs
     luasnip.filetype_extend("javascript", { "jsdoc" })
     luasnip.filetype_extend("php", { "phpdoc", "blade" })
@@ -52,7 +53,7 @@ return {
     cmp.setup({
       snippet = {
         expand = function(args)
-          lua_snip.lsp_expand(args.body)
+          luasnip.lsp_expand(args.body)
         end
       },
       mapping = cmp.mapping.preset.insert({
