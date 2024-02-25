@@ -4,6 +4,8 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     require("fzf-lua").setup({
+
+      file_icon_padding = ' ',
       keymap = {
         builtin = {
           -- neovim `:tmap` mappings for the fzf win
@@ -33,7 +35,10 @@ return {
           ["ctrl-u"]    = "preview-page-up",
         },
       },
-
+      fzf_opts = {
+        ['--cycle'] = true,
+        ['--color'] = "bg+:-1",
+      },
       previewers = {
         builtin = {
           syntax          = true,         -- preview syntax highlight?
