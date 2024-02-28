@@ -10,6 +10,8 @@ return {
         -- "size",
         -- "mtime",
       },
+      lsp_rename_autossave= true,
+      constrain_cursor = "name",
       keymaps ={
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
@@ -25,7 +27,7 @@ return {
         ["~"] = "actions.tcd",
         ["gs"] = "actions.change_sort",
         ["gx"] = "actions.open_external",
-        ["<C-h>"] = "actions.toggle_hidden",
+        ["<A-h>"] = "actions.toggle_hidden",
         ["g\\"] = "actions.toggle_trash",
       },
       -- Set to false to disable all of the above keymaps

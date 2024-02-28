@@ -34,9 +34,9 @@ function M.config()
   local lsp_ui = require('lspconfig.ui.windows')
   lsp_ui.default_options.border = 'rounded'
 
-  local on_attach = function(_client, bufnr)
+  local on_attach = function(client, bufnr)
     -- disable lsp hl
-    -- client.server_capabilities.semanticTokensProvider = nil
+    client.server_capabilities.semanticTokensProvider = nil
     lsp_keymaps(bufnr)
   end
 

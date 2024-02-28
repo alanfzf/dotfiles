@@ -3,6 +3,18 @@ local opts = { silent = true }
 
 vim.g.mapleader = " "
 
+-- TODO: REFACTOR THIS FUNCTION OUT OF HERE.
+local function get_root_dir()
+  local handle = io.popen("git -C " .. vim.fn.expand('%:p:h') .. " rev-parse --show-toplevel")
+  if not handle then return nil end
+
+  local result = handle:read("*a")
+  handle:close()
+  result = string.gsub(result, "^%s*(.-)%s*$", "%1")
+  if #result == 0 then return nil end
+  return result
+end
+
 --[[ * ALL MODES * ]]
 keymap("", "<leader>d", "\"_dd", { remap = true })
 keymap("", "<S-h>", "^", { remap = true })
@@ -66,8 +78,12 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 --[[ * OTHER PLUGINS *  ]]
 -- FZF LUA
-keymap("n", "<leader>ff", "<cmd>FzfLua files<CR>", opts)
-keymap("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>", opts)
+keymap("n", "<leader>ff", function ()
+  require('fzf-lua').files({ cwd = get_root_dir()})
+end, opts)
+keymap("n", "<leader>fg", function ()
+  require('fzf-lua').live_grep({ cwd = get_root_dir()})
+end, opts)
 keymap("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", opts)
 keymap("n", "<leader>fc", "<cmd>FzfLua colorschemes<CR>", opts)
 -- OIL NVIM

@@ -24,9 +24,5 @@ vim.api.nvim_create_autocmd("VimEnter", {
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function (params)
     vim.g.SCHEME = params.match
-    -- For now disable lsp highlights, it looks hideous
-    for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-      vim.api.nvim_set_hl(0, group, {})
-    end
   end
 })
