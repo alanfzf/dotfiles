@@ -5,14 +5,13 @@ vim.g.mapleader = " "
 
 -- TODO: REFACTOR THIS FUNCTION OUT OF HERE.
 local function get_root_dir()
-  local handle = io.popen("git -C " .. vim.fn.expand('%:p:h') .. " rev-parse --show-toplevel")
-  if not handle then return nil end
-
-  local result = handle:read("*a")
-  handle:close()
-  result = string.gsub(result, "^%s*(.-)%s*$", "%1")
-  if #result == 0 then return nil end
-  return result
+  local path = vim.fn.systemlist("git -C "..vim.fn.expand("%:p:h").." rev-parse --show-toplevel")[1]
+  if vim.v.shell_error ~= 0 then
+    local lspRoot = vim.lsp.buf.list_workspace_folders()
+    -- lsp root can return nil also
+    return lspRoot[1]
+  end
+  return path
 end
 
 --[[ * ALL MODES * ]]
