@@ -2,8 +2,8 @@ local M = {
   "neovim/nvim-lspconfig",
   lazy = true,
   dependencies = {
-    {"hrsh7th/cmp-nvim-lsp"},
-  }
+    { "hrsh7th/cmp-nvim-lsp" },
+  },
 }
 
 function M.config()
@@ -31,19 +31,25 @@ function M.config()
   end
 
   local lspconfig = require("lspconfig")
-  local lsp_ui = require('lspconfig.ui.windows')
-  lsp_ui.default_options.border = 'rounded'
+  local lsp_ui = require("lspconfig.ui.windows")
+  lsp_ui.default_options.border = "rounded"
 
-  local on_attach = function(client, bufnr)
-    -- disable lsp hl
-    client.server_capabilities.semanticTokensProvider = nil
+  local on_attach = function(_client, bufnr)
     lsp_keymaps(bufnr)
   end
 
-  local configs = require('utils.lsp-settings').servers
+  local on_init = function(client, initialization_result)
+    if client.server_capabilities then
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.semanticTokensProvider = false -- turn off semantic tokens
+    end
+  end
+
+  local configs = require("utils.lsp-settings").servers
 
   for name, conf in pairs(configs) do
-    local	opts = {
+    local opts = {
+      on_init = on_init,
       on_attach = on_attach,
       capabilities = capabilities,
     }
@@ -65,7 +71,7 @@ function M.config()
 
   local config = {
     virtual_text = false,
-    signs = { active = signs},
+    signs = { active = signs },
     update_in_insert = true,
     underline = true,
     severity_sort = true,
@@ -87,7 +93,6 @@ function M.config()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
     border = "rounded",
   })
-
 end
 
 return M
