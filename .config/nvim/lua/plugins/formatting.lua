@@ -6,7 +6,8 @@ return {
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
         typescript = { "prettier" },
-        typescriptreact = { "prettier" }
+        typescriptreact = { "prettier" },
+        lua = { "stylua" },
       },
       format_on_save = {
         lsp_fallback = false,
