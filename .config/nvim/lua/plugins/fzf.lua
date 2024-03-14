@@ -1,10 +1,8 @@
 return {
   "ibhagwan/fzf-lua",
-  branch = "windows",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     require("fzf-lua").setup({
-
       file_icon_padding = ' ',
       keymap = {
         builtin = {

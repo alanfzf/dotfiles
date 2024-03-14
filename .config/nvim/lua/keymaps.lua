@@ -2,6 +2,7 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- TODO: REFACTOR THIS FUNCTION OUT OF HERE.
 local function get_root_dir()
@@ -83,6 +84,7 @@ keymap("n", "<leader>fg", function ()
 end, opts)
 keymap("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", opts)
 keymap("n", "<leader>fc", "<cmd>FzfLua colorschemes<CR>", opts)
+keymap("n", "<leader>fs", "<cmd>FzfLua git_status<CR>", opts)
 -- OIL NVIM
 keymap("n", "<leader>e", "<cmd>Oil<CR>", opts)
 -- LSP
