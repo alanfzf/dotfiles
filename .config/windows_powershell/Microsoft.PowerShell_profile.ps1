@@ -87,10 +87,6 @@ function Ex {
   explorer $Dir
 }
 
-function Sudo {
-  Start-Process wt -Verb runAs -ArgumentList "pwsh.exe -NoExit -Command &{Set-Location $PWD}"
-}
-
 
 function Invoke-Starship-PreCommand {
   $loc = $executionContext.SessionState.Path.CurrentLocation;
