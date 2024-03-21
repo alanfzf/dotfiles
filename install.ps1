@@ -113,6 +113,7 @@ function SetupDotFiles{
     "$HOME/starship.toml"     = "$dotfiles/.config/starship.toml"
     "$HOME/.ideavimrc"        = "$dotfiles/.ideavimrc"
     "$HOME/.vsvimrc"          = "$dotfiles/.vsvimrc"
+    "$HOME/.wezterm.lua"      = "$dotfiles/.wezterm.lua"
   }
 
   foreach ($entry in $symLinks.GetEnumerator()) {
