@@ -1,6 +1,6 @@
 # ==== PROMPT CONFIG ====
 format="""$all"""
-right_format="""$aws"""
+right_format="""$aws $os"""
 add_newline = true
 # palette = 'colors'
 
@@ -13,6 +13,15 @@ red = '#ff5555'
 yellow = '#f1fa8c'
 
 # ==== OS ====
+[os]
+format = "on [$symbol]($style)"
+style = "bold blue"
+disabled = false
+
+
+[os.symbols]
+Debian = " "
+
 [username]
 disabled = false
 show_always = false
@@ -54,7 +63,6 @@ symbol = ' '
 
 [package]
 symbol = '󰏗 '
-
 
 # cloud
 [aws]
