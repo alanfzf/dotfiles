@@ -28,20 +28,17 @@ sudo apt install -y \
 
 # Tools
 sudo apt install -y \
-  wget curl fuse build-essential git gh fzf \
-  fd-find nodejs npm tmux bat ripgrep zoxide
+  curl fuse build-essential git gh fzf \
+  fd-find nodejs npm tmux bat ripgrep zoxide zsh
 
 cd $TEMPDIR
 
 # Install a nerd font
-wget "$NERDURL" -O font.tar.xz 
+curl -Lo font.tar.xz "$NERDURL"
 tar -xvf font.tar.xz -C $TEMPDIR
 sudo mv *.ttf /usr/share/fonts/
 sudo fc-cache -f -v
 
-# Make GRUB not boot automatically
-sudo sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=-1/' /etc/default/grub
-sudo update-grub
 
 # Create desktop entry for qtile
 sudo cat > /usr/share/xsessions/qtile.desktop << EOF
@@ -53,10 +50,10 @@ Keywords=wm;tiling
 EOF
 
 # Disable audio power saving
-echo 0 > /sys/module/snd_hda_intel/parameters/power_save
+sudo echo 0 > /sys/module/snd_hda_intel/parameters/power_save
 
 # Enable Bluetooth
-systemctl --user --now enable pipewire pipewire-pulse
+sudo systemctl --user --now enable pipewire pipewire-pulse
 
 # **** INSTALL QTILE ****
 mkdir -p $QTDIR
