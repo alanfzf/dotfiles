@@ -4,13 +4,14 @@
 # =====================
 # * CONSTANTS *
 # =====================
-$apps = "C:\Apps"
+$apps = "C:/Apps"
 $temp = "$env:TEMP/files/"
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
-$mingwUrl = "https://github.com/niXman/mingw-bilds-binaries/releases/download/13.2.0-rt_v11-rev0/x86_64-13.2.0-release-posix-seh-ucrt-rt_v11-rev0.7z"
+$mingwUrl = "https://github.com/skeeto/w64devkit/releases/download/v1.21.0/w64devkit-1.21.0.zip"
+$altGrUrl = "https://github.com/thomasfaingnaert/win-us-intl-altgr/releases/download/v1.0/us-inter.zip"
 
-New-Item -ItemType Directory -Path $apps -Force
-New-Item -ItemType Directory -Path $temp -Force
+New-Item -ItemType Directory -Path $apps -Force | Out-Null
+New-Item -ItemType Directory -Path $temp -Force | Out-Null
 
 # =====================
 # * UTILITY FUNCTIONS *
@@ -46,7 +47,7 @@ function InstallFonts {
   foreach($fontFile in $foundFonts){
     $fontDestPath = Join-Path $systemFontsPath $fontFile.Name
     if(Test-Path -Path $fontDestPath){ continue }
-    $destFolder.CopyHere($fontFile.FullName, 0x10)
+    $destFolder.CopyHere($fontFile.FullName, 0x14)
   }
 }
 
@@ -88,10 +89,12 @@ function InstallPrograms {
   $mingwFolder = DownloadAndDecompress $mingwUrl
   Move-Item -Path $mingwFolder.FullName -Destination $apps
   <# 
-    This can't be done as some packages, like git, nodejs, and starship will not update $env:Path in the current session, 
+    This can't be done directly as some packages, like git, nodejs, and starship will not update $env:Path in the current session, 
     making them not available later on if we set the env right now.
     [Environment]::SetEnvironmentVariable("Path", $env:Path +";$apps\$($mingwFolder.Name)\bin", [EnvironmentVariableTarget]::Machine)
   #>
+  $altGrlFolder = DownloadAndDecompress $altGrUrl
+  Start-Process -FilePath "$altGrlFolder/setup.exe"
 }
 
 function SetupDotFiles{
