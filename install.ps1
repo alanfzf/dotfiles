@@ -8,18 +8,6 @@ $temp = "$env:TEMP/files/"
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
 New-Item -ItemType Directory -Path $temp -Force
 
-# =======================
-# * Handle Powershell 5 *
-# =======================
-if($PSVersionTable.PSVersion.Major -lt 7){
-  $wingetFile = Join-Path $temp "winget.msixbundle"
-  (New-Object Net.WebClient).DownloadFile("https://aka.ms/getwinget", $wingetFile);
-  Add-AppxPackage $wingetFile;
-  @("Microsoft.PowerShell", "Microsoft.WindowsTerminal") | ForEach-Object { winget install -e --accept-source-agreements --accept-package-agreements --silent $_ }
-  Read-Host -Prompt "Successfully installed requirmenets, please re-launch this script with Windows Terminal and Powershell-7..." | Out-Null
-  Exit
-}
-
 # =====================
 # * UTILITY FUNCTIONS *
 # =====================
@@ -49,12 +37,12 @@ function InstallFonts {
   param ([String]$fontFolder)
   $destFolder = (New-Object -ComObject Shell.Application).Namespace(0x14)
   $foundFonts = Get-ChildItem -Path "$fontFolder/*" -Include '*.ttf','*.ttc','*.otf' -Recurse 
+  $systemFontsPath = "$env:LOCALAPPDATA/Microsoft/Windows/Fonts"
 
-  foreach($font in $foundFonts){
-    $fontFullName = $font.FullName
-    $fontName = $font.Name
-    if(Test-Path "C:\Windows\Fonts\$fontName"){ continue }
-    $destFolder.CopyHere($fontFullName, 0x10)
+  foreach($fontFile in $foundFonts){
+    $fontDestPath = Join-Path $systemFontsPath $fontFile.Name
+    if(Test-Path -Path $fontDestPath){ continue }
+    $destFolder.CopyHere($fontFile.FullName, 0x10)
   }
 }
 
@@ -68,21 +56,23 @@ function CleanTemp {
 function InstallPrograms {
   # **** INSTALL WINGET PACKAGES ****
   $Packages = @(
-    "7zip.7zip"
-    "BurntSushi.ripgrep.MSVC"
-    "Discord.Discord" 
-    "Neovim.Neovim"
-    "OpenJS.NodeJS"
-    "Python.Python.3.9"
-    "Starship.Starship"
-    "VideoLAN.VLC"
-    "JesseDuffield.lazygit"
-    "sharkdp.fd"
-    "junegunn.fzf"
-    "sharkdp.bat"
-    "eza-community.eza"
-    "Microsoft.PowerToys"
-    "ajeetdsouza.zoxide"
+      "Microsoft.WindowsTerminal"
+      "Microsoft.PowerShell"
+      "7zip.7zip"
+      "BurntSushi.ripgrep.MSVC"
+      "Discord.Discord" 
+      "Neovim.Neovim"
+      "OpenJS.NodeJS"
+      "Python.Python.3.9"
+      "Starship.Starship"
+      "VideoLAN.VLC"
+      "JesseDuffield.lazygit"
+      "sharkdp.fd"
+      "junegunn.fzf"
+      "sharkdp.bat"
+      "eza-community.eza"
+      "Microsoft.PowerToys"
+      "ajeetdsouza.zoxide"
   )
   # The override parameters make git not add itself to the context menu
   winget install -e --accept-source-agreements --accept-package-agreements --silent Git.Git --override "/VERYSILENT /COMPONENTS="
@@ -94,7 +84,7 @@ function InstallPrograms {
 
 function SetupDotFiles{
   # Git related stuff
-  $gitCmd = "${env:ProgramFiles}\Git\bin\git.exe"
+  $gitCmd = "${env:ProgramFiles}/Git/bin/git.exe"
   $dotfiles = "$HOME/dotfiles/"
   & $gitCmd clone "https://github.com/alanfzf/dotfiles" $dotfiles
 
