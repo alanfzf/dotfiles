@@ -87,7 +87,11 @@ function InstallPrograms {
 
   $mingwFolder = DownloadAndDecompress $mingwUrl
   Move-Item -Path $mingwFolder.FullName -Destination $apps
-  [Environment]::SetEnvironmentVariable("MinGW", "$apps\$($mingwFolder.Name)\bin", "Machine")
+  <# 
+    This can't be done as some packages, like git, nodejs, and starship will not update $env:Path in the current session, 
+    making them not available later on if we set the env right now.
+    [Environment]::SetEnvironmentVariable("Path", $env:Path +";$apps\$($mingwFolder.Name)\bin", [EnvironmentVariableTarget]::Machine)
+  #>
 }
 
 function SetupDotFiles{
