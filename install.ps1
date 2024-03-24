@@ -4,8 +4,12 @@
 # =====================
 # * CONSTANTS *
 # =====================
+$apps = "C:\Apps"
 $temp = "$env:TEMP/files/"
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
+$mingwUrl = "https://github.com/niXman/mingw-bilds-binaries/releases/download/13.2.0-rt_v11-rev0/x86_64-13.2.0-release-posix-seh-ucrt-rt_v11-rev0.7z"
+
+New-Item -ItemType Directory -Path $apps -Force
 New-Item -ItemType Directory -Path $temp -Force
 
 # =====================
@@ -80,6 +84,10 @@ function InstallPrograms {
   # **** INSTALL NON WINGET STUFF ****
   $fontFolder = DownloadAndDecompress $fontUrl -CreateFolder
   InstallFonts $fontFolder.FullName
+
+  $mingwFolder = DownloadAndDecompress $mingwUrl
+  Move-Item -Path $mingwFolder.FullName -Destination $apps
+  [Environment]::SetEnvironmentVariable("MinGW", "$apps\$($mingwFolder.Name)\bin", "Machine")
 }
 
 function SetupDotFiles{
@@ -104,6 +112,7 @@ function SetupDotFiles{
     "$HOME/.ideavimrc"        = "$dotfiles/.ideavimrc"
     "$HOME/.vsvimrc"          = "$dotfiles/.vsvimrc"
     "$HOME/.wezterm.lua"      = "$dotfiles/.wezterm.lua"
+    "$HOME/.gitconfig"        = "$dotfiles/.gitconfig"
   }
 
   foreach ($entry in $symLinks.GetEnumerator()) {
