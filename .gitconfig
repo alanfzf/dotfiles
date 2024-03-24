@@ -1,9 +1,12 @@
 [user]
 	name = alanfzf
 	signingkey = ~/.ssh/id_ed25519.pub
+	email = alandavidg13@gmail.com
 [commit]
 	gpgsign = true
 [gpg]
 	format = ssh
+[push]
+    autoSetupRemote = true
 [alias]
 	gone = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D
