@@ -23,19 +23,22 @@ function DownloadAndDecompress {
   )
 
   $fileName = [System.IO.Path]::GetFileName($Url)
-  $outFile = Join-Path $temp $fileName
-  $outputFolder = $temp
+  $fileNameNoExt = [System.IO.Path]::GetFileNameWithoutExtension($fileName)
+  $outFile = "$temp/$fileName"
+  $outFolder = "$temp/$fileNameNoExt"
 
-  (New-Object Net.WebClient).DownloadFile($Url, $outFile)
+
+  curl.exe -Lo $outFile $Url
+  Expand-Archive $outFile -DestinationPath $outFolder -Force
 
   if($CreateFolder){
-    $folderName = [System.IO.Path]::GetFileNameWithoutExtension($fileName)
-    $outputFolder = Join-Path $outputFolder $folderName
+    # if there's a need to create a folder, we search in the temp directory 
+    # otherwise we search the first folder inside the outFolder
+    # NOTE: this only works if extracted archives are single directory
+    $outFolder = $temp;
   }
-  & "${env:ProgramFiles}\7-Zip\7z.exe" x $outFile "-o$outputFolder" -y | Out-Null
 
-  # Return the latest created folder
-  return Get-ChildItem -Path $temp -Directory | Sort-Object CreationTime -Descending | Select-Object -First 1
+  return Get-ChildItem -Path $outFolder -Directory | Sort-Object CreationTime -Descending | Select-Object -First 1
 }
 
 function InstallFonts {
@@ -94,7 +97,8 @@ function InstallPrograms {
     [Environment]::SetEnvironmentVariable("Path", $env:Path +";$apps\$($mingwFolder.Name)\bin", [EnvironmentVariableTarget]::Machine)
   #>
   $altGrlFolder = DownloadAndDecompress $altGrUrl
-  Start-Process -FilePath "$($altGrlFolder.FullName)/setup.exe"
+  $params = "/i", "$($altGrlFolder.FullName)/us-inter_amd64.msi", "/passive"
+  Start-Process 'msiexec.exe' -ArgumentList $params
 }
 
 function SetupDotFiles{
