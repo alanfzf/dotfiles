@@ -94,7 +94,7 @@ function InstallPrograms {
     [Environment]::SetEnvironmentVariable("Path", $env:Path +";$apps\$($mingwFolder.Name)\bin", [EnvironmentVariableTarget]::Machine)
   #>
   $altGrlFolder = DownloadAndDecompress $altGrUrl
-  Start-Process -FilePath "$altGrlFolder/setup.exe"
+  Start-Process -FilePath "$($altGrlFolder.FullName)/setup.exe"
 }
 
 function SetupDotFiles{
@@ -107,6 +107,8 @@ function SetupDotFiles{
   $wtPath = Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*" | Select-Object -First 1 -Expand FullName
   $wtPath =  "$wtPath/LocalState/"
   $profilePath = Split-Path -Path $PROFILE -Parent
+  # small hack if we are on fucking powershell 5
+  $profilePath = $profilePath -replace "Windows", ""
 
   # **** CREATE SYMLINKS ****
   $symLinks = @{
