@@ -97,7 +97,8 @@ function InstallPrograms {
     [Environment]::SetEnvironmentVariable("Path", $env:Path +";$apps\$($mingwFolder.Name)\bin", [EnvironmentVariableTarget]::Machine)
   #>
   $altGrlFolder = DownloadAndDecompress $altGrUrl
-  Start-Process 'msiexec.exe' -ArgumentList "/i `"$($altGrlFolder.FullName)/us-inter_amd64.msi`" /passive"
+  $altGrlFolder = Join-Path $altGrlFolder.FullName "us-inter_amd64.msi"
+  Start-Process 'msiexec.exe' -ArgumentList "/i `"$altGrlFolder`" /passive"
 }
 
 function SetupDotFiles{
