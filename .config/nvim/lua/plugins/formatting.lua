@@ -11,7 +11,7 @@ return {
         php = { "php_cs_fixer" },
         blade = { "blade-formatter" },
       },
-      format_on_save = {
+      format_after_save = {
         lsp_fallback = false,
         async = false,
         timeout_ms = 1500,
