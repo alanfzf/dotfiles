@@ -13,7 +13,7 @@ return {
       },
       format_after_save = {
         lsp_fallback = false,
-        async = false,
+        async = true,
         timeout_ms = 1500,
       },
       formatters = {

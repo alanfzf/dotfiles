@@ -4,6 +4,6 @@ return {
     dependencies = {
       "https://github.com/nvim-lua/plenary.nvim",
     },
-    ft = "php",
+    ft = { "php", "blade" },
   },
 }

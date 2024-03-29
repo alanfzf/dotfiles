@@ -3,9 +3,7 @@ local M = {}
 -- list of available servers: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 local mason_list = {
   "blade-formatter",
-  "css-lsp",
   "emmet-language-server",
-  "html-lsp",
   "intelephense",
   "lua-language-server",
   "marksman",
@@ -19,9 +17,6 @@ local mason_list = {
 
 -- lsp servers
 local lsp_servers = {
-  cssls = {
-    filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "blade" },
-  },
   intelephense = {
     init_options = {
       -- globalStoragePath =  vim.fn.expand('$HOME/.intelephense')
@@ -36,12 +31,6 @@ local lsp_servers = {
     single_file_support = true,
     filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "blade" },
   },
-  -- HTML
-  html = {
-    single_file_support = true,
-    filetypes = { "html", "htmldjango", "blade" },
-  },
-
   -- LUA
   lua_ls = {
     single_file_support = false,
