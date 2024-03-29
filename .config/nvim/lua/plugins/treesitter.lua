@@ -7,16 +7,28 @@ return {
       "windwp/nvim-ts-autotag",
       event = "VeryLazy",
       config = function()
-        require('nvim-ts-autotag').setup({
-          filetypes = { "html", "xml", "typescriptreact", "javascriptreact", "jsx", "tsx", "htmldjango", "blade", "php" }
+        require("nvim-ts-autotag").setup({
+          filetypes = {
+            "html",
+            "xml",
+            "typescriptreact",
+            "javascriptreact",
+            "jsx",
+            "tsx",
+            "htmldjango",
+            "blade",
+            "php",
+          },
         })
-      end
-    }
+      end,
+    },
   },
   config = function()
     local treesitter = require("nvim-treesitter.configs")
     local install_opts = require("nvim-treesitter.install")
-    install_opts.prefer_git = false;
+    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+    install_opts.prefer_git = false
     -- basic treesitter setup
     treesitter.setup({
       auto_install = true,
@@ -27,11 +39,20 @@ return {
         additional_vim_regex_higlighting = false,
       },
       indent = {
-        enable  = true,
-        disable = { "htmldjango" }
+        enable = true,
+        disable = { "htmldjango" },
       },
       autopairs = { enable = true },
       autotag = { enable = true },
     })
-  end
+
+    parser_config.blade = {
+      filetype = "blade",
+      install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = { "src/parser.c" },
+        branch = "main",
+      },
+    }
+  end,
 }
