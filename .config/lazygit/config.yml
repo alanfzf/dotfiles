@@ -8,7 +8,6 @@ gui:
   mouseEvents: false
 git:
   parseEmoji: true
-
 customCommands:
   - key: "<c-c>"
     context: "files"
@@ -18,104 +17,101 @@ customCommands:
         title: "What kind of commit type is it?"
         key: "Type"
         options:
-          - name: "fix"
-            description: "バグや不具合の修正"
-            value: "fix"
-          - name: "feat"
-            description: "新機能の追加"
-            value: "feat"
-          - name: "docs"
-            description: "ドキュメントの更新や改善"
-            value: "docs"
-          - name: "style"
-            description: "コードフォーマットの修正、UIのみの変更"
-            value: "style"
-          - name: "refactor"
-            description: "パフォーマンスの改善なしのコードの改善"
-            value: "refactor"
-          - name: "test"
-            description: "テストの追加や改善"
-            value: "test"
-          - name: "perf"
-            description: "パフォーマンスの改善"
-            value: "perf"
-          - name: "chore"
-            description: "ビルドプロセスの変更や改善"
-            value: "chore"
-          - name: "wip"
-            description: "作業中"
-            value: "wip"
+          - name: "✨ Feature"
+            description: ""
+            value: ":sparkles: (feat)"
+
+          - name: "🏗️ Refactor"
+            description: ""
+            value: ":building_construction: (refactor)"
+
+          - name: "🚧 Work in progress"
+            description: ""
+            value: ":construction: (wip)"
+
+          - name: "🗑️ Remove code"
+            description: ""
+            value: ":wastebasket: (removed)"
+
+          - name: "🐛 Bug fix"
+            description: ""
+            value: ":bug: (bugfix)"
+
+          - name: "🚑️ Critical hotfix"
+            description: ""
+            value: ":ambulance: (c. hotfix)"
+
+          - name: "🩹 Hotfix"
+            description: ""
+            value: ":adhesive_bandage: (hotfix)"
+
+          - name: "📝 Documentation"
+            description: ""
+            value: ":memo: (doc)"
+
+          - name: "🧪 Test"
+            description: ""
+            value: ":test_tube: (test)"
+
+          - name: "⚡️Performance"
+            description: ""
+            value: ":zap: (perf)"
+
+          - name: "💥 Breaking"
+            description: ""
+            value: ":boom: (breaking)"
+
+          - name: "⏪️ Revert changes"
+            description: ""
+            value: ":rewind: (revert)"
+
+          - name: "🔀 Merge"
+            description: ""
+            value: ":twisted_rightwards_arrows: (merge)"
+
+          - name: "🏷️ Release"
+            description: ""
+            value: ":label: (release)"
+
+          - name: "🚀 Deploy"
+            description: ""
+            value: ":rocket: (deploy)"
+
+          - name: "📦️ Dependencies"
+            description: ""
+            value: ":package: (dep)"
+
+          - name: "🗃️ Database"
+            description: ""
+            value: ":card_file_box: (db)"
+
+          - name: "🌱 Seed"
+            description: ""
+            value: ":seedling: (seed)"
+
+          - name: "🛂 Permissions"
+            description: ""
+            value: ":passport_control: (perms)"
+
+          - name: "👷 CI/CD"
+            description: ""
+            value: ":construction_worker: (ci/cd)"
+
+          - name: "💄 UI/UX"
+            description: ""
+            value: ":lipstick: (ui/ux)"
+
+          - name: "🎉 New project"
+            description: ""
+            value: ":tada: (start)"
+
       - type: "input"
-        title: "(Optional) Enter the scope"
-        key: "Scope"
-        initialValue: ""
-      - type: "input"
-        title: "Enter the Message"
+        title: "Enter the commit message"
         key: "Message"
         initialValue: ""
-      - type: "menu"
-        title: "Choise the emoji"
-        key: "Emoji"
-        options:
-          - name: '(empty)'
-            description: ''
-            value: ''
-          - name: ':ambulance:'
-            description: '(fix)🚑'
-            value: ':ambulance:'
-          - name: ':bug:'
-            description: '(fix)🐛'
-            value: ':bug:'
-          - name: ':+1:'
-            description: '(fix)👍'
-            value: ':+1:'
-          - name: ':cop:'
-            description: '(fix)👮'
-            value: ':cop:'
-          - name: ':tada'
-            description: '(feat)🎉'
-            value: ':tada:'
-          - name: ':sparkles:'
-            description: '(feat)✨'
-            value: ':sparkles:'
-          - name: ':up:'
-            description: '(feat)🆙'
-            value: ':up:'
-          - name: ':memo:'
-            description: '(docs)📝'
-            value: ':memo:'
-          - name: ':bulb'
-            description: '(docs)💡'
-            value: ':bulb:'
-          - name: ':art:'
-            description: '(style)🎨'
-            value: ':art:'
-          - name: ':lipstick:'
-            description: '(style)💄'
-            value: ':lipstick:'
-          - name: ':recycle:'
-            description: '(refactor)♻️ '
-            value: ':recycle:'
-          - name: ':fire:'
-            description: '(refactor)🔥'
-            value: ':fire:'
-          - name: ':green_heart:'
-            description: '(test)💚'
-            value: ':green_heart:'
-          - name: ':rocket:'
-            description: '(perf)🚀'
-            value: ':rocket:'
-          - name: ':wrench:'
-            description: '(chore)🔧'
-            value: ':wrench:'
-          - name: ':building_construction:'
-            description: '(chore)🏗️'
-            value: ':building_construction:'
-          - name: ':construction:'
-            description: '(wip)🚧作業中'
-            value: ':construction:'
+
       - type: "confirm"
         title: "Commit"
-        body: "Commit with the message '{{.Form.Type}}{{.Form.Scope}}: {{.Form.Message}}{{.Form.Emoji}}'. Is this okay?"
-    command: "bash -c 'type=\"{{.Form.Type}}\"; scope=\"{{.Form.Scope}}\"; message=\"{{.Form.Message}}\"; emoji=\"{{.Form.Emoji}}\"; commit_message=\"$type${scope:+($scope)}: $message $emoji\"; git commit -m \"$commit_message\"'"
+        body: "Commit with the message '{{.Form.Type}}: {{.Form.Message}}'. Is this okay?"
+    command: "bash -c 'type=\"{{.Form.Type}}\"; message=\"{{.Form.Message}}\"; commit_message=\"$type: $message\"; git commit -m \"$commit_message\"'"
     loadingText: "Commiting..."
