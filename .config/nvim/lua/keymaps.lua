@@ -6,7 +6,7 @@ vim.g.maplocalleader = " "
 
 -- TODO: REFACTOR THIS FUNCTION OUT OF HERE.
 local function get_root_dir()
-  local path = vim.fn.systemlist("git -C "..vim.fn.expand("%:p:h").." rev-parse --show-toplevel")[1]
+  local path = vim.fn.systemlist("git -C " .. vim.fn.expand("%:p:h") .. " rev-parse --show-toplevel")[1]
   if vim.v.shell_error ~= 0 then
     path = vim.lsp.buf.list_workspace_folders()[1]
   end
@@ -14,25 +14,25 @@ local function get_root_dir()
 end
 
 --[[ * ALL MODES * ]]
-keymap("", "<leader>d", "\"_dd", { remap = true })
+keymap("", "<leader>d", '"_dd', { remap = true })
 keymap("", "<S-h>", "^", { remap = true })
 keymap("", "<S-l>", "$", { remap = true })
 keymap("", "q", "<Nop>", { remap = true })
 
 --[[ * COMMAND MODE *  ]]
-keymap('c', '<C-A>', '<Home>', { noremap = true })
-keymap('c', '<C-B>', '<Left>', { noremap = true })
-keymap('c', '<C-D>', '<Del>', { noremap = true })
-keymap('c', '<C-E>', '<End>', { noremap = true })
-keymap('c', '<C-F>', '<Right>', { noremap = true })
-keymap('c', '<C-N>', '<Down>', { noremap = true })
-keymap('c', '<C-P>', '<Up>', { noremap = true })
-keymap('c', '<M-b>', '<S-Left>', { noremap = true })
-keymap('c', '<M-f>', '<S-Right>', { noremap = true })
-keymap('c', '<C-K>', [[<C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>]], { noremap = true })
+keymap("c", "<C-A>", "<Home>", { noremap = true })
+keymap("c", "<C-B>", "<Left>", { noremap = true })
+keymap("c", "<C-D>", "<Del>", { noremap = true })
+keymap("c", "<C-E>", "<End>", { noremap = true })
+keymap("c", "<C-F>", "<Right>", { noremap = true })
+keymap("c", "<C-N>", "<Down>", { noremap = true })
+keymap("c", "<C-P>", "<Up>", { noremap = true })
+keymap("c", "<M-b>", "<S-Left>", { noremap = true })
+keymap("c", "<M-f>", "<S-Right>", { noremap = true })
+keymap("c", "<C-K>", [[<C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>]], { noremap = true })
 
 --[[ * NORMAL MODE *  ]]
-keymap('n', "cc", "\"_cc")
+keymap("n", "cc", '"_cc')
 -- yank without next line
 keymap("n", "<S-y>", "y$")
 -- fix j,k on virtual lines
@@ -76,11 +76,11 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 --[[ * OTHER PLUGINS *  ]]
 -- FZF LUA
-keymap("n", "<leader>ff", function ()
-  require('fzf-lua').files({ cwd = get_root_dir()})
+keymap("n", "<leader>ff", function()
+  require("fzf-lua").files({ cwd = get_root_dir() })
 end, opts)
-keymap("n", "<leader>fg", function ()
-  require('fzf-lua').live_grep({ cwd = get_root_dir()})
+keymap("n", "<leader>fg", function()
+  require("fzf-lua").live_grep({ cwd = get_root_dir() })
 end, opts)
 keymap("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", opts)
 keymap("n", "<leader>fc", "<cmd>FzfLua colorschemes<CR>", opts)
