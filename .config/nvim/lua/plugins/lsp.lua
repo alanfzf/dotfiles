@@ -45,7 +45,7 @@ function M.config()
     end
   end
 
-  local configs = require("utils.lsp-settings").servers
+  local configs = require("utils.lsp-settings").lsp_configs()
 
   for name, conf in pairs(configs) do
     local opts = {

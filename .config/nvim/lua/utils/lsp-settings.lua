@@ -1,47 +1,65 @@
 local M = {}
 
 -- list of available servers: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
-M.servers = {
+local mason_list = {
+  "blade-formatter",
+  "css-lsp",
+  "emmet-language-server",
+  "html-lsp",
+  "intelephense",
+  "lua-language-server",
+  "marksman",
+  "php-cs-fixer",
+  "prettier",
+  "pyright",
+  "stylua",
+  "texlab",
+  "typescript-language-server",
+}
+
+-- lsp servers
+local lsp_servers = {
   cssls = {
-    filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "blade"}
+    filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "blade" },
   },
   intelephense = {
     init_options = {
-          globalStoragePath =  vim.fn.expand('$HOME/.intelephense')
-      }
+      -- globalStoragePath =  vim.fn.expand('$HOME/.intelephense')
+      -- can't use this as licence is not triggered
+    },
   },
   texlab = {},
-  -- MARKDOWN 
+  -- MARKDOWN
   marksman = {},
   -- EMMET
   emmet_language_server = {
     single_file_support = true,
-    filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "blade"}
+    filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "blade" },
   },
-  -- POWERSHELL
   -- HTML
   html = {
     single_file_support = true,
-    filetypes = { "html", "htmldjango", "blade"}
+    filetypes = { "html", "htmldjango", "blade" },
   },
+
   -- LUA
   lua_ls = {
     single_file_support = false,
     settings = {
       Lua = {
-        runtime = { version = 'LuaJIT' },
+        runtime = { version = "LuaJIT" },
         diagnostics = {
-          globals = { 'vim' },
+          globals = { "vim" },
           disable = {
             "missing-fields",
-            "incomplete-signature-doc"
+            "incomplete-signature-doc",
           },
-          unusedLocalExclude = {"_*"}
+          unusedLocalExclude = { "_*" },
         },
         workspace = {
           library = {
-            [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-            [vim.fn.stdpath('config')] = true,
+            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+            [vim.fn.stdpath("config")] = true,
           },
         },
         telemetry = { enable = false },
@@ -50,9 +68,9 @@ M.servers = {
   },
   -- TS & JS
   tsserver = {
-    single_file_support = false
+    single_file_support = false,
   },
-  -- PYTHON 
+  -- PYTHON
   pyright = {
     single_file_support = false,
     settings = {
@@ -65,17 +83,12 @@ M.servers = {
   },
 }
 
-M.install_list = function ()
-  local sv_list = M.servers
-  local install = {}
-  local n = 0
+M.install_list = function()
+  return mason_list
+end
 
-  for k, _ in pairs(sv_list) do
-    n = n+1
-    install[n] = k
-  end
-
-  return install
+M.lsp_configs = function()
+  return lsp_servers
 end
 
 return M
