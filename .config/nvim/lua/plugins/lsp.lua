@@ -1,17 +1,8 @@
-local M = {
-  "neovim/nvim-lspconfig",
-  lazy = true,
-  dependencies = {
-    { "hrsh7th/cmp-nvim-lsp" },
-  },
-}
-
-function M.config()
+local setup_lsp_servers = function()
   local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
+  capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
   local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
@@ -38,7 +29,7 @@ function M.config()
     lsp_keymaps(bufnr)
   end
 
-  local on_init = function(client, initialization_result)
+  local on_init = function(client, _initialization_result)
     if client.server_capabilities then
       client.server_capabilities.documentFormattingProvider = false
       client.server_capabilities.semanticTokensProvider = false -- turn off semantic tokens
@@ -94,5 +85,34 @@ function M.config()
     border = "rounded",
   })
 end
+
+local M = {
+  "neovim/nvim-lspconfig",
+  config = function()
+    setup_lsp_servers()
+  end,
+  dependencies = {
+    {
+      { "hrsh7th/cmp-nvim-lsp" },
+      {
+        "williamboman/mason.nvim",
+        cmd = "Mason",
+        event = "BufReadPre",
+        dependencies = {
+          "WhoIsSethDaniel/mason-tool-installer.nvim",
+        },
+        config = function()
+          require("mason").setup({
+            ui = {
+              border = "rounded",
+            },
+            log_level = vim.log.levels.INFO,
+            max_concurrent_installers = 4,
+          })
+        end,
+      },
+    },
+  },
+}
 
 return M
