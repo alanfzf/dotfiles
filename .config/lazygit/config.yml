@@ -10,7 +10,7 @@ git:
   parseEmoji: true
 customCommands:
   # credits: https://zenn.dev/glaucus03/articles/52886a4331d545
-  - key: "<c-c>"
+  - key: "G"
     context: "files"
     description: 'commit files with format'
     prompts:
@@ -29,6 +29,10 @@ customCommands:
           - name: "🚧 Work in progress"
             description: ""
             value: ":construction: (wip)"
+
+          - name: "🔧 Small tweak"
+            description: ""
+            value: ":wrench: (tweak)"
 
           - name: "🗑️ Remove code"
             description: ""
