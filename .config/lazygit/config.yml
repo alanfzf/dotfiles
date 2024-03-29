@@ -9,6 +9,7 @@ gui:
 git:
   parseEmoji: true
 customCommands:
+  # credits: https://zenn.dev/glaucus03/articles/52886a4331d545
   - key: "<c-c>"
     context: "files"
     description: 'commit files with format'
