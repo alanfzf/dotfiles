@@ -2,6 +2,7 @@ local M = {}
 
 -- list of available servers: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 local mason_list = {
+  "omnisharp",
   "blade-formatter",
   "emmet-language-server",
   "intelephense",
@@ -17,6 +18,11 @@ local mason_list = {
 
 -- lsp servers
 local lsp_servers = {
+  omnisharp = {
+    cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+    enable_import_completion = true,
+    enable_roslyn_analyzers = true,
+  },
   intelephense = {
     init_options = {
       -- globalStoragePath =  vim.fn.expand('$HOME/.intelephense')
