@@ -17,7 +17,7 @@ return {
     local luasnip = require("luasnip")
     -- Load my snippets
     require("luasnip.loaders.from_vscode").lazy_load()
-    require("luasnip.loaders.from_vscode").lazy_load({ paths =  "./snippets/" })
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = "./snippets/" })
     -- additional configs
     luasnip.filetype_extend("javascript", { "jsdoc" })
     luasnip.filetype_extend("php", { "phpdoc", "blade" })
@@ -51,25 +51,30 @@ return {
     }
 
     cmp.setup({
+      view = {
+        entries = {
+          follow_cursor = true,
+        },
+      },
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
-        end
+        end,
       },
       mapping = cmp.mapping.preset.insert({
         -- movements
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-1),
-        ['<C-f>'] = cmp.mapping.scroll_docs(1),
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-1),
+        ["<C-f>"] = cmp.mapping.scroll_docs(1),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
       }),
       sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'buffer' },
-        { name = 'bootstrap' },
-        { name = 'path' }
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "bootstrap" },
+        { name = "path" },
       },
       formatting = {
         fields = { "abbr", "kind", "menu" },
@@ -85,5 +90,5 @@ return {
         end,
       },
     })
-  end
+  end,
 }
