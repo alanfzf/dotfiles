@@ -34,6 +34,10 @@ customCommands:
             description: ""
             value: ":wrench: (tweak)"
 
+          - name: "🎨 Code formatting"
+            description: ""
+            value: ":art: (format)"
+
           - name: "🗑️ Remove code"
             description: ""
             value: ":wastebasket: (removed)"
@@ -42,13 +46,9 @@ customCommands:
             description: ""
             value: ":bug: (bugfix)"
 
-          - name: "🚑️ Critical hotfix"
+          - name: "🚑️ Hotfix"
             description: ""
-            value: ":ambulance: (c. hotfix)"
-
-          - name: "🩹 Hotfix"
-            description: ""
-            value: ":adhesive_bandage: (hotfix)"
+            value: ":ambulance: (hotfix)"
 
           - name: "📝 Documentation"
             description: ""
