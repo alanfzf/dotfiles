@@ -6,11 +6,18 @@ vim.g.maplocalleader = " "
 
 -- TODO: REFACTOR THIS FUNCTION OUT OF HERE.
 local function get_root_dir()
+  local lsp_loc = vim.lsp.buf.list_workspace_folders()[1]
+
+  if lsp_loc then
+    return lsp_loc
+  end
+
   local path = vim.fn.systemlist("git -C " .. vim.fn.expand("%:p:h") .. " rev-parse --show-toplevel")[1]
   if vim.v.shell_error ~= 0 then
-    path = vim.lsp.buf.list_workspace_folders()[1]
+    return path
   end
-  return path
+
+  return nil
 end
 
 --[[ * ALL MODES * ]]
