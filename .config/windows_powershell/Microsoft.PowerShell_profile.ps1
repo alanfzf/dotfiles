@@ -7,7 +7,7 @@ Remove-Alias sl -Force -ErrorAction SilentlyContinue
 Remove-Alias ls -Force -ErrorAction SilentlyContinue
 
 function Ls(){
-  eza -s extension $args
+  eza -l --icons -s extension $args
 }
 
 function Rf(){
