@@ -74,9 +74,9 @@ symbol = ' '
 disabled = false
 
 [character]
-error_symbol = "[λ](bold red)"
-success_symbol = "[λ](bold green)"
-vimcmd_symbol = "[λ](bold yellow)"
+error_symbol = "[](bold red)"
+success_symbol = "[](bold green)"
+vimcmd_symbol = "[](bold yellow)"
 
 # ==== MORE INTERESTING STUFF TO IMPLEMENT ====
 # https://starship.rs/config/#battery
