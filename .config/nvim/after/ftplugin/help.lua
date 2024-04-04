@@ -1,1 +1,1 @@
-vim.cmd[[wincmd L]]
+vim.cmd([[wincmd L]])

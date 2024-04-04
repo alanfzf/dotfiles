@@ -2,9 +2,9 @@ vim.g.SCHEME = "habamax"
 
 -- Resize splits if window is resized.
 vim.api.nvim_create_autocmd("VimResized", {
-  callback = function ()
+  callback = function()
     vim.cmd("tabdo wincmd =")
-  end
+  end,
 })
 
 -- Remove annoying comment behavior
@@ -16,13 +16,13 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 vim.api.nvim_create_autocmd("VimEnter", {
   nested = true,
-  callback = function ()
+  callback = function()
     pcall(vim.cmd.colorscheme, vim.g.SCHEME)
-  end
+  end,
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = function (params)
+  callback = function(params)
     vim.g.SCHEME = params.match
-  end
+  end,
 })
