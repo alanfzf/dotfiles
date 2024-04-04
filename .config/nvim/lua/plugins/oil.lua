@@ -1,5 +1,5 @@
 return {
-  'stevearc/oil.nvim',
+  "stevearc/oil.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     require("oil").setup({
@@ -10,9 +10,9 @@ return {
         -- "size",
         -- "mtime",
       },
-      lsp_rename_autossave= true,
+      lsp_rename_autossave = true,
       constrain_cursor = "name",
-      keymaps ={
+      keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
         ["<C-s>"] = "actions.select_vsplit",
@@ -27,11 +27,11 @@ return {
         ["~"] = "actions.tcd",
         ["gs"] = "actions.change_sort",
         ["gx"] = "actions.open_external",
-        ["<A-h>"] = "actions.toggle_hidden",
+        ["g."] = "actions.toggle_hidden",
         ["g\\"] = "actions.toggle_trash",
       },
       -- Set to false to disable all of the above keymaps
       use_default_keymaps = false,
     })
-  end
+  end,
 }
