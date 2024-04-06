@@ -5,7 +5,7 @@ gui:
   showIcons: true
   showBottomLine: false
   showRandomTip: false
-  showCommandLog: true
+  showCommandLog: false
   border: rounded
   mouseEvents: false
   nerdFontsVersion: "3"
@@ -23,97 +23,96 @@ customCommands:
         key: "Type"
         options:
           - name: "✨ Feature"
-            description: ""
+            description: "Introducing new features or functionalities."
             value: ":sparkles: (feat)"
 
           - name: "🏗️ Refactor"
-            description: ""
+            description: "Restructuring existing code without changing its external behavior."
             value: ":building_construction: (refactor)"
 
           - name: "🚧 Work in progress"
-            description: ""
+            description: "Work that is in progress but not yet completed."
             value: ":construction: (wip)"
 
           - name: "🔧 Small tweak"
-            description: ""
+            description: "Minor adjustments or modifications."
             value: ":wrench: (tweak)"
 
           - name: "🎨 Code formatting"
-            description: ""
+            description: "Changes related to code formatting or style."
             value: ":art: (format)"
 
           - name: "🗑️ Remove code"
-            description: ""
+            description: "Removing unnecessary or unused code."
             value: ":wastebasket: (removed)"
 
           - name: "🐛 Bug fix"
-            description: ""
+            description: "Fixing bugs or errors in the codebase."
             value: ":bug: (bugfix)"
 
           - name: "🚑️ Hotfix"
-            description: ""
+            description: "Urgent fixes for critical issues in production."
             value: ":ambulance: (hotfix)"
 
           - name: "📝 Documentation"
-            description: ""
+            description: "Updates or additions to documentation."
             value: ":memo: (doc)"
 
           - name: "🧪 Test"
-            description: ""
+            description: "Adding, modifying, or improving tests."
             value: ":test_tube: (test)"
 
           - name: "⚡️Performance"
-            description: ""
+            description: "Improvements related to performance."
             value: ":zap: (perf)"
 
           - name: "💥 Breaking"
-            description: ""
+            description: "Changes that introduce breaking changes to the codebase."
             value: ":boom: (breaking)"
 
           - name: "⏪️ Revert changes"
-            description: ""
+            description: "Reverting previous commits or changes."
             value: ":rewind: (revert)"
 
           - name: "🔀 Merge"
-            description: ""
+            description: "Merging branches or pull requests."
             value: ":twisted_rightwards_arrows: (merge)"
 
           - name: "🏷️ Release"
-            description: ""
+            description: "Creating a new release version."
             value: ":label: (release)"
 
           - name: "🚀 Deploy"
-            description: ""
+            description: "Deploying changes to a production environment."
             value: ":rocket: (deploy)"
 
           - name: "📦️ Dependencies"
-            description: ""
+            description: "Updates or changes related to dependencies."
             value: ":package: (dep)"
 
           - name: "🗃️ Database"
-            description: ""
+            description: "Changes or modifications to the database schema or data."
             value: ":card_file_box: (db)"
 
           - name: "🌱 Seed"
-            description: ""
+            description: "Initial data setup or population for the database."
             value: ":seedling: (seed)"
 
           - name: "🛂 Permissions"
-            description: ""
+            description: "Changes related to access control or permissions."
             value: ":passport_control: (perms)"
 
           - name: "👷 CI/CD"
-            description: ""
+            description: "Changes to continuous integration or continuous deployment configurations."
             value: ":construction_worker: (ci/cd)"
 
           - name: "💄 UI/UX"
-            description: ""
+            description: "Improvements or changes to user interface or user experience."
             value: ":lipstick: (ui/ux)"
 
           - name: "🎉 New project"
-            description: ""
+            description: "Starting a new project or initializing a repository."
             value: ":tada: (start)"
-
       - type: "input"
         title: "Enter the commit message"
         key: "Message"
