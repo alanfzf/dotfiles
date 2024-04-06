@@ -35,7 +35,7 @@ crust = "#11111b"
 # ==== OS ====
 [os]
 format = "on [$symbol]($style)"
-style = "bold blue"
+style = "bold peach"
 disabled = false
 
 
@@ -83,6 +83,10 @@ symbol = ' '
 
 [package]
 symbol = '󰏗 '
+
+[hostname]
+ssh_symbol = '󰒋 '
+style = 'mauve'
 
 # cloud
 [aws]
