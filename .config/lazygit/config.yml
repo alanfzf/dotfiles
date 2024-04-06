@@ -4,10 +4,14 @@ gui:
   nerdFontsVersion: "3"
   showIcons: true
   showBottomLine: false
+  showRandomTip: false
+  showCommandLog: true
   border: rounded
   mouseEvents: false
+  nerdFontsVersion: "3"
 git:
   parseEmoji: true
+  overrideGpg: true 
 customCommands:
   # credits: https://zenn.dev/glaucus03/articles/52886a4331d545
   - key: "G"
