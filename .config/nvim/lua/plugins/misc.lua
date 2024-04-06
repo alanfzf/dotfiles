@@ -21,4 +21,10 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     ft = { "html", "svelte", "astro", "vue", "typescriptreact", "php", "blade" },
   },
+  {
+    "https://github.com/LunarVim/bigfile.nvim",
+    config = function()
+      require("bigfile").setup({})
+    end,
+  },
 }
