@@ -104,7 +104,7 @@ function InstallPrograms {
 function SetupDotFiles{
   # Git related stuff
   $gitCmd = "${env:ProgramFiles}/Git/bin/git.exe"
-  $dotfiles = "$HOME/dotfiles/"
+  $dotfiles = "$HOME/.dotfiles/"
   & $gitCmd clone "https://github.com/alanfzf/dotfiles" $dotfiles
 
   # weird fucking paths
@@ -193,7 +193,6 @@ function RemovePrograms{
     "Microsoft.MicrosoftOfficeHub"
     "Microsoft.MicrosoftSolitaireCollection"
     "Microsoft.MicrosoftStickyNotes"
-    "Microsoft.Paint"
     "Microsoft.People"
     "Microsoft.PowerAutomateDesktop"
     "Microsoft.Todos"
