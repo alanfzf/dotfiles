@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = {}
 
-config.color_scheme = "Dracula"
+config.color_scheme = "Catppuccin Macchiato"
 config.font_size = 14
 config.hide_tab_bar_if_only_one_tab = true
 config.window_background_opacity = 0.80
@@ -18,7 +18,7 @@ end
 config.leader = {
 	key = "q",
 	mods = "CTRL",
-	timeout_milliseconds = 500,
+	timeout_milliseconds = 1000,
 }
 
 config.keys = {
@@ -26,14 +26,34 @@ config.keys = {
 	{ key = "j", mods = "LEADER", action = act({ ActivatePaneDirection = "Down" }) },
 	{ key = "k", mods = "LEADER", action = act({ ActivatePaneDirection = "Up" }) },
 	{ key = "l", mods = "LEADER", action = act({ ActivatePaneDirection = "Right" }) },
-	{ key = "b", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	{ key = "v", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "b", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "z", mods = "LEADER", action = "TogglePaneZoomState" },
-	{ key = "p", mods = "LEADER", action = act({ PasteFrom = "Clipboard" }) },
-	{ key = "y", mods = "LEADER", action = act({ CopyTo = "Clipboard" }) },
 	{ key = "o", mods = "LEADER", action = act.PaneSelect },
-	{ key = "f", mods = "SHIFT|CTRL", action = act.Search({ CaseInSensitiveString = "" }) },
-	-- activate copy mode shift ctrl x
+	{ key = "[", mods = "LEADER", action = wezterm.action.ActivateCopyMode },
+	{ key = "R", mods = "LEADER", action = act.ReloadConfiguration },
+}
+
+local copy_mode = wezterm.gui.default_key_tables().copy_mode
+local custom_copy_mode = {
+	{ key = "Escape", mods = "NONE", action = wezterm.action({ CopyMode = "Close" }) },
+	{ key = "H", mods = "NONE", action = act.CopyMode("MoveToStartOfLineContent") },
+	{ key = "L", mods = "NONE", action = act.CopyMode("MoveToEndOfLineContent") },
+	{ key = "/", mods = "NONE", action = wezterm.action({ Search = { CaseSensitiveString = "" } }) },
+	{ key = "n", mods = "NONE", action = wezterm.action({ CopyMode = "NextMatch" }) },
+	{ key = "N", mods = "SHIFT", action = wezterm.action({ CopyMode = "PriorMatch" }) },
+}
+
+for _, v in ipairs(custom_copy_mode) do
+	table.insert(copy_mode, v)
+end
+
+config.key_tables = {
+	copy_mode = copy_mode,
+	search_mode = {
+		{ key = "Escape", mods = "NONE", action = wezterm.action({ CopyMode = "Close" }) },
+		{ key = "Enter", mods = "NONE", action = "ActivateCopyMode" },
+	},
 }
 
 return config
