@@ -1,6 +1,6 @@
 # aliases
 alias vi="nvim"
-alias ls='ls --color'
+alias ls='eza -l --icons -s extension'
 alias gs="git status"
 alias cat="batcat"
 alias lg="lazygit"
