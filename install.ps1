@@ -122,9 +122,9 @@ function SetupDotFiles{
     "$wtPath"                 = "$dotfiles/.config/windows_terminal/"
     "$profilePath"            = "$dotfiles/.config/windows_powershell/"
     "$HOME/starship.toml"     = "$dotfiles/.config/starship.toml"
+    "$HOME/.wezterm.lua"      = "$dotfiles/.config/wezterm.lua"
     "$HOME/.ideavimrc"        = "$dotfiles/.ideavimrc"
     "$HOME/.vsvimrc"          = "$dotfiles/.vsvimrc"
-    "$HOME/.wezterm.lua"      = "$dotfiles/.wezterm.lua"
     "$HOME/.gitconfig"        = "$dotfiles/.gitconfig"
   }
 
