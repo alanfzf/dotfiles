@@ -38,7 +38,6 @@ format = "on [$symbol]($style)"
 style = "bold peach"
 disabled = false
 
-
 [os.symbols]
 Debian = " "
 
@@ -54,7 +53,7 @@ style = "bold green"
 
 # ==== [GIT] ====
 [git_branch]
-symbol = ' '
+symbol = ' '
 
 [git_metrics]
 disabled = false
