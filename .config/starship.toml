@@ -40,6 +40,10 @@ disabled = false
 
 [os.symbols]
 Debian = " "
+Windows = ' '
+Arch = '󰣇'
+Ubuntu = ''
+Macos = '󰀵'
 
 [username]
 disabled = false
@@ -49,7 +53,7 @@ show_always = false
 use_os_path_sep = false
 truncation_length = 3
 truncation_symbol = "…/"
-style = "bold green"
+style = "yellow"
 
 # ==== [GIT] ====
 [git_branch]
@@ -58,26 +62,34 @@ symbol = ' '
 [git_metrics]
 disabled = false
 
-[git_status]
+[git_status] # this module may be slow on windows machines
 disabled = false
+stashed = "≡"
+
+[git_state]
+style = "bright-black"
 
 # ==== LANGUAGES ====
 [nodejs]
+format = '[$symbol ]($style)'
 symbol = '󰎙 '
 
 [lua]
+format = '[$symbol ]($style)'
 symbol = '󰢱 '
 
 [docker_context]
 symbol = '󰡨 '
 
 [python]
+format = '[$symbol ]($style)'
 symbol = '󰌠 '
 
 [rust]
 symbol = '󱘗 '
 
 [php]
+format = '[$symbol ]($style)'
 symbol = ' '
 
 [package]
@@ -87,19 +99,13 @@ symbol = '󰏗 '
 ssh_symbol = '󰒋 '
 style = 'mauve'
 
-# cloud
+# ==== CLOUD ====
 [aws]
 format = 'on [$symbol($profile )(\($region\) )]($style)'
 symbol = ' '
 
 # ==== MISC ====
-[cmd_duration]
-disabled = false
-
 [character]
 error_symbol = "[](bold red)"
 success_symbol = "[](bold green)"
 vimcmd_symbol = "[](bold yellow)"
-
-# ==== MORE INTERESTING STUFF TO IMPLEMENT ====
-# https://starship.rs/config/#battery
