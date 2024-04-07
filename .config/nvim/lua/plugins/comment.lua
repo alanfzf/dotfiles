@@ -1,19 +1,18 @@
 return {
   {
-    "echasnovski/mini.comment",
-    event = "VeryLazy",
-    opts = {
-      options = {
-        custom_commentstring = function()
-          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
-        end,
-      },
-    },
+    "numToStr/Comment.nvim",
+    event = { "BufRead", "BufNewFile" },
+    config = function()
+      require("Comment").setup({
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      })
+    end,
+
     dependencies = {
       "JoosepAlviste/nvim-ts-context-commentstring",
-      lazy = true,
+      event = "VeryLazy",
       init = function()
-        -- vim.g.skip_ts_context_commentstring_module = true
+        vim.g.skip_ts_context_commentstring_module = true
       end,
       config = function()
         require("ts_context_commentstring").setup({
