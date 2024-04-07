@@ -35,7 +35,7 @@ crust = "#11111b"
 # ==== OS ====
 [os]
 format = "on [$symbol]($style)"
-style = "bold peach"
+style = "bold yellow"
 disabled = false
 
 [os.symbols]
@@ -53,21 +53,24 @@ show_always = false
 use_os_path_sep = false
 truncation_length = 3
 truncation_symbol = "…/"
-style = "yellow"
+style = "bold lavender"
 
 # ==== [GIT] ====
 [git_branch]
-symbol = ' '
+symbol = ' '
 
 [git_metrics]
 disabled = false
 
 [git_status] # this module may be slow on windows machines
 disabled = false
+modified = ''
 stashed = "≡"
+format = '[$all_status]($style) ' 
+style = 'peach'
 
 [git_state]
-style = "bright-black"
+style = "maroon"
 
 # ==== LANGUAGES ====
 [nodejs]
@@ -106,6 +109,6 @@ symbol = ' '
 
 # ==== MISC ====
 [character]
-error_symbol = "[](bold red)"
-success_symbol = "[](bold green)"
-vimcmd_symbol = "[](bold yellow)"
+error_symbol = "[](red)"
+success_symbol = "[](green)"
+vimcmd_symbol = "[](yellow)"
