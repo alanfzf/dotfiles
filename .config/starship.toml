@@ -55,6 +55,9 @@ truncation_length = 3
 truncation_symbol = "…/"
 style = "bold lavender"
 
+[directory.substitutions]
+'/mnt/c/Users/' = '/Windows/'
+
 # ==== [GIT] ====
 [git_branch]
 symbol = ' '
