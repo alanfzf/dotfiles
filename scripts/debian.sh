@@ -24,7 +24,7 @@ sudo apt install -y \
 # Os management related apps
 sudo apt install -y \
   zsh thunar kitty feh scrot \
-  brightnessctl pulseaudio rofi volumeicon-alsa
+  brightnessctl pulseaudio rofi volumeicon-alsa notification-daemon cbatticon
 
 # Tools
 sudo apt install -y \
