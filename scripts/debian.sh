@@ -17,19 +17,19 @@ sudo apt install -y \
   libxkbcommon-dev libxkbcommon-x11-dev
 
 # Basic operating system stuff
-sudo apt instlal -y \
+sudo apt install -y \
   lightdm slick-greeter picom gvfs-backends \
   pipewire pipewire-pulse
 
 # Os management related apps
 sudo apt install -y \
-  fish thunar kitty feh scrot \
+  zsh thunar kitty feh scrot \
   brightnessctl pulseaudio rofi volumeicon-alsa
 
 # Tools
 sudo apt install -y \
   curl fuse build-essential git gh fzf \
-  fd-find nodejs npm tmux bat ripgrep zoxide zsh
+  fd-find nodejs npm tmux bat ripgrep zoxide
 
 cd $TEMPDIR
 
@@ -41,7 +41,7 @@ sudo fc-cache -f -v
 
 
 # Create desktop entry for qtile
-sudo cat > /usr/share/xsessions/qtile.desktop << EOF
+sudo tee /usr/share/xsessions/qtile.desktop << EOF > /dev/null
 [Desktop Entry]
 Name=qtile
 Exec=qtile start
@@ -58,7 +58,7 @@ sudo systemctl --user --now enable pipewire pipewire-pulse
 # **** INSTALL QTILE ****
 mkdir -p $QTDIR
 cd $QTDIR
-python 3 -m venv qtile_venv
+python3 -m venv qtile_venv
 cd ./qtile_venv
 git clone $QTURL
 ./bin/pip install qtile/.
