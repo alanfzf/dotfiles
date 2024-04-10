@@ -9,6 +9,7 @@ if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]:
 $temp = "$env:TEMP/files/"
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
 $altGrUrl = "https://github.com/thomasfaingnaert/win-us-intl-altgr/releases/download/v1.0/us-inter.zip"
+$repoUrl = "https://github.com/alanfzf/dotfiles/archive/master.zip"
 
 New-Item -ItemType Directory -Path $temp -Force | Out-Null
 
@@ -82,9 +83,18 @@ function InstallPrograms {
   $altGrlFolder = DownloadAndDecompress $altGrUrl
   $altGrlFolder = Join-Path $altGrlFolder.FullName "us-inter_amd64.msi"
   Start-Process 'msiexec.exe' -ArgumentList "/i `"$altGrlFolder`" /passive"
+
+  # **** ENABLE WSL ****
+  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 
 }
 
 function SetupDotFiles{
+
+  $repo = DownloadAndDecompress $repoUrl
+  $dotfiles = "$HOME/.dotfiles/"
+  Move-item -Path $repo.FullName -Destination $dotfiles
+
   # WEIRD WINDOWS FUCKING PATHS
   $wtPath = Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*" | Select-Object -First 1 -Expand FullName
   $wtPath =  "$wtPath/LocalState/"
