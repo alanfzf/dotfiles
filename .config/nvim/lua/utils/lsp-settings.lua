@@ -4,7 +4,6 @@ local M = {}
 local mason_list = {
   "omnisharp",
   "blade-formatter",
-  "emmet-language-server",
   "intelephense",
   "lua-language-server",
   "marksman",
@@ -32,11 +31,6 @@ local lsp_servers = {
   texlab = {},
   -- MARKDOWN
   marksman = {},
-  -- EMMET
-  emmet_language_server = {
-    single_file_support = true,
-    filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "blade" },
-  },
   -- LUA
   lua_ls = {
     single_file_support = false,
