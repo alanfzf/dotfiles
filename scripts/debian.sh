@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# Fix Wifi: https://www.reddit.com/r/debian/s/8V6hVfU8x1
+# FIX WIFI: https://www.reddit.com/r/debian/s/8V6hVfU8x1
 
 # DIRS
 TEMPDIR=$(mktemp -d)
 QTDIR="$HOME/.local/src/"
 # URLS
 NERDURL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz"
+EMOJIURL="https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf"
 QTURL="https://github.com/qtile/qtile"
 
 # Basic window manager stuff 
@@ -35,13 +36,13 @@ cd $TEMPDIR
 
 # Install a nerd font
 curl -Lo font.tar.xz "$NERDURL"
+curl -Lo AppleColorEmoji.ttf "$EMOJIURL"
 tar -xvf font.tar.xz -C $TEMPDIR
 sudo mv *.ttf /usr/share/fonts/
 sudo fc-cache -f -v
 
-
 # Create desktop entry for qtile
-sudo cat > /usr/share/xsessions/qtile.desktop << EOF
+sudo tee > /usr/share/xsessions/qtile.desktop << EOF
 [Desktop Entry]
 Name=qtile
 Exec=qtile start
