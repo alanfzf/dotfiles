@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# FIX WIFI: https://www.reddit.com/r/debian/s/8V6hVfU8x1
+# Fix Wifi: https://www.reddit.com/r/debian/s/8V6hVfU8x1
+# Default apps: https://linux-tips.com/t/setting-default-browser-in-system/56/2
 
 # DIRS
 TEMPDIR=$(mktemp -d)
@@ -27,6 +28,8 @@ sudo apt install -y \
   zsh thunar kitty feh scrot \
   brightnessctl pulseaudio rofi volumeicon-alsa notification-daemon cbatticon
 
+# to configure notification-daemon refer to: https://wiki.archlinux.org/title/Desktop_notifications
+
 # Tools
 sudo apt install -y \
   curl fuse build-essential git gh fzf \
@@ -42,7 +45,7 @@ sudo mv *.ttf /usr/share/fonts/
 sudo fc-cache -f -v
 
 # Create desktop entry for qtile
-sudo tee /usr/share/xsessions/qtile.desktop << EOF > /dev/null
+sudo tee /usr/share/xsessions/lightdm-xsession.desktop << EOF > /dev/null
 [Desktop Entry]
 Name=qtile
 Exec=qtile start
