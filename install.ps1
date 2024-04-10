@@ -1,16 +1,16 @@
-#Requires -RunAsAdministrator
-#Requires -Version 5.0
+if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+  # NOTE: im aware of '#Requires -RunAsAdministrator' instruction, but it does not work with Invoke Web Request.
+   throw "You must run this script as Administrator!"
+}
 
 # =====================
 # * CONSTANTS *
 # =====================
-$apps = "C:/Apps"
 $temp = "$env:TEMP/files/"
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
-$mingwUrl = "https://github.com/skeeto/w64devkit/releases/download/v1.21.0/w64devkit-1.21.0.zip"
 $altGrUrl = "https://github.com/thomasfaingnaert/win-us-intl-altgr/releases/download/v1.0/us-inter.zip"
+$repoUrl = "https://github.com/alanfzf/dotfiles/archive/master.zip"
 
-New-Item -ItemType Directory -Path $apps -Force | Out-Null
 New-Item -ItemType Directory -Path $temp -Force | Out-Null
 
 # =====================
@@ -27,7 +27,6 @@ function DownloadAndDecompress {
   $outFile = "$temp/$fileName"
   $outFolder = "$temp/$fileNameNoExt"
 
-
   curl.exe -Lo $outFile $Url
   Expand-Archive $outFile -DestinationPath $outFolder -Force
 
@@ -35,7 +34,7 @@ function DownloadAndDecompress {
     # if there's a need to create a folder, we search in the temp directory 
     # otherwise we search the first folder inside the outFolder
     # NOTE: this only works if extracted archives are single directory
-    $outFolder = $temp;
+    $outFolder = $temp
   }
 
   return Get-ChildItem -Path $outFolder -Directory | Sort-Object CreationTime -Descending | Select-Object -First 1
@@ -56,6 +55,7 @@ function InstallFonts {
 
 function CleanTemp {
   Get-ChildItem -Path $temp -Force | ForEach-Object { $_ | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue }
+  Stop-Process -ProcessName explorer
 }
 
 # =====================
@@ -67,71 +67,47 @@ function InstallPrograms {
       "Microsoft.WindowsTerminal"
       "Microsoft.PowerShell"
       "7zip.7zip"
-      "BurntSushi.ripgrep.MSVC"
       "Discord.Discord" 
-      "Neovim.Neovim"
-      "OpenJS.NodeJS"
-      "Python.Python.3.9"
-      "Starship.Starship"
       "VideoLAN.VLC"
-      "JesseDuffield.lazygit"
-      "sharkdp.fd"
-      "junegunn.fzf"
-      "sharkdp.bat"
-      "eza-community.eza"
       "Microsoft.PowerToys"
-      "ajeetdsouza.zoxide"
   )
-  # The override parameters make git not add itself to the context menu
-  winget install -e --accept-source-agreements --accept-package-agreements --silent Git.Git --override "/VERYSILENT /COMPONENTS="
-  foreach ($package in $packages) { winget install -e --accept-source-agreements --accept-package-agreements --silent $package }
+
+  foreach ($package in $packages) { 
+    winget install -e --accept-source-agreements --accept-package-agreements --silent $package
+  }
+
   # **** INSTALL NON WINGET STUFF ****
   $fontFolder = DownloadAndDecompress $fontUrl -CreateFolder
   InstallFonts $fontFolder.FullName
 
-  $mingwFolder = DownloadAndDecompress $mingwUrl
-  Move-Item -Path $mingwFolder.FullName -Destination $apps
-  <# 
-    This can't be done directly as some packages, like git, nodejs, and starship will not update $env:Path in the current session, 
-    making them not available later on if we set the env right now.
-    [Environment]::SetEnvironmentVariable("Path", $env:Path +";$apps\$($mingwFolder.Name)\bin", [EnvironmentVariableTarget]::Machine)
-  #>
   $altGrlFolder = DownloadAndDecompress $altGrUrl
   $altGrlFolder = Join-Path $altGrlFolder.FullName "us-inter_amd64.msi"
   Start-Process 'msiexec.exe' -ArgumentList "/i `"$altGrlFolder`" /passive"
+
+  # **** ENABLE WSL ****
+  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 
 }
 
 function SetupDotFiles{
-  # Git related stuff
-  $gitCmd = "${env:ProgramFiles}/Git/bin/git.exe"
-  $dotfiles = "$HOME/.dotfiles/"
-  & $gitCmd clone "https://github.com/alanfzf/dotfiles" $dotfiles
 
-  # weird fucking paths
+  $repo = DownloadAndDecompress $repoUrl
+  $dotfiles = "$HOME/.dotfiles/"
+  Move-item -Path $repo.FullName -Destination $dotfiles
+
+  # WEIRD WINDOWS FUCKING PATHS
   $wtPath = Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*" | Select-Object -First 1 -Expand FullName
   $wtPath =  "$wtPath/LocalState/"
-  $profilePath = Split-Path -Path $PROFILE -Parent
-  # small hack if we are on fucking powershell 5
-  $profilePath = $profilePath -replace "Windows", ""
 
-  # **** CREATE SYMLINKS ****
   $symLinks = @{
-    # realPath = targetPath
-    "$env:LOCALAPPDATA/nvim/" = "$dotfiles/.config/nvim/"
-    "$env:APPDATA/lazygit/"   = "$dotfiles/.config/lazygit/"
+    # realPath                targetPath
     "$wtPath"                 = "$dotfiles/.config/windows_terminal/"
-    "$profilePath"            = "$dotfiles/.config/windows_powershell/"
-    "$HOME/starship.toml"     = "$dotfiles/.config/starship.toml"
-    "$HOME/.wezterm.lua"      = "$dotfiles/.config/wezterm.lua"
-    "$HOME/.ideavimrc"        = "$dotfiles/.ideavimrc"
-    "$HOME/.vsvimrc"          = "$dotfiles/.vsvimrc"
-    "$HOME/.gitconfig"        = "$dotfiles/.gitconfig"
   }
 
   foreach ($entry in $symLinks.GetEnumerator()) {
-    $symPath = $entry.Key;
-    $symTarget = $entry.Value;
-    Remove-Item -Path $symPath -Force -Recurse -ErrorAction SilentlyContinue;
+    $symPath = $entry.Key
+    $symTarget = $entry.Value
+    Remove-Item -Path $symPath -Force -Recurse -ErrorAction SilentlyContinue
     New-Item -ItemType SymbolicLink -Path $symPath -Target $symTarget -Force
   }
 }
@@ -174,11 +150,8 @@ function WindowsTweaks {
   Remove-ItemProperty -Path "$RegPathExCurrent\Taskband" -Name "FavoritesResolve" -ErrorAction SilentlyContinue
 
   # **** DATE TWEAKS **** 
-  Set-ItemProperty -Path $RegPathDate -Name sShortDate -Value "yyyy-MM-dd";
-  Set-ItemProperty -Path $RegPathDate -Name sShortTime -Value "HH:mm";
-
-  # **** ENABLE DEV MODE *****
-  reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /t REG_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d "1"
+  Set-ItemProperty -Path $RegPathDate -Name sShortDate -Value "yyyy-MM-dd"
+  Set-ItemProperty -Path $RegPathDate -Name sShortTime -Value "HH:mm"
 }
 
 function RemovePrograms{
@@ -224,4 +197,3 @@ SetupDotFiles
 WindowsTweaks
 RemovePrograms
 CleanTemp
-Stop-Process -ProcessName explorer
