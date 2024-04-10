@@ -29,7 +29,7 @@ sudo apt install -y \
 # Tools
 sudo apt install -y \
   curl fuse build-essential git gh fzf \
-  fd-find nodejs npm tmux bat ripgrep zoxide
+  fd-find nodejs npm tmux bat ripgrep zoxide zip unzip
 
 cd $TEMPDIR
 
