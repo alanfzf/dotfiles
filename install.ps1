@@ -84,9 +84,7 @@ function InstallPrograms {
   $altGrlFolder = Join-Path $altGrlFolder.FullName "us-inter_amd64.msi"
   Start-Process 'msiexec.exe' -ArgumentList "/i `"$altGrlFolder`" /passive"
 
-  # **** ENABLE WSL ****
-  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 
+  # **** ENABLE WSL **** 
 }
 
 function SetupDotFiles{
