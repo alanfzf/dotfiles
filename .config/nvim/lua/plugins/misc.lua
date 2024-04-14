@@ -5,7 +5,7 @@ return {
       require("marks").setup({
         default_mappings = true,
         cyclic = true,
-        force_write_shada = false,
+        force_write_shada = true,
         refresh_interval = 250,
       })
     end,

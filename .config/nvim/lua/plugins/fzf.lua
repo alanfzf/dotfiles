@@ -4,7 +4,6 @@ return {
   config = function()
     require("fzf-lua").setup({
       file_icon_padding = " ",
-
       winopts = {
         preview = {
           default = "bat",
@@ -12,7 +11,7 @@ return {
         },
       },
       marks = {
-        marks = "[A-Za-z]",
+        marks = "%a",
       },
       keymap = {
         builtin = {
