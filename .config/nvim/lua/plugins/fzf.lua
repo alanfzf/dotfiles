@@ -11,7 +11,9 @@ return {
           title = false,
         },
       },
-
+      marks = {
+        marks = "[A-Za-z]",
+      },
       keymap = {
         builtin = {
           -- neovim `:tmap` mappings for the fzf win

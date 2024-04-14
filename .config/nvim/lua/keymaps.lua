@@ -92,6 +92,7 @@ end, opts)
 keymap("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", opts)
 keymap("n", "<leader>fc", "<cmd>FzfLua colorschemes<CR>", opts)
 keymap("n", "<leader>fs", "<cmd>FzfLua git_status<CR>", opts)
+keymap("n", "<leader>fm", "<cmd>FzfLua marks<CR>", opts)
 -- OIL NVIM
 keymap("n", "<leader>e", "<cmd>Oil<CR>", opts)
 -- LSP
