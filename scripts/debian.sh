@@ -45,7 +45,7 @@ sudo mv *.ttf /usr/share/fonts/
 sudo fc-cache -f -v
 
 # Create desktop entry for qtile
-sudo tee /usr/share/xsessions/lightdm-xsession.desktop << EOF > /dev/null
+sudo tee /usr/share/xsessions/lightdm-xsession.desktop > /dev/null <<EOF
 [Desktop Entry]
 Name=qtile
 Exec=qtile start
