@@ -1,15 +1,4 @@
 return {
-  {
-    "https://github.com/chentoast/marks.nvim",
-    config = function()
-      require("marks").setup({
-        default_mappings = true,
-        cyclic = true,
-        force_write_shada = true,
-        refresh_interval = 250,
-      })
-    end,
-  },
   "https://github.com/junegunn/vim-easy-align",
   {
     "https://github.com/NvChad/nvim-colorizer.lua",
