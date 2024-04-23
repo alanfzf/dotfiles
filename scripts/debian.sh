@@ -66,4 +66,4 @@ python3 -m venv qtile_venv
 cd ./qtile_venv
 git clone $QTURL
 ./bin/pip install qtile/.
-cp ./bin/qtile /usr/local/bin/
+sudo cp ./bin/qtile /usr/local/bin/
