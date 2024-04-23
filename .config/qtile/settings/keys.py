@@ -49,7 +49,7 @@ keys = [
     # My own keymaps
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
-    Key([mod], "b", lazy.spawn("microsoft-edge"), desc="Spawn the browser"),
+    Key([mod], "b", lazy.spawn("firefox-esr"), desc="Spawn the browser"),
     Key([mod], "e", lazy.spawn("thunar"), desc="Spawn the file explorer"),
 
     # Screenshots
