@@ -1,4 +1,10 @@
 return {
+  {
+    "cbochs/grapple.nvim",
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons", lazy = true },
+    },
+  },
   "https://github.com/junegunn/vim-easy-align",
   {
     "https://github.com/NvChad/nvim-colorizer.lua",

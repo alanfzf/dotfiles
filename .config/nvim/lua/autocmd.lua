@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("VimResized", {
 -- Remove annoying comment behavior
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
+    vim.opt.formatoptions:remove({ "c", "o" })
   end,
 })
 
