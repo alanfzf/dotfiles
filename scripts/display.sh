@@ -16,12 +16,10 @@ fi
 # Move the xrandr script to be globally available
 sudo mv "$script_path" /usr/local/bin/xrandr-script.sh
 
-# Define the content to be written into lightdm.conf
-conf_content="[Seat:*]\ndisplay-setup-script=/usr/local/bin/xrandr-script.sh\n"
-
-# Write the content to lightdm.conf using sudo tee
-echo -e "$conf_content" | sudo tee /etc/lightdm/lightdm.conf >/dev/null
+sudo tee /etc/lightdm/lightdm.conf > /dev/null <<EOF
+[Seat:*]
+display-setup-script=/usr/local/bin/xrandr-script.sh
+EOF
 
 # Inform the user about the changes made
 echo "xrandr script moved to /usr/local/bin/ and configured in lightdm.conf"
-
