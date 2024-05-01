@@ -20,6 +20,3 @@ git clone https://github.com/alanfzf/dotfiles ~/.dotfiles
 Set-ExecutionPolicy Bypass
 iwr https://raw.githubusercontent.com/alanfzf/dotfiles/master/install.ps1 | iex
 ```
-
-
-
