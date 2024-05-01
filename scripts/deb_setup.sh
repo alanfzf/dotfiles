@@ -2,7 +2,6 @@
 
 IS_WSL=$(grep -i Microsoft /proc/version)
 
-
 # Install non wsl packages
 if [[ ! $IS_WSL ]]; then
 fi

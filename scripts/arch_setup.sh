@@ -10,7 +10,7 @@ sudo pacman -S git curl wget tmux base-devel github-cli \
   zsh zoxide starship \
   zip unzip \
   fzf fd ripgrep bat \
-  nvim
+  neovim
   
 # Install os packages
 sudo pacman -S picom kitty feh thunar brightnessctl \
