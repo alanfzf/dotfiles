@@ -1,12 +1,11 @@
 # aliases
+alias sudo="sudo "
 alias vi="nvim"
 alias ls='eza -l --icons -s extension'
 alias gs="git status"
-alias cat="batcat"
+alias cat="bat"
 alias lg="lazygit"
-alias fd="fdfind"
-alias phpback="php artisan serve --host 0.0.0.0 --port 8001"
-alias phpfront="php artisan serve --host 0.0.0.0 --port 8000"
+alias fd="fd"
 
 # exports
 export VISUAL="nvim"
