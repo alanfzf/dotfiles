@@ -9,7 +9,7 @@ alias fd="fd"
 
 function gocompose() {
     local service_name="$1"
-    docker compose run -e COLUMNS="`tput cols`" -e LINES="`tput lines`" -it "$service_name" 
+    docker compose run -e COLUMNS="`tput cols`" -e LINES="`tput lines`" -ti "$service_name"
 }
 
 # exports
