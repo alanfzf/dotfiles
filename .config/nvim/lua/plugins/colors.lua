@@ -2,7 +2,6 @@ return {
   -- GOOD
   -- { "https://github.com/NTBBloodbath/doom-one.nvim", name = "doom-nvim" },
   { "https://github.com/romgrk/doom-one.vim", name = "doom-vim" },
-  { "https://github.com/catppuccin/nvim", name = "catppuccin" },
   -- solarizeds
   -- other
   { "https://github.com/andersevenrud/nordic.nvim", name = "good_nord" },

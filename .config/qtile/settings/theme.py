@@ -34,7 +34,7 @@ catpuccin = {
 
 
 def load_theme():
-    theme = catpuccin
+    theme = dracula
     return theme
 
 if __name__ == "settings.theme":
