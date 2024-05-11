@@ -40,5 +40,5 @@ curl -L "https://github.com/starship/starship/releases/latest/download/starship-
 # 4.) Eza
 curl -L "https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz" | sudo tar xzf - -C /usr/local/bin/
 
-# Create SSH dir
-mkdir -p  ~/.ssh/
+# 5.) nvm
+curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh" | bash
