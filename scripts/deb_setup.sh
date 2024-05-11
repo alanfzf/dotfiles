@@ -12,7 +12,7 @@ systemd=true
 EOF
 
 # Symlink this for xdg-open
-sudo ln -s "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+sudo ln -s "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" /usr/local/bin
 fi
 
 # Upgrade packages
