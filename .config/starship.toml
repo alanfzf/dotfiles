@@ -72,6 +72,7 @@ symbol = '󰏗 '
 
 [hostname]
 ssh_symbol = '󰒋 '
+style = 'red'
 
 # ==== CLOUD ====
 [aws]
