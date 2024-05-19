@@ -5,19 +5,15 @@ return {
       { "nvim-tree/nvim-web-devicons", lazy = true },
     },
   },
-  "https://github.com/junegunn/vim-easy-align",
+  { "https://github.com/junegunn/vim-easy-align" },
   {
-    "https://github.com/NvChad/nvim-colorizer.lua",
+    "https://github.com/brenoprata10/nvim-highlight-colors",
     config = function()
-      require("colorizer").setup({
-        filetypes = { "*" },
-        user_default_options = {
-          names = false,
-          mode = "background",
-          tailwind = true,
-          virtualtext = "■",
-          always_update = false,
-        },
+      require("nvim-highlight-colors").setup({
+        render = "background",
+        virtual_symbol = "■",
+        enable_named_colors = true,
+        enable_tailwind = false,
       })
     end,
   },
