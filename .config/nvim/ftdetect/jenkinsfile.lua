@@ -1,1 +1,4 @@
-vim.filetype.add({ pattern = { ["jenkinsfile"] = "groovy" } })
+vim.filetype.add({ pattern = {
+  ["jenkinsfile"] = "groovy",
+  [".*%.jenkinsfile"] = "groovy",
+} })

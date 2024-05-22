@@ -7,7 +7,7 @@ local mason_list = {
   "intelephense",
   "lua-language-server",
   "marksman",
-  { "php-cs-fixer", version = "v3.6.0" },
+  { "php-cs-fixer" },
   "prettier",
   "pyright",
   "stylua",

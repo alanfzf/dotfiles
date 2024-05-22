@@ -53,7 +53,6 @@ return {
         disable = { "htmldjango" },
       },
       autopairs = { enable = true },
-      autotag = { enable = true },
     })
   end,
 }
