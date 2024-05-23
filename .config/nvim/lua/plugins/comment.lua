@@ -1,7 +1,11 @@
 return {
   {
     "folke/ts-comments.nvim",
-    opts = {},
+    opts = {
+      lang = {
+        blade = "{{-- %s --}}",
+      },
+    },
     event = "VeryLazy",
   },
 }
