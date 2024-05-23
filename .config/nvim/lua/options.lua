@@ -2,7 +2,7 @@
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 --general
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
 vim.opt.fileencoding = "utf-8"
 vim.opt.laststatus = 3
