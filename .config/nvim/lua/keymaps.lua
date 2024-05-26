@@ -12,12 +12,9 @@ local function get_root_dir()
     return lsp_loc
   end
 
-  local path = vim.fn.systemlist("git -C " .. vim.fn.expand("%:p:h") .. " rev-parse --show-toplevel")[1]
-  if vim.v.shell_error == 0 then
-    return path
-  end
+  local root = vim.fs.root(0, ".git")
 
-  return nil
+  return root
 end
 
 --[[ * ALL MODES * ]]

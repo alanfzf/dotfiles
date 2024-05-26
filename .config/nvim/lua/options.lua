@@ -13,7 +13,7 @@ vim.g.clipboard = {
   },
 }
 --general
--- vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
 vim.opt.fileencoding = "utf-8"
 vim.opt.laststatus = 3
@@ -57,3 +57,4 @@ vim.opt.shortmess:append("c")
 vim.opt.iskeyword:append("-")
 vim.opt.linebreak = true
 vim.o.fillchars = [[foldsep: ,fold: ,foldopen:,foldclose:]]
+vim.o.foldtext = ""
