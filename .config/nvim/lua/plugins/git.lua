@@ -1,5 +1,6 @@
 return {
   {
+    { "https://github.com/sindrets/diffview.nvim" },
     {
       "https://github.com/echasnovski/mini-git",
       config = function()
