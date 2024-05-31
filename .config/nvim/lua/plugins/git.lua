@@ -1,10 +1,11 @@
 return {
   {
-    { "https://github.com/sindrets/diffview.nvim" },
     {
-      "https://github.com/echasnovski/mini-git",
+      "https://github.com/sindrets/diffview.nvim",
       config = function()
-        require("mini.git").setup()
+        require("diffview").setup({
+          enhanced_diff_hl = true,
+        })
       end,
     },
     {
