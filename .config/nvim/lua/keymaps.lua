@@ -18,7 +18,6 @@ local function get_root_dir()
 end
 
 --[[ * ALL MODES * ]]
-keymap("", "<leader>d", '"_dd', { remap = true })
 keymap("", "<S-h>", "^", { remap = true })
 keymap("", "<S-l>", "$", { remap = true })
 keymap("", "q", "<Nop>", { remap = true })
@@ -101,3 +100,9 @@ keymap("n", "<leader>gh", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "<leader>gH", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
 keymap("n", "<leader>gb", ":Gitsigns blame_line<CR>", opts)
+-- DAP
+keymap("n", "<leader>dc", ":lua require'dap'.continue()<CR>", opts)
+keymap("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<leader>do", ":lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<leader>di", ":lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", opts)
