@@ -2,6 +2,7 @@ local M = {}
 
 -- list of available servers: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 local mason_list = {
+  { "php-debug-adapter" },
   { "blade-formatter" },
   { "intelephense" },
   { "lua-language-server" },
