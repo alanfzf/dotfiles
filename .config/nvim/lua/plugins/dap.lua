@@ -5,7 +5,7 @@ return {
       local dap = require("dap")
       dap.adapters.php = {
         type = "executable",
-        command = "/home/dev/.local/share/nvim/mason/bin/php-debug-adapter",
+        command = vim.fn.stdpath("data") .. "/mason/bin/php-debug-adapter",
       }
 
       dap.configurations.php = {
