@@ -10,14 +10,14 @@ return {
 
       dap.configurations.php = {
         {
-          name = "Listen for Xdebug (9008)",
+          name = "Listen for Xdebug backend (9008)",
           type = "php",
           request = "launch",
           port = "9008",
           hostname = "0.0.0.0",
         },
         {
-          name = "Listen for Xdebug (9005)",
+          name = "Listen for Xdebug frontend (9005)",
           type = "php",
           request = "launch",
           port = "9005",
