@@ -7,9 +7,8 @@ alias cat="bat"
 alias lg="lazygit"
 alias fd="fd"
 
-function gocompose() {
-    local service_name="$1"
-    docker compose run -e COLUMNS="`tput cols`" -e LINES="`tput lines`" -ti "$service_name"
+function godev(){
+  docker compose exec -it dev zsh
 }
 
 # exports
