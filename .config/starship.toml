@@ -1,11 +1,11 @@
 # ==== PROMPT CONFIG ====
-format="""$all"""
-right_format="""$container $aws $os"""
+format="""$all$line_break$character"""
+# right_format="""$container $aws $os"""
 add_newline = true
 
 # ==== OS ====
 [os]
-format = "on [$symbol]($style)"
+format = "on [$symbol ]($style)"
 style = "bold yellow"
 disabled = false
 
@@ -26,7 +26,7 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
-'/mnt/c/Users/' = '/Windows/'
+'/mnt/c/users/' = '/Windows/'
 
 # ==== [GIT] ====
 [git_branch]

@@ -13,6 +13,9 @@ return {
       marks = {
         marks = "%a",
       },
+      grep = {
+        multiline = true,
+      },
       keymap = {
         builtin = {
           -- neovim `:tmap` mappings for the fzf win
