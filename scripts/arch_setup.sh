@@ -6,6 +6,7 @@
 # Disable audio power saving: 
 # sudo echo 0 > /sys/module/snd_hda_intel/parameters/power_save
 # fix x11 display wsl: https://github.com/microsoft/wslg/issues/43#issuecomment-826039096
+# fix locale zsh stuck completion: https://stackoverflow.com/a/20953792/20370244
 
 IS_WSL=$(grep -i Microsoft /proc/version)
 
