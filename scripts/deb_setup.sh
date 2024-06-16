@@ -38,4 +38,4 @@ curl -L "https://github.com/jesseduffield/lazygit/releases/latest/download/lazyg
 curl -L "https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz" | sudo tar xzf - -C /usr/local/bin/
 
 # 4.) Eza
-curl -L "https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz" | sudo tar xzf - -C /usr/local/bin/
+curl -L "https://github.com/eza-community/eza/releases/download/v0.18.17/eza_x86_64-unknown-linux-gnu.tar.gz" | sudo tar xzf - -C /usr/local/bin/
