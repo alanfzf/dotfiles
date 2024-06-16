@@ -15,6 +15,7 @@ function gocompose() {
 # exports
 export VISUAL="nvim"
 export EDITOR="nvim"
+export LC_ALL=en_US.UTF-8
 
 # Set up the prompt
 setopt histignorealldups sharehistory
