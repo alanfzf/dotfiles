@@ -5,15 +5,23 @@
 # Configure audio: https://wiki.archlinux.org/title/Bluetooth#PipeWire
 # Disable audio power saving: 
 # sudo echo 0 > /sys/module/snd_hda_intel/parameters/power_save
+# fix x11 display wsl: https://github.com/microsoft/wslg/issues/43#issuecomment-826039096
+
+IS_WSL=$(grep -i Microsoft /proc/version)
 
 # Install base packages
-sudo pacman -S git curl wget tmux base-devel github-cli \
+sudo pacman -Syu --noconfirm git curl wget tmux base-devel github-cli \
   zsh zoxide starship \
   zip unzip \
   fzf fd ripgrep bat \
-  neovim
-  
-# Install os packages
-sudo pacman -S picom kitty feh thunar brightnessctl \
-  rofi notification-daemon cbatticon volumeicon \
-  ttf-jetbrains-mono-nerd 
+  neovim eza lazygit
+
+if [[ ! $IS_WSL ]]; then
+  # Install os packages
+  sudo pacman -Syu --noconfirm picom kitty feh thunar brightnessctl \
+    rofi notification-daemon cbatticon volumeicon \
+    ttf-jetbrains-mono-nerd
+else
+  # Symlink this for xdg-open
+  sudo ln -s "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" /usr/local/bin
+fi
