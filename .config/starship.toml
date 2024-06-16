@@ -1,6 +1,6 @@
 # ==== PROMPT CONFIG ====
 format="""$all$line_break$character"""
-# right_format="""$container $aws $os"""
+right_format="""$container $aws $os"""
 add_newline = true
 
 # ==== OS ====
