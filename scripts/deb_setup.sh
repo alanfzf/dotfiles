@@ -10,7 +10,7 @@ apt update && apt upgrade -y
 
 # Install base apps
 apt install -y \
-  sudo zsh curl wget bat \
+  zsh curl wget bat \
   build-essential git gh \
   fzf fd-find ripgrep zoxide \
   zip unzip
