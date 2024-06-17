@@ -1,26 +1,11 @@
 #!/bin/bash
 
-# VARS
-IS_WSL=$(grep -i Microsoft /proc/version)
-
-# Do non wsl stuff
-if [[ $IS_WSL ]]; then
-  # Enable systemd
-  sudo tee /etc/wsl.conf > /dev/null <<EOF
-[boot]
-systemd=true
-EOF
-
-# Symlink this for xdg-open
-sudo ln -s "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" /usr/local/bin
-fi
-
 # Upgrade packages
 sudo apt update && sudo apt upgrade -y
 
 # Install base apps
 sudo apt install -y \
-  xclip zsh curl wget tmux bat \
+  zsh curl wget bat \
   build-essential git gh \
   fzf fd-find ripgrep zoxide \
   zip unzip
@@ -35,7 +20,7 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -L "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" | sudo tar xzf - -C /usr/local/bin/
 
 # 3.) Starship
-curl -L "https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz" | sudo tar xzf - -C /usr/local/bin/
+curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
 
 # 4.) Eza
 curl -L "https://github.com/eza-community/eza/releases/download/v0.18.17/eza_x86_64-unknown-linux-gnu.tar.gz" | sudo tar xzf - -C /usr/local/bin/
