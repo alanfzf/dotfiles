@@ -1,11 +1,16 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run as root"
+  exit
+fi
+
 # Upgrade packages
 apt update && apt upgrade -y
 
 # Install base apps
 apt install -y \
-  zsh curl wget bat \
+  sudo zsh curl wget bat \
   build-essential git gh \
   fzf fd-find ripgrep zoxide \
   zip unzip
