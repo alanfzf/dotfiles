@@ -25,12 +25,12 @@ return {
   },
   config = function()
     local ts = require("nvim-treesitter.configs")
-    local install_opts = require("nvim-treesitter.install")
-    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+    local iopts = require("nvim-treesitter.install")
+    local pconfig = require("nvim-treesitter.parsers").get_parser_configs()
 
-    install_opts.prefer_git = false
+    iopts.prefer_git = false
 
-    parser_config.blade = {
+    pconfig.blade = {
       filetype = "blade",
       install_info = {
         url = "https://github.com/EmranMR/tree-sitter-blade",

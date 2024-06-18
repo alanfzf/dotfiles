@@ -15,12 +15,19 @@ return {
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+    local extensions = {
+      javascript = { "jsdoc" },
+      php = { "phpdoc" },
+      blade = { "html" },
+    }
+
     -- Load my snippets
     require("luasnip.loaders.from_vscode").lazy_load()
     require("luasnip.loaders.from_vscode").lazy_load({ paths = "./snippets/" })
     -- additional configs
-    luasnip.filetype_extend("javascript", { "jsdoc" })
-    luasnip.filetype_extend("php", { "phpdoc", "blade" })
+    for filetype, ext_list in pairs(extensions) do
+      luasnip.filetype_extend(filetype, ext_list)
+    end
 
     local kind_icons = {
       Text = "󰉿",
