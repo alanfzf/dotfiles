@@ -7,13 +7,13 @@
 [gpg]
 	format = ssh
 [push]
-    autoSetupRemote = true
+  autoSetupRemote = true
 [alias]
-	gone = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D
+  gone = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D
 [core]
-	editor = nvim
-	autocrlf = false
+  editor = nvim
+  autocrlf = false
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [pull]
-	rebase = false
+  rebase = false
