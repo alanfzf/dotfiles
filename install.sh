@@ -1,19 +1,22 @@
 #!/bin/bash
 
-DOTFILES="$(dirname "$(readlink -f "$0")")"
-IGNORE="$DOTFILES/.ignore-slink"
+# Get location where this script resides
+DOTFILES=$(dirname $(readlink -f $0))
+DOT_CONFIG="$DOTFILES/.config"
+# Targets
+DOT_HOME="$HOME/.config"
 
-find $DOTFILES -maxdepth 1 -type f | grep -vf "$IGNORE" | while read source; do
-  target="$HOME/$(basename $source)"
-  rm -rf $target
-  ln -sf $source $target
-done
+# Pre setup
+mkdir -p $DOT_HOME
 
-# create .config dir
-mkdir -p "$HOME/.config/"
+# Install simple dotfiles
+find "$DOTFILES" -maxdepth 1 -type f -name ".*" | while read -r source; do
+  rm -rf "$HOME/$(basename $source)"
+  ln -sf "$source" "$HOME"
+done 
 
-find "$DOTFILES/.config/" -mindepth 1 -maxdepth 1 | while read source; do
-  target="$HOME/.config/$(basename $source)"
-  rm -rf $target
-  ln -sf $source $target
+# Install dotfiles on XDG_CONFIG_HOME
+find "$DOT_CONFIG" -mindepth 1 -maxdepth 1 | while read -r source; do
+  rm -rf "$DOT_HOME/$(basename $source)"
+  ln -sf "$source" "$DOT_HOME"
 done
