@@ -40,7 +40,7 @@ sudo pacman -Syu --noconfirm git curl wget tmux base-devel github-cli \
 if [[ ! $IS_WSL ]]; then
   # Install os packages
   sudo pacman -Syu --noconfirm picom kitty feh thunar brightnessctl \
-    rofi notification-daemon cbatticon volumeicon \
+    rofi notification-daemon cbatticon volumeicon scrot \
     ttf-jetbrains-mono-nerd
 else
   # Symlink this for xdg-open
