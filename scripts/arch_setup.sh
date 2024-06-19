@@ -1,9 +1,29 @@
 #!/bin/bash
+#                   -`
+#                  .o+`
+#                 `ooo/
+#                `+oooo:
+#               `+oooooo:
+#               -+oooooo+:
+#             `/:-:++oooo+:
+#            `/++++/+++++++:
+#           `/++++++++++++++:
+#          `/+++ooooooooooooo/`
+#         ./ooosssso++osssssso+`
+#        .oossssso-````/ossssss+`
+#       -osssssso.      :ssssssso.
+#      :osssssss/        osssso+++.
+#     /ossssssss/        +ssssooo/-
+#   `/ossssso+/:-        -:/+osssso+-
+#  `+sso+:-`                 `.-/+oso:
+# `++:.                           `-/+/
+# .`                                 `/
+
 
 # Configure notification-daemon: https://wiki.archlinux.org/title/Desktop_notifications
 # Set default apps: https://linux-tips.com/t/setting-default-browser-in-system/56/2
 # Configure audio: https://wiki.archlinux.org/title/Bluetooth#PipeWire
-# Disable audio power saving: 
+# Disable audio power saving:
 # sudo echo 0 > /sys/module/snd_hda_intel/parameters/power_save
 # fix x11 display wsl: https://github.com/microsoft/wslg/issues/43#issuecomment-826039096
 # fix locale zsh stuck completion: https://stackoverflow.com/a/20953792/20370244
