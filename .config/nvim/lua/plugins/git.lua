@@ -1,11 +1,5 @@
 return {
   {
-    "https://github.com/sindrets/diffview.nvim",
-    config = function()
-      require("diffview").setup({})
-    end,
-  },
-  {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPre",
     opts = {
@@ -52,9 +46,6 @@ return {
         relative = "cursor",
         row = 0,
         col = 1,
-      },
-      yadm = {
-        enable = false,
       },
     },
   },
