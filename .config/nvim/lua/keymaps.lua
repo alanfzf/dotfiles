@@ -50,6 +50,8 @@ keymap("n", "<C-Left>", ":vertical resize +2<CR>")
 -- Navigate buffers
 keymap("n", "<A-l>", ":bnext<CR>")
 keymap("n", "<A-h>", ":bprevious<CR>")
+-- Navigate tabs
+keymap("n", "<leader>tn", ":tabnew %<CR>")
 
 --[[ * VISUAL MODE * ]]
 -- Stay in indent mode
