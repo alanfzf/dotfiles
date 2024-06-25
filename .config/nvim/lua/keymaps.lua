@@ -24,8 +24,6 @@ keymap("c", "<C-K>", [[<C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>]], { no
 
 --[[ * NORMAL MODE *  ]]
 keymap("n", "cc", '"_cc')
--- yank without next line
-keymap("n", "<S-y>", "y$")
 -- fix j,k on virtual lines
 keymap("n", "j", "gj")
 keymap("n", "k", "gk")
@@ -47,9 +45,6 @@ keymap("n", "<C-Up>", ":resize -2<CR>")
 keymap("n", "<C-Down>", ":resize +2<CR>")
 keymap("n", "<C-Right>", ":vertical resize -2<CR>")
 keymap("n", "<C-Left>", ":vertical resize +2<CR>")
--- Navigate buffers
-keymap("n", "<A-l>", ":bnext<CR>")
-keymap("n", "<A-h>", ":bprevious<CR>")
 -- Navigate tabs
 keymap("n", "<leader>tn", ":tabnew %<CR>")
 
