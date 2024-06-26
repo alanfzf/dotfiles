@@ -2,9 +2,6 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 local helper = require("utils.helper")
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 --[[ * ALL MODES * ]]
 keymap("", "<S-h>", "^", { remap = true })
 keymap("", "<S-l>", "$", { remap = true })
