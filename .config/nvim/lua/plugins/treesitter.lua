@@ -26,7 +26,6 @@ return {
   },
   config = function()
     -- basic treesitter setup
-    require("nvim-treesitter.install").prefer_git = false
     require("nvim-treesitter").setup({
       auto_install = true,
       ensure_install = { "core", "stable" },
