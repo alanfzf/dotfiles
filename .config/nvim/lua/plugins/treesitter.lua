@@ -1,7 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = "BufReadPost",
+  lazy = false,
   build = ":TSUpdate",
+  branch = "main",
   dependencies = {
     {
       "windwp/nvim-ts-autotag",
@@ -24,35 +25,31 @@ return {
     },
   },
   config = function()
-    local ts = require("nvim-treesitter.configs")
-    local iopts = require("nvim-treesitter.install")
-    local pconfig = require("nvim-treesitter.parsers").get_parser_configs()
-
-    iopts.prefer_git = false
-
-    pconfig.blade = {
-      filetype = "blade",
-      install_info = {
-        url = "https://github.com/EmranMR/tree-sitter-blade",
-        files = { "src/parser.c" },
-        branch = "main",
-      },
-    }
-
     -- basic treesitter setup
-    ts.setup({
+    require("nvim-treesitter.install").prefer_git = false
+    require("nvim-treesitter").setup({
       auto_install = true,
-      ensure_installed = "all",
-      ignore_install = { "latex" },
+      ensure_install = { "core", "stable" },
       highlight = {
         enable = true,
         additional_vim_regex_higlighting = false,
       },
-      indent = {
-        enable = true,
-        disable = { "htmldjango" },
-      },
-      autopairs = { enable = true },
+    })
+
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "TSUpdate",
+      callback = function()
+        local parsers = require("nvim-treesitter.parsers")
+        parsers.blade = {
+          tier = 0,
+          filetype = "blade",
+          install_info = {
+            url = "https://github.com/EmranMR/tree-sitter-blade",
+            files = { "src/parser.c" },
+            branch = "main",
+          },
+        }
+      end,
     })
   end,
 }

@@ -1,7 +1,9 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 ---@diagnostic disable-next-line: undefined-field
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -15,14 +17,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-  defaults = { lazy = false },
-  debug = false,
   ui = {
     wrap = "true",
     border = "rounded",
   },
   change_detection = {
-    enabled = true,
     notify = false,
   },
 })
