@@ -39,9 +39,10 @@ sudo pacman -Syu --noconfirm git curl wget tmux base-devel github-cli \
 
 if [[ ! $IS_WSL ]]; then
   # Install os packages
-  sudo pacman -Syu --noconfirm picom kitty feh thunar brightnessctl \
-    rofi notification-daemon cbatticon volumeicon scrot \
-    ttf-jetbrains-mono-nerd
+  # === idk if these packages are good to use on wayland?
+  # >>> cbatticon  volumeicon
+  sudo pacman -Syu --noconfirm kitty thunar brightnessctl \
+    notification-daemon ttf-jetbrains-mono-nerd
 else
   # Symlink this for xdg-open
   sudo ln -s "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" /usr/local/bin
