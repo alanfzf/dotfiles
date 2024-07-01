@@ -1,5 +1,6 @@
 set $mod Mod4
 set $term kitty
+set $browser firefox
 set $menu dmenu_path | wofi --show drun | xargs swaymsg exec --
 set $left h
 set $down j
@@ -52,19 +53,12 @@ mode "resize" {
 }
 
 bar {
-    position top
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+  swaybar_command waybar
 }
 
 # ****** [INITIAL SETUP] ******
 input * xkb_options "ctrl:nocaps"
-exec_always --no-startup-id swaybg -i /usr/share/backgrounds/alan/Arch/PwVfvIk.png -m fill
+exec_always --no-startup-id swaybg -i /usr/share/backgrounds/alan/Anime/street.png -m fill
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 # ****** [BINDINGS] ****** 
@@ -72,7 +66,7 @@ bindsym $mod+r exec $menu
 bindsym $mod+Shift+r mode "resize"
 bindsym $mod+w kill
 bindsym $mod+e exec thunar
-bindsym $mod+b exec microsoft-edge-stable --force-device-scale-factor=1.3
+bindsym $mod+b exec $browser
 bindsym $mod+Return exec $term
 bindsym $mod+Control+r reload
 bindsym $mod+Control+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
