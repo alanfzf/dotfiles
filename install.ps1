@@ -9,7 +9,7 @@ if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]:
 $temp = "$env:TEMP/files/"
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
 $altGrUrl = "https://github.com/thomasfaingnaert/win-us-intl-altgr/releases/download/v1.0/us-inter.zip"
-$repoUrl = "https://github.com/alanfzf/dotfiles/archive/master.zip"
+$repoUrl = "https://github.com/alanfzf/dotfiles/archive/main.zip"
 
 New-Item -ItemType Directory -Path $temp -Force | Out-Null
 
