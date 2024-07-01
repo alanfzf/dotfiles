@@ -41,9 +41,7 @@ if [[ ! $IS_WSL ]]; then
   # Install os packages
   sudo pacman -Syu --noconfirm kitty thunar brightnessctl \
     bluez bluez-utils \
-    # other system utilities
     ttf-jetbrains-mono-nerd \
-    # non tested (Wayland)
     wofi mako wl-clipboard slurp grim
 else
   # Symlink this for xdg-open
