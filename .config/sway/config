@@ -58,6 +58,10 @@ bar {
 
 # ****** [INITIAL SETUP] ******
 input * xkb_options "ctrl:nocaps"
+input type:keyboard {
+    xkb_layout us
+    xkb_variant altgr-intl
+}
 exec_always --no-startup-id swaybg -i /usr/share/backgrounds/alan/Anime/street.png -m fill
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 

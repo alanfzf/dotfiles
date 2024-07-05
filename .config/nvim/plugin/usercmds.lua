@@ -11,3 +11,7 @@ vim.api.nvim_create_user_command("FixM", function()
   set ff=unix
   ]])
 end, { nargs = 0 })
+
+vim.api.nvim_create_user_command("ClearWhiteSpaces", function()
+  vim.cmd([[ %s/\s\+$//e ]])
+end, { nargs = 0 })
