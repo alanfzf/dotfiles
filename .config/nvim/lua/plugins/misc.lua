@@ -7,9 +7,6 @@ return {
   },
   {
     "cbochs/grapple.nvim",
-    dependencies = {
-      { "nvim-tree/nvim-web-devicons" },
-    },
   },
   {
     "brenoprata10/nvim-highlight-colors",
