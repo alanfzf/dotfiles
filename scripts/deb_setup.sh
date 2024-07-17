@@ -22,10 +22,10 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Upgrade packages
-apt update && apt upgrade -y
+apt-get update && apt-get upgrade -y
 
 # Install base apps
-apt install -y \
+apt-get install -y \
   zsh curl wget bat \
   build-essential git gh \
   fzf fd-find ripgrep zoxide \
