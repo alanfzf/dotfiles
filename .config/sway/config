@@ -1,5 +1,5 @@
 set $mod Mod4
-set $term kitty
+set $term foot
 set $browser firefox
 set $menu dmenu_path | wofi --show drun | xargs swaymsg exec --
 set $left h
