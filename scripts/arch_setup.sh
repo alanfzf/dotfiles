@@ -39,7 +39,7 @@ sudo pacman -Syu --noconfirm git curl wget tmux base-devel github-cli \
 
 if [[ ! $IS_WSL ]]; then
   # Install os packages
-  sudo pacman -Syu --noconfirm kitty thunar brightnessctl \
+  sudo pacman -Syu --noconfirm thunar brightnessctl \
     bluez bluez-utils \
     ttf-jetbrains-mono-nerd \
     wofi mako wl-clipboard slurp grim
