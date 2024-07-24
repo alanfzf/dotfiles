@@ -72,6 +72,11 @@ function InstallPrograms {
       "Microsoft.PowerToys"
   )
 
+  # seems like since some versions ago, winget is not working correctly on a fresh win 11 install, so we need to get it first.
+  # sol1: https://github.com/microsoft/winget-cli/issues/3832#issuecomment-1956697757
+  # sol2: https://github.com/microsoft/winget-cli/issues/3832#issuecomment-1872387214
+  winget install -s msstore --id 9NBLGGH4NNS1
+
   foreach ($package in $packages) { 
     winget install -e --accept-source-agreements --accept-package-agreements --silent $package
   }
