@@ -19,8 +19,8 @@ local mason_list = {
 local lsp_servers = {
   intelephense = {
     init_options = {
-      -- globalStoragePath =  vim.fn.expand('$HOME/.intelephense')
-      -- can't use this as licence is not triggered
+      globalStoragePath = vim.fn.expand("$HOME/.intelephense"),
+      licenceKey = vim.fn.expand("$HOME/.intelephense/licence.txt"),
     },
   },
   -- texlab = {},
