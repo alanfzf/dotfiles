@@ -13,26 +13,6 @@ dracula = {
     "color4":   [ "#ffd47e", "#ffd47e" ]
 }
 
-
-catpuccin = {
-    "dark":     [ "#1e1e2e", "#1e1e2e" ],
-    "grey":     [ "#313244", "#313244" ],
-    "light":    [ "#cdd6f4", "#cdd6f4" ],
-    "text":     [ "#313244", "#313244" ],
-    "focus":    [ "#cba6f7", "#cba6f7" ],
-    "inactive": [ "#6c7086", "#6c7086" ],
-    "active":   [ "#cdd6f4", "#cdd6f4" ],
-    "urgent":   [ "#eba0ac", "#eba0ac" ],
-
-    "color1":   [ "#a6e3a1", "#a6e3a1" ],
-    "color2":   [ "#74c7ec", "#74c7ec" ],
-    "color4":   [ "#fab387", "#fab387" ],
-    "color3":   [ "#f38ba8", "#f38ba8" ],
-}
-
-
-
-
 def load_theme():
     theme = dracula
     return theme

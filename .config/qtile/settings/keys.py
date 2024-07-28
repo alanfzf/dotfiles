@@ -4,6 +4,7 @@ from libqtile.config import Key
 
 mod = "mod4"
 terminal = guess_terminal()
+browser = "firefox"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -48,13 +49,13 @@ keys = [
 
     # My own keymaps
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
-    Key([mod], "b", lazy.spawn("microsoft-edge-stable --force-device-scale-factor=1.3"), desc="Spawn the browser"),
+    Key([mod], "r", lazy.spawn("wofi --show drun"), desc="Spawn a command using a prompt widget"),
+    Key([mod], "b", lazy.spawn(browser), desc="Spawn the browser"),
     Key([mod], "e", lazy.spawn("thunar"), desc="Spawn the file explorer"),
 
     # Screenshots
-    Key([mod], "s", lazy.spawn("scrot -e 'xclip -selection clipboard -t image/png -i $f'")),
-    Key([mod, "shift"], "s", lazy.spawn("scrot -s -e 'xclip -selection clipboard -t image/png -i $f'")),
+    Key([mod], "s", lazy.spawn("")),
+    Key([mod, "shift"], "s", lazy.spawn("")),
 
     # Brightness
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
