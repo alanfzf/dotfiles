@@ -1,0 +1,6 @@
+allow_images=true
+insensitive=true
+mode=drun
+# key_forward=j
+# key_backward=k
+key_expand=Tab

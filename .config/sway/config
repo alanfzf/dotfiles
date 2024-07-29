@@ -1,7 +1,7 @@
 set $mod Mod4
 set $term foot
 set $browser firefox
-set $menu dmenu_path | wofi --show drun | xargs swaymsg exec --
+set $menu dmenu_path | wofi | xargs swaymsg exec --
 set $left h
 set $down j
 set $up k
@@ -58,12 +58,18 @@ bar {
 
 # ****** [INITIAL SETUP] ******
 input * xkb_options "ctrl:nocaps"
+
 input type:keyboard {
     xkb_layout us
     xkb_variant altgr-intl
 }
-exec_always --no-startup-id swaybg -i /usr/share/backgrounds/alan/Anime/street.png -m fill
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+input type:pointer {
+  accel_profile flat
+}
+
+# change background
+output * bg /usr/share/backgrounds/alan/Landscape/mountain_1.png fill
 
 # ****** [BINDINGS] ****** 
 bindsym $mod+r exec $menu
