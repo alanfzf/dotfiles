@@ -17,18 +17,16 @@ return {
       },
       grep = {
         multiline = true,
+        RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
       },
       files = {
-        prompt = "files: ",
         cwd_header = false,
-        cwd_prompt = false,
       },
       -- git start
       -- i stealed this from here: https://github.com/gennaro-tedesco/dotfiles/blob/86cf4de5870a64aa8c5fad2269248db9521a1c2d/nvim/lua/plugins/fzf.lua#L45-L56
       git = {
         bcommits = {
           preview_opts = "nohidden",
-          prompt = "logs:",
           cmd = "git log --color --pretty=format:'%C(yellow)%h%Creset %Cgreen%><(12)%cr%><|(12)%Creset %s' <file>",
           preview = "git show --stat --color --format='%C(cyan)%an%C(reset)%C(bold yellow)%d%C(reset): %s' {1} -- <file>",
           actions = {
@@ -41,7 +39,6 @@ return {
           },
         },
         branches = {
-          prompt = "branches:",
           cmd = "git branch --all --color",
         },
       },
@@ -62,12 +59,13 @@ return {
         },
         fzf = {
           -- fzf '--bind=' options
-          ["ctrl-z"] = "abort",
-          ["ctrl-n"] = "unix-line-discard",
-          ["ctrl-f"] = "half-page-down",
-          ["ctrl-b"] = "half-page-up",
           ["ctrl-a"] = "beginning-of-line",
           ["ctrl-e"] = "end-of-line",
+          ["ctrl-n"] = "kill-line",
+          ["ctrl-b"] = "half-page-up",
+          ["ctrl-f"] = "half-page-down",
+          -- ["ctrl-n"] = "unix-line-discard",
+          ["alt-a"] = "toggle-all",
           -- Only valid with fzf previewers (bat/cat/git/etc)
           ["f3"] = "toggle-preview-wrap",
           ["f4"] = "toggle-preview",
