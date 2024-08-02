@@ -7,14 +7,11 @@ alias cat="bat"
 alias lg="lazygit"
 alias fd="fd"
 
-function godev(){
-  docker compose exec -it dev zsh
-}
-
 # exports
 export VISUAL="nvim"
 export EDITOR="nvim"
 export LC_ALL=en_US.UTF-8
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 # Set up the prompt
 setopt histignorealldups sharehistory
