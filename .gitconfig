@@ -18,3 +18,9 @@
   defaultBranch = main
 [pull]
   rebase = false
+[merge]
+	tool = nvimdiff
+[mergetool]
+	keepBackup = false
+[mergetool "nvimdiff"]
+    cmd = nvim "$MERGED"
