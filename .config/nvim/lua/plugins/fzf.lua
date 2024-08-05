@@ -18,6 +18,7 @@ return {
       grep = {
         multiline = true,
         RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
+        rg_opts = "--files-with-matches",
       },
       files = {
         cwd_header = false,
