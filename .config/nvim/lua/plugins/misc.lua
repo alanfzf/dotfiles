@@ -1,13 +1,6 @@
 return {
   { "junegunn/vim-easy-align" },
-  {
-    "razak17/tailwind-fold.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    ft = { "html", "svelte", "astro", "vue", "typescriptreact", "php", "blade" },
-  },
-  {
-    "cbochs/grapple.nvim",
-  },
+  { "cbochs/grapple.nvim" },
   {
     "brenoprata10/nvim-highlight-colors",
     config = function()
@@ -17,12 +10,6 @@ return {
         enable_named_colors = false,
         enable_tailwind = false,
       })
-    end,
-  },
-  {
-    "LunarVim/bigfile.nvim",
-    config = function()
-      require("bigfile").setup({})
     end,
   },
 }

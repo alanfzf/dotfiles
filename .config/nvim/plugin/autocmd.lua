@@ -1,4 +1,4 @@
-vim.g.SCHEME = "habamax"
+vim.g.SCHEME = "default"
 
 -- Resize splits if window is resized.
 vim.api.nvim_create_autocmd("VimResized", {

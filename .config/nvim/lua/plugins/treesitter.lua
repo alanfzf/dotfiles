@@ -8,19 +8,7 @@ return {
       "windwp/nvim-ts-autotag",
       event = "VeryLazy",
       config = function()
-        require("nvim-ts-autotag").setup({
-          filetypes = {
-            "html",
-            "xml",
-            "typescriptreact",
-            "javascriptreact",
-            "jsx",
-            "tsx",
-            "htmldjango",
-            "blade",
-            "php",
-          },
-        })
+        require("nvim-ts-autotag").setup({})
       end,
     },
   },
@@ -28,11 +16,7 @@ return {
     -- basic treesitter setup
     require("nvim-treesitter").setup({
       auto_install = true,
-      ensure_install = { "core", "stable" },
-      highlight = {
-        enable = true,
-        additional_vim_regex_higlighting = false,
-      },
+      ensure_install = { "all" },
     })
 
     vim.api.nvim_create_autocmd("User", {
