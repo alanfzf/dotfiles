@@ -33,8 +33,14 @@ vim.api.nvim_create_user_command("Gbrowse", function()
     return
   end
 
-  local result = vim.system({ "gh", "browse", "-b", branch, filename .. ":" .. lnum }, { text = true }):wait()
-  if result.code ~= 0 then
+  local result = vim.system({ "gh", "browse", "-n", "-b", branch, filename .. ":" .. lnum }, { text = true }):wait()
+  local url = result.stdout
+
+  if result.code ~= 0 or not url then
     print("Gbrowse error")
+    return
   end
+
+  print("Opening repo: " .. url)
+  vim.ui.open(url)
 end, {})
