@@ -1,5 +1,5 @@
 return {
-  { "junegunn/vim-easy-align" },
+  { "RRethy/nvim-align" },
   { "cbochs/grapple.nvim" },
   {
     "brenoprata10/nvim-highlight-colors",
