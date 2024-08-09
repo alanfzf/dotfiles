@@ -16,7 +16,7 @@ return {
     -- basic treesitter setup
     require("nvim-treesitter").setup({
       auto_install = true,
-      ensure_install = { "all" },
+      ensure_install = { "core", "stable" },
     })
 
     vim.api.nvim_create_autocmd("User", {
