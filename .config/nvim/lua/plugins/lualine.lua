@@ -3,7 +3,7 @@ return {
   event = { "VimEnter", "InsertEnter", "BufReadPre", "BufAdd", "BufNew", "BufReadPost" },
   dependencies = {
     "lewis6991/gitsigns.nvim",
-    "echasnovski/mini.icons",
+    "nvim-tree/nvim-web-devicons",
   },
   config = function()
     local function get_diff()
