@@ -23,6 +23,17 @@ return {
       pattern = "TSUpdate",
       callback = function()
         local parsers = require("nvim-treesitter.parsers")
+
+        parsers.bruno = {
+          tier = 0,
+          filetype = "bruno",
+          install_info = {
+            url = "https://github.com/Scalamando/tree-sitter-bruno",
+            files = { "src/parser.c" },
+            branch = "main",
+          },
+        }
+
         parsers.blade = {
           tier = 0,
           filetype = "blade",
