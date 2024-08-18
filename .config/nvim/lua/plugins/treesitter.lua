@@ -15,7 +15,6 @@ return {
   config = function()
     -- basic treesitter setup
     require("nvim-treesitter").setup({
-      auto_install = true,
       ensure_install = { "core", "stable" },
     })
 

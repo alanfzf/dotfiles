@@ -1,4 +1,16 @@
 return {
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        filetypes = {
+          ["*"] = true,
+        },
+      })
+    end,
+  },
   { "RRethy/nvim-align" },
   { "cbochs/grapple.nvim" },
   {
