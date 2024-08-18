@@ -5,7 +5,15 @@ alias ls='eza -l --icons -s extension'
 alias gs="git status"
 alias cat="bat"
 alias lg="lazygit"
-alias fd="fd"
+
+function vir() {
+  local server_address=${1:-localhost:6666}
+  nvim --server "$server_address" --remote-ui
+}
+
+function docker_delete(){
+  docker system prune -af && docker volume prune -af
+}
 
 # exports
 export VISUAL="nvim"
