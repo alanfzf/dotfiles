@@ -18,6 +18,7 @@ keymap("c", "<C-P>", "<Up>", { noremap = true })
 keymap("c", "<M-b>", "<S-Left>", { noremap = true })
 keymap("c", "<M-f>", "<S-Right>", { noremap = true })
 keymap("c", "<C-K>", [[<C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>]], { noremap = true })
+keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
 
 --[[ * NORMAL MODE *  ]]
 keymap("n", "cc", '"_cc')
