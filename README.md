@@ -27,5 +27,5 @@ winget.exe install -e --id 9MZNMNKSM73X
 
 ```bash
 # install this to make zathura and dropbox work
-sudo pacman -Syu qt5-base xcb-util
+sudo pacman -Syu qt5-base xcb-util libxdamage
 ```
