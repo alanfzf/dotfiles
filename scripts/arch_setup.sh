@@ -20,11 +20,7 @@
 # .`                                 `/
 
 
-# Configure notification-daemon: https://wiki.archlinux.org/title/Desktop_notifications
 # Set default apps: https://linux-tips.com/t/setting-default-browser-in-system/56/2
-# Configure audio: https://wiki.archlinux.org/title/Bluetooth#PipeWire
-# Disable audio power saving:
-# sudo echo 0 > /sys/module/snd_hda_intel/parameters/power_save
 # fix x11 display wsl: https://github.com/microsoft/wslg/issues/43#issuecomment-826039096
 # fix locale zsh stuck completion: https://stackoverflow.com/a/20953792/20370244
 
@@ -43,7 +39,11 @@ if [[ ! $IS_WSL ]]; then
     bluez bluez-utils \
     ttf-jetbrains-mono-nerd \
     wofi mako wl-clipboard slurp grim
+
 else
   # Symlink this for xdg-open
   sudo ln -s "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" /usr/local/bin
+  # Generate locales
+  sudo sed -i '/^#en_US.UTF-8 UTF-8/s/^#//' /etc/locale.gen
+  sudo locale-gen
 fi
