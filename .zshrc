@@ -6,10 +6,10 @@ alias gs="git status"
 alias cat="bat"
 alias lg="lazygit"
 
-function vir() {
-  local server_address=${1:-localhost:6666}
-  nvim --server "$server_address" --remote-ui
+function dcr(){
+  devcontainer up --workspace-folder $1 --config $2 --dot-files https://github.com/alanfzf/dotfiles
 }
+
 
 function docker_delete(){
   docker system prune -af && docker volume prune -af
@@ -55,3 +55,4 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # Evals
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+eval "$(keychain --eval --noask -q ~/.ssh/id_ed25519)"
