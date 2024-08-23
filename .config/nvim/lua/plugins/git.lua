@@ -1,18 +1,16 @@
 return {
   {
-    "ldelossa/gh.nvim",
+    "pwntester/octo.nvim",
     dependencies = {
-      {
-        "ldelossa/litee.nvim",
-        config = function()
-          require("litee.lib").setup()
-        end,
-      },
+      "nvim-lua/plenary.nvim",
+      "ibhagwan/fzf-lua",
+      "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require("litee.gh").setup()
+      require("octo").setup()
     end,
   },
+
   { "akinsho/git-conflict.nvim", config = true },
   {
     "lewis6991/gitsigns.nvim",
