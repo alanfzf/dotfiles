@@ -7,9 +7,8 @@ alias cat="bat"
 alias lg="lazygit"
 
 function dcr(){
-  devcontainer up --workspace-folder $1 --config $2 --dot-files https://github.com/alanfzf/dotfiles
+  devcontainer up --workspace-folder $1 --config $2 --dotfiles-repository https://github.com/alanfzf/dotfiles
 }
-
 
 function docker_delete(){
   docker system prune -af && docker volume prune -af

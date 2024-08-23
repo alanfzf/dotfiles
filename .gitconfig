@@ -1,11 +1,11 @@
 [user]
-	name = alanfzf
-	signingkey = ~/.ssh/id_ed25519.pub
-	email = alandavidg13@gmail.com
+  name = alanfzf
+  signingkey = ~/.ssh/id_ed25519.pub
+  email = alandavidg13@gmail.com
 [commit]
-	gpgsign = true
+  gpgsign = true
 [gpg]
-	format = ssh
+  format = ssh
 [push]
   autoSetupRemote = true
 [alias]
@@ -19,8 +19,8 @@
 [pull]
   rebase = false
 [merge]
-	tool = nvimdiff
+  tool = nvimdiff
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 [mergetool "nvimdiff"]
-    cmd = nvim "$MERGED"
+  cmd = nvim "$MERGED"
