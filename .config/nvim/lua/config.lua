@@ -27,4 +27,16 @@ require("lazy").setup("plugins", {
   readme = {
     enabled = false,
   },
+  install = {
+    colorscheme = {"default"},
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "netrwPlugin",
+        "tohtml",
+        "tutor",
+      },
+    },
+  },
 })
