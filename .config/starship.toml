@@ -1,13 +1,42 @@
 # ==== PROMPT CONFIG ====
-format="""$all$line_break$character"""
+format="""$character$directory$git_branch$git_state$git_status"""
 right_format="""$container$aws$os"""
-add_newline = true
+add_newline=false
+
+# ==== [GIT] ====
+[git_branch]
+format='[git:\([$branch](bright-red)\)](bright-blue) '
+
+[git_state]
+style = "purple"
+
+[git_status]
+# this module may be slow on windows machines
+disabled = false
+format = '[($all_status )]($style)'
+style="bright-yellow"
+stashed = "≡"
+
+# ==== CLOUD ====
+[aws]
+format = '[$symbol($profile )(\($region\))]($style)'
+symbol = ' '
+
+[container]
+symbol = ""
+style  = "bright-green"
+format = "[$symbol]($style) "
+
+# ==== MISC ====
+[character]
+error_symbol = "[➜](bright-red)"
+success_symbol = "[➜](bright-green)"
 
 # ==== OS ====
 [os]
-format = "on [$symbol]($style)"
-style = "bold yellow"
-disabled = false
+format = "[$symbol]($style)"
+style = "yellow"
+disabled = true
 
 [os.symbols]
 Debian = " "
@@ -16,75 +45,8 @@ Arch = '󰣇'
 Ubuntu = ''
 Macos = '󰀵'
 
-[username]
-disabled = false
-show_always = false
-
 [directory]
+style="bright-cyan"
 use_os_path_sep = false
 truncation_length = 3
-truncation_symbol = "…/"
-
-[directory.substitutions]
-'/mnt/c/users/' = '/Windows/'
-
-# ==== [GIT] ====
-[git_branch]
-symbol = ' '
-
-[git_metrics]
-disabled = false
-
-[git_status] # this module may be slow on windows machines
-disabled = false
-modified = ''
-stashed = "≡"
-format = '[$all_status]($style) ' 
-
-[git_state]
-style = "purple"
-
-# ==== LANGUAGES ====
-[nodejs]
-format = '[$symbol]($style)'
-symbol = '󰎙 '
-
-[lua]
-format = '[$symbol]($style)'
-symbol = '󰢱 '
-
-[docker_context]
-symbol = '󰡨 '
-
-[python]
-format = '[$symbol]($style)'
-symbol = '󰌠 '
-
-[rust]
-symbol = '󱘗 '
-
-[php]
-format = '[$symbol]($style)'
-symbol = ' '
-
-[package]
-symbol = '󰏗 '
-
-[hostname]
-ssh_symbol = '󰒋 '
-style = 'red'
-
-# ==== CLOUD ====
-[aws]
-format = 'on [$symbol($profile)(\($region\) )]($style)'
-symbol = ' '
-
-[container]
-symbol = ""
-style  = "cyan"
-
-# ==== MISC ====
-[character]
-error_symbol = "[](red)"
-success_symbol = "[](green)"
-vimcmd_symbol = "[](yellow)"
+truncation_symbol = ""
