@@ -58,6 +58,10 @@ return {
     }
 
     cmp.setup({
+      performance = {
+        debounce = 0,
+        throttle = 0,
+      },
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
