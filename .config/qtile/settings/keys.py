@@ -54,8 +54,8 @@ keys = [
     Key([mod], "e", lazy.spawn("thunar"), desc="Spawn the file explorer"),
 
     # Screenshots
-    Key([mod], "s", lazy.spawn("")),
-    Key([mod, "shift"], "s", lazy.spawn("")),
+    Key([mod], "s", lazy.spawn("grim - | wl-copy", shell=True), desc="Take a screenshot"),
+    Key([mod, "shift"], "s", lazy.spawn("grim -g \"$(slurp -d)\" - | wl-copy", shell=True), desc="Take a screenshot"),
 
     # Brightness
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
