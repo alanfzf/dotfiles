@@ -2,7 +2,13 @@ from libqtile.config import Screen
 from libqtile import bar
 from .widgets import primary_widgets, secondary_widgets
 
-qtile_wall = "~/.local/share/wallpapers/gruvbox/mountains_1.jpg"
+qtile_wall = ""
+
+try:
+    with open(".qtile", "r") as f:
+        qtile_wall = f.readline().strip();
+except Exception as e:
+    pass
 
 def status_bar(widgets):
     return bar.Bar(widgets, size=30)
