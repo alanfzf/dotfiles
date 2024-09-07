@@ -51,7 +51,7 @@ local lsp_servers = {
     },
   },
   -- TS & JS
-  tsserver = {
+  ts_ls = {
     single_file_support = false,
   },
   -- PYTHON
