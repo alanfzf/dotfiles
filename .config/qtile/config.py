@@ -1,4 +1,6 @@
 # MY OWN SETTINGS
+from libqtile import hook
+import subprocess
 from settings.keys import mod, keys
 from settings.groups import groups
 from settings.layouts import layouts, floating_layout
@@ -24,3 +26,12 @@ auto_minimize = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 wmname = "LG3D"
+
+@hook.subscribe.startup_once
+def autostart():
+    processes = [
+        ['swaync'],
+    ]
+
+    for p in processes:
+        subprocess.Popen(p)
