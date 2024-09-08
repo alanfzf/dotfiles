@@ -38,8 +38,7 @@ if [[ ! $IS_WSL ]]; then
   sudo pacman -Syu --noconfirm thunar brightnessctl \
     bluez bluez-utils \
     ttf-jetbrains-mono-nerd \
-    wofi mako wl-clipboard slurp grim
-
+    wofi wl-clipboard slurp grim
 else
   # Symlink this for xdg-open
   sudo ln -s "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" /usr/local/bin
