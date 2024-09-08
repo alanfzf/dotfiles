@@ -1,7 +1,8 @@
 from libqtile import widget
+from libqtile.lazy import lazy
 from .theme import colors
 
-def base(fg='text', bg='dark'): 
+def base(fg='text', bg='dark'):
     return { 'foreground': colors[fg], 'background': colors[bg] }
 
 def separator():
@@ -15,7 +16,7 @@ def powerline(fg="light", bg="dark"):
     return widget.TextBox(**base(fg, bg), text="", fontsize=37, padding=0)
 
 
-def workspaces(): 
+def workspaces():
     return [
         separator(),
         widget.GroupBox(
@@ -87,8 +88,14 @@ primary_widgets = [
 
     # CALENDAR
     powerline('color1', 'color2'),
-    icon(bg="color1", fontsize=17, text='󰃰 '),
-    widget.Clock(**base(bg='color1'), format='%Y/%m/%d - %H:%M '),
+    icon(bg="color1", fontsize=17, text='󰃰'),
+    widget.Clock(
+        **base(bg='color1'),
+        format=' %Y/%m/%d - %H:%M ',
+        mouse_callbacks={
+            "Button1": lazy.group['scratchpad'].dropdown_toggle('khal')
+        }
+    ),
 
     # OTHER STUFF
     powerline('dark', 'color1'),

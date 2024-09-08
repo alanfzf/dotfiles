@@ -1,10 +1,19 @@
-from libqtile.config import Key, Group
+from libqtile.config import Key, Group, ScratchPad, DropDown
 from libqtile.lazy import lazy  # Updated import for lazy
+
 from .keys import mod, keys
 
+# BASE GROUPS
 groups = [Group(i) for i in [
-    "  ", " 󰖟 ", " 󰉋 ", "  ", "  ", "   ", " 󱞁 ", " 󰙯 ", "  "
+    "  ", " 󰖟 ", " 󰉋 ", " 󱞁 ", " 󰙯 ", "  "
 ]]
+
+# SCRATCH PADS
+groups.append(
+    ScratchPad('scratchpad', [
+        DropDown('khal', 'foot khal interactive', opacity=1.0, width=0.5, height=0.5, x=0.25, y=0.25),
+    ]),
+)
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)

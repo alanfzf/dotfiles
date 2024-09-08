@@ -13,9 +13,20 @@ dracula = {
     "color4":   [ "#ffd47e", "#ffd47e" ]
 }
 
-def load_theme():
-    theme = dracula
-    return theme
+gruvbox = {
+    "dark":     [ "#282828", "#282828" ],
+    "grey":     [ "#928374", "#928374" ],
+    "light":    [ "#ebdbb2", "#ebdbb2" ],
+    "text":     [ "#1d2021", "#1d2021" ],
+    "focus":    [ "#b16286", "#b16286" ],
+    "active":   [ "#ebdbb2", "#ebdbb2" ],
+    "inactive": [ "#504945", "#504945" ],
+    "urgent":   [ "#fb4934", "#fb4934" ],
+    "color1":   [ "#8ec07c", "#8ec07c" ],
+    "color2":   [ "#fb4934", "#fb4934" ],
+    "color3":   [ "#fe8019", "#fe8019" ],
+    "color4":   [ "#fabd2f", "#fabd2f" ]
+}
 
 if __name__ == "settings.theme":
-    colors = load_theme()
+    colors = gruvbox
