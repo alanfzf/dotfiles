@@ -11,7 +11,11 @@ from libqtile.backend.wayland import InputConfig
 
 wl_input_rules = {
     "*": InputConfig(pointer_accel=False),
-    "type:keyboard": InputConfig(kb_options="ctrl:nocaps,compose:ralt"),
+    "type:keyboard": InputConfig(
+        kb_options="ctrl:nocaps",
+        kb_layout="us",
+        kb_variant="altgr-intl"
+    ),
 }
 
 # Drag floating layouts.
