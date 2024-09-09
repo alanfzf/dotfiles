@@ -1,4 +1,5 @@
 return {
+  { "mistweaverco/kulala.nvim", opts = {} },
   { "RRethy/nvim-align" },
   { "cbochs/grapple.nvim" },
   {
