@@ -69,7 +69,7 @@ input type:pointer {
 }
 
 # change background
-output * bg /usr/share/backgrounds/alan/Landscape/mountain_1.png fill
+# output * bg /usr/share/backgrounds/alan/Landscape/mountain_1.png fill
 
 # ****** [BINDINGS] ****** 
 bindsym $mod+r exec $menu
@@ -107,8 +107,8 @@ bindsym $mod+minus scratchpad show
 
 # >> [[ MISC ]]
 # >>> screenshots
-bindsym $mod+s exec grim ~/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
-bindsym $mod+Shift+s exec grim -g "$(slurp)" ~/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym $mod+s exec grim - | wl-copy
+bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy
 
 # >>> brightnessctl
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
