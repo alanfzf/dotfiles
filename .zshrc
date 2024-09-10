@@ -54,3 +54,4 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # Evals
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+eval "$(keychain --eval --noask -q ~/.ssh/id_ed25519)"
