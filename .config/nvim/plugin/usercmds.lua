@@ -1,9 +1,3 @@
-vim.api.nvim_create_user_command("SetTransparency", function()
-  -- NOTE: using the nvim api to remove the background doesn't work properly
-  vim.api.nvim_set_hl(0, "NormalNC", { link = "Normal" })
-  vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
-end, { nargs = 0 })
-
 vim.api.nvim_create_user_command("FixM", function()
   vim.cmd([[
   w
@@ -37,7 +31,7 @@ vim.api.nvim_create_user_command("Gbrowse", function()
   local url = result.stdout
 
   if result.code ~= 0 or not url then
-    print("Gbrowse error")
+    print("GH-CLI error")
     return
   end
 

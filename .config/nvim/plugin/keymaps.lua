@@ -5,7 +5,6 @@ local helper = require("utils.helper")
 --[[ * ALL MODES * ]]
 keymap("", "<S-h>", "^", { remap = true })
 keymap("", "<S-l>", "$", { remap = true })
-keymap("", "q", "<Nop>", { remap = true })
 
 --[[ * COMMAND MODE *  ]]
 keymap("c", "<C-A>", "<Home>", { noremap = true })
