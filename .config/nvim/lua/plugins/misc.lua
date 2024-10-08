@@ -1,7 +1,13 @@
 return {
-  { "mistweaverco/kulala.nvim", opts = {} },
   { "RRethy/nvim-align" },
   { "cbochs/grapple.nvim" },
+  { "mistweaverco/kulala.nvim", opts = { environment_scope = "g" } },
+  {
+    "brianhuster/live-preview.nvim",
+    config = function()
+      require("live-preview").setup()
+    end,
+  },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
