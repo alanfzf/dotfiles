@@ -54,6 +54,7 @@ opt.termguicolors = true
 opt.pumheight = 10
 opt.splitbelow = true
 opt.splitright = true
+opt.cmdheight = 2
 -- misc
 opt.shortmess:append("c")
 opt.iskeyword:append("-")
