@@ -1,10 +1,13 @@
+[env]
+TERM = "xterm-256color"
+
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-size =16
+size   = 16
 
 [window]
-opacity = 0.9
-startup_mode = "Maximized"
+opacity       = 0.9
+startup_mode  = "Maximized"
 option_as_alt = "Both"
 
 # Colors (Doom One)
