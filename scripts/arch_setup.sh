@@ -46,3 +46,8 @@ else
   sudo sed -i '/^#en_US.UTF-8 UTF-8/s/^#//' /etc/locale.gen
   sudo locale-gen
 fi
+
+# Install Paru
+git clone https://aur.archlinux.org/paru.git /tmp/paru
+cd /tmp/paru
+makepkg -si
