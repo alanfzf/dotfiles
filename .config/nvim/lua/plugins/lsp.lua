@@ -1,8 +1,6 @@
 local setup_lsp_servers = function()
-  local cmp_nvim_lsp = require("cmp_nvim_lsp")
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
   local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
@@ -93,7 +91,6 @@ local M = {
   end,
   dependencies = {
     {
-      { "hrsh7th/cmp-nvim-lsp" },
       {
         "williamboman/mason.nvim",
         cmd = "Mason",
@@ -104,13 +101,12 @@ local M = {
         config = function()
           require("mason").setup({
             ui = { border = "rounded" },
-            log_level = vim.log.levels.INFO,
             max_concurrent_installers = 4,
           })
           require("mason-tool-installer").setup({
             ensure_installed = require("utils.lsp-settings").install_list(),
             run_on_start = true,
-            start_delay = 3000,
+            start_delay = 5000,
           })
         end,
       },

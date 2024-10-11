@@ -28,7 +28,7 @@ require("lazy").setup("plugins", {
     enabled = false,
   },
   install = {
-    colorscheme = {"default"},
+    colorscheme = { "default" },
   },
   performance = {
     rtp = {

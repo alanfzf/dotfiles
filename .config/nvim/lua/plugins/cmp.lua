@@ -1,100 +1,43 @@
 return {
-  "hrsh7th/nvim-cmp",
-  dependencies = {
-    { "hrsh7th/cmp-buffer" },
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/cmp-path" },
-    { "saadparwaiz1/cmp_luasnip" },
-    {
-      "L3MON4D3/LuaSnip",
-      dependencies = {
-        "rafamadriz/friendly-snippets",
+  "saghen/blink.cmp",
+  lazy = false, -- lazy loading handled internally
+  -- optional: provides snippets for the snippet source
+  dependencies = "rafamadriz/friendly-snippets",
+
+  -- use a release tag to download pre-built binaries
+  version = "v0.*",
+  -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+  -- build = 'cargo build --release',
+  -- On musl libc based systems you need to add this flag
+  -- build = 'RUSTFLAGS="-C target-feature=-crt-static" cargo build --release',
+
+  opts = {
+    highlight = {
+      use_nvim_cmp_as_default = true,
+    },
+    keymap = {
+      accept = "<CR>",
+    },
+
+    nerd_font_variant = "normal",
+
+    -- experimental auto-brackets support
+    accept = { auto_brackets = { enabled = true } },
+
+    -- experimental signature help support
+    -- trigger = { signature_help = { enabled = true } }
+
+    -- ** start sources **
+    sources = {
+      providers = {
+        {
+          { "blink.cmp.sources.lsp" },
+          { "blink.cmp.sources.path" },
+          { "blink.cmp.sources.snippets", score_offset = -3 },
+        },
+        { { "blink.cmp.sources.buffer" } },
       },
     },
+    -- ** end sources **
   },
-  config = function()
-    local cmp = require("cmp")
-    local luasnip = require("luasnip")
-    local extensions = {
-      javascript = { "jsdoc" },
-      php = { "phpdoc" },
-      blade = { "html" },
-    }
-
-    -- Load my snippets
-    require("luasnip.loaders.from_vscode").lazy_load()
-    require("luasnip.loaders.from_vscode").lazy_load({ paths = "./snippets/" })
-    -- additional configs
-    for filetype, ext_list in pairs(extensions) do
-      luasnip.filetype_extend(filetype, ext_list)
-    end
-
-    local kind_icons = {
-      Text = "󰉿",
-      Method = "m",
-      Function = "󰊕",
-      Constructor = "",
-      Field = "",
-      Variable = "󰆧",
-      Class = "󰌗",
-      Interface = "",
-      Module = "",
-      Property = "",
-      Unit = "",
-      Value = "󰎠",
-      Enum = "",
-      Keyword = "󰌋",
-      Snippet = "",
-      Color = "󰏘",
-      File = "󰈙",
-      Reference = "",
-      Folder = "󰉋",
-      EnumMember = "",
-      Constant = "󰇽",
-      Struct = "",
-      Event = "",
-      Operator = "󰆕",
-      TypeParameter = "󰊄",
-    }
-
-    cmp.setup({
-      performance = {
-        debounce = 0,
-        throttle = 0,
-      },
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
-      },
-      mapping = cmp.mapping.preset.insert({
-        -- movements
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<C-b>"] = cmp.mapping.scroll_docs(-1),
-        ["<C-f>"] = cmp.mapping.scroll_docs(1),
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
-      }),
-      sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "bootstrap" },
-        { name = "path" },
-      },
-      formatting = {
-        fields = { "abbr", "kind", "menu" },
-        format = function(entry, vim_item)
-          vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-          vim_item.menu = ({
-            nvim_lsp = "LSP",
-            luasnip = "Snip",
-            buffer = "Buffer",
-            path = "Path",
-          })[entry.source.name]
-          return vim_item
-        end,
-      },
-    })
-  end,
 }
