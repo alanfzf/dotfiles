@@ -19,4 +19,4 @@ precmd() {
 
 # DEFINE PROMPT
 setopt prompt_subst
-PROMPT='%(?.$GREEN.$RED)➜ %{$B_CYAN%}%2~ ${vcs_info_msg_0_}%f'
+PROMPT='%(?.$GREEN.$RED)➜%f %{$CYAN%}%2~ ${vcs_info_msg_0_}%f'
