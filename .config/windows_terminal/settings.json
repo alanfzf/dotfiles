@@ -49,8 +49,9 @@
       "keys": "alt+]"
     }
   ],
-  "alwaysOnTop": true,
+  "alwaysOnTop": false,
   "alwaysShowTabs": true,
+  "centerOnLaunch": false,
   "copyFormatting": "none",
   "defaultProfile": "{f6232c45-c108-4e79-9c73-7208c362c32c}",
   "disableAnimations": true,
@@ -448,6 +449,7 @@
     }
   ],
   "showTabsInTitlebar": true,
+  "tabSwitcherMode": "inOrder",
   "themes": [],
   "useAcrylicInTabRow": true,
   "windowingBehavior": "useAnyExisting"
