@@ -452,5 +452,6 @@
   "tabSwitcherMode": "inOrder",
   "themes": [],
   "useAcrylicInTabRow": true,
-  "windowingBehavior": "useAnyExisting"
+  "windowingBehavior": "useAnyExisting",
+  "experimental.connection.passthroughMode": true
 }
