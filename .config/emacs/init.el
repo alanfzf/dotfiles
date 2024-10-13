@@ -1,0 +1,8 @@
+(setq custom-file "~/.emacs.custom.el")
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+(setq ring-bell-function 'ignore)
+(load-theme 'gruber-darker t)
+(global-display-line-numbers-mode 1)
+(setq display-line-numbers-type 'relative)
