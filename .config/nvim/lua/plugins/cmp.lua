@@ -2,8 +2,8 @@ return {
   "saghen/blink.cmp",
   lazy = false,
   dependencies = { "rafamadriz/friendly-snippets" },
-  version = "v0.*",
-  -- build = "cargo build --release",
+  -- version = "v0.*",
+  build = "cargo build --release",
 
   opts = {
     nerd_font_variant = "normal",
@@ -12,37 +12,38 @@ return {
     },
     keymap = {
       accept = "<CR>",
+      select_prev = { "<C-k>" },
+      select_next = { "<C-j>" },
     },
     -- ** experimental **
     accept = { auto_brackets = { enabled = true } },
     -- ** start sources **
     sources = {
       providers = {
+        { "blink.cmp.sources.lsp", name = "lsp" },
         {
-          { "blink.cmp.sources.lsp" },
-          { "blink.cmp.sources.path" },
-          {
-            "blink.cmp.sources.snippets",
-            score_offset = -3,
-            opts = {
+          "blink.cmp.sources.snippets",
+          name = "snippets",
+          score_offset = -3,
+          opts = {
+            extended_filetypes = {
+              search_paths = { vim.fn.stdpath("config") .. "/snippets" },
               extended_filetypes = {
-                search_paths = { vim.fn.stdpath("config") .. "/snippets" },
-                extended_filetypes = {
-                  javascript = { "jsdoc" },
-                  php = { "phpdoc" },
-                  blade = { "html" },
-                },
+                javascript = { "jsdoc" },
+                php = { "phpdoc" },
+                blade = { "html" },
               },
             },
           },
-          { "blink.cmp.sources.buffer", score_offset = -4 },
         },
+        { "blink.cmp.sources.buffer", name = "buffer" },
+        { "blink.cmp.sources.path", name = "path" },
       },
     },
     -- ** end sources **
     widnows = {
       autocomplete = {
-        preselect = false,
+        selection = "auto_insert",
       },
     },
   },
