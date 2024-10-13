@@ -1,6 +1,7 @@
 # aliases
 alias sudo="sudo "
 alias vi="nvim"
+alias vif="fzf --preview 'bat {}' | xargs -r nvim"
 alias ls='eza -l --icons -s extension'
 alias gs="git status"
 alias cat="bat"
