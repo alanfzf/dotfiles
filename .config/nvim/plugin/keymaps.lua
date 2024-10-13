@@ -43,6 +43,7 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>")
 keymap("n", "<C-Left>", ":vertical resize +2<CR>")
 -- Navigate tabs
 keymap("n", "<leader>tn", ":tabnew %<CR>")
+keymap("n", "<C-f>", "q:")
 
 --[[ * VISUAL MODE * ]]
 -- Stay in indent mode
@@ -70,13 +71,10 @@ keymap("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", opts)
 keymap("n", "<leader>fc", "<cmd>FzfLua colorschemes<CR>", opts)
 keymap("n", "<leader>fs", "<cmd>FzfLua git_status<CR>", opts)
 keymap("n", "<leader>fh", "<cmd>FzfLua git_bcommits<CR>", opts)
-keymap("n", "<leader>fm", "<cmd>FzfLua marks<CR>", opts)
 -- OIL NVIM
 keymap("n", "<leader>e", "<cmd>Oil<CR>", opts)
 -- LSP
 keymap("n", "<leader>li", "<cmd>LspInfo<CR>")
--- LAZYGIT
-keymap("n", "<leader>lg", ":tabnew term://%:p:h//lazygit<CR>A", opts)
 -- GIT SIGNGS
 keymap("n", "<leader>gh", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "<leader>gH", ":Gitsigns prev_hunk<CR>", opts)
@@ -89,5 +87,6 @@ keymap("n", "<leader>do", ":lua require'dap'.step_over()<CR>", opts)
 keymap("n", "<leader>di", ":lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", opts)
 -- GRAPPLE
-keymap("n", "<leader>gt", "<cmd>Grapple toggle_tags<CR>", opts)
-keymap("n", "<leader>gm", "<cmd>Grapple toggle<CR>", opts)
+keymap("n", "<leader>gt", "<cmd>Grapple tag<CR>", opts)
+keymap("n", "<leader>gu", "<cmd>Grapple untag<CR>", opts)
+keymap("n", "<leader>gm", "<cmd>Grapple toggle_tags<CR>", opts)
