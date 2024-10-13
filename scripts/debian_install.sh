@@ -16,6 +16,3 @@ sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/nvim
 # install lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -L "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" | sudo tar xzf - -C /usr/local/bin/
-
-# install starship
-curl -fsSL https://starship.rs/install.sh | sh -s -- --yes

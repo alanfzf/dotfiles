@@ -28,7 +28,7 @@ IS_WSL=$(grep -i Microsoft /proc/version)
 
 # Install base packages
 sudo pacman -Syu --noconfirm git curl wget tmux base-devel github-cli \
-  zsh zoxide starship \
+  zsh zoxide \
   zip unzip \
   fzf fd ripgrep bat \
   neovim eza lazygit
