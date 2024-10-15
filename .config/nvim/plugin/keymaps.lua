@@ -5,6 +5,7 @@ local helper = require("utils.helper")
 --[[ * ALL MODES * ]]
 keymap("", "<S-h>", "^", { remap = true })
 keymap("", "<S-l>", "$", { remap = true })
+keymap("", "q", "<Nop>", { remap = true })
 
 --[[ * COMMAND MODE *  ]]
 keymap("c", "<C-a>", "<Home>", { noremap = true })
@@ -43,7 +44,7 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>")
 keymap("n", "<C-Left>", ":vertical resize +2<CR>")
 -- Navigate tabs
 keymap("n", "<leader>tn", ":tabnew %<CR>")
-keymap("n", "<C-f>", "q:")
+keymap("n", "<C-f>", "q:i")
 
 --[[ * VISUAL MODE * ]]
 -- Stay in indent mode

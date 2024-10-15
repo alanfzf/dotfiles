@@ -38,3 +38,18 @@ vim.api.nvim_create_user_command("Gbrowse", function()
   print("Opening repo: " .. url)
   vim.ui.open(url)
 end, {})
+
+vim.api.nvim_create_user_command("Scratch", function()
+  if vim.g.scratch_buffer == nil then
+    local bid = vim.api.nvim_create_buf(true, true)
+    vim.g.scratch_buffer = bid
+    vim.api.nvim_set_option_value("buftype", "nofile", { buf = bid })
+    vim.api.nvim_set_option_value("swapfile", false, { buf = bid })
+    vim.api.nvim_set_option_value("filetype", "markdown", { buf = bid })
+    vim.api.nvim_buf_set_name(bid, "Scratch")
+  end
+
+  local buf = vim.g.scratch_buffer
+  vim.api.nvim_command("vsplit")
+  vim.api.nvim_set_current_buf(buf)
+end, {})
