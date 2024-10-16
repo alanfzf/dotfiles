@@ -36,14 +36,15 @@ return {
             },
           },
         },
-        { "blink.cmp.sources.buffer", name = "buffer" },
+        { "blink.cmp.sources.buffer", name = "buffer", score_offset = -2 },
         { "blink.cmp.sources.path", name = "path" },
       },
     },
     -- ** end sources **
-    widnows = {
+    windows = {
       autocomplete = {
-        selection = "auto_insert",
+        selection = "manual",
+        draw = "reversed",
       },
     },
   },
