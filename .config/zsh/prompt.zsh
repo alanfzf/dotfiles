@@ -5,13 +5,14 @@ RED="%F{red}"
 GREEN="%F{green}"
 BLUE="%F{blue}"
 CYAN="%F{cyan}"
-PURPLE="%F{purple}"
+YELLOW="%F{yellow}"
 
 # GIT INFO
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-staged-changes true
-zstyle ':vcs_info:git*' formats "%{$BLUE%}git:(%{$RED%}%b%{$BLUE%}) "
+zstyle ':vcs_info:git:*' formats "%{$BLUE%}git:(%{$RED%}%b%{$BLUE%}) "
+zstyle ':vcs_info:git:*' actionformats "%{$BLUE%}git:(%{$RED%}%b%{$BLUE%}) %{$YELLOW%}%a "
 
 precmd() {
     vcs_info
