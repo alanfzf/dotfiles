@@ -1,4 +1,5 @@
 return {
+  { "https://github.com/daliusd/ghlite.nvim", config = true },
   { "akinsho/git-conflict.nvim", config = true },
   {
     "lewis6991/gitsigns.nvim",
