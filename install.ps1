@@ -65,7 +65,6 @@ function InstallPrograms {
   # **** INSTALL WINGET PACKAGES ****
   $Packages = @(
       "Microsoft.WindowsTerminal"
-      "Microsoft.PowerShell"
       "7zip.7zip"
       "Discord.Discord" 
       "VideoLAN.VLC"
