@@ -1,6 +1,7 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    enabled = false,
     config = function()
       local dap = require("dap")
       dap.adapters.php = {

@@ -1,6 +1,7 @@
 # aliases
 alias sudo="sudo "
 alias vi="nvim"
+alias vif="fzf --preview 'bat {}' | xargs -r nvim"
 alias ls='eza -l --icons -s extension'
 alias gs="git status"
 alias cat="bat"
@@ -20,9 +21,6 @@ export EDITOR="nvim"
 export LC_ALL=en_US.UTF-8
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
-# Set up the prompt
-setopt histignorealldups sharehistory
-
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
@@ -39,7 +37,6 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -52,6 +49,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Evals
-eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(keychain -q --eval --agents ssh ~/.ssh/id_ed25519)"
+
+source ~/.config/zsh/prompt.zsh

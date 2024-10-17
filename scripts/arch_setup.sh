@@ -28,7 +28,7 @@ IS_WSL=$(grep -i Microsoft /proc/version)
 
 # Install base packages
 sudo pacman -Syu --noconfirm git curl wget tmux base-devel github-cli \
-  zsh zoxide starship \
+  zsh zoxide \
   zip unzip \
   fzf fd ripgrep bat \
   neovim eza lazygit
@@ -46,3 +46,8 @@ else
   sudo sed -i '/^#en_US.UTF-8 UTF-8/s/^#//' /etc/locale.gen
   sudo locale-gen
 fi
+
+# Install Paru
+git clone https://aur.archlinux.org/paru.git /tmp/paru
+cd /tmp/paru
+makepkg -si

@@ -31,7 +31,7 @@ success_symbol = "[➜](bright-green)"
 [os]
 format = "[$symbol]($style)"
 style = "yellow"
-disabled = false
+disabled = true
 
 [os.symbols]
 Debian = " "

@@ -88,8 +88,6 @@ function InstallPrograms {
   $altGrlFolder = DownloadAndDecompress $altGrUrl
   $altGrlFolder = Join-Path $altGrlFolder.FullName "us-inter_amd64.msi"
   Start-Process 'msiexec.exe' -ArgumentList "/i `"$altGrlFolder`" /passive"
-
-  # **** ENABLE WSL **** 
 }
 
 function SetupDotFiles{
