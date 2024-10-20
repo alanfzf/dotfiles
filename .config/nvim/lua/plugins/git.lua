@@ -1,5 +1,16 @@
 return {
-  { "https://github.com/daliusd/ghlite.nvim", config = true },
+  {
+    "https://github.com/daliusd/ghlite.nvim",
+    config = function()
+      require("ghlite").setup({
+        debug = true,
+        view_split = "vsplit", -- set to empty string '' to open in active buffer
+        diff_split = "vsplit", -- set to empty string '' to open in active buffer
+        comment_split = "vsplit", -- set to empty string '' to open in active buffer
+        open_command = "open", -- open command to use, e.g. on Linux you might want to use xdg-open
+      })
+    end,
+  },
   { "akinsho/git-conflict.nvim", config = true },
   {
     "lewis6991/gitsigns.nvim",
