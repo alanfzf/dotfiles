@@ -1,5 +1,5 @@
 "Enable plugins
-set NERDTree 
+set NERDTree
 
 "Keymap
 map <Space> <Leader>
@@ -20,7 +20,7 @@ set number
 set relativenumber
 set sw=2 "set tab as 2 spaces.
 set clipboard=unnamed "allow paste from external sources.
-set nowrap 
+set nowrap
 set encoding=utf-8
 set nohlsearch
 set scrolloff=8
