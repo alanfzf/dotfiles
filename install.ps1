@@ -18,7 +18,7 @@ New-Item -ItemType Directory -Path $temp -Force | Out-Null
 # =====================
 function DownloadAndDecompress {
   param(
-      [String]$Url, 
+      [String]$Url,
       [Switch]$CreateFolder
   )
 
@@ -31,7 +31,7 @@ function DownloadAndDecompress {
   Expand-Archive $outFile -DestinationPath $outFolder -Force
 
   if($CreateFolder){
-    # if there's a need to create a folder, we search in the temp directory 
+    # if there's a need to create a folder, we search in the temp directory
     # otherwise we search the first folder inside the outFolder
     # NOTE: this only works if extracted archives are single directory
     $outFolder = $temp
@@ -43,7 +43,7 @@ function DownloadAndDecompress {
 function InstallFonts {
   param ([String]$fontFolder)
   $destFolder = (New-Object -ComObject Shell.Application).Namespace(0x14)
-  $foundFonts = Get-ChildItem -Path "$fontFolder/*" -Include '*.ttf','*.ttc','*.otf' -Recurse 
+  $foundFonts = Get-ChildItem -Path "$fontFolder/*" -Include '*.ttf','*.ttc','*.otf' -Recurse
   $systemFontsPath = "$env:LOCALAPPDATA/Microsoft/Windows/Fonts"
 
   foreach($fontFile in $foundFonts){
@@ -66,17 +66,12 @@ function InstallPrograms {
   $Packages = @(
       "Microsoft.WindowsTerminal"
       "7zip.7zip"
-      "Discord.Discord" 
+      "Discord.Discord"
       "VideoLAN.VLC"
       "Microsoft.PowerToys"
   )
 
-  # seems like since some versions ago, winget is not working correctly on a fresh win 11 install, so we need to get it first.
-  # sol1: https://github.com/microsoft/winget-cli/issues/3832#issuecomment-1956697757
-  # sol2: https://github.com/microsoft/winget-cli/issues/3832#issuecomment-1872387214
-  winget install -s msstore --id 9NBLGGH4NNS1
-
-  foreach ($package in $packages) { 
+  foreach ($package in $packages) {
     winget install -e --accept-source-agreements --accept-package-agreements --silent $package
   }
 
@@ -113,17 +108,17 @@ function SetupDotFiles{
 }
 
 function WindowsTweaks {
-  $RegPathCM = "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" 
+  $RegPathCM = "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"
   $RegPathEx = "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer"
-  $RegPathTheme = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" 
-  $RegPathExCurrent = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" 
+  $RegPathTheme = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"
+  $RegPathExCurrent = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer"
   $RegPathDate = "HKCU:\Control Panel\International"
 
-  # **** UI Tweaks **** 
-  # Activate old context menu 
+  # **** UI Tweaks ****
+  # Activate old context menu
   New-Item -Path $RegPathCM -Force | Out-Null
   Set-ItemProperty -Path $RegPathCM -Name "(default)" -Value "" -Force
-  # Deactivate bing search 
+  # Deactivate bing search
   New-Item -Path $RegPathEx -Force | Out-Null
   Set-ItemProperty -Path $RegPathEx -Name "DisableSearchBoxSuggestions" -Value 1
   # Multitasking view disable multiple tabs
@@ -132,11 +127,11 @@ function WindowsTweaks {
   Set-ItemProperty "$RegPathExCurrent" -Name ShowFrequent -Value 0
   # Show file extensions
   Set-ItemProperty "$RegPathExCurrent\Advanced" -Name HideFileExt -Value 0
-  # Enable dark mode 
+  # Enable dark mode
   Set-ItemProperty -Path $RegPathTheme -Name "SystemUsesLightTheme" -Type DWord -Value 0
   Set-ItemProperty -Path $RegPathTheme -Name "AppsUseLightTheme" -Type DWord -Value 0
 
-  # **** TASKBAR TWEAKS **** 
+  # **** TASKBAR TWEAKS ****
   # Remove task view from taskbar
   Set-ItemProperty -Path "$RegPathExCurrent\Advanced" -Name "ShowTaskViewButton" -type "Dword" -Value "0"
   # Remove chat from taskbar
@@ -149,7 +144,7 @@ function WindowsTweaks {
   Set-ItemProperty -Path "$RegPathExCurrent\Taskband" -Name "Favorites" -Type Binary -Value ([byte[]](255))
   Remove-ItemProperty -Path "$RegPathExCurrent\Taskband" -Name "FavoritesResolve" -ErrorAction SilentlyContinue
 
-  # **** DATE TWEAKS **** 
+  # **** DATE TWEAKS ****
   Set-ItemProperty -Path $RegPathDate -Name sShortDate -Value "yyyy-MM-dd"
   Set-ItemProperty -Path $RegPathDate -Name sShortTime -Value "HH:mm"
 }

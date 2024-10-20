@@ -10,7 +10,7 @@ gui:
   nerdFontsVersion: "3"
 git:
   parseEmoji: true
-  overrideGpg: true 
+  overrideGpg: true
 customCommands:
   # retrieved from: https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium#conventional-commit
   - key: "<c-v>"
