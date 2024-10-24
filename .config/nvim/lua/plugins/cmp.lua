@@ -17,10 +17,17 @@ return {
     },
     -- ** experimental **
     accept = { auto_brackets = { enabled = true } },
+    -- fuzzy
+    fuzzy = {
+      use_frecency = false,
+      use_proximity = false,
+    },
     -- ** start sources **
     sources = {
       providers = {
         { "blink.cmp.sources.lsp", name = "lsp" },
+        { "blink.cmp.sources.buffer", name = "buffer", score_offset = -2 },
+        { "blink.cmp.sources.path", name = "path" },
         {
           "blink.cmp.sources.snippets",
           name = "snippets",
@@ -36,8 +43,6 @@ return {
             },
           },
         },
-        { "blink.cmp.sources.buffer", name = "buffer", score_offset = -2 },
-        { "blink.cmp.sources.path", name = "path" },
       },
     },
     -- ** end sources **
