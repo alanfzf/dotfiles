@@ -22,26 +22,30 @@ return {
       use_frecency = false,
       use_proximity = false,
     },
+
     -- ** start sources **
     sources = {
       providers = {
-        { "blink.cmp.sources.lsp", name = "lsp" },
-        { "blink.cmp.sources.buffer", name = "buffer", score_offset = -2 },
-        { "blink.cmp.sources.path", name = "path" },
-        {
-          "blink.cmp.sources.snippets",
-          name = "snippets",
+        lsp = {
+          name = "LSP",
+          module = "blink.cmp.sources.lsp",
+          enabled = true, -- whether or not to enable the provider
+        },
+        path = {
+          name = "Path",
+          module = "blink.cmp.sources.path",
+          score_offset = 3,
+        },
+        snippets = {
+          name = "Snippets",
+          module = "blink.cmp.sources.snippets",
           score_offset = -3,
-          opts = {
-            extended_filetypes = {
-              search_paths = { vim.fn.stdpath("config") .. "/snippets" },
-              extended_filetypes = {
-                javascript = { "jsdoc" },
-                php = { "phpdoc" },
-                blade = { "html" },
-              },
-            },
-          },
+        },
+        buffer = {
+          name = "Buffer",
+          module = "blink.cmp.sources.buffer",
+          score_offset = -2,
+          fallback_for = {},
         },
       },
     },
