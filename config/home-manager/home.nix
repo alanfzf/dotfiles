@@ -28,10 +28,14 @@
     pkgs.bat
     pkgs.eza
     pkgs.lazygit
+    pkgs.gcc
+    pkgs.openssh
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
   ];
 
   home.file = {
+	  ".config/nvim".source = ../nvim;
+	  ".config/git".source = ../git;
   };
 
   home.sessionVariables = {
@@ -40,12 +44,13 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.bash.enable = true;
   programs.zoxide ={
     enable = true;
     enableZshIntegration = true;
   };
 
+
+  programs.bash.enable = true;
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
