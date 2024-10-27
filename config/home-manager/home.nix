@@ -55,9 +55,6 @@
     shellAliases = {
       vi ="nvim";
     };
-    initExtra = ''
-    eval "$(keychain -q --eval --agents ssh ~/.ssh/id_ed25519)"
-    '';
   };
 
   programs.zsh = {
@@ -74,6 +71,14 @@
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.keychain = {
+    enable = true;
+    enableZshIntegration = true;
+    keys = [
+      "id_ed25519"
+    ];
   };
 
   # ssh
