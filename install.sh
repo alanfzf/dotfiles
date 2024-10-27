@@ -15,14 +15,6 @@ find "$DOTFILES" -maxdepth 1 -type f -name ".*" | while read -r source; do
   ln -sf "$source" "$HOME"
 done
 
-# Install submodule dotfiles
-PRIV_DOTS="$DOTFILES/privatedots"
-git submodule update --init
-find "$PRIV_DOTS" -maxdepth 1 -type f -name ".*" | while read -r source; do
-  rm -rf "$HOME/$(basename $source)"
-  ln -sf "$source" "$HOME"
-done
-
 # Install dotfiles on XDG_CONFIG_HOME
 find "$DOT_CONFIG" -mindepth 1 -maxdepth 1 | while read -r source; do
   rm -rf "$DOT_HOME/$(basename $source)"
