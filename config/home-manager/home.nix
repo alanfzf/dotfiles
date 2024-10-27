@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 
+# useful reference: `man home-configuartion.nix`
+
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -30,12 +32,14 @@
     pkgs.lazygit
     pkgs.gcc
     pkgs.openssh
+    pkgs.keychain
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
   ];
 
   home.file = {
 	  ".config/nvim".source = ../nvim;
 	  ".config/git".source = ../git;
+	  ".config/tmux".source = ../tmux;
   };
 
   home.sessionVariables = {
@@ -44,13 +48,18 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.zoxide ={
+
+  # shells
+  programs.bash = {
     enable = true;
-    enableZshIntegration = true;
+    shellAliases = {
+      vi ="nvim";
+    };
+    initExtra = ''
+    eval "$(keychain -q --eval --agents ssh ~/.ssh/id_ed25519)"
+    '';
   };
 
-
-  programs.bash.enable = true;
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -59,5 +68,18 @@
     shellAliases = {
       vi ="nvim";
     };
+  };
+
+  # other programs
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  # ssh
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes";
+    forwardAgent = true;
   };
 }
