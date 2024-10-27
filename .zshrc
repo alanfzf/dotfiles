@@ -3,13 +3,8 @@ alias sudo="sudo "
 alias vi="nvim"
 alias vif="fzf --preview 'bat {}' | xargs -r nvim"
 alias ls='eza -l --icons -s extension'
-alias gs="git status"
 alias cat="bat"
 alias lg="lazygit"
-
-function dcr(){
-  devcontainer up --workspace-folder $1 --config $2 --dotfiles-repository https://github.com/alanfzf/dotfiles
-}
 
 function docker_delete(){
   docker system prune -af && docker volume prune -af
