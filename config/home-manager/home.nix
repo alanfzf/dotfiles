@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-# useful reference: `man home-configuartion.nix`
+# Useful reference: `man home-configuartion.nix`
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -37,13 +37,17 @@
   ];
 
   home.file = {
-	  ".config/nvim".source = ../nvim;
-	  ".config/git".source = ../git;
-	  ".config/tmux".source = ../tmux;
+    ".config/nvim".source = ../nvim;
+    ".config/git".source = ../git;
+    ".config/tmux".source = ../tmux;
+    ".config/starship.toml".source = ../starship.toml;
+    ".config/lazygit".source = ../lazygit;
+    ".config/bat".source = ../bat;
   };
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   # Let Home Manager install and manage itself.
@@ -53,7 +57,11 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      vi ="nvim";
+      vi  = "nvim";
+      vif = "fzf --preview 'bat {}' | xargs -r nvim";
+      ls  = "eza -l --icons -s extension";
+      cat = "bat";
+      lg  = "lazygit";
     };
   };
 
@@ -81,7 +89,10 @@
     ];
   };
 
-  # ssh
+  programs.starship = {
+    enable = true;
+  };
+
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
