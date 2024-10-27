@@ -2,8 +2,7 @@ return {
   "saghen/blink.cmp",
   lazy = false,
   dependencies = { "rafamadriz/friendly-snippets" },
-  -- version = "v0.*",
-  build = "cargo build --release",
+  version = "v0.*",
 
   opts = {
     nerd_font_variant = "normal",
