@@ -62,6 +62,7 @@
       ls  = "eza -l --icons -s extension";
       cat = "bat";
       lg  = "lazygit";
+      switch = "home-manager switch --flake ~/.dotfiles/config/home-manager/";
     };
   };
 
@@ -97,5 +98,11 @@
     enable = true;
     addKeysToAgent = "yes";
     forwardAgent = true;
+    matchBlocks = {
+      "alan" = {
+        hostname = "pruebas.alanfzf.site";
+        user = "ubuntu";
+      };
+    };
   };
 }
