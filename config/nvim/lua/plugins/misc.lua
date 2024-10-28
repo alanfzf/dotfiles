@@ -1,6 +1,5 @@
 return {
   { "RRethy/nvim-align" },
-  { "cbochs/grapple.nvim" },
   { "mistweaverco/kulala.nvim", opts = { environment_scope = "g" } },
   {
     "zbirenbaum/copilot.lua",

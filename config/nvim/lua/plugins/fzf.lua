@@ -24,7 +24,7 @@ return {
         cwd_header = false,
       },
       -- git start
-      -- i stealed this from here: https://github.com/gennaro-tedesco/dotfiles/blob/86cf4de5870a64aa8c5fad2269248db9521a1c2d/nvim/lua/plugins/fzf.lua#L45-L56
+      -- i stole this from here: https://github.com/gennaro-tedesco/dotfiles/blob/86cf4de5870a64aa8c5fad2269248db9521a1c2d/nvim/lua/plugins/fzf.lua#L45-L56
       git = {
         bcommits = {
           preview_opts = "nohidden",
@@ -81,14 +81,6 @@ return {
         ["--info"] = "hidden",
         ["--no-info"] = "",
         ["--header"] = " ",
-      },
-      previewers = {
-        builtin = {
-          syntax = true, -- preview syntax highlight?
-          syntax_limit_l = 0, -- syntax limit (lines), 0=nolimit
-          syntax_limit_b = 1024 * 1024, -- syntax limit (bytes), 0=nolimit
-          limit_b = 1024 * 1024 * 10, -- preview limit (bytes), 0=nolimit
-        },
       },
     })
   end,

@@ -1,6 +1,6 @@
 return {
   {
-    "https://github.com/daliusd/ghlite.nvim",
+    "daliusd/ghlite.nvim",
     config = function()
       require("ghlite").setup({
         debug = true,
