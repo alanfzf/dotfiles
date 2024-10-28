@@ -1,20 +1,9 @@
-{ config, pkgs, ... }:
-
 # Useful reference: `man home-configuartion.nix`
-
-{
+{ config, pkgs, ... }: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "alan";
   home.homeDirectory = "/home/alan";
-
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
@@ -79,12 +68,10 @@
   # other programs
   programs.zoxide = {
     enable = true;
-    enableZshIntegration = true;
   };
 
   programs.keychain = {
     enable = true;
-    enableZshIntegration = true;
     keys = [
       "id_ed25519"
     ];
