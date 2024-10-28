@@ -4,7 +4,7 @@
 DOTFILES=$(dirname $(readlink -f $0))
 DOT_CONFIG="$DOTFILES/config"
 # Targets
-DOT_HOME="$HOME/config"
+DOT_HOME="$HOME/.config"
 
 # Pre setup
 mkdir -p $DOT_HOME
