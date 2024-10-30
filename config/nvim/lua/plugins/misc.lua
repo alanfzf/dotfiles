@@ -1,6 +1,6 @@
 return {
   { "RRethy/nvim-align" },
-  { "mistweaverco/kulala.nvim", opts = { environment_scope = "g" } },
+  { "mistweaverco/kulala.nvim", opts = { environment_scope = "g" }, event = "VeryLazy" },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
