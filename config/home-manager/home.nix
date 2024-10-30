@@ -22,6 +22,10 @@
     pkgs.gcc
     pkgs.openssh
     pkgs.keychain
+    # misc
+    pkgs.stylua
+    pkgs.lua-language-server
+    pkgs.marksman
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
   ];
 
