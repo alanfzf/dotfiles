@@ -1,29 +1,23 @@
 local M = {}
 
--- list of available servers: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
-local mason_list = {
-  { "php-debug-adapter" },
-  { "blade-formatter" },
-  { "intelephense" },
-  { "lua-language-server" },
-  { "marksman" },
-  { "php-cs-fixer" },
-  { "prettier" },
-  { "pyright" },
-  { "stylua" },
-  { "texlab" },
-  { "typescript-language-server" },
-}
+-- most common language servers: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
+-- php workflow:
+-- intelephense
+-- php-cs-fixer
+-- blade-formatter
+-- prettier
 
 -- lsp servers
 local lsp_servers = {
+  -- PHP
   intelephense = {
     init_options = {
       globalStoragePath = vim.fn.expand("$HOME/.intelephense"),
       licenceKey = vim.fn.expand("$HOME/.intelephense/licence.txt"),
     },
   },
-  -- texlab = {},
+  -- LATEX
+  texlab = {},
   -- MARKDOWN
   marksman = {},
   -- LUA
@@ -66,10 +60,6 @@ local lsp_servers = {
     },
   },
 }
-
-M.install_list = function()
-  return mason_list
-end
 
 M.lsp_configs = function()
   return lsp_servers

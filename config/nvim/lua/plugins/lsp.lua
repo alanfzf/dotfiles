@@ -89,29 +89,6 @@ local M = {
   config = function()
     setup_lsp_servers()
   end,
-  dependencies = {
-    {
-      {
-        "williamboman/mason.nvim",
-        cmd = "Mason",
-        event = "BufReadPre",
-        dependencies = {
-          "WhoIsSethDaniel/mason-tool-installer.nvim",
-        },
-        config = function()
-          require("mason").setup({
-            ui = { border = "rounded" },
-            max_concurrent_installers = 4,
-          })
-          require("mason-tool-installer").setup({
-            ensure_installed = require("utils.lsp-settings").install_list(),
-            run_on_start = true,
-            start_delay = 5000,
-          })
-        end,
-      },
-    },
-  },
 }
 
 return M
