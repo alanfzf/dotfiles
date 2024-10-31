@@ -3,7 +3,6 @@ return {
     "daliusd/ghlite.nvim",
     config = function()
       require("ghlite").setup({
-        debug = true,
         view_split = "vsplit", -- set to empty string '' to open in active buffer
         diff_split = "vsplit", -- set to empty string '' to open in active buffer
         comment_split = "vsplit", -- set to empty string '' to open in active buffer

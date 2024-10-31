@@ -10,9 +10,9 @@ return {
       use_nvim_cmp_as_default = true,
     },
     keymap = {
-      accept = "<CR>",
-      select_prev = { "<C-k>" },
-      select_next = { "<C-j>" },
+      ["<CR>"] = { "select_and_accept" },
+      ["<C-k>"] = { "select_prev", "fallback" },
+      ["<C-j>"] = { "select_next", "fallback" },
     },
     -- ** experimental **
     accept = { auto_brackets = { enabled = true } },

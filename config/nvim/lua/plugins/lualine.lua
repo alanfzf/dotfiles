@@ -33,7 +33,7 @@ return {
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch", diff, "grapple" },
+        lualine_b = { "branch", diff },
         lualine_c = {},
         lualine_x = { { "filename", path = 1 }, "encoding" },
         lualine_y = { "filetype", "fileformat" },

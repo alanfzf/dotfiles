@@ -7,6 +7,7 @@ return {
     fzf.setup({
       file_icon_padding = " ",
       winopts = {
+        split = "belowright new",
         preview = {
           default = "bat",
           title = false,
@@ -76,6 +77,7 @@ return {
         },
       },
       fzf_opts = {
+        -- ["--layout"] = "default",
         ["--cycle"] = true,
         ["--color"] = "bg+:-1",
         ["--info"] = "hidden",
