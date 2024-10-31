@@ -1,7 +1,7 @@
 return {
   "saghen/blink.cmp",
   lazy = false,
-  dependencies = { "rafamadriz/friendly-snippets" },
+  dependencies = { "https://github.com/alanfzf/friendly-snippets" },
   version = "v0.*",
 
   opts = {
@@ -10,7 +10,7 @@ return {
       use_nvim_cmp_as_default = true,
     },
     keymap = {
-      ["<CR>"] = { "select_and_accept" },
+      ["<CR>"] = { "accept", "fallback" },
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
     },
