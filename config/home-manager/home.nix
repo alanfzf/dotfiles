@@ -48,7 +48,7 @@
     ls  = "eza -l --icons -s extension";
     cat = "bat";
     lg  = "lazygit";
-    switch = "home-manager switch --flake ~/.dotfiles/config/home-manager/";
+    switch = "home-manager switch --flake $HOME/.dotfiles/config/home-manager#x86";
   };
 
   # Let Home Manager install and manage itself.
@@ -68,6 +68,15 @@
   };
 
   # other programs
+  programs.readline = {
+    enable = true;
+    variables = {
+      expand-tilde = true;
+      completion-ignore-case = true;
+      show-all-if-ambiguous = true;
+    };
+  };
+
 
   programs.keychain = {
     enable = true;
