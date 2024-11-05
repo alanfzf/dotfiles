@@ -95,6 +95,7 @@
 
   programs.direnv = {
     enable = true;
+    silent = true;
   };
 
   programs.ssh = {
