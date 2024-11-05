@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field
 return {
   "JoosepAlviste/nvim-ts-context-commentstring",
   config = function()
