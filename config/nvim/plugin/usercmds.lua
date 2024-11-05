@@ -10,7 +10,35 @@ vim.api.nvim_create_user_command("ClearWhiteSpaces", function()
   vim.cmd([[ %s/\s\+$//e ]])
 end, { nargs = 0 })
 
-vim.api.nvim_create_user_command("Gbrowse", function()
+vim.api.nvim_create_user_command("GSplit", function()
+  local root = vim.fs.root(0, ".git")
+
+  if not root then
+    print("Not a git repository")
+    return
+  end
+
+  local filename = vim.fn.expand("%:p"):gsub(root .. "/", "", 1)
+
+  local result = vim.system({ "git", "show", "main:" .. filename }, { text = true }):wait()
+  local data = result.stdout
+  local lines = vim.split(data or "", "\n")
+
+  local bid = vim.api.nvim_create_buf(true, true)
+  vim.api.nvim_set_option_value("buftype", "nofile", { buf = bid })
+  vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = bid })
+  vim.api.nvim_set_option_value("swapfile", false, { buf = bid })
+  vim.api.nvim_buf_set_lines(bid, 0, -1, false, lines)
+  vim.api.nvim_set_option_value("filetype", vim.api.nvim_buf_get_option_value(0, "filetype"), { buf = bid })
+
+  vim.api.nvim_buf_set_name(bid, "GSplit")
+  vim.api.nvim_command("vsplit")
+  vim.api.nvim_set_current_buf(bid)
+
+  -- print(vim.inspect(result))
+end, {})
+
+vim.api.nvim_create_user_command("GBrowse", function()
   local root = vim.fs.root(0, ".git")
 
   if not root then
@@ -37,19 +65,4 @@ vim.api.nvim_create_user_command("Gbrowse", function()
 
   print("Opening repo: " .. url)
   vim.ui.open(url)
-end, {})
-
-vim.api.nvim_create_user_command("Scratch", function()
-  if vim.g.scratch_buffer == nil then
-    local bid = vim.api.nvim_create_buf(true, true)
-    vim.g.scratch_buffer = bid
-    vim.api.nvim_set_option_value("buftype", "nofile", { buf = bid })
-    vim.api.nvim_set_option_value("swapfile", false, { buf = bid })
-    vim.api.nvim_set_option_value("filetype", "markdown", { buf = bid })
-    vim.api.nvim_buf_set_name(bid, "Scratch")
-  end
-
-  local buf = vim.g.scratch_buffer
-  vim.api.nvim_command("vsplit")
-  vim.api.nvim_set_current_buf(buf)
 end, {})

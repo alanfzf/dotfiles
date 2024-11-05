@@ -14,7 +14,7 @@ return {
           name = "Listen for Xdebug frontend (9005)",
           type = "php",
           request = "launch",
-          port = "9005",
+          port = "9000",
           hostname = "0.0.0.0",
         },
       }

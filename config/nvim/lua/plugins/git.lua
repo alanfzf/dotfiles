@@ -3,8 +3,8 @@ return {
     "daliusd/ghlite.nvim",
     config = function()
       require("ghlite").setup({
-        view_split = "vsplit", -- set to empty string '' to open in active buffer
-        diff_split = "vsplit", -- set to empty string '' to open in active buffer
+        view_split = "", -- set to empty string '' to open in active buffer
+        diff_split = "", -- set to empty string '' to open in active buffer
         comment_split = "vsplit", -- set to empty string '' to open in active buffer
         open_command = "open", -- open command to use, e.g. on Linux you might want to use xdg-open
         keymaps = {

@@ -3,4 +3,5 @@ return {
   { "https://github.com/NTBBloodbath/doom-one.nvim" },
   { "https://github.com/maxmx03/solarized.nvim" },
   { "https://github.com/lunacookies/vim-colors-xcode" },
+  { "https://github.com/Shatur/neovim-ayu" },
 }
