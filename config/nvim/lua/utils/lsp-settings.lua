@@ -1,11 +1,6 @@
 local M = {}
 
 -- most common language servers: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
--- php workflow:
--- intelephense
--- php-cs-fixer
--- blade-formatter
--- prettier
 
 -- lsp servers
 local lsp_servers = {
@@ -35,9 +30,9 @@ local lsp_servers = {
           unusedLocalExclude = { "_*" },
         },
         workspace = {
+          checkThirdParty = false,
           library = {
-            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-            [vim.fn.stdpath("config")] = true,
+            vim.env.VIMRUNTIME,
           },
         },
         telemetry = { enable = false },
@@ -53,9 +48,7 @@ local lsp_servers = {
     single_file_support = false,
     settings = {
       python = {
-        analysis = {
-          typeCheckingMode = "off",
-        },
+        analysis = {},
       },
     },
   },
