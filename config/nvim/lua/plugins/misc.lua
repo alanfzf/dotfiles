@@ -2,6 +2,14 @@ return {
   { "RRethy/nvim-align" },
   { "mistweaverco/kulala.nvim", opts = { environment_scope = "g" }, event = "VeryLazy" },
   {
+    "otavioschwanck/arrow.nvim",
+    opts = {
+      show_icons = true,
+      leader_key = ";",
+      buffer_leader_key = "m",
+    },
+  },
+  {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
