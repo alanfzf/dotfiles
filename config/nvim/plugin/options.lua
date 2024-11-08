@@ -60,6 +60,7 @@ opt.shortmess:append("c")
 opt.iskeyword:append("-")
 opt.linebreak = true
 opt.foldtext = ""
+opt.smoothscroll = true
 opt.fillchars = {
   foldsep = " ",
   fold = " ",
