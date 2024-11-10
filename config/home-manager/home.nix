@@ -35,6 +35,7 @@
     ".config/starship.toml".source = ../starship.toml;
     ".config/lazygit".source = ../lazygit;
     ".config/bat".source = ../bat;
+    ".config/direnv".source = ../direnv;
   };
 
   home.sessionVariables = {
@@ -76,7 +77,6 @@
       show-all-if-ambiguous = true;
     };
   };
-
 
   programs.keychain = {
     enable = true;
