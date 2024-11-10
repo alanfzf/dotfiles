@@ -3,7 +3,6 @@ return {
   lazy = false,
   dependencies = { "https://github.com/alanfzf/friendly-snippets" },
   version = "v0.*",
-
   opts = {
     nerd_font_variant = "normal",
     highlight = {
@@ -13,9 +12,19 @@ return {
       ["<CR>"] = { "accept", "fallback" },
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
+      ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+      ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+      --   ['<Tab>'] = { 'snippet_forward', 'fallback' },
+      --   ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
     },
-    -- ** experimental **
-    accept = { auto_brackets = { enabled = true } },
+    accept = {
+      -- TODO: implement this on next release
+      -- Function used to expand snippets, some possible values:
+      -- require('luasnip').lsp_expand     -- For `luasnip` users.
+      -- expand_snippet = vim.snippet.expand,
+      auto_brackets = { enabled = true },
+    },
     -- fuzzy
     fuzzy = {
       use_frecency = false,
@@ -28,7 +37,7 @@ return {
         lsp = {
           name = "LSP",
           module = "blink.cmp.sources.lsp",
-          enabled = true, -- whether or not to enable the provider
+          enabled = true,
         },
         path = {
           name = "Path",
@@ -38,12 +47,12 @@ return {
         snippets = {
           name = "Snippets",
           module = "blink.cmp.sources.snippets",
-          score_offset = -3,
+          score_offset = -2,
         },
         buffer = {
           name = "Buffer",
           module = "blink.cmp.sources.buffer",
-          score_offset = -2,
+          score_offset = -5,
           fallback_for = {},
         },
       },
