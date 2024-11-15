@@ -14,7 +14,7 @@ git:
 customCommands:
   # retrieved from: https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium#conventional-commit
   - key: "<c-v>"
-    context: "global"
+    context: "files"
     description: "Create new conventional commit"
     prompts:
       - type: "menu"
@@ -54,10 +54,12 @@ customCommands:
           - name: "test"
             description: "Adding missing tests or correcting existing tests"
             value: "test"
+
       - type: "input"
         title: "Scope"
         key: "Scope"
         initialValue: ""
+
       - type: "menu"
         key: "Breaking"
         title: "Breaking change"
@@ -66,13 +68,11 @@ customCommands:
             value: ""
           - name: "yes"
             value: "!"
+
       - type: "input"
         title: "message"
         key: "Message"
         initialValue: ""
-      - type: "confirm"
-        key: "Confirm"
-        title: "Commit"
-        body: "Are you sure you want to commit?"
+
     command: "git commit --message '{{.Form.Type}}{{ if .Form.Scope }}({{ .Form.Scope }}){{ end }}{{.Form.Breaking}}: {{.Form.Message}}'"
     loadingText: "Creating conventional commit..."
