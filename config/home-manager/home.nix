@@ -102,9 +102,10 @@
     enable = true;
     addKeysToAgent = "yes";
     forwardAgent = true;
+    serverAliveInterval = 240;
     matchBlocks = {
       "alan" = {
-        hostname = "pruebas.alanfzf.site";
+        hostname = "gepnir.ovh";
         user = "ubuntu";
       };
       "ftp" = {

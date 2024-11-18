@@ -35,6 +35,7 @@ return {
       },
       highlight = {
         enable = true,
+        disable = { "commonlisp" },
         additional_vim_regex_highlighting = false,
       },
     })
