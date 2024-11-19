@@ -21,7 +21,6 @@ git clone https://github.com/alanfzf/dotfiles ~/.dotfiles
 ## Windows Setup
 
 ```powershell
-# Enable script execution
 Set-ExecutionPolicy Bypass
 iwr https://raw.githubusercontent.com/alanfzf/dotfiles/master/install.ps1 | iex
 ```
