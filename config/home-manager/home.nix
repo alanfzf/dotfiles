@@ -21,6 +21,7 @@
     pkgs.gcc
     pkgs.openssh
     pkgs.keychain
+    pkgs.awscli2
     # misc
     pkgs.stylua
     pkgs.lua-language-server
