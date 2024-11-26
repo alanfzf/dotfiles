@@ -1,7 +1,7 @@
 return {
   "saghen/blink.cmp",
   lazy = false,
-  dependencies = { "https://github.com/alanfzf/friendly-snippets" },
+  dependencies = { "rafamadriz/friendly-snippets", "L3MON4D3/LuaSnip" },
   version = "v0.*",
   opts = {
     nerd_font_variant = "normal",
@@ -19,10 +19,9 @@ return {
       --   ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
     },
     accept = {
-      -- TODO: implement this on next release
-      -- Function used to expand snippets, some possible values:
-      -- require('luasnip').lsp_expand     -- For `luasnip` users.
-      -- expand_snippet = vim.snippet.expand,
+      expand_snippet = function(snippet)
+        require("luasnip").lsp_expand(snippet)
+      end,
       auto_brackets = { enabled = true },
     },
     -- fuzzy
@@ -62,7 +61,6 @@ return {
     windows = {
       autocomplete = {
         selection = "manual",
-        draw = "reversed",
       },
     },
   },
