@@ -2,7 +2,7 @@
 { config, pkgs, ... }: {
   # Home Manager needs a bit of information about you and the paths it should manage.
   home.username = "alan";
-  home.homeDirectory = "/home/alan";
+  home.homeDirectory = "/home/${config.home.username}";
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
@@ -30,13 +30,13 @@
   ];
 
   home.file = {
-    ".config/nvim".source = ../nvim;
-    ".config/git".source = ../git;
-    ".config/tmux".source = ../tmux;
-    ".config/starship.toml".source = ../starship.toml;
-    ".config/lazygit".source = ../lazygit;
-    ".config/bat".source = ../bat;
-    ".config/direnv".source = ../direnv;
+    ".config/nvim".source          = config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/.dotfiles/config/nvim");
+    ".config/git".source           = config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/.dotfiles/config/git");
+    ".config/tmux".source          = config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/.dotfiles/config/tmux");
+    ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/.dotfiles/config/starship.toml");
+    ".config/lazygit".source       = config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/.dotfiles/config/lazygit");
+    ".config/bat".source           = config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/.dotfiles/config/bat");
+    ".config/direnv".source        = config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/.dotfiles/config/direnv");
   };
 
   home.sessionVariables = {
@@ -50,7 +50,7 @@
     ls  = "eza -l --icons -s extension";
     cat = "bat";
     lg  = "lazygit";
-    switch = "home-manager switch --flake $HOME/.dotfiles/config/home-manager#x86";
+    switch = "home-manager switch --flake $HOME/.dotfiles/config/home-manager";
   };
 
   # Let Home Manager install and manage itself.
