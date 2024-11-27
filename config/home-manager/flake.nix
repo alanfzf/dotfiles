@@ -16,7 +16,7 @@
       modules = [ ./home.nix ];
     };
 
-    homeConfigurations."darwin" = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations."finanssorealsa@mb-pro-m3" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."aarch64-darwin";
       modules = [./home.nix];
     };
