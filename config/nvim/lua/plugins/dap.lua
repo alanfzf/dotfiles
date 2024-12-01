@@ -1,7 +1,7 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    enabled = false,
+    enabled = true,
     config = function()
       local dap = require("dap")
       dap.adapters.php = {
@@ -11,10 +11,10 @@ return {
 
       dap.configurations.php = {
         {
-          name = "Listen for Xdebug frontend (9005)",
+          name = "Listen for Xdebug (9003)",
           type = "php",
           request = "launch",
-          port = "9000",
+          port = "9003",
           hostname = "0.0.0.0",
         },
       }
