@@ -28,7 +28,7 @@ keymap("n", "k", "gk")
 keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 -- Go to specific directories
-keymap("n", "<leader>c", "<cmd>e ~/.dotfiles/config/nvim/init.lua<CR>")
+keymap("n", "<leader>c", "<cmd>e $MYVIMRC<CR>")
 keymap("n", "<leader>n", "<cmd>e ~/Dropbox/Notes/<CR>")
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>")
