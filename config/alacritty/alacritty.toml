@@ -8,7 +8,7 @@ size   = 16
 [window]
 opacity       = 0.9
 startup_mode  = "Maximized"
-option_as_alt = "Both"
+option_as_alt = "OnlyLeft"
 
 # Colors (Doom One)
 [colors.primary]
