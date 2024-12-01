@@ -1,6 +1,14 @@
 return {
   { "RRethy/nvim-align" },
-  { "mistweaverco/kulala.nvim", opts = { environment_scope = "g" }, event = "VeryLazy" },
+  {
+    "mistweaverco/kulala.nvim",
+    event = "VeryLazy",
+    opts = {
+      show_icons = "above_request",
+      default_view = "headers_body",
+      environment_scope = "g",
+    },
+  },
   {
     "otavioschwanck/arrow.nvim",
     opts = {
