@@ -12,6 +12,7 @@ size   = 16
 opacity       = 0.9
 startup_mode  = "Maximized"
 option_as_alt = "OnlyLeft"
+dynamic_title = false
 
 # Colors (Doom One)
 [colors.primary]

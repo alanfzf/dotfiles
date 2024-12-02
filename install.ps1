@@ -64,7 +64,6 @@ function CleanTemp {
 function InstallPrograms {
   # **** INSTALL WINGET PACKAGES ****
   $Packages = @(
-      "Microsoft.WindowsTerminal"
       "7zip.7zip"
       "Discord.Discord"
       "VideoLAN.VLC"
@@ -108,11 +107,11 @@ function SetupDotFiles{
 }
 
 function WindowsTweaks {
-  $RegPathCM = "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"
-  $RegPathEx = "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer"
-  $RegPathTheme = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"
+  $RegPathCM        = "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"
+  $RegPathEx        = "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer"
+  $RegPathTheme     = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"
   $RegPathExCurrent = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer"
-  $RegPathDate = "HKCU:\Control Panel\International"
+  $RegPathDate      = "HKCU:\Control Panel\International"
 
   # **** UI Tweaks ****
   # Activate old context menu
