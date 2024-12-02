@@ -25,3 +25,8 @@ blue    = '#51afef'
 magenta = '#c678dd'
 cyan    = '#46d9ff'
 white   = '#bbc2cf'
+
+# custom imports
+import = [
+  "alacritty-local.toml"
+]
