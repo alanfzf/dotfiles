@@ -31,3 +31,10 @@ iwr https://raw.githubusercontent.com/alanfzf/dotfiles/master/install.ps1 | iex
 # install wsl
 wsl.exe --install --no-distribution
 ```
+### Alacritty local
+
+```toml
+[terminal.shell]
+  program = "wsl"
+  args = ["--cd ~"]
+```
