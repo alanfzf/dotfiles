@@ -14,7 +14,6 @@
     pkgs.gh
     pkgs.fzf
     pkgs.fd
-    pkgs.ripgrep
     pkgs.bat
     pkgs.eza
     pkgs.lazygit
@@ -98,6 +97,20 @@
   programs.direnv = {
     enable = true;
     silent = true;
+  };
+
+  programs.ripgrep = {
+    enable = true;
+    arguments = [
+      "--hidden"
+      "--follow"
+      "--glob=!{.git,node_modules,vendor}"
+      "--glob=!*.{lock}"
+      "--glob=!{package-lock.json}"
+      "--max-columns=10000"
+      "--smart-case"
+      "--sort=path"
+    ];
   };
 
   programs.ssh = {
