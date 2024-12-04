@@ -1,11 +1,12 @@
 return {
-  { "RRethy/nvim-align" },
+  { "junegunn/vim-easy-align" },
   {
     "mistweaverco/kulala.nvim",
     event = "VeryLazy",
     opts = {
       show_icons = "above_request",
       default_view = "headers_body",
+      additional_curl_options = { "-L" },
       environment_scope = "g",
     },
   },
@@ -32,6 +33,9 @@ return {
           auto_trigger = true,
           hide_during_completion = true,
           debounce = 75,
+          keymap = {
+            accept = "<M-o>",
+          },
         },
         filetypes = {
           ["*"] = true,

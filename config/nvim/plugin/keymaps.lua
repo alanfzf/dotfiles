@@ -87,6 +87,8 @@ keymap("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
 keymap("n", "<leader>do", ":lua require'dap'.step_over()<CR>", opts)
 keymap("n", "<leader>di", ":lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", opts)
+keymap("n", "<leader>dcb", ":lua require'dap'.clear_breakpoints()<CR>", opts)
+
 -- GRAPPLE
 keymap("n", "<leader>gt", "<cmd>Grapple tag<CR>", opts)
 keymap("n", "<leader>gu", "<cmd>Grapple untag<CR>", opts)
