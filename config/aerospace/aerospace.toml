@@ -15,6 +15,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
 alt-enter = 'exec-and-forget open -n /Applications/Alacritty.app/'
 alt-b = 'exec-and-forget open -n /Applications/Firefox.app'
+alt-e = 'exec-and-forget open -a Finder'
 
 # i3 wraps focus by default
 alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
@@ -28,7 +29,7 @@ alt-shift-j = 'move up'
 alt-shift-l = 'move right'
 
 alt-f = 'fullscreen'
-alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+alt-v = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
 
 
