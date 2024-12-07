@@ -42,7 +42,7 @@
       "warning": 30,
       "critical": 15
     },
-    "tooltip": true
+    "tooltip": true,
     "format": "  {icon}  {capacity}%",
     "format-discharging": "{icon}  {capacity}%",
     "format-icons": [
