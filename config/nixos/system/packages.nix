@@ -10,6 +10,8 @@
     rofi-wayland
     waypaper
     swaybg
+    mako
+    libnotify
   ];
 
   programs.sway = {

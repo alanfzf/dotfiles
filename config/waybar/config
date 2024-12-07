@@ -67,7 +67,6 @@
     "calendar": {
       "mode"          : "month",
       "mode-mon-col"  : 3,
-      "weeks-pos"     : "right",
       "on-scroll"     : 1,
     },
     "actions":  {
@@ -130,9 +129,8 @@
   },
 
   //"pulseaudio": {
-  //    //"scroll-step": 1,
-  //    "format": "{icon}  {volume}%",
-  //    "format-bluetooth": "{icon}  {volume}%",
+  //    "format": "{icon} {volume}%",
+  //    "format-bluetooth": "{icon} {volume}%",
   //    "format-muted": "",
   //    "format-icons": {
   //        "headphones": "",
