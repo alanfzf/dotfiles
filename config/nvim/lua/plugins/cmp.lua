@@ -4,10 +4,6 @@ return {
   dependencies = { "rafamadriz/friendly-snippets", "L3MON4D3/LuaSnip" },
   version = "v0.*",
   opts = {
-    nerd_font_variant = "normal",
-    highlight = {
-      use_nvim_cmp_as_default = true,
-    },
     keymap = {
       ["<CR>"] = { "accept", "fallback" },
       ["<C-k>"] = { "select_prev", "fallback" },
@@ -18,12 +14,21 @@ return {
       --   ['<Tab>'] = { 'snippet_forward', 'fallback' },
       --   ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
     },
-    accept = {
-      expand_snippet = function(snippet)
+    snippets = {
+      expand = function(snippet)
         require("luasnip").lsp_expand(snippet)
       end,
-      auto_brackets = { enabled = true },
+      active = function(filter)
+        if filter and filter.direction then
+          return require("luasnip").jumpable(filter.direction)
+        end
+        return require("luasnip").in_snippet()
+      end,
+      jump = function(direction)
+        require("luasnip").jump(direction)
+      end,
     },
+
     -- fuzzy
     fuzzy = {
       use_typo_resistance = false,
@@ -38,6 +43,8 @@ return {
           name = "LSP",
           module = "blink.cmp.sources.lsp",
           enabled = true,
+          min_keyword_length = 2,
+          fallbacks = {},
         },
         path = {
           name = "Path",
@@ -53,14 +60,20 @@ return {
           name = "Buffer",
           module = "blink.cmp.sources.buffer",
           score_offset = -5,
-          fallback_for = {},
         },
       },
     },
-    -- ** end sources **
-    windows = {
-      autocomplete = {
+    completion = {
+      documentation = {
+        auto_show = true,
+      },
+      list = {
         selection = "manual",
+      },
+      accept = {
+        auto_brackets = {
+          enabled = true,
+        },
       },
     },
   },
