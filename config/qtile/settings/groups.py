@@ -5,7 +5,7 @@ from .keys import mod, keys
 
 # BASE GROUPS
 groups = [Group(i) for i in [
-    "  ", " 󰖟 ", " 󰉋 ", " 󱞁 ", " 󰙯 ", "  "
+    "  ", " 󰈹 ", " 󰉋 ", "  ", "  ",
 ]]
 
 # SCRATCH PADS
