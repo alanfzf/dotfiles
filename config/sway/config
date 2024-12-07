@@ -1,7 +1,7 @@
 set $mod Mod4
 set $term foot
 set $browser firefox
-set $menu dmenu_path | wofi | xargs swaymsg exec --
+set $menu dmenu_path | rofi -show drun | xargs swaymsg exec --
 set $left h
 set $down j
 set $up k
@@ -50,10 +50,6 @@ mode "resize" {
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
-}
-
-bar {
-  swaybar_command waybar
 }
 
 # ****** [INITIAL SETUP] ******
