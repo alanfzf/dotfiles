@@ -7,7 +7,7 @@ This repository contains some configuration files that i use to personalize my e
 mkdir -p ~/.config/nix && echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 nix shell nixpkgs#home-manager nixpkgs#git --command sh -c "\
 	git clone https://github.com/alanfzf/dotfiles .dotfiles \
-	&& home-manager switch --flake .dotfiles/config/home-manager -b bckp"
+	&& home-manager switch --flake .dotfiles/config/nixos -b bckp"
 ```
 
 ## Linux Setup
