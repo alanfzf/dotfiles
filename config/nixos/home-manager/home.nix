@@ -1,8 +1,13 @@
-{ config, pkgs, ...}: {
+{ homeUser, config, pkgs, ...}: {
 
-  home.username = "alan"; 
+  home.username = homeUser; 
   home.homeDirectory = "/home/${config.home.username}"; 
   home.stateVersion = "24.11";
+
+  # Handle app symlinks
+  targets.genericLinux.enable = true;
+  xdg.mime.enable = true;
+  xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
 
   home.packages = with pkgs; [
     awscli2

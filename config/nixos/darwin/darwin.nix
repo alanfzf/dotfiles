@@ -1,4 +1,4 @@
-{nix-darwin, nixpkgs...}:
+{aarchPkgs,...}:
 {
 
   environment.systemPackages = [

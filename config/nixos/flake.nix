@@ -13,23 +13,25 @@
 
   outputs = { self, nixpkgs, home-manager, nix-darwin, ... }:
     let
-      # x86 declarations
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        system = "${system}";
+      # users
+      personalUser = "alan";
+      workUser = "finanssorealsa";
+
+      # functions
+      importPkgs = system: import nixpkgs {
+        system = system;
         config = {
           allowUnfree = true;
         };
       };
 
-      # aarch64 declarations
+
+      # x86 declarations
+      system = "x86_64-linux";
+      pkgs = importPkgs system;
+
       aarchSystem = "aarch64-darwin";
-      aarchPkgs = import nixpkgs {
-        system = "${aarchSystem}";
-        config = {
-          allowUnfree = true;
-        };
-      };
+      aarchPkgs = importPkgs aarchSystem;
 
 
     in {
@@ -43,22 +45,29 @@
 
       # MacOS
       darwinConfigurations = {
-        "simple" = nix-darwin.lib.darwinSystem {
+        "mb-pro-m3" = nix-darwin.lib.darwinSystem {
+          inherit aarchSystem;
           modules = [./darwin/darwin.nix];
         };
       };
 
       # home-manager
       homeConfigurations = {
-        "alan@nixos" = home-manager.lib.homeManagerConfiguration {
+        "${personalUser}@nixos" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home-manager/home.nix ];
+          extraSpecialArgs = {
+            homeUser = personalUser;
+          };
         };
 
-        "finanssorealsa@mb-pro-m3" = home-manager.lib.homeConfigurations {
+        "${workUser}@mb-pro-m3" = home-manager.lib.homeConfiguration {
           inherit aarchPkgs;
           modules = [ ./home-manager/home.nix ];
-        }
+          extraSpecialArgs = {
+            homeUser = workUser;
+          };
+        };
       };
     };
 }
