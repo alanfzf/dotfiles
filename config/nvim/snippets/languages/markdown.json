@@ -2,7 +2,7 @@
   "metadata": {
     "prefix": "meta",
     "description": "Add metadata block",
-    "body": [ 
+    "body": [
       "---",
       "title: ${0}",
       "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",

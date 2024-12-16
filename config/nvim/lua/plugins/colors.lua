@@ -1,6 +1,7 @@
 return {
-  { "https://github.com/joshdick/onedark.vim" },
-  { "https://github.com/ellisonleao/gruvbox.nvim" },
-  { "https://github.com/maxmx03/solarized.nvim" },
-  { "https://github.com/polirritmico/monokai-nightasty.nvim" },
+  { "joshdick/onedark.vim" },
+  { "ellisonleao/gruvbox.nvim" },
+  { "maxmx03/solarized.nvim" },
+  { "polirritmico/monokai-nightasty.nvim" },
+  { "catppuccin/catppuccin" },
 }

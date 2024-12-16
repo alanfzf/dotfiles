@@ -6,9 +6,6 @@ return {
       default_file_explorer = true,
       columns = {
         "icon",
-        -- "permissions",
-        -- "size",
-        -- "mtime",
       },
       lsp_rename_autossave = true,
       constrain_cursor = "name",

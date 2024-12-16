@@ -2,35 +2,35 @@
   "section": {
     "prefix": "h1",
     "description": "Level 1 title",
-    "body": [ 
+    "body": [
       "\\section{${0}}"
     ]
   },
   "subsection": {
     "prefix": "h2",
     "description": "Level 2 title",
-    "body": [ 
+    "body": [
       "\\subsection{${0}}"
     ]
   },
   "subsubsection": {
     "prefix": "h3",
     "description": "Level 3 title",
-    "body": [ 
+    "body": [
       "\\subsubsection{${0}}"
     ]
   },
   "paragraph": {
     "prefix": "h4",
     "description": "Level 4 title",
-    "body": [ 
+    "body": [
       "\\paragraph{${0}}"
     ]
   },
   "subparagraph": {
     "prefix": "h5",
     "description": "Level 5 title",
-    "body": [ 
+    "body": [
       "\\subparagraph{${0}}"
     ]
   }
