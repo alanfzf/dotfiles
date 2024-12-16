@@ -3,5 +3,5 @@ return {
   { "ellisonleao/gruvbox.nvim" },
   { "maxmx03/solarized.nvim" },
   { "polirritmico/monokai-nightasty.nvim" },
-  { "catppuccin/catppuccin" },
+  { "catppuccin/nvim" },
 }
