@@ -1,21 +1,14 @@
 # Dot files
+
 This repository contains some configuration files that i use to personalize my environment.
 
-## Nix setup
+## Linux setup
 
 ```bash
 mkdir -p ~/.config/nix && echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 nix shell nixpkgs#home-manager nixpkgs#git --command sh -c "\
-	git clone https://github.com/alanfzf/dotfiles .dotfiles \
-	&& home-manager switch --flake .dotfiles/config/nixos -b bckp"
-```
-
-## Linux Setup
-
-```bash
-# NOT recommended anymore
-git clone https://github.com/alanfzf/dotfiles ~/.dotfiles
-./install.sh
+	git clone https://github.com/alanfzf/dotfiles $HOME/.dotfiles \
+	&& home-manager switch --flake $HOME/.dotfiles/config/nixos -b bckp"
 ```
 
 ## Windows Setup

@@ -94,8 +94,8 @@ function SetupDotFiles{
   $wtPath =  "$wtPath/LocalState/"
 
   $symLinks = @{
-    # realPath                targetPath
-    "$wtPath"                 = "$dotfiles/.config/windows_terminal/"
+    # realPath  = targetPath
+    "$wtPath"   = "$dotfiles/.config/windows_terminal/"
   }
 
   foreach ($entry in $symLinks.GetEnumerator()) {
