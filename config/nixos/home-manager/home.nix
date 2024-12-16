@@ -33,7 +33,6 @@
     ".config/lazygit".source       = config.lib.file.mkOutOfStoreSymlink(config.home.homeDirectory + "/.dotfiles/config/lazygit");
     ".config/bat".source           = config.lib.file.mkOutOfStoreSymlink(config.home.homeDirectory + "/.dotfiles/config/bat");
     ".config/direnv".source        = config.lib.file.mkOutOfStoreSymlink(config.home.homeDirectory + "/.dotfiles/config/direnv");
-
   };
 
   home.sessionVariables = { 

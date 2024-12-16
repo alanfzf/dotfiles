@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-{ 
+{
   imports = [
     ./locale.nix
     ./bootloader.nix
@@ -8,6 +8,7 @@
     ./users.nix
     ./services.nix
     ./packages.nix
+    ./hardware-configuration.nix
   ];
 
   system.stateVersion = "24.05";
@@ -21,7 +22,7 @@
   nix = {
     settings = {
       experimental-features = [
-        "nix-command" 
+        "nix-command"
         "flakes"
       ];
     };
