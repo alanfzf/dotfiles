@@ -1,6 +1,6 @@
 if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
   # NOTE: im aware of '#Requires -RunAsAdministrator' instruction, but it does not work with Invoke Web Request.
-   throw "You must run this script as Administrator!"
+  throw "You must run this script as Administrator!"
 }
 
 # =====================
@@ -9,7 +9,6 @@ if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]:
 $temp = "$env:TEMP/files/"
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
 $altGrUrl = "https://github.com/thomasfaingnaert/win-us-intl-altgr/releases/download/v1.0/us-inter.zip"
-$repoUrl = "https://github.com/alanfzf/dotfiles/archive/main.zip"
 
 New-Item -ItemType Directory -Path $temp -Force | Out-Null
 
@@ -17,9 +16,9 @@ New-Item -ItemType Directory -Path $temp -Force | Out-Null
 # * UTILITY FUNCTIONS *
 # =====================
 function DownloadAndDecompress {
-  param(
-      [String]$Url,
-      [Switch]$CreateFolder
+param(
+    [String]$Url,
+    [Switch]$CreateFolder
   )
 
   $fileName = [System.IO.Path]::GetFileName($Url)
@@ -41,7 +40,7 @@ function DownloadAndDecompress {
 }
 
 function InstallFonts {
-  param ([String]$fontFolder)
+param ([String]$fontFolder)
   $destFolder = (New-Object -ComObject Shell.Application).Namespace(0x14)
   $foundFonts = Get-ChildItem -Path "$fontFolder/*" -Include '*.ttf','*.ttc','*.otf' -Recurse
   $systemFontsPath = "$env:LOCALAPPDATA/Microsoft/Windows/Fonts"
@@ -64,10 +63,11 @@ function CleanTemp {
 function InstallPrograms {
   # **** INSTALL WINGET PACKAGES ****
   $Packages = @(
-      "7zip.7zip"
-      "Discord.Discord"
-      "VideoLAN.VLC"
-      "Microsoft.PowerToys"
+    "7zip.7zip"
+    "Discord.Discord"
+    "VideoLAN.VLC"
+    "Microsoft.PowerToys"
+    "Alacritty.Alacritty"
   )
 
   foreach ($package in $packages) {
@@ -81,29 +81,6 @@ function InstallPrograms {
   $altGrlFolder = DownloadAndDecompress $altGrUrl
   $altGrlFolder = Join-Path $altGrlFolder.FullName "us-inter_amd64.msi"
   Start-Process 'msiexec.exe' -ArgumentList "/i `"$altGrlFolder`" /passive"
-}
-
-function SetupDotFiles{
-
-  $repo = DownloadAndDecompress $repoUrl
-  $dotfiles = "$HOME/.dotfiles/"
-  Move-item -Path $repo.FullName -Destination $dotfiles
-
-  # WEIRD WINDOWS FUCKING PATHS
-  $wtPath = Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*" | Select-Object -First 1 -Expand FullName
-  $wtPath =  "$wtPath/LocalState/"
-
-  $symLinks = @{
-    # realPath  = targetPath
-    "$wtPath"   = "$dotfiles/.config/windows_terminal/"
-  }
-
-  foreach ($entry in $symLinks.GetEnumerator()) {
-    $symPath = $entry.Key
-    $symTarget = $entry.Value
-    Remove-Item -Path $symPath -Force -Recurse -ErrorAction SilentlyContinue
-    New-Item -ItemType SymbolicLink -Path $symPath -Target $symTarget -Force
-  }
 }
 
 function WindowsTweaks {
@@ -187,7 +164,6 @@ function RemovePrograms{
 # DO THE SETUP
 # =====================
 InstallPrograms
-SetupDotFiles
 WindowsTweaks
 RemovePrograms
 CleanTemp
