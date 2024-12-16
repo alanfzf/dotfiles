@@ -25,6 +25,13 @@
         };
       };
 
+      homeConfig = user: system: pkgs: home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home-manager/home.nix ];
+        extraSpecialArgs = {
+          homeUser = user;
+        };
+      };
 
       # x86 declarations
       system = "x86_64-linux";
@@ -32,7 +39,6 @@
 
       aarchSystem = "aarch64-darwin";
       aarchPkgs = importPkgs aarchSystem;
-
 
     in {
       # Native Nix machine
@@ -53,21 +59,9 @@
 
       # home-manager
       homeConfigurations = {
-        "${personalUser}@nixos" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home-manager/home.nix ];
-          extraSpecialArgs = {
-            homeUser = personalUser;
-          };
-        };
-
-        "${workUser}@mb-pro-m3" = home-manager.lib.homeConfiguration {
-          inherit aarchPkgs;
-          modules = [ ./home-manager/home.nix ];
-          extraSpecialArgs = {
-            homeUser = workUser;
-          };
-        };
+        "${personalUser}@nixos" = homeConfig personalUser system pkgs;
+        "${personalUser}@wpc"   = homeConfig personalUser system pkgs;
+        "${workUser}@mb-pro-m3" = homeConfig workUser aarchSystem aarchPkgs;
       };
     };
 }
