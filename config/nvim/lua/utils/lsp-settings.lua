@@ -4,6 +4,9 @@ local M = {}
 
 -- lsp servers
 local lsp_servers = {
+  omnisharp = {
+    cmd = { "OmniSharp" },
+  },
   -- PHP
   intelephense = {
     init_options = {

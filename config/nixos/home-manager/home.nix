@@ -26,6 +26,8 @@
     stylua
     tmux
     unzip
+    lf
+    bitwarden-cli
     (nerdfonts.override { fonts = ["JetBrainsMono"]; })
   ];
 
@@ -131,6 +133,11 @@
           hostname = "control.finanssoreal.com";
           user = "debian";
           identityFile = "~/.ssh/ed25519_finanssoreal";
+        };
+        "cs2" = {
+          hostname = "51.222.206.82";
+          user = "debian";
+          identityFile = "~/.ssh/id_ed25519";
         };
       };
     };

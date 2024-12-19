@@ -1,3 +1,4 @@
 # works with both dark and light terminal themes from https://github.com/chriskempson/base16
+--color=always
 --theme=base16
 --italic-text=always
