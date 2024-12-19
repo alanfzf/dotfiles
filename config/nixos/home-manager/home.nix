@@ -26,6 +26,7 @@
     stylua
     tmux
     unzip
+    lf
     (nerdfonts.override { fonts = ["JetBrainsMono"]; })
   ];
 
