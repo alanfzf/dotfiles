@@ -1,4 +1,10 @@
-{ homeUser, config, pkgs, ...}: {
+{
+  homeUser,
+  config,
+  pkgs,
+  ...
+}:
+{
 
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -31,18 +37,35 @@
     tmux
     unzip
     lf
-    (nerdfonts.override { fonts = ["JetBrainsMono"]; })
+    nixfmt-rfc-style
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
   home.file = {
-    ".config/sway".source          = config.lib.file.mkOutOfStoreSymlink(config.home.homeDirectory + "/.dotfiles/config/sway");
-    ".config/nvim".source          = config.lib.file.mkOutOfStoreSymlink(config.home.homeDirectory + "/.dotfiles/config/nvim");
-    ".config/git".source           = config.lib.file.mkOutOfStoreSymlink(config.home.homeDirectory + "/.dotfiles/config/git");
-    ".config/tmux".source          = config.lib.file.mkOutOfStoreSymlink(config.home.homeDirectory + "/.dotfiles/config/tmux");
-    ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink(config.home.homeDirectory + "/.dotfiles/config/starship.toml");
-    ".config/lazygit".source       = config.lib.file.mkOutOfStoreSymlink(config.home.homeDirectory + "/.dotfiles/config/lazygit");
-    ".config/bat".source           = config.lib.file.mkOutOfStoreSymlink(config.home.homeDirectory + "/.dotfiles/config/bat");
-    ".config/direnv".source        = config.lib.file.mkOutOfStoreSymlink(config.home.homeDirectory + "/.dotfiles/config/direnv");
+    ".config/sway".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/sway"
+    );
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/nvim"
+    );
+    ".config/git".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/git"
+    );
+    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/tmux"
+    );
+    ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/starship.toml"
+    );
+    ".config/lazygit".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/lazygit"
+    );
+    ".config/bat".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/bat"
+    );
+    ".config/direnv".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/direnv"
+    );
   };
 
   programs = {
@@ -60,7 +83,6 @@
       enableCompletion = true;
       defaultKeymap = "emacs";
     };
-
 
     readline = {
       enable = true;

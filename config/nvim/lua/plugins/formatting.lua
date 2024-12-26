@@ -3,6 +3,7 @@ return {
   config = function()
     require("conform").setup({
       formatters_by_ft = {
+        nix = { "nixfmt" },
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
         typescript = { "prettier" },

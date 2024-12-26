@@ -11,29 +11,40 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-darwin, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nix-darwin,
+      ...
+    }@inputs:
     let
       # users
       personalUser = "alan";
       workUser = "finanssorealsa";
 
       # functions
-      importPkgs = system: import nixpkgs {
-        system = system;
-        config = {
-          allowUnfree = true;
+      importPkgs =
+        system:
+        import nixpkgs {
+          system = system;
+          config = {
+            allowUnfree = true;
+          };
         };
-      };
 
-      homeConfig = user: system: pkgs: home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          (if system == "aarch64-darwin" then ./home-manager/mac-home.nix else ./home-manager/home.nix)
-        ];
-        extraSpecialArgs = {
-          homeUser = user;
+      homeConfig =
+        user: system: pkgs:
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            (if system == "aarch64-darwin" then ./home-manager/mac-home.nix else ./home-manager/home.nix)
+          ];
+          extraSpecialArgs = {
+            homeUser = user;
+          };
         };
-      };
 
       # x86 declarations
       system = "x86_64-linux";
@@ -42,7 +53,8 @@
       aarchSystem = "aarch64-darwin";
       aarchPkgs = importPkgs aarchSystem;
 
-    in {
+    in
+    {
       # Native Nix machine
       nixosConfigurations = {
         "nixos" = nixpkgs.lib.nixosSystem {
@@ -54,15 +66,16 @@
       # MacOS
       darwinConfigurations = {
         "mb-pro-m3" = nix-darwin.lib.darwinSystem {
-          inherit aarchSystem;
-          modules = [./darwin/darwin.nix];
+          system = aarchSystem;
+          modules = [ ./darwin/darwin.nix ];
+          specialArgs = { inherit inputs; };
         };
       };
 
       # home-manager
       homeConfigurations = {
         "${personalUser}@nixos" = homeConfig personalUser system pkgs;
-        "${personalUser}@wpc"   = homeConfig personalUser system pkgs;
+        "${personalUser}@wpc" = homeConfig personalUser system pkgs;
         "${workUser}@mb-pro-m3" = homeConfig workUser aarchSystem aarchPkgs;
       };
     };

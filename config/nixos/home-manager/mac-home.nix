@@ -1,4 +1,10 @@
-{ homeUser, config, pkgs, ...}: {
+{
+  homeUser,
+  config,
+  pkgs,
+  ...
+}:
+{
 
   imports = [
     ./common.nix
