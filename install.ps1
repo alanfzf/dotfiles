@@ -6,7 +6,7 @@ if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]:
 # =====================
 # * CONSTANTS *
 # =====================
-$temp = "$env:TEMP/files/"
+$temp = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ([System.IO.Path]::GetRandomFileName())
 $fontUrl = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/jetbrainsmono.zip"
 $altGrUrl = "https://github.com/thomasfaingnaert/win-us-intl-altgr/releases/download/v1.0/us-inter.zip"
 
@@ -41,19 +41,21 @@ param(
 
 function InstallFonts {
 param ([String]$fontFolder)
-  $destFolder = (New-Object -ComObject Shell.Application).Namespace(0x14)
-  $foundFonts = Get-ChildItem -Path "$fontFolder/*" -Include '*.ttf','*.ttc','*.otf' -Recurse
-  $systemFontsPath = "$env:LOCALAPPDATA/Microsoft/Windows/Fonts"
+  $FOF_SILENT = 0x0004
+	$FOF_NOCONFIRMATION = 0x0010
+	$FOF_NOERRORUI = 0x0400
+	$FOF_NOCOPYSECURITYATTRIBS = 0x0800
+	$CopyOptions = $FOF_SILENT + $FOF_NOCONFIRMATION + $FOF_NOERRORUI + $FOF_NOCOPYSECURITYATTRIBS
 
-  foreach($fontFile in $foundFonts){
-    $fontDestPath = Join-Path $systemFontsPath $fontFile.Name
-    if(Test-Path -Path $fontDestPath){ continue }
-    $destFolder.CopyHere($fontFile.FullName, 0x14)
-  }
+  $destFolder = (New-Object -ComObject Shell.Application).Namespace('shell:Fonts')
+
+  Get-ChildItem $fontFolder | Where-Object { $_.Extension -in @(".otf", ".ttf")  } | ForEach-Object -Parallel {
+		$destFolder.CopyHere($_.FullName, $CopyOptions)
+	} -ThrottleLimit 64
 }
 
 function CleanTemp {
-  Get-ChildItem -Path $temp -Force | ForEach-Object { $_ | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue }
+  Remove-Item -Recurse -Force $temp
   Stop-Process -ProcessName explorer
 }
 
