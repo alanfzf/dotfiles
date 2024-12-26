@@ -27,7 +27,9 @@
 
       homeConfig = user: system: pkgs: home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home-manager/home.nix ];
+        modules = [
+          (if system == "aarch64-darwin" then ./home-manager/mac-home.nix else ./home-manager/home.nix)
+        ];
         extraSpecialArgs = {
           homeUser = user;
         };
