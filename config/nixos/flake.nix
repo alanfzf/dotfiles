@@ -39,7 +39,7 @@
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            (if system == "aarch64-darwin" then ./home-manager/mac-home.nix else ./home-manager/home.nix)
+            ./home-manager/home.nix
           ];
           extraSpecialArgs = {
             homeUser = user;

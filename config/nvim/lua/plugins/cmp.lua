@@ -46,8 +46,8 @@ return {
     -- fuzzy
     fuzzy = {
       use_typo_resistance = false,
-      use_frecency = false,
-      use_proximity = false,
+      use_frecency = true,
+      use_proximity = true,
     },
 
     -- ** start sources **
