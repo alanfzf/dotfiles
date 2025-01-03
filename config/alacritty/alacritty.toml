@@ -1,5 +1,5 @@
 [general]
-import = [ "alacritty-local.toml" ]
+import = [ "alacritty-local.toml", "theme.toml" ]
 
 [env]
 TERM = "xterm-256color"
@@ -13,20 +13,3 @@ opacity       = 0.9
 startup_mode  = "Maximized"
 option_as_alt = "OnlyLeft"
 dynamic_title = false
-
-# Colors (Doom One)
-[colors.primary]
-background = '#282c34'
-foreground = '#bbc2cf'
-
-# Normal colors
-[colors.normal]
-black   = '#282c34'
-red     = '#ff6c6b'
-green   = '#98be65'
-yellow  = '#ecbe7b'
-blue    = '#51afef'
-magenta = '#c678dd'
-cyan    = '#46d9ff'
-white   = '#bbc2cf'
-
