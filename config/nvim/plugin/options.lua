@@ -36,8 +36,9 @@ opt.hlsearch = true
 opt.ignorecase = true
 opt.smartcase = true
 -- tab related
-opt.tabstop = 2
-opt.shiftwidth = 2
+opt.shiftround = true
+opt.shiftwidth = 0
+opt.tabstop = 4
 opt.expandtab = true
 opt.smartindent = true
 -- visual
@@ -49,7 +50,7 @@ opt.signcolumn = "yes"
 opt.number = true
 opt.numberwidth = 4
 opt.cursorline = true
-opt.showmode = false
+opt.showmode = true
 opt.termguicolors = true
 opt.pumheight = 10
 opt.splitbelow = true
@@ -67,6 +68,15 @@ opt.fillchars = {
   foldopen = "",
   foldclose = "",
 }
+
+opt.list = true
+opt.listchars = {
+  tab = "▏ ",
+  trail = "·",
+  extends = "»",
+  precedes = "«",
+}
+
 -- disable colorschemes
 opt.wildignore:append({
   "blue.vim",
