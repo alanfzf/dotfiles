@@ -13,3 +13,9 @@ opacity       = 0.9
 startup_mode  = "Maximized"
 option_as_alt = "OnlyLeft"
 dynamic_title = false
+
+# disable url opening
+[[hints.enabled]]
+command = ""
+hyperlinks = true
+mouse.enabled = false
