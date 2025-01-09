@@ -1,7 +1,5 @@
-vim.g.mapleader = vim.keycode("<space>")
-vim.g.maplocalleader = vim.keycode("<space>")
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 ---@diagnostic disable-next-line: undefined-field
 if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
@@ -15,6 +13,11 @@ if not vim.uv.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+-- fucking annoying more message go fuck yourself
+vim.opt.more = false
+
+vim.g.mapleader = vim.keycode("<space>")
+vim.g.maplocalleader = vim.keycode("<space>")
 
 require("lazy").setup("plugins", {
   ui = {
