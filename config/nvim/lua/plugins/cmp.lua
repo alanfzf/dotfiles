@@ -1,7 +1,16 @@
 return {
   "saghen/blink.cmp",
   lazy = false,
-  dependencies = { "rafamadriz/friendly-snippets", "L3MON4D3/LuaSnip" },
+  dependencies = {
+    {
+      "L3MON4D3/LuaSnip",
+      version = "v2.*",
+      config = function()
+        require("luasnip.loaders.from_vscode").lazy_load()
+      end,
+      dependencies = { "rafamadriz/friendly-snippets" },
+    },
+  },
   version = "v0.*",
   opts = {
     keymap = {
