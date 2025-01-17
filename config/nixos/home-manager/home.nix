@@ -18,9 +18,9 @@
   home.stateVersion = "24.11";
 
   # Handle app symlinks
-  targets.genericLinux.enable = true;
-  xdg.mime.enable = true;
-  xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
+  # targets.genericLinux.enable = true;
+  # xdg.mime.enable = true;
+  # xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
