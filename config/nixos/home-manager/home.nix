@@ -54,7 +54,7 @@
     unzip
     lf
     nixfmt-rfc-style
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
 
   home.file = {

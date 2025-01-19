@@ -5,12 +5,18 @@
   ...
 }:
 {
-  environment.systemPackages = [ ];
+  environment.systemPackages = [
+    pkgs.alacritty
+    pkgs.firefox
+    pkgs.jetbrains.datagrip
+  ];
 
   nix.settings.experimental-features = "nix-command flakes";
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   system.stateVersion = 5;
+
   nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.config.allowUnfree = true;
 
   system.keyboard = {
     enableKeyMapping = true;
