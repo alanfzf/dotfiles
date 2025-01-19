@@ -57,8 +57,6 @@ local lsp_servers = {
   },
 }
 
-M.lsp_configs = function()
-  return lsp_servers
-end
+M.lsp_configs = lsp_servers
 
 return M

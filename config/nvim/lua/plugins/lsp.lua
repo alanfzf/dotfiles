@@ -34,7 +34,7 @@ local setup_lsp_servers = function()
     end
   end
 
-  local configs = require("utils.lsp-settings").lsp_configs()
+  local configs = require("utils.lsp-settings").lsp_configs
 
   for name, conf in pairs(configs) do
     local opts = {
@@ -80,11 +80,7 @@ local setup_lsp_servers = function()
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     -- Disable underline, it's very annoying
     underline = false,
-    virtual_text = true,
-    -- Enable virtual text, override spacing to 4
-    -- virtual_text = {spacing = 4},
-    -- Use a function to dynamically turn signs off
-    -- and on, using buffer local variables
+    virtual_text = false,
     signs = true,
     update_in_insert = false,
   })
