@@ -2,6 +2,15 @@ local M = {}
 
 -- most common language servers: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+    title = "",
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
 -- lsp servers
 local lsp_servers = {
   omnisharp = {
@@ -45,6 +54,12 @@ local lsp_servers = {
   -- TS & JS
   ts_ls = {
     single_file_support = false,
+    commands = {
+      OrganizeImports = {
+        organize_imports,
+        description = "Organize Imports",
+      },
+    },
   },
   -- PYTHON
   pyright = {
