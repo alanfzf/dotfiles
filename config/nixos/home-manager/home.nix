@@ -22,6 +22,12 @@
   # xdg.mime.enable = true;
   # xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
 
+  targets.genericLinux.enable = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux true;
+  xdg.mime.enable = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux true;
+  xdg.systemDirs.data = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux [
+    "${config.home.homeDirectory}/.nix-profile/share/applications"
+  ];
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
