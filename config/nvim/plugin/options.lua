@@ -35,12 +35,15 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 -- tab related
+vim.opt.smarttab = true
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 0
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 -- visual
+vim.opt.jumpoptions = "stack,view"
+vim.opt.splitkeep = "screen"
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.wrap = false
