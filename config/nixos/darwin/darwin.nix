@@ -12,6 +12,7 @@
     pkgs.discord
     pkgs.mkalias
     pkgs.jetbrains.datagrip
+    pkgs.qemu
   ];
 
   nix.settings.experimental-features = "nix-command flakes";

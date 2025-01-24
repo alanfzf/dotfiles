@@ -54,6 +54,7 @@
     unzip
     lf
     nixfmt-rfc-style
+    podman
     nerd-fonts.jetbrains-mono
   ];
 
@@ -82,10 +83,6 @@
     ".config/direnv".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/direnv"
     );
-  };
-
-  services = {
-    podman.enable = true;
   };
 
   programs = {
@@ -176,6 +173,11 @@
           hostname = "51.222.206.82";
           user = "debian";
           identityFile = "~/.ssh/id_ed25519";
+        };
+        "redia" = {
+          hostname = "redia.codes";
+          user = "debian";
+          identityFile = "~/.ssh/ed25519_finanssoreal";
         };
       };
     };
