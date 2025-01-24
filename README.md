@@ -20,6 +20,11 @@ iwr https://raw.githubusercontent.com/alanfzf/dotfiles/master/install.ps1 | iex
 
 ### WSL setup
 
+```bash
+# idk why debian wsl image comes so barebones
+sudo apt update && sudo apt upgrade -y && sudo apt install dbus-user-session xz-utils curl uidmap
+```
+
 ```powershell
 # install wsl
 wsl.exe --install --no-distribution
