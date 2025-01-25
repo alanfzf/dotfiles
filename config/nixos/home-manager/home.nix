@@ -150,9 +150,13 @@
       forwardAgent = true;
       serverAliveInterval = 240;
       matchBlocks = {
-        "alan" = {
+        "alan-oracle" = {
           hostname = "gepnir.ovh";
           user = "ubuntu";
+        };
+        "alan-ovh" = {
+          hostname = "51.222.206.82";
+          user = "debian";
         };
         "ftp" = {
           hostname = "ftp.finanssoreal.com";
@@ -168,11 +172,6 @@
           hostname = "control.finanssoreal.com";
           user = "debian";
           identityFile = "~/.ssh/ed25519_finanssoreal";
-        };
-        "cs2" = {
-          hostname = "51.222.206.82";
-          user = "debian";
-          identityFile = "~/.ssh/id_ed25519";
         };
         "redia" = {
           hostname = "redia.codes";
