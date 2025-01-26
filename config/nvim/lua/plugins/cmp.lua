@@ -6,7 +6,11 @@ return {
       "L3MON4D3/LuaSnip",
       version = "v2.*",
       config = function()
+        local snip = require("luasnip")
         require("luasnip.loaders.from_vscode").lazy_load()
+
+        snip.filetype_extend("php", { "phpdoc" })
+        snip.filetype_extend("helm", { "yaml" })
       end,
       dependencies = { "rafamadriz/friendly-snippets" },
     },
