@@ -46,7 +46,9 @@ return {
     },
     -- fuzzy
     fuzzy = {
-      use_typo_resistance = false,
+      max_typos = function()
+        return 0
+      end,
       use_frecency = true,
       use_proximity = true,
     },
@@ -70,7 +72,6 @@ return {
         snippets = {
           name = "Snippets",
           module = "blink.cmp.sources.snippets",
-          score_offset = -2,
         },
         buffer = {
           name = "Buffer",
