@@ -55,6 +55,8 @@
     lf
     nixfmt-rfc-style
     podman
+    kubernetes-helm
+    kubectl
     nerd-fonts.jetbrains-mono
   ];
 
@@ -151,11 +153,11 @@
       serverAliveInterval = 240;
       matchBlocks = {
         "alan-oracle" = {
-          hostname = "gepnir.ovh";
+          hostname = "oracle.gepnir.ovh";
           user = "ubuntu";
         };
         "alan-ovh" = {
-          hostname = "51.222.206.82";
+          hostname = "gepnir.ovh";
           user = "debian";
         };
         "ftp" = {
