@@ -29,6 +29,7 @@ sudo apt update && sudo apt upgrade -y && sudo apt install dbus-user-session xz-
 # install wsl
 wsl.exe --install --no-distribution
 ```
+
 ### Alacritty local
 
 ```toml
