@@ -143,42 +143,55 @@
       enable = true;
       keys = [
         "id_ed25519"
+        "id_ed25519_finanssoreal"
       ];
     };
 
     ssh = {
       enable = true;
-      addKeysToAgent = "yes";
-      forwardAgent = true;
       serverAliveInterval = 240;
       matchBlocks = {
+        "github.com" = {
+          hostname = "github.com";
+          user = "git";
+          identitiesOnly = true;
+          identityFile = "~/.ssh/id_ed25519.pub";
+        };
         "alan-oracle" = {
           hostname = "oracle.gepnir.ovh";
           user = "ubuntu";
+          identitiesOnly = true;
+          identityFile = "~/.ssh/id_ed25519.pub";
         };
         "alan-ovh" = {
           hostname = "gepnir.ovh";
           user = "debian";
+          identitiesOnly = true;
+          identityFile = "~/.ssh/id_ed25519.pub";
         };
         "ftp" = {
           hostname = "ftp.finanssoreal.com";
           user = "ubuntu";
-          identityFile = "~/.ssh/ed25519_finanssoreal";
+          identitiesOnly = true;
+          identityFile = "~/.ssh/id_ed25519_finanssoreal.pub";
         };
         "testing" = {
           hostname = "testing.finanssoreal.com";
           user = "debian";
-          identityFile = "~/.ssh/ed25519_finanssoreal";
+          identitiesOnly = true;
+          identityFile = "~/.ssh/id_ed25519_finanssoreal.pub";
         };
         "prod" = {
           hostname = "control.finanssoreal.com";
           user = "debian";
-          identityFile = "~/.ssh/ed25519_finanssoreal";
+          identitiesOnly = true;
+          identityFile = "~/.ssh/id_ed25519_finanssoreal.pub";
         };
         "redia" = {
           hostname = "redia.codes";
           user = "debian";
-          identityFile = "~/.ssh/ed25519_finanssoreal";
+          identitiesOnly = true;
+          identityFile = "~/.ssh/id_ed25519_finanssoreal.pub";
         };
       };
     };
