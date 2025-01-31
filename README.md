@@ -15,19 +15,19 @@ nix shell nixpkgs#home-manager nixpkgs#git --command sh -c "\
 
 ```powershell
 Set-ExecutionPolicy Bypass
-iwr https://raw.githubusercontent.com/alanfzf/dotfiles/master/install.ps1 | iex
+iwr https://alanfzf.github.io/dotfiles/install.ps1 | iex
 ```
 
 ### WSL setup
 
-```bash
-# idk why Debian WSL image comes so bare bones
-sudo apt update && sudo apt upgrade -y && sudo apt install dbus-user-session xz-utils curl uidmap
-```
-
 ```powershell
 # install wsl
 wsl.exe --install --no-distribution
+```
+
+```bash
+# idk why Debian WSL image comes so bare bones
+sudo apt update && sudo apt upgrade -y && sudo apt install dbus-user-session xz-utils curl uidmap
 ```
 
 ### Alacritty local

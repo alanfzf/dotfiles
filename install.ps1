@@ -69,7 +69,7 @@ function InstallPrograms {
         "Discord.Discord"
         "VideoLAN.VLC"
         "Microsoft.PowerToys"
-        "Alacritty.Alacritty"
+        "Microsoft.WindowsTerminal"
     )
 
     foreach ($package in $packages) {
