@@ -58,6 +58,7 @@
     kubernetes-helm
     kubectl
     nerd-fonts.jetbrains-mono
+    k9s
   ];
 
   home.file = {
