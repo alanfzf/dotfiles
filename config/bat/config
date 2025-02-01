@@ -2,3 +2,4 @@
 --color=always
 --theme=base16
 --italic-text=always
+--style=changes,numbers
