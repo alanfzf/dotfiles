@@ -3,14 +3,16 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local fzf = require("fzf-lua")
+    local actions = fzf.actions
 
     fzf.setup({
       file_icon_padding = " ",
       winopts = {
-        split = "belowright new",
+        -- split = "belowright new", make fzf non floating
         preview = {
           default = "bat",
           title = false,
+          border = "noborder",
         },
       },
       marks = {
@@ -19,7 +21,21 @@ return {
       grep = {
         multiline = true,
         RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
-        rg_opts = "--files-with-matches",
+        rg_opts = "--column --line-number --files-with-matches",
+        actions = {
+          ["ctrl-n"] = {
+            fn = function(_, opts)
+              actions.toggle_flag(
+                _,
+                vim.tbl_extend("force", opts, {
+                  toggle_flag = "--fixed-strings",
+                })
+              )
+            end,
+            desc = "Toggle regex",
+            header = "Toggle regex",
+          },
+        },
       },
       files = {
         cwd_header = false,
@@ -76,10 +92,15 @@ return {
           ["ctrl-x"] = "select-all+accept",
         },
       },
+
+      fzf_colors = {
+        true, -- inherit fzf colors that aren't specified below from
+        ["bg"] = "-1",
+      },
       fzf_opts = {
         -- ["--layout"] = "default",
+        ["--border"] = "none",
         ["--cycle"] = true,
-        ["--color"] = "bg+:-1",
         ["--info"] = "hidden",
         ["--no-info"] = "",
         ["--header"] = " ",
