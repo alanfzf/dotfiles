@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
-notARepository: skip
+notARepository: quit
 gui:
   showIcons: true
   showBottomLine: false
