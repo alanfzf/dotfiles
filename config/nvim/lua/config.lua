@@ -19,6 +19,18 @@ vim.opt.more = false
 vim.g.mapleader = vim.keycode("<space>")
 vim.g.maplocalleader = vim.keycode("<space>")
 
+local Util = require("lazy.core.util")
+
+-- relevant: https://github.com/folke/lazy.nvim/discussions/1421
+function Util.error(msg, opts)
+  opts = opts or {}
+  opts.level = vim.log.levels.ERROR
+  if string.find(msg, "installed") then
+    return
+  end
+  Util.notify(msg, opts)
+end
+
 require("lazy").setup("plugins", {
   ui = {
     wrap = "true",

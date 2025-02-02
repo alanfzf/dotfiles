@@ -8,7 +8,8 @@ return {
     fzf.setup({
       file_icon_padding = " ",
       winopts = {
-        -- split = "belowright new", make fzf non floating
+        -- make fzf non floating
+        split = "belowright new",
         preview = {
           default = "bat",
           title = false,
