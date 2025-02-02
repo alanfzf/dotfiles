@@ -1,8 +1,8 @@
 local M = {}
 
--- most common language servers: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
+-- most common language servers: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
-local function organize_imports()
+local function ts_org_imports()
   local params = {
     command = "_typescript.organizeImports",
     arguments = { vim.api.nvim_buf_get_name(0) },
@@ -56,7 +56,7 @@ local lsp_servers = {
     single_file_support = false,
     commands = {
       OrganizeImports = {
-        organize_imports,
+        ts_org_imports,
         description = "Organize Imports",
       },
     },

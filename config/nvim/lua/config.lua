@@ -31,6 +31,7 @@ require("lazy").setup("plugins", {
     enabled = false,
   },
   install = {
+    missing = false,
     colorscheme = { "default" },
   },
   performance = {
