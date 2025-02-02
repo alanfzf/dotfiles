@@ -85,6 +85,7 @@ return {
         auto_show = true,
       },
       list = {
+        max_items = 10,
         selection = {
           preselect = false,
           auto_insert = false,

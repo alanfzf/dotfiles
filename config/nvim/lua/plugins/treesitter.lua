@@ -32,6 +32,7 @@ return {
       ensure_installed = "all",
       indent = {
         enable = true,
+        disable = { "yaml" },
       },
       highlight = {
         enable = true,

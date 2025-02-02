@@ -8,9 +8,12 @@ return {
         javascriptreact = { "prettier" },
         typescript = { "prettier" },
         typescriptreact = { "prettier" },
+        scss = { "prettier" },
+        css = { "prettier" },
         lua = { "stylua" },
         php = { "php_cs_fixer" },
         blade = { "blade-formatter" },
+        ["_"] = { "trim_whitespace", "trim_newlines" },
       },
       format_after_save = {
         lsp_fallback = false,
