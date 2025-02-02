@@ -17,11 +17,6 @@
 
   home.stateVersion = "24.11";
 
-  # Handle app symlinks
-  # targets.genericLinux.enable = true;
-  # xdg.mime.enable = true;
-  # xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
-
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
@@ -38,6 +33,7 @@
   home.packages = with pkgs; [
     awscli2
     bat
+    delta
     eza
     fd
     fzf
@@ -45,20 +41,20 @@
     gh
     git
     jq
+    k9s
+    kubectl
+    kubernetes-helm
     lazygit
+    lf
     lua-language-server
     marksman
     neovim
+    nerd-fonts.jetbrains-mono
+    nixfmt-rfc-style
+    podman
     stylua
     tmux
     unzip
-    lf
-    nixfmt-rfc-style
-    podman
-    kubernetes-helm
-    kubectl
-    nerd-fonts.jetbrains-mono
-    k9s
   ];
 
   home.file = {
