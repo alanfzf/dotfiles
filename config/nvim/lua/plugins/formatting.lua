@@ -1,5 +1,8 @@
 return {
   "stevearc/conform.nvim",
+  init = function()
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end,
   config = function()
     require("conform").setup({
       formatters_by_ft = {
@@ -13,6 +16,8 @@ return {
         lua = { "stylua" },
         php = { "php_cs_fixer" },
         blade = { "blade-formatter" },
+        yaml = { lsp_format = "fallback" },
+        helm = { lsp_format = "fallback" },
         ["_"] = { "trim_whitespace", "trim_newlines" },
       },
       format_after_save = {
