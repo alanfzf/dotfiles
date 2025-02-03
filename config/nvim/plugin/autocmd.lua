@@ -24,5 +24,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function(params)
     vim.g.SCHEME = params.match
+    vim.api.nvim_set_hl(0, "DiffDelete", { link = "EndOfBuffer" })
   end,
 })
