@@ -22,7 +22,7 @@ M.set_lsp_keymaps = function(bufnr)
   keymap("<M-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help")
   -- actions
   keymap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename definition")
-  keymap("<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code action")
+  keymap("<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code action")
   -- diagnostics
   keymap("<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", "Loc list")
   keymap("gl", "<cmd>lua vim.diagnostic.open_float()<CR>", "Diagnostics")

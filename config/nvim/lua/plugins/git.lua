@@ -1,21 +1,34 @@
 return {
   {
+    "sindrets/diffview.nvim",
+    config = function()
+      require("diffview").setup({
+        enhanced_diff_hl = true,
+        view = {
+          merge_tool = {
+            layout = "diff1_plain",
+            disable_diagnostics = true,
+            winbar_info = true,
+          },
+        },
+        file_panel = {
+          listing_style = "list",
+        },
+      })
+    end,
+  },
+  {
     "daliusd/ghlite.nvim",
     config = function()
       require("ghlite").setup({
-        view_split = "",
-        diff_split = "",
-        comment_split = "vsplit",
-        open_command = "open",
         keymaps = {
           comment = {
-            send_comment = "<leader>cp",
+            send_comment = "<F2>",
           },
         },
       })
     end,
   },
-  { "akinsho/git-conflict.nvim", config = true },
   {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPre",
