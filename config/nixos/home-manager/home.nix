@@ -28,6 +28,7 @@
     ls = "eza -l --icons -s extension";
     cat = "bat";
     lg = "lazygit";
+    difftool = "nvim -c DiffviewOpen";
   };
 
   home.packages = with pkgs; [

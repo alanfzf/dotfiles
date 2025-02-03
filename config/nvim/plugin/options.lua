@@ -71,7 +71,7 @@ vim.opt.fillchars = {
   fold = " ",
   foldopen = "",
   foldclose = "",
-  diff = "",
+  diff = "╱",
 }
 
 vim.opt.list = true
