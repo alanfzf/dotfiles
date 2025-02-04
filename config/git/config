@@ -32,5 +32,6 @@
   amend = commit --amend -m
   po = push origin
   cp = cherry-pick
+  dfc = diff --check
   rmcache = rm -rf --cached .
   gone = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D
