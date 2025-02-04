@@ -84,7 +84,6 @@ in
     );
   };
 
-  # services.podman.enable =
   services.podman = lib.mkIf isLinux {
     enable = true;
   };
