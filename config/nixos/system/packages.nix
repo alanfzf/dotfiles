@@ -30,6 +30,4 @@
   programs.firefox = {
     enable = true;
   };
-
-  virtualisation.docker.enable = true;
 }

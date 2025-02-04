@@ -1,5 +1,5 @@
 {
-  description = "Alan nix system";
+  description = "Alan's Nix system";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -21,7 +21,7 @@
     }@inputs:
     let
       # users
-      personalUser = "alan";
+      user = "alan";
       workUser = "finanssorealsa";
 
       # functions
@@ -74,8 +74,8 @@
 
       # home-manager
       homeConfigurations = {
-        "${personalUser}@nixos" = homeConfig personalUser system pkgs;
-        "${personalUser}@wpc" = homeConfig personalUser system pkgs;
+        "${user}@nixos" = homeConfig user system pkgs;
+        "${user}@wpc" = homeConfig user system pkgs;
         "${workUser}@mb-pro-m3" = homeConfig workUser aarchSystem aarchPkgs;
       };
     };
