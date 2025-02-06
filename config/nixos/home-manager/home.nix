@@ -55,6 +55,7 @@ in
     stylua
     tmux
     unzip
+    podman
   ];
 
   home.file = {
