@@ -74,5 +74,5 @@ customCommands:
         key: "Message"
         initialValue: ""
 
-    command: "git commit --message '{{.Form.Type}}{{ if .Form.Scope }}({{ .Form.Scope }}){{ end }}{{.Form.Breaking}}: {{.Form.Message}}'"
+    command: "git commit --message \"{{.Form.Type}}{{ if .Form.Scope }}({{ .Form.Scope }}){{ end }}{{.Form.Breaking}}: {{.Form.Message}}\""
     loadingText: "Creating conventional commit..."
