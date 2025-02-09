@@ -8,6 +8,7 @@ return {
       default_view = "headers_body",
       additional_curl_options = { "-L" },
       environment_scope = "g",
+      kulala_keymaps = false,
     },
   },
   {
@@ -25,7 +26,9 @@ return {
   },
   {
     "zbirenbaum/copilot.lua",
-    enabled = false,
+    enabled = function()
+      return vim.fn.executable("node") == 1
+    end,
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
