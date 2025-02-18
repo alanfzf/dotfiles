@@ -51,11 +51,14 @@ return {
       end,
       use_frecency = true,
       use_proximity = true,
+      sorts = { "exact", "score", "sort_text" },
     },
 
     -- ** start sources **
+    cmdline = {
+      enabled = false,
+    },
     sources = {
-      cmdline = {},
       providers = {
         lsp = {
           name = "LSP",
