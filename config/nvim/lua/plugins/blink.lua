@@ -7,9 +7,12 @@ return {
       version = "v2.*",
       config = function()
         local snip = require("luasnip")
-        require("luasnip.loaders.from_vscode").lazy_load()
+        local loader = require("luasnip.loaders.from_vscode")
 
-        snip.filetype_extend("php", { "phpdoc" })
+        loader.lazy_load()
+        loader.lazy_load({ paths = "./snippets/" })
+
+        snip.filetype_extend("php", { "blade" })
         snip.filetype_extend("helm", { "yaml" })
       end,
       dependencies = { "rafamadriz/friendly-snippets" },
@@ -46,9 +49,9 @@ return {
     },
     -- fuzzy
     fuzzy = {
-      max_typos = function()
-        return 0
-      end,
+      -- max_typos = function()
+      --   return 0
+      -- end,
       use_frecency = true,
       use_proximity = true,
       sorts = { "exact", "score", "sort_text" },
@@ -59,6 +62,7 @@ return {
       enabled = false,
     },
     sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
       providers = {
         lsp = {
           name = "LSP",
@@ -71,10 +75,6 @@ return {
           name = "Path",
           module = "blink.cmp.sources.path",
           score_offset = 3,
-        },
-        snippets = {
-          name = "Snippets",
-          module = "blink.cmp.sources.snippets",
         },
         buffer = {
           name = "Buffer",
