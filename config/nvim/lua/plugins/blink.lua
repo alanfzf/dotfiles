@@ -12,6 +12,8 @@ return {
         loader.lazy_load()
         loader.lazy_load({ paths = "./snippets/" })
 
+        snip.filetype_extend("php", { "phpdoc" })
+        snip.filetype_extend("javascript", { "jsdoc" })
         snip.filetype_extend("php", { "blade" })
         snip.filetype_extend("helm", { "yaml" })
       end,
@@ -20,6 +22,9 @@ return {
   },
   version = "v0.*",
   opts = {
+    snippets = {
+      preset = "luasnip",
+    },
     keymap = {
       ["<CR>"] = { "accept", "fallback" },
       ["<C-e>"] = { "hide", "fallback" },
@@ -43,9 +48,6 @@ return {
         "snippet_backward",
         "fallback",
       },
-    },
-    snippets = {
-      preset = "luasnip",
     },
     -- fuzzy
     fuzzy = {

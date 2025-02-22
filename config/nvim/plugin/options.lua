@@ -59,8 +59,6 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.cmdheight = 2
 -- misc
--- fucking annoying more message go fuck yourself
-vim.opt.more = false
 vim.opt.shortmess:append("cOt")
 vim.opt.iskeyword:append("-")
 vim.opt.linebreak = true
