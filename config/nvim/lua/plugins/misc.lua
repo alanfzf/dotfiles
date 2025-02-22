@@ -14,6 +14,8 @@ return {
   {
     "otavioschwanck/arrow.nvim",
     opts = {
+      separate_save_and_remove = true,
+      separate_by_branch = true,
       show_icons = true,
       leader_key = ";",
       buffer_leader_key = "m",
