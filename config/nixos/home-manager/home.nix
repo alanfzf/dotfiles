@@ -28,7 +28,6 @@ in
     ls = "eza -l --icons -s extension";
     cat = "bat";
     lg = "lazygit";
-    difftool = "nvim -c DiffviewOpen";
   };
 
   home.packages = with pkgs; [
@@ -52,10 +51,10 @@ in
     neovim
     nerd-fonts.jetbrains-mono
     nixfmt-rfc-style
+    podman
     stylua
     tmux
     unzip
-    podman
   ];
 
   home.file = {
@@ -104,7 +103,11 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     defaultKeymap = "emacs";
-    autocd = true;
+    autocd = false;
+    completionInit = ''
+      autoload -Uz compinit && compinit
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+    '';
   };
 
   programs.readline = {

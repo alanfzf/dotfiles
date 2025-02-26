@@ -34,17 +34,10 @@ return {
       ["<C-f>"] = { "scroll_documentation_down", "fallback" },
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
       ["<Tab>"] = {
-        function(cmp)
-          return cmp.select_next()
-        end,
         "snippet_forward",
         "fallback",
       },
-
       ["<S-Tab>"] = {
-        function(cmp)
-          return cmp.select_prev()
-        end,
         "snippet_backward",
         "fallback",
       },
