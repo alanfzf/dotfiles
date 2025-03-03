@@ -28,6 +28,7 @@ in
     ls = "eza -l --icons -s extension";
     cat = "bat";
     lg = "lazygit";
+    k = "kubectl";
   };
 
   home.packages = with pkgs; [
