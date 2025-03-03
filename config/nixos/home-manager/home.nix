@@ -29,6 +29,7 @@ in
     cat = "bat";
     lg = "lazygit";
     k = "kubectl";
+    mergetool = "nvim +DiffviewOpen +tabonly";
   };
 
   home.packages = with pkgs; [
@@ -82,6 +83,9 @@ in
     );
     ".config/direnv".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/direnv"
+    );
+    ".config/lf".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/lf"
     );
   };
 
