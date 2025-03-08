@@ -29,7 +29,6 @@ in
     cat = "bat";
     lg = "lazygit";
     k = "kubectl";
-    mergetool = "nvim +DiffviewOpen +tabonly";
   };
 
   home.packages = with pkgs; [

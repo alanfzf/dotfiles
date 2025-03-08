@@ -57,7 +57,6 @@ return {
       enabled = false,
     },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
       providers = {
         lsp = {
           name = "LSP",

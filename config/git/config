@@ -1,38 +1,39 @@
 [user]
-  name = alanfzf
-  email = alandavidg13@gmail.com
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDQT117qOeTzJ4r2DLmede9F4egut0hN+PVoV68GKndK alandavidg13@gmail.com
+    name = alanfzf
+    email = alandavidg13@gmail.com
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDQT117qOeTzJ4r2DLmede9F4egut0hN+PVoV68GKndK alandavidg13@gmail.com
 [commit]
-  gpgsign = true
+    gpgsign = true
 [gpg]
-  format = ssh
+    format = ssh
 [push]
-  autoSetupRemote = true
+    autoSetupRemote = true
 [core]
-  editor = nvim
-  autocrlf = false
-  pager = cat
+    editor = nvim
+    autocrlf = false
+    pager = cat
 [init]
-  defaultBranch = main
+    defaultBranch = main
 [pull]
-  rebase = true
+    rebase = true
 [merge]
-  tool = nvimdiff
+    tool = nvimdiff
 [mergetool]
-  keepBackup = false
+    keepBackup = false
 [mergetool "nvimdiff"]
-  cmd = nvim "$MERGED"
+    cmd = nvim "$MERGED"
 [alias]
-  subup = submodule update --init --recursive
-  co = checkout
-  cob = checkout -b
-  br = branch
-  st = status
-  cm = commit -m
-  amend = commit --amend -m
-  po = push origin
-  cp = cherry-pick
-  dfc = diff --check
-  rmcache = rm -rf --cached .
-  rbc = "!git add -A && git rebase --continue"
-  gone = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D
+    subup = submodule update --init --recursive
+    co = checkout
+    cob = checkout -b
+    br = branch
+    st = status
+    cm = commit -m
+    amend = commit --amend -m
+    po = push origin
+    cp = cherry-pick
+    dfc = diff --check
+    rmcache = rm -rf --cached .
+    rbc = "!git add -A && git rebase --continue"
+    mt = mergetool
+    gone = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D

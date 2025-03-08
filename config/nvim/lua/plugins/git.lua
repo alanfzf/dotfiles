@@ -1,20 +1,21 @@
 return {
   {
-    "sindrets/diffview.nvim",
-    config = function()
-      require("diffview").setup({
-        enhanced_diff_hl = true,
-        view = {
-          merge_tool = {
-            layout = "diff1_plain",
-            disable_diagnostics = true,
-            winbar_info = true,
-          },
-        },
-        file_panel = {
-          listing_style = "list",
-        },
+    "akinsho/git-conflict.nvim",
+    config = true,
+    init = function()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "GitConflictDetected",
+        callback = function()
+          vim.notify("Conflict detected in: " .. vim.fn.expand("%:t") .. " ")
+
+          vim.schedule(function()
+            vim.cmd("GitConflictListQf")
+            vim.cmd("cclose")
+          end)
+        end,
       })
+
+      vim.keymap.set("n", "gco", "<cmd>cdo GitConflictChooseOurs<CR>")
     end,
   },
   {
@@ -51,7 +52,6 @@ return {
       },
       attach_to_untracked = true,
       current_line_blame = false,
-      current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
       sign_priority = 6,
       update_debounce = 100,
       status_formatter = function(status)
