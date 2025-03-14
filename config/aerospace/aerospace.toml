@@ -14,7 +14,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [mode.main.binding]
 # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
 alt-enter = 'exec-and-forget open -n "/Applications/Nix Apps/Alacritty.app"'
-alt-b = 'exec-and-forget open -n /Applications/Firefox.app'
+alt-b = 'exec-and-forget open -n "/Applications/Nix Apps/Brave Browser.app"'
 alt-e = 'exec-and-forget open -a Finder'
 
 # i3 wraps focus by default

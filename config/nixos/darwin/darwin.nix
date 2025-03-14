@@ -13,6 +13,8 @@
     pkgs.mkalias
     pkgs.jetbrains.datagrip
     pkgs.qemu
+    pkgs.spotify
+    pkgs.brave
   ];
 
   nix.settings.experimental-features = "nix-command flakes";
