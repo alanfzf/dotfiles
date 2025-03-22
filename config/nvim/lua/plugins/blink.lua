@@ -33,20 +33,17 @@ return {
       ["<C-b>"] = { "scroll_documentation_up", "fallback" },
       ["<C-f>"] = { "scroll_documentation_down", "fallback" },
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-      ["<Tab>"] = {
+      ["<C-l>"] = {
         "snippet_forward",
         "fallback",
       },
-      ["<S-Tab>"] = {
+      ["<C-h>"] = {
         "snippet_backward",
         "fallback",
       },
     },
     -- fuzzy
     fuzzy = {
-      -- max_typos = function()
-      --   return 0
-      -- end,
       use_frecency = true,
       use_proximity = true,
       sorts = { "exact", "score", "sort_text" },
