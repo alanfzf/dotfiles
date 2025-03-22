@@ -2,21 +2,6 @@ return {
   {
     "akinsho/git-conflict.nvim",
     config = true,
-    init = function()
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "GitConflictDetected",
-        callback = function()
-          vim.notify("Conflict detected in: " .. vim.fn.expand("%:t") .. " ")
-
-          vim.schedule(function()
-            vim.cmd("GitConflictListQf")
-            vim.cmd("cclose")
-          end)
-        end,
-      })
-
-      vim.keymap.set("n", "gco", "<cmd>cdo GitConflictChooseOurs<CR>")
-    end,
   },
   {
     "daliusd/ghlite.nvim",
