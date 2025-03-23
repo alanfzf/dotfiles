@@ -1,4 +1,3 @@
-print("hola!")
 require("config.autocmd")
 require("config.keymaps")
 require("config.lsp")
