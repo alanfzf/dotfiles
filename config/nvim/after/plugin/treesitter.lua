@@ -16,6 +16,7 @@ parser_config.blade = {
 ts.setup({
   auto_install = true,
   ensure_installed = "all",
+  sync_install = false,
   indent = {
     enable = true,
     disable = { "yaml" },

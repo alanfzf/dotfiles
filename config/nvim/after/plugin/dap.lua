@@ -1,16 +1,20 @@
-local dap = require("dap")
+local later = MiniDeps.later
 
-dap.adapters.php = {
-  type = "executable",
-  command = "php-debug-adapter",
-}
+later(function()
+  local dap = require("dap")
 
-dap.configurations.php = {
-  {
-    name = "Listen for Xdebug (9003)",
-    type = "php",
-    request = "launch",
-    port = "9003",
-    hostname = "0.0.0.0",
-  },
-}
+  dap.adapters.php = {
+    type = "executable",
+    command = "php-debug-adapter",
+  }
+
+  dap.configurations.php = {
+    {
+      name = "Listen for Xdebug (9003)",
+      type = "php",
+      request = "launch",
+      port = "9003",
+      hostname = "0.0.0.0",
+    },
+  }
+end)
