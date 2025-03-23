@@ -2,6 +2,9 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 local helper = require("utils.helper")
 
+vim.g.mapleader = vim.keycode("<space>")
+vim.g.maplocalleader = vim.keycode("<space>")
+
 --[[ * ALL MODES * ]]
 keymap("", "<S-h>", "^", { remap = true })
 keymap("", "<S-l>", "$", { remap = true })

@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 local path_package = vim.fn.stdpath("data") .. "/site/"
 local mini_path = path_package .. "pack/deps/start/mini.nvim"
 
@@ -7,11 +9,11 @@ if not vim.loop.fs_stat(mini_path) then
     "git",
     "clone",
     "--filter=blob:none",
-    "https://github.com/echasnovski/mini.nvim",
+    "https://github.com/echasnovski/mini.deps",
     mini_path,
   })
-  vim.cmd("packadd mini.nvim | helptags ALL")
-  vim.cmd('echo "Installed `mini.nvim`" | redraw')
+  vim.cmd("packadd mini.deps | helptags ALL")
+  vim.cmd('echo "Installed `mini.deps`" | redraw')
 end
 
 -- Set up 'mini.deps' (customize to your liking)
@@ -55,9 +57,7 @@ add({ source = "junegunn/vim-easy-align" })
 add({ source = "mistweaverco/kulala.nvim" })
 add({ source = "otavioschwanck/arrow.nvim" })
 add({ source = "brianhuster/live-preview.nvim" })
-
--- ai
-add({ source = "zbirenbaum/copilot.lua" })
+add({ source = "glacambre/firenvim" })
 
 -- git related
 add({ source = "lewis6991/gitsigns.nvim" })
@@ -67,5 +67,4 @@ add({ source = "neovim/nvim-lspconfig" })
 -- colors
 add({ source = "maxmx03/solarized.nvim" })
 add({ source = "nyoom-engineering/oxocarbon.nvim" })
-add({ source = "Skardyy/makurai-nvim" })
-add({ source = "Shatur/neovim-ayu" })
+add({ source = "joshdick/onedark.vim" })
