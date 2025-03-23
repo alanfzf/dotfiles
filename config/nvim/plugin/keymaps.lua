@@ -38,12 +38,12 @@ keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>")
-keymap("n", "<C-Down>", ":resize +2<CR>")
-keymap("n", "<C-Right>", ":vertical resize -2<CR>")
-keymap("n", "<C-Left>", ":vertical resize +2<CR>")
+keymap("n", "<C-Up>", "<cmd>resize -2<CR>")
+keymap("n", "<C-Down>", "<cmd>resize +2<CR>")
+keymap("n", "<C-Right>", "<cmd>vertical resize -2<CR>")
+keymap("n", "<C-Left>", "<cmd>vertical resize +2<CR>")
 -- Navigate tabs
-keymap("n", "<leader>tn", ":tabnew %<CR>")
+keymap("n", "<leader>tn", "<cmd>tabnew %<CR>")
 keymap("n", "<C-f>", "q:i")
 
 --[[ * VISUAL MODE * ]]
@@ -51,14 +51,14 @@ keymap("n", "<C-f>", "q:i")
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==")
-keymap("v", "<A-k>", ":m .-2<CR>==")
+keymap("v", "<A-j>", "<cmd>m .+1<CR>==")
+keymap("v", "<A-k>", "<cmd>m .-2<CR>==")
 keymap("v", "p", '"_dP')
 
 --[[ * VISUAL BLOCK *  ]]
 -- Move text up and down
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<A-j>", "<cmd>move '>+1<CR>gv-gv", opts)
+keymap("x", "<A-k>", "<cmd>move '<-2<CR>gv-gv", opts)
 
 --[[ * OTHER PLUGINS *  ]]
 -- FZF LUA
@@ -78,14 +78,14 @@ keymap("n", "<leader>e", "<cmd>Oil<CR>", opts)
 -- LSP
 keymap("n", "<leader>li", "<cmd>LspInfo<CR>")
 -- GIT SIGNGS
-keymap("n", "<leader>gh", ":Gitsigns next_hunk<CR>", opts)
-keymap("n", "<leader>gH", ":Gitsigns prev_hunk<CR>", opts)
-keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
-keymap("n", "<leader>gb", ":Gitsigns blame_line<CR>", opts)
+keymap("n", "<leader>gh", "<cmd>Gitsigns next_hunk<CR>", opts)
+keymap("n", "<leader>gH", "<cmd>Gitsigns prev_hunk<CR>", opts)
+keymap("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", opts)
+keymap("n", "<leader>gb", "<cmd>Gitsigns blame_line<CR>", opts)
 -- DAP
-keymap("n", "<leader>dc", ":lua require'dap'.continue()<CR>", opts)
-keymap("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
-keymap("n", "<leader>do", ":lua require'dap'.step_over()<CR>", opts)
-keymap("n", "<leader>di", ":lua require'dap'.step_into()<CR>", opts)
-keymap("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", opts)
-keymap("n", "<leader>dcb", ":lua require'dap'.clear_breakpoints()<CR>", opts)
+keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", opts)
+keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", opts)
+keymap("n", "<leader>dcb", "<cmd>lua require'dap'.clear_breakpoints()<CR>", opts)

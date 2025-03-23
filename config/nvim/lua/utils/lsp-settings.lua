@@ -23,8 +23,6 @@ local lsp_servers = {
       licenceKey = vim.fn.expand("$HOME/.intelephense/licence.txt"),
     },
   },
-  -- LATEX
-  texlab = {},
   -- MARKDOWN
   marksman = {},
   -- LUA
