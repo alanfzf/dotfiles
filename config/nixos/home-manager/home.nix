@@ -180,8 +180,8 @@ in
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519.pub";
       };
-      "ftp" = {
-        hostname = "ftp.finanssoreal.com";
+      "office" = {
+        hostname = "office.finanssoreal.com";
         user = "ubuntu";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519_finanssoreal.pub";
