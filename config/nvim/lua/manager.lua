@@ -25,10 +25,14 @@ local add = MiniDeps.add
 
 -- completion
 add({ source = "windwp/nvim-autopairs" })
-add({ source = "saghen/blink.cmp", depends = {
-  "L3MON4D3/LuaSnip",
-  "rafamadriz/friendly-snippets",
-} })
+add({
+  source = "saghen/blink.cmp",
+  checkout = "v0.14.2",
+  depends = {
+    "L3MON4D3/LuaSnip",
+    "rafamadriz/friendly-snippets",
+  },
+})
 
 -- tools
 add({ source = "stevearc/conform.nvim" })
