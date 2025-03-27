@@ -8,7 +8,6 @@ local lspconfig = require("lspconfig")
 local configs = require("utils.lsp-settings").lsp_configs
 local helper = require("utils.lsp-helper")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 for name, conf in pairs(configs) do
   local opts = {

@@ -23,52 +23,59 @@ require("mini.deps").setup({ path = { package = path_package } })
 ---@diagnostic disable-next-line: undefined-global
 local add = MiniDeps.add
 
--- completion
-add({ source = "windwp/nvim-autopairs" })
-add({
-  source = "saghen/blink.cmp",
-  checkout = "v0.14.2",
-  depends = {
-    "L3MON4D3/LuaSnip",
-    "rafamadriz/friendly-snippets",
+local plugins = {
+  -- completion
+  { source = "windwp/nvim-autopairs" },
+  {
+    source = "saghen/blink.cmp",
+    checkout = "v1.0.0",
+    depends = {
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
+    },
   },
-})
 
--- tools
-add({ source = "stevearc/conform.nvim" })
-add({ source = "mfussenegger/nvim-dap" })
+  -- tools
+  { source = "stevearc/conform.nvim" },
+  { source = "mfussenegger/nvim-dap" },
 
--- treesitter
-add({
-  source = "nvim-treesitter/nvim-treesitter",
-  depends = {
-    "windwp/nvim-ts-autotag",
-    "JoosepAlviste/nvim-ts-context-commentstring",
+  -- treesitter
+  {
+    source = "nvim-treesitter/nvim-treesitter",
+    depends = {
+      "windwp/nvim-ts-autotag",
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
   },
-})
 
--- file navigation
-add({ source = "stevearc/oil.nvim" })
-add({
-  source = "ibhagwan/fzf-lua",
-  depends = {
-    "nvim-tree/nvim-web-devicons",
+  -- file navigation
+  { source = "stevearc/oil.nvim" },
+  {
+    source = "ibhagwan/fzf-lua",
+    depends = {
+      "nvim-tree/nvim-web-devicons",
+    },
   },
-})
 
--- misc
-add({ source = "junegunn/vim-easy-align" })
-add({ source = "mistweaverco/kulala.nvim" })
-add({ source = "otavioschwanck/arrow.nvim" })
-add({ source = "brianhuster/live-preview.nvim" })
-add({ source = "glacambre/firenvim" })
+  -- misc
+  { source = "junegunn/vim-easy-align" },
+  { source = "mistweaverco/kulala.nvim" },
+  { source = "otavioschwanck/arrow.nvim" },
+  { source = "brianhuster/live-preview.nvim" },
+  { source = "glacambre/firenvim" },
 
--- git related
-add({ source = "lewis6991/gitsigns.nvim" })
-add({ source = "akinsho/git-conflict.nvim" })
-add({ source = "neovim/nvim-lspconfig" })
+  -- git related
+  { source = "lewis6991/gitsigns.nvim" },
+  { source = "akinsho/git-conflict.nvim" },
+  { source = "neovim/nvim-lspconfig" },
 
--- colors
-add({ source = "maxmx03/solarized.nvim" })
-add({ source = "nyoom-engineering/oxocarbon.nvim" })
-add({ source = "joshdick/onedark.vim" })
+  -- colors
+  { source = "maxmx03/solarized.nvim" },
+  { source = "nyoom-engineering/oxocarbon.nvim" },
+  { source = "RRethy/base16-nvim" },
+}
+
+-- Register all plugins
+for _, plugin in ipairs(plugins) do
+  add(plugin)
+end
