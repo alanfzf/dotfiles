@@ -67,7 +67,6 @@ local plugins = {
   -- git related
   { source = "lewis6991/gitsigns.nvim" },
   { source = "akinsho/git-conflict.nvim" },
-  { source = "neovim/nvim-lspconfig" },
 
   -- colors
   { source = "maxmx03/solarized.nvim" },

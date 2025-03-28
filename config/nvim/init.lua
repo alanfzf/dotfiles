@@ -1,2 +1,2 @@
-require("manager")
 require("config")
+require("manager")
