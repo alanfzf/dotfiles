@@ -79,7 +79,7 @@ keymap("n", "<leader>fr", "<cmd>FzfLua resume<CR>", opts)
 -- OIL NVIM
 keymap("n", "<leader>e", "<cmd>Oil<CR>", opts)
 -- LSP
-keymap("n", "<leader>li", "<cmd>LspInfo<CR>")
+keymap("n", "<leader>li", "<cmd>checkhealth vim.lsp<CR>")
 -- GIT SIGNGS
 keymap("n", "<leader>gh", "<cmd>Gitsigns next_hunk<CR>", opts)
 keymap("n", "<leader>gH", "<cmd>Gitsigns prev_hunk<CR>", opts)
