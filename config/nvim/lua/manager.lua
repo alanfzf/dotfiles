@@ -1,7 +1,7 @@
 vim.loader.enable()
 
 local path_package = vim.fn.stdpath("data") .. "/site/"
-local mini_path = path_package .. "pack/deps/start/mini.nvim"
+local mini_path = path_package .. "pack/deps/start/mini.deps"
 
 ---@diagnostic disable-next-line: undefined-field
 if not vim.loop.fs_stat(mini_path) then
