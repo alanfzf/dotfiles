@@ -1,6 +1,5 @@
 local ts = require("nvim-treesitter.configs")
 local install_opts = require("nvim-treesitter.install")
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 install_opts.prefer_git = false
 
 -- basic treesitter setup

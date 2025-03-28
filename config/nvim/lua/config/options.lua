@@ -26,7 +26,7 @@ vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
 vim.opt.laststatus = 3
 vim.opt.mouse = ""
 vim.opt.winborder = "rounded"
-vim.opt.mopt = "hit-enter,history:500,wait:500"
+vim.opt.mopt = "wait:500,history:500"
 -- backup related
 vim.opt.backup = false
 vim.opt.writebackup = false
