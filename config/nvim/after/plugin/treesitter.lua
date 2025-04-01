@@ -6,6 +6,7 @@ install_opts.prefer_git = false
 ts.setup({
   auto_install = true,
   ensure_installed = "all",
+  ignore_install = { "scfg", "ocamllex", "teal", "mlir", "latex", "unison", "swift", "norg" },
   sync_install = false,
   indent = {
     enable = true,

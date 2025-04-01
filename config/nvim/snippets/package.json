@@ -1,5 +1,5 @@
 {
-  "name": "custom-snips",
+  "name": "alan snippet's",
   "contributes": {
     "snippets": [
       {
@@ -9,6 +9,10 @@
       {
         "language": ["plaintex", "tex"],
         "path": "./languages/latex.json"
+      },
+      {
+        "language": ["php"],
+        "path": "./languages/php.json"
       }
     ]
   }

@@ -1,0 +1,30 @@
+{
+  "class-php": {
+    "prefix": "fullclass",
+    "description": "Create a full php class",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1};",
+      "",
+      "class ${TM_FILENAME_BASE} implements ${2}",
+      "{",
+      "${0}",
+      "}"
+    ]
+  },
+  "interface-php": {
+    "prefix": "iface",
+    "description": "Create php a full php interface",
+    "body": [
+      "<?php",
+      "",
+      "namespace ${1};",
+      "",
+      "interface ${TM_FILENAME_BASE}",
+      "{",
+      "${0}",
+      "}"
+    ]
+  }
+}

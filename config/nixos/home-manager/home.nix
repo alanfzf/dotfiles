@@ -20,6 +20,7 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
+    PODMAN_COMPOSE_WARNING_LOGS = "false";
   };
 
   home.shellAliases = {
@@ -53,6 +54,7 @@ in
     nerd-fonts.jetbrains-mono
     nixfmt-rfc-style
     podman
+    podman-compose
     stylua
     tmux
     unzip

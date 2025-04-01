@@ -9,7 +9,6 @@ loader.lazy_load({ paths = "./snippets/" })
 
 snip.filetype_extend("php", { "phpdoc" })
 snip.filetype_extend("javascript", { "jsdoc" })
-snip.filetype_extend("php", { "blade" })
 snip.filetype_extend("helm", { "yaml" })
 
 -- handle blink setup
