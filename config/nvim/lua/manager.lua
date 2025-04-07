@@ -61,7 +61,6 @@ local plugins = {
   { source = "junegunn/vim-easy-align" },
   { source = "mistweaverco/kulala.nvim" },
   { source = "otavioschwanck/arrow.nvim" },
-  { source = "brianhuster/live-preview.nvim" },
   { source = "glacambre/firenvim" },
 
   -- git related

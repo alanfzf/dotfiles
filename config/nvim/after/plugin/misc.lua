@@ -22,8 +22,6 @@ later(function()
     },
   })
 
-  require("livepreview.config").set({ dynamic_root = true, picker = nil })
-
   -- require("copilot").setup({
   --   panel = {
   --     enabled = true,
