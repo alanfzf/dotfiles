@@ -28,7 +28,7 @@ local plugins = {
   { source = "windwp/nvim-autopairs" },
   {
     source = "saghen/blink.cmp",
-    checkout = "v1.0.0",
+    checkout = "v1.1.1",
     depends = {
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
