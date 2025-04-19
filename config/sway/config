@@ -61,24 +61,23 @@ input type:keyboard {
 }
 
 input type:pointer {
-  accel_profile flat
+    accel_profile flat
 }
 
 # ****** [CUSTOM BAR] ******
 bar {
-     swaybar_command waybar
+    swaybar_command waybar
 }
 
 # ****** [BINDINGS] ******
-bindsym $mod+r exec $menu
-bindsym $mod+Shift+r mode "resize"
+bindsym $mod+space exec $menu
 bindsym $mod+w kill
 bindsym $mod+e exec thunar
 bindsym $mod+b exec $browser
 bindsym $mod+Return exec $term
 bindsym $mod+Control+r reload
 bindsym $mod+Control+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-# bindsym $mod+r mode "resize"
+bindsym $mod+r mode "resize"
 bindsym $mod+f fullscreen
 floating_modifier $mod normal
 
@@ -96,8 +95,8 @@ floating_modifier $mod normal
 # bindsym $mod+w layout tabbed
 # bindsym $mod+e layout toggle split
 # Toggle the current focus between tiling and floating mode
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+f floating toggle
+# bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 # >> scratchpad
 bindsym $mod+Shift+minus move scratchpad

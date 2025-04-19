@@ -88,6 +88,12 @@ in
     ".config/lf".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/lf"
     );
+    ".config/foot".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/foot"
+    );
+    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/waybar"
+    );
   };
 
   services.podman = lib.mkIf isLinux {
