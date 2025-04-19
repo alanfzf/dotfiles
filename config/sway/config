@@ -64,10 +64,12 @@ input type:pointer {
   accel_profile flat
 }
 
-# change background
-# output * bg /usr/share/backgrounds/alan/Landscape/mountain_1.png fill
+# ****** [CUSTOM BAR] ******
+bar {
+     swaybar_command waybar
+}
 
-# ****** [BINDINGS] ****** 
+# ****** [BINDINGS] ******
 bindsym $mod+r exec $menu
 bindsym $mod+Shift+r mode "resize"
 bindsym $mod+w kill
