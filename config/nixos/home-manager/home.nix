@@ -94,6 +94,9 @@ in
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/waybar"
     );
+    ".config/mako".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/mako"
+    );
   };
 
   services.podman = lib.mkIf isLinux {
