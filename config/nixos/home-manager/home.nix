@@ -99,6 +99,12 @@ in
     );
   };
 
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
   services.podman = lib.mkIf isLinux {
     enable = true;
   };
