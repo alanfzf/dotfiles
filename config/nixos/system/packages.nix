@@ -4,7 +4,6 @@
     grim
     mako
     slurp
-    alacritty
     wl-clipboard
     brightnessctl
     rofi-wayland
@@ -12,6 +11,7 @@
     swaybg
     mako
     libnotify
+    wdisplays
   ];
 
   programs.sway = {
