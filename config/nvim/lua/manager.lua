@@ -70,9 +70,8 @@ local plugins = {
   -- colors
   { source = "maxmx03/solarized.nvim" },
   { source = "RRethy/base16-nvim" },
-  { source = "razcoen/fleet.nvim" },
-  { source = "atelierbram/Base4Tone-nvim" },
   { source = "atelierbram/Base2Tone-nvim" },
+  { source = "comfysage/cuddlefish.nvim" },
 }
 
 -- Register all plugins
