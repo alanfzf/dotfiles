@@ -1,5 +1,0 @@
-[global]
-warn_timeout = "1m"
-
-[whitelist]
-prefix = [ "~/projects"]

@@ -30,6 +30,7 @@ in
     cat = "bat";
     lg = "lazygit";
     k = "kubectl";
+    docker = "podman";
   };
 
   home.packages = with pkgs; [
@@ -81,9 +82,6 @@ in
     );
     ".config/bat".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/bat"
-    );
-    ".config/direnv".source = config.lib.file.mkOutOfStoreSymlink (
-      config.home.homeDirectory + "/.dotfiles/config/direnv"
     );
     ".config/lf".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/lf"
@@ -151,6 +149,14 @@ in
   programs.direnv = {
     enable = true;
     silent = true;
+    config = {
+      global = {
+        warn_timeout = "1m";
+      };
+      whitelist = {
+        prefix = [ "~/projects" ];
+      };
+    };
   };
 
   programs.ripgrep = {
