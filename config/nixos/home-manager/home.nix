@@ -36,7 +36,6 @@ in
   home.packages = with pkgs; [
     awscli2
     bat
-    delta
     eza
     fd
     fzf
@@ -48,7 +47,6 @@ in
     kubectl
     kubernetes-helm
     lazygit
-    lf
     lua-language-server
     marksman
     neovim
