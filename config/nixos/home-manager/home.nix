@@ -30,7 +30,6 @@ in
     cat = "bat";
     lg = "lazygit";
     k = "kubectl";
-    docker = "podman";
   };
 
   home.packages = with pkgs; [
@@ -57,6 +56,10 @@ in
     stylua
     tmux
     unzip
+    devpod
+    (writeShellScriptBin "docker" ''
+      podman "$@"
+    '')
   ];
 
   home.file = {
@@ -182,6 +185,7 @@ in
   programs.ssh = {
     enable = true;
     serverAliveInterval = 240;
+    includes = [ "*.conf" ];
     matchBlocks = {
       "github.com" = {
         hostname = "github.com";

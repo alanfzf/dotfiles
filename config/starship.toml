@@ -1,37 +1,12 @@
 # ==== PROMPT CONFIG ====
-format="""$character$directory$git_branch$git_state$git_status"""
 right_format="""$aws$os"""
 add_newline=false
 
-# ==== [GIT] ====
-[git_branch]
-format='[git:\([$branch](bright-red)\)](bright-blue) '
-
-[git_state]
-style = "purple"
-
 [git_status]
-# this module may be slow on windows machines
-disabled = false
-format = '[($all_status )]($style)'
-style="bright-yellow"
 stashed = "≡"
 
-# ==== CLOUD ====
 [aws]
-format = '[$symbol($profile )(\($region\))]($style)'
 symbol = ' '
-
-# ==== MISC ====
-[character]
-error_symbol = "[➜](bright-red)"
-success_symbol = "[➜](bright-green)"
-
-# ==== OS ====
-[os]
-format = "[$symbol]($style)"
-style = "yellow"
-disabled = true
 
 [os.symbols]
 Debian = " "
@@ -40,7 +15,6 @@ Arch = '󰣇'
 Macos = '󰀵'
 
 [directory]
-style="bright-cyan"
 use_os_path_sep = false
 truncation_length = 3
 truncation_symbol = ""
