@@ -1,7 +1,10 @@
 return {
-  { "junegunn/vim-easy-align" },
+  {
+    "junegunn/vim-easy-align",
+  },
   {
     "glacambre/firenvim",
+    build = ":call firenvim#install(0)",
     init = function()
       vim.g.firenvim_config = {
         globalSettings = {},
