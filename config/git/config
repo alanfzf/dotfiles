@@ -18,10 +18,9 @@
     rebase = true
 [merge]
     tool = nvimdiff
+    conflictstyle = diff3
 [mergetool]
     keepBackup = false
-[mergetool "nvimdiff"]
-    cmd = nvim "$MERGED"
 [alias]
     subup = submodule update --init --recursive
     co = checkout
