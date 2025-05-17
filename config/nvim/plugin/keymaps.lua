@@ -92,3 +92,7 @@ keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<CR>", opts)
 keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", opts)
 keymap("n", "<leader>dcb", "<cmd>lua require'dap'.clear_breakpoints()<CR>", opts)
+-- conflicts
+keymap("n", "<leader>1", "<cmd>diffget LOCAL<CR>", opts)
+keymap("n", "<leader>2", "<cmd>diffget BASE<CR>", opts)
+keymap("n", "<leader>3", "<cmd>diffget REMOTE<CR>", opts)
