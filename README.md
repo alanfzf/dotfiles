@@ -26,8 +26,8 @@ wsl.exe --install --no-distribution
 ```
 
 ```bash
-# idk why Debian WSL image comes so bare bones
-sudo apt update && sudo apt upgrade -y && sudo apt install dbus-user-session xz-utils curl uidmap
+sudo apt update && sudo apt upgrade -y && sudo apt install -y \
+    dbus-user-session xz-utils curl uidmap openssh-client
 ```
 
 ### Alacritty local

@@ -37,7 +37,7 @@ return {
     ts.setup({
       auto_install = true,
       ensure_installed = "all",
-      ignore_install = { "scfg", "ocamllex", "teal", "mlir", "latex", "unison", "swift", "norg" },
+      ignore_install = { "scfg", "ocamllex", "teal", "mlir", "latex", "unison", "swift", "norg", "ipkg" },
       sync_install = false,
       indent = {
         enable = true,
