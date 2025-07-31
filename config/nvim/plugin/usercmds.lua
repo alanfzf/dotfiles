@@ -1,8 +1,6 @@
 -- remove annoying windows line endings
 vim.api.nvim_create_user_command("FixM", function()
-  vim.api.nvim_command("write")
-  vim.api.nvim_command("edit ++ff=dos")
-  vim.o.fileformat = "unix"
+  vim.api.nvim_exec2("edit ++ff=dos %", {})
 end, { nargs = 0 })
 
 -- useful for kulala to preview HTML files

@@ -52,14 +52,9 @@ in
     nerd-fonts.jetbrains-mono
     nixfmt-rfc-style
     podman
-    podman-compose
     stylua
     tmux
     unzip
-    devpod
-    (writeShellScriptBin "docker" ''
-      podman "$@"
-    '')
   ];
 
   home.file = {
@@ -178,7 +173,6 @@ in
     enable = true;
     keys = [
       "id_ed25519"
-      "id_ed25519_finanssoreal"
     ];
   };
 
@@ -204,30 +198,6 @@ in
         user = "debian";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519.pub";
-      };
-      "office" = {
-        hostname = "office.finanssoreal.com";
-        user = "ubuntu";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519_finanssoreal.pub";
-      };
-      "testing" = {
-        hostname = "testing.finanssoreal.com";
-        user = "debian";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519_finanssoreal.pub";
-      };
-      "prod" = {
-        hostname = "control.finanssoreal.com";
-        user = "debian";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519_finanssoreal.pub";
-      };
-      "redia" = {
-        hostname = "redia.codes";
-        user = "debian";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519_finanssoreal.pub";
       };
     };
   };
