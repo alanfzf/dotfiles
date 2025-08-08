@@ -9,6 +9,8 @@
     # darwin
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    # neovim overlay
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs =
@@ -23,6 +25,11 @@
       # users
       user = "alan";
       workUser = "finanssorealsa";
+
+      # overlay
+      overlays = [
+        inputs.neovim-nightly-overlay.overlays.default
+      ];
 
       # functions
       importPkgs =
@@ -39,6 +46,9 @@
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
+            {
+              nixpkgs.overlays = overlays;
+            }
             ./home-manager/home.nix
           ];
           extraSpecialArgs = {

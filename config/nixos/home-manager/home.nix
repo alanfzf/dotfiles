@@ -33,6 +33,7 @@ in
   };
 
   home.packages = with pkgs; [
+    neovim
     awscli2
     bat
     eza
@@ -48,7 +49,6 @@ in
     lazygit
     lua-language-server
     marksman
-    neovim
     nerd-fonts.jetbrains-mono
     nixfmt-rfc-style
     podman
