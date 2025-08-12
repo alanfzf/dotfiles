@@ -186,18 +186,14 @@ in
         user = "git";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519.pub";
+        forwardAgent = true;
       };
-      "alan-oracle" = {
-        hostname = "oracle.gepnir.ovh";
+      "corpo" = {
+        hostname = "172.31.91.113";
         user = "ubuntu";
         identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519.pub";
-      };
-      "alan-ovh" = {
-        hostname = "gepnir.ovh";
-        user = "debian";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519.pub";
+        identityFile = "~/.ssh/Corposistemas.pem";
+        forwardAgent = true;
       };
     };
   };

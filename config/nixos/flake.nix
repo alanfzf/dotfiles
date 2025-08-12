@@ -24,7 +24,7 @@
     let
       # users
       user = "alan";
-      workUser = "finanssorealsa";
+      workUser = "corpo";
 
       # overlay
       overlays = [
@@ -86,7 +86,8 @@
       homeConfigurations = {
         "${user}@nixos" = homeConfig user system pkgs;
         "${user}@wpc" = homeConfig user system pkgs;
-        "${workUser}@mb-pro-m3" = homeConfig workUser aarchSystem aarchPkgs;
+        "${workUser}@DESKTOP-9EVU1FK" = homeConfig workUser system pkgs;
+        # "${workUser}@mb-pro-m3" = homeConfig workUser aarchSystem aarchPkgs;
       };
     };
 }
