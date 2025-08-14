@@ -28,7 +28,6 @@ vim.pack.add({
   -- ai
   "https://github.com/zbirenbaum/copilot.lua",
   -- colorschemes
-  "https://github.com/lifepillar/vim-solarized8",
   "https://github.com/joshdick/onedark.vim",
   "https://github.com/folke/tokyonight.nvim",
 })
