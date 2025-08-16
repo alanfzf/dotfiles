@@ -91,13 +91,16 @@ in
     ".config/mako".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/mako"
     );
+    ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/ideavim/ideavimrc"
+    );
   };
 
-  #dconf.settings = {
-  #  "org/gnome/desktop/interface" = {
-  #    color-scheme = "prefer-dark";
-  #  };
-  #};
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 
   services.podman = lib.mkIf isLinux {
     enable = true;
