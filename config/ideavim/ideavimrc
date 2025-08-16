@@ -4,23 +4,27 @@ set NERDTree
 "Keymap
 map <Space> <Leader>
 map <leader>e :NERDTreeToggle<CR>
+map <Leader>ff <Action>(GotoFile)
+map <Leader>fg <Action>(FindInPath)
+map <Leader>rn <Action>(RenameElement)
+map <Leader>la <Action>(ShowIntentionActions)
+
 map <S-l> $
 map <S-h> ^
 map <A-l> :bnext<CR>
 map <A-h> :bprevious<CR>
-
 map <C-h> <C-w>h
 map <C-l> <C-w>l
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 
-
 "General options
 set number
 set relativenumber
-set sw=2 "set tab as 2 spaces.
-set clipboard=unnamed "allow paste from external sources.
+set sw=2
+set clipboard+=unnamedplus
 set nowrap
 set encoding=utf-8
 set nohlsearch
 set scrolloff=8
+set ideajoin
