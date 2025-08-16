@@ -20,7 +20,6 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
-    PODMAN_COMPOSE_WARNING_LOGS = "false";
   };
 
   home.shellAliases = {
@@ -51,7 +50,6 @@ in
     marksman
     nerd-fonts.jetbrains-mono
     nixfmt-rfc-style
-    podman
     stylua
     tmux
     unzip
@@ -100,10 +98,6 @@ in
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
-  };
-
-  services.podman = lib.mkIf isLinux {
-    enable = true;
   };
 
   programs.home-manager = {
