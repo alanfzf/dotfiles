@@ -30,4 +30,5 @@ vim.pack.add({
   -- colorschemes
   "https://github.com/joshdick/onedark.vim",
   "https://github.com/folke/tokyonight.nvim",
+  "https://github.com/rktjmp/lush.nvim",
 })
