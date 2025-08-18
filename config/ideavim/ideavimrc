@@ -1,5 +1,6 @@
 "Enable plugins
 set NERDTree
+set commentary
 
 "Keymap
 map <Space> <Leader>
@@ -28,3 +29,5 @@ set encoding=utf-8
 set nohlsearch
 set scrolloff=8
 set ideajoin
+set smartcase
+set ignorecase
