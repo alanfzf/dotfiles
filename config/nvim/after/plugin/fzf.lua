@@ -40,8 +40,12 @@ fzf.setup({
   -- git start
   -- i stole this from here: https://github.com/gennaro-tedesco/dotfiles/blob/86cf4de5870a64aa8c5fad2269248db9521a1c2d/nvim/lua/plugins/fzf.lua#L45-L56
   git = {
+    winopts = {
+      preview = {
+        hidden = "nohidden",
+      },
+    },
     bcommits = {
-      preview_opts = "nohidden",
       cmd = "git log --color --pretty=format:'%C(yellow)%h%Creset %Cgreen%><(12)%cr%><|(12)%Creset %s' <file>",
       preview = "git show --stat --color --format='%C(cyan)%an%C(reset)%C(bold yellow)%d%C(reset): %s' {1} -- <file>",
       actions = {
