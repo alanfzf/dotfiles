@@ -12,6 +12,7 @@
     mako
     libnotify
     wdisplays
+    microsoft-edge
   ];
 
   programs.sway = {

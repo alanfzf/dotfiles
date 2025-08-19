@@ -65,9 +65,9 @@ input type:pointer {
 }
 
 # ****** [CUSTOM BAR] ******
-bar {
-    swaybar_command waybar
-}
+# bar {
+#     swaybar_command waybar
+# }
 
 # ****** [BINDINGS] ******
 bindsym $mod+space exec $menu
