@@ -12,7 +12,11 @@ end, { nargs = 0 })
 
 -- remove annoying windows line endings
 vim.api.nvim_create_user_command("FixM", function()
-  vim.api.nvim_exec2("edit ++ff=dos %", {})
+  vim.cmd([[
+  w
+  e ++ff=dos
+  set ff=unix
+  ]])
 end, { nargs = 0 })
 
 -- useful for kulala to preview HTML files
