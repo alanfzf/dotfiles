@@ -96,3 +96,7 @@ keymap("n", "<leader>dcb", "<cmd>lua require'dap'.clear_breakpoints()<CR>", opts
 keymap("n", "<leader>1", "<cmd>diffget LOCAL<CR>", opts)
 keymap("n", "<leader>2", "<cmd>diffget BASE<CR>", opts)
 keymap("n", "<leader>3", "<cmd>diffget REMOTE<CR>", opts)
+
+-- Git diffs
+keymap("n", "<leader>df", "<cmd>windo diffthis<CR>", opts)
+keymap("n", "<leader>do", "<cmd>windo diffoff<CR>", opts)
