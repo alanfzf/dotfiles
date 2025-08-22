@@ -84,10 +84,9 @@
 
       # home-manager
       homeConfigurations = {
-        "${user}@nixos" = homeConfig user system pkgs;
-        "${user}@wpc" = homeConfig user system pkgs;
-        "${workUser}@DESKTOP-9EVU1FK" = homeConfig workUser system pkgs;
-        # "${workUser}@mb-pro-m3" = homeConfig workUser aarchSystem aarchPkgs;
+        "${user}" = homeConfig user system pkgs;
+        "${workUser}" = homeConfig workUser system pkgs;
+        # "${workUser}" = homeConfig workUser aarchSystem aarchPkgs;
       };
     };
 }
