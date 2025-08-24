@@ -4,6 +4,12 @@ if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]:
 }
 
 # =====================
+# * MODULES *
+# =====================
+Install-Module -Name Fonts
+Import-Module -Name Fonts
+
+# =====================
 # * CONSTANTS *
 # =====================
 $temp = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ([System.IO.Path]::GetRandomFileName())
@@ -39,21 +45,6 @@ param(
     return Get-ChildItem -Path $outFolder -Directory | Sort-Object CreationTime -Descending | Select-Object -First 1
 }
 
-function InstallFonts { 
-param ([String]$fontFolder)
-    $FOF_SILENT = 0x0004
-    $FOF_NOCONFIRMATION = 0x0010
-    $FOF_NOERRORUI = 0x0400
-    $FOF_NOCOPYSECURITYATTRIBS = 0x0800
-    $CopyOptions = $FOF_SILENT + $FOF_NOCONFIRMATION + $FOF_NOERRORUI + $FOF_NOCOPYSECURITYATTRIBS
-
-    $destFolder = (New-Object -ComObject Shell.Application).Namespace('shell:Fonts')
-
-    Get-ChildItem $fontFolder | Where-Object { $_.Extension -in @(".otf", ".ttf")  } | ForEach-Object -Parallel {
-        $destFolder.CopyHere($_.FullName, $CopyOptions)
-    } -ThrottleLimit 64
-}
-
 function CleanTemp {
     Remove-Item -Recurse -Force $temp
     Stop-Process -ProcessName explorer
@@ -76,10 +67,13 @@ function InstallPrograms {
         winget install -e --accept-source-agreements --accept-package-agreements --silent $package
     }
 
-    # **** INSTALL NON WINGET STUFF ****
+    ## ====== [ font installation ] ======
     $fontFolder = DownloadAndDecompress $fontUrl -CreateFolder
-    InstallFonts $fontFolder.FullName
+    Get-ChildItem $fontFolder.FullName | Where-Object { $_.Extension -in @(".otf", ".ttf")  } {
+        Install-Font -Path $_.FullName
+    }
 
+    ## ====== [ alt-gr keyboard layout ] ======
     $altGrlFolder = DownloadAndDecompress $altGrUrl
     $altGrlFolder = Join-Path $altGrlFolder.FullName "us-inter_amd64.msi"
     Start-Process 'msiexec.exe' -ArgumentList "/i `"$altGrlFolder`" /passive"
