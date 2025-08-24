@@ -6,6 +6,7 @@ if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]:
 # =====================
 # * MODULES *
 # =====================
+Set-PSRepository PSGallery -InstallationPolicy Trusted
 Install-Module -Name Fonts
 Import-Module -Name Fonts
 
