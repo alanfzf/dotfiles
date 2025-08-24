@@ -70,7 +70,7 @@ function InstallPrograms {
 
     ## ====== [ font installation ] ======
     $fontFolder = DownloadAndDecompress $fontUrl -CreateFolder
-    Get-ChildItem $fontFolder.FullName | Where-Object { $_.Extension -in @(".otf", ".ttf")  } {
+    Get-ChildItem $fontFolder.FullName | Where-Object { $_.Extension -in @(".otf", ".ttf")  } | ForEach-Object {
         Install-Font -Path $_.FullName
     }
 
