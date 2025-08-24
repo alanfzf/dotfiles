@@ -14,26 +14,13 @@ nix shell nixpkgs#home-manager nixpkgs#git --command sh -c "\
 ## Windows Setup
 
 ```powershell
-Set-ExecutionPolicy Bypass
+Set-ExecutionPolicy Bypass -Force
 iwr https://alanfzf.github.io/dotfiles/install.ps1 | iex
 ```
 
 ### WSL setup
 
 ```powershell
-# install wsl
+# install WSL
 wsl.exe --install --no-distribution
-```
-
-```bash
-sudo apt update && sudo apt upgrade -y && sudo apt install -y \
-    dbus-user-session xz-utils curl uidmap openssh-client
-```
-
-### Alacritty local
-
-```toml
-[terminal.shell]
-  program = "wsl"
-  args = ["--cd ~"]
 ```
