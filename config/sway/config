@@ -118,4 +118,24 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 # executables
 exec waypaper --restore
 
+# theme
+set $base00 #282828
+set $base01 #3c3836
+set $base02 #504945
+set $base04 #d5c4a1
+set $base06 #fbf1c7
+set $base07 #ebdbb2
+set $base08 #cc241d
+set $base0B #98971a
+set $base0C #458588
+
+#client.class           border   bckgrod  text     indictor child_border
+client.focused          $base0C  $base00  $base06  $base08  $base0C
+client.focused_inactive $base02  $base00  $base06  $base08  $base02
+client.unfocused        $base01  $base00  $base06  $base08  $base02
+client.urgent           $base07  $base00  $base08  $base0B  $base02
+client.placeholder      $base02  $base00  $base06  $base03  $base04
+client.background       $base00
+
+include ~/.screens.conf
 include /etc/sway/config.d/*

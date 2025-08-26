@@ -1,5 +1,5 @@
 if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    # NOTE: im aware of '#Requires -RunAsAdministrator' instruction, but it does not work with Invoke Web Request.
+    # NOTE: i am aware of '#Requires -RunAsAdministrator' instruction, but it does not work with Invoke Web Request.
     throw "You must run this script as Administrator!"
 }
 
