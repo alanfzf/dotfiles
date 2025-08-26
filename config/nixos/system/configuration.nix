@@ -14,6 +14,7 @@
     ./packages.nix
     ./hardware-configuration.nix
     ./hardware.nix
+    ./home-manager.nix
   ];
 
   system.stateVersion = "24.05";

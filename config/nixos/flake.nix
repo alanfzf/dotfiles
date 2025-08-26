@@ -49,14 +49,14 @@
             {
               nixpkgs.overlays = overlays;
             }
-            ./home-manager/home.nix
+            ./system/home-manager/home.nix
           ];
           extraSpecialArgs = {
             homeUser = user;
           };
         };
 
-      # x86 declarations
+      # architecture declaration
       system = "x86_64-linux";
       pkgs = importPkgs system;
 
@@ -70,10 +70,13 @@
         "nixos" = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
+            {
+              nixpkgs.overlays = overlays;
+            }
             ./system/configuration.nix
           ];
           specialArgs = {
-            inherit user;
+            inherit inputs user;
           };
         };
       };
@@ -82,7 +85,7 @@
       darwinConfigurations = {
         "mb-pro-m3" = nix-darwin.lib.darwinSystem {
           system = aarchSystem;
-          modules = [ ./darwin/darwin.nix ];
+          modules = [ ./system/darwin/darwin.nix ];
           specialArgs = { inherit inputs; };
         };
       };
@@ -91,7 +94,6 @@
       homeConfigurations = {
         "${user}" = homeConfig user system pkgs;
         "${workUser}" = homeConfig workUser system pkgs;
-        #"${workUser}" = homeConfig workUser aarchSystem aarchPkgs;
       };
     };
 }
