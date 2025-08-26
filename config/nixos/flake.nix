@@ -69,7 +69,12 @@
       nixosConfigurations = {
         "nixos" = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./system/configuration.nix ];
+          modules = [
+            ./system/configuration.nix
+          ];
+          specialArgs = {
+            inherit user;
+          };
         };
       };
 
@@ -86,7 +91,7 @@
       homeConfigurations = {
         "${user}" = homeConfig user system pkgs;
         "${workUser}" = homeConfig workUser system pkgs;
-        # "${workUser}" = homeConfig workUser aarchSystem aarchPkgs;
+        #"${workUser}" = homeConfig workUser aarchSystem aarchPkgs;
       };
     };
 }

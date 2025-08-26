@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   users.users = {
-    "alan" = {
+    "${user}" = {
       # NOTE: don't manage user packages here, use home-manager instead
       isNormalUser = true;
       description = "alan";
