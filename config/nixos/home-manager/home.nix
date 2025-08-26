@@ -11,11 +11,10 @@ in
 {
 
   home.username = homeUser;
+  home.stateVersion = "24.11";
   home.homeDirectory = (
     if isLinux then "/home/${config.home.username}" else "/Users/${config.home.username}"
   );
-
-  home.stateVersion = "24.11";
 
   home.sessionVariables = {
     EDITOR = "nvim";
