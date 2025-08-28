@@ -64,11 +64,6 @@ input type:pointer {
     accel_profile flat
 }
 
-# ****** [CUSTOM BAR] ******
-# bar {
-#     swaybar_command waybar
-# }
-
 # ****** [BINDINGS] ******
 bindsym $mod+space exec $menu
 bindsym $mod+w kill
@@ -76,7 +71,7 @@ bindsym $mod+e exec thunar
 bindsym $mod+b exec $browser
 bindsym $mod+Return exec $term
 bindsym $mod+Control+r reload
-bindsym $mod+Control+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Control+q exec swaylock -e -F
 bindsym $mod+r mode "resize"
 bindsym $mod+f fullscreen
 floating_modifier $mod normal
@@ -130,9 +125,9 @@ set $base0B #98971a
 set $base0C #458588
 
 #client.class           border   bckgrod  text     indictor child_border
-client.focused          $base0C  $base00  $base06  $base08  $base0C
-client.focused_inactive $base02  $base00  $base06  $base08  $base02
-client.unfocused        $base01  $base00  $base06  $base08  $base02
+client.focused          $base0C  $base00  $base06  $base0C  $base0C
+client.focused_inactive $base02  $base00  $base06  $base02  $base02
+client.unfocused        $base01  $base00  $base06  $base02  $base02
 client.urgent           $base07  $base00  $base08  $base0B  $base02
 client.placeholder      $base02  $base00  $base06  $base03  $base04
 client.background       $base00

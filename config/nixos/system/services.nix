@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  user,
+  ...
+}:
 {
   services = {
     gnome = {
@@ -9,8 +14,8 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
-          user = "alan";
+          command = "${pkgs.tuigreet}/bin/tuigreet --remember --user-menu --asterisks --cmd sway";
+          user = "${user}";
         };
       };
     };

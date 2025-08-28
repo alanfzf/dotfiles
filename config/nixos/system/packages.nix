@@ -1,11 +1,9 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    grim
     mako
     slurp
     wl-clipboard
-    brightnessctl
     rofi-wayland
     waypaper
     swaybg
