@@ -10,6 +10,7 @@
     mako
     libnotify
     wdisplays
+    playerctl
   ];
 
   programs.sway = {

@@ -91,6 +91,9 @@ in
     ".ideavimrc".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/ideavim/ideavimrc"
     );
+    ".config/swaylock".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/swaylock"
+    );
   };
 
   dconf.settings = {
