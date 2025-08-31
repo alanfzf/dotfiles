@@ -12,9 +12,6 @@ fzf.setup({
       border = "noborder",
     },
   },
-  marks = {
-    marks = "%a",
-  },
   grep = {
     multiline = true,
     RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
@@ -95,11 +92,10 @@ fzf.setup({
   },
 
   fzf_colors = {
-    true, -- inherit fzf colors that aren't specified below from
+    true,
     ["bg"] = "-1",
   },
   fzf_opts = {
-    -- ["--layout"] = "default",
     ["--border"] = "none",
     ["--cycle"] = true,
     ["--info"] = "hidden",

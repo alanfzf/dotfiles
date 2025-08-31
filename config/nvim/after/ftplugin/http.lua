@@ -7,4 +7,3 @@ vim.api.nvim_set_keymap(
   ":lua require('kulala').set_selected_env()<CR>",
   { noremap = true, silent = true }
 )
-vim.treesitter.start()

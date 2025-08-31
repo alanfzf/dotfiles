@@ -17,8 +17,8 @@ in
   );
 
   home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
+    EDITOR = "$(which nvim)";
+    VISUAL = "$(which nvim)";
   };
 
   home.shellAliases = {
@@ -46,12 +46,15 @@ in
     kubernetes-helm
     lazygit
     lua-language-server
-    marksman
     nerd-fonts.jetbrains-mono
     nixfmt-rfc-style
     stylua
     tmux
     unzip
+    # new stuff
+    tree-sitter
+    copilot-language-server
+    aider-chat
   ];
 
   home.file = {

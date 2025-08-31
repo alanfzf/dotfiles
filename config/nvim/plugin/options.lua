@@ -18,15 +18,12 @@ vim.g.clipboard = {
 }
 
 -- *Global configs*
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
 --general
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
 vim.opt.laststatus = 3
 vim.opt.mouse = ""
 vim.opt.winborder = "rounded"
--- vim.opt.mopt = "wait:1000,history:500"
 -- backup related
 vim.opt.backup = false
 vim.opt.writebackup = false
@@ -54,7 +51,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.number = true
 vim.opt.numberwidth = 4
 vim.opt.cursorline = true
-vim.opt.showmode = false
 vim.opt.termguicolors = true
 vim.opt.pumheight = 10
 vim.opt.splitbelow = true
@@ -62,18 +58,8 @@ vim.opt.splitright = true
 vim.opt.cmdheight = 2
 -- misc
 vim.opt.shortmess:append("cOt")
-vim.opt.iskeyword:append("-")
 vim.opt.linebreak = true
-vim.opt.foldtext = ""
 vim.opt.smoothscroll = true
-vim.opt.fillchars = {
-  foldsep = " ",
-  fold = " ",
-  foldopen = "",
-  foldclose = "",
-  diff = "╱",
-}
-
 vim.opt.list = true
 vim.opt.listchars = {
   tab = "▏ ",
@@ -117,3 +103,5 @@ vim.opt.diffopt = {
   "algorithm:patience",
   "indent-heuristic",
 }
+
+require("vim._extui").enable({})

@@ -1,4 +1,10 @@
-require("conform").setup({
+local ok, conform = pcall(require, "conform")
+
+if not ok then
+  return
+end
+
+conform.setup({
   formatters_by_ft = {
     svelte = { "prettier" },
     nix = { "nixfmt" },
@@ -6,8 +12,8 @@ require("conform").setup({
     javascriptreact = { "prettier" },
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
-    json = { "prettier" },
-    jsonc = { "prettier" },
+    json = { "jq", "prettier" },
+    jsonc = { "jq", "prettier" },
     scss = { "prettier" },
     css = { "prettier" },
     lua = { "stylua" },

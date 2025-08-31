@@ -1,18 +1,29 @@
 {
-  "name": "alan snippet's",
+  "name": "Alan's snippet collection",
   "contributes": {
     "snippets": [
       {
-        "language": ["markdown"],
+        "language": [
+          "markdown"
+        ],
         "path": "./languages/markdown.json"
       },
       {
-        "language": ["plaintex", "tex"],
+        "language": [
+          "plaintex",
+          "tex"
+        ],
         "path": "./languages/latex.json"
       },
       {
-        "language": ["php"],
+        "language": [
+          "php"
+        ],
         "path": "./languages/php.json"
+      },
+      {
+        "language": "org",
+        "path": "./languages/org.json"
       }
     ]
   }

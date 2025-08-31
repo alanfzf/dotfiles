@@ -32,7 +32,7 @@ keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 -- Go to specific directories
 keymap("n", "<leader>c", "<cmd>e $MYVIMRC<CR>")
-keymap("n", "<leader>n", "<cmd>e ~/Dropbox/Notes/<CR>")
+keymap("n", "<leader>n", "<cmd>e ~/Dropbox/org/README.org<CR>")
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>")
 -- Better window navigation
@@ -100,3 +100,6 @@ keymap("n", "<leader>3", "<cmd>diffget REMOTE<CR>", opts)
 -- Git diffs
 keymap("n", "<leader>df", "<cmd>windo diffthis<CR>", opts)
 keymap("n", "<leader>do", "<cmd>windo diffoff<CR>", opts)
+
+-- Map to open it
+keymap("n", "<leader>lb", "<cmd>lua require('utils.helper').lua_eval_buffer()<CR>", { desc = "Open Lua Eval Buffer" })

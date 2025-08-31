@@ -1,13 +1,3 @@
--- build = ":call firenvim#install(0)",
-vim.g.firenvim_config = {
-  globalSettings = {},
-  localSettings = {
-    [".*"] = {
-      takeover = "never",
-    },
-  },
-}
-
 require("kulala").setup({
   show_icons = "above_request",
   default_view = "headers_body",
@@ -35,26 +25,4 @@ require("arrow").setup({
   },
 })
 
--- COPILOT setup
-if vim.fn.executable("node") ~= 1 then
-  return
-end
-
-require("copilot").setup({
-  panel = {
-    enabled = true,
-    auto_refresh = true,
-  },
-  suggestion = {
-    enabled = true,
-    auto_trigger = true,
-    hide_during_completion = true,
-    debounce = 75,
-    keymap = {
-      accept = "<M-o>",
-    },
-  },
-  filetypes = {
-    ["*"] = true,
-  },
-})
+require("orgmode").setup({})

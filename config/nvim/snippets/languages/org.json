@@ -1,0 +1,9 @@
+{
+  "org-link": {
+    "prefix": "link",
+    "description": "Create an url",
+    "body": [
+      "[[${1:url}][${2:description}]]"
+    ]
+  }
+}
