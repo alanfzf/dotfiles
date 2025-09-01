@@ -111,11 +111,11 @@
 
   "sway/window": {
     "format": "{}",
-    "max-length": 120
+    "max-length": 80
   },
 
   "sway/workspaces": {
-    "all-outputs": true,
+    "all-outputs": false,
     "disable-scroll": true,
     "format": "{icon}",
     "format-icons": {}

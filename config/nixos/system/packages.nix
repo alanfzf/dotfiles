@@ -11,6 +11,7 @@
     libnotify
     wdisplays
     playerctl
+    microsoft-edge
   ];
 
   programs.sway = {
@@ -23,10 +24,6 @@
   };
 
   programs.thunar = {
-    enable = true;
-  };
-
-  programs.firefox = {
     enable = true;
   };
 
