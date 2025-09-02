@@ -12,6 +12,8 @@
     wdisplays
     playerctl
     microsoft-edge
+    openvpn
+    jetbrains.datagrip
   ];
 
   programs.sway = {
@@ -30,4 +32,5 @@
   programs.zsh = {
     enable = true;
   };
+
 }
