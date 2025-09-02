@@ -53,7 +53,7 @@ in
     unzip
     # new stuff
     tree-sitter
-    copilot-language-server
+    copilot-language-server-fhs
     aider-chat
   ];
 
