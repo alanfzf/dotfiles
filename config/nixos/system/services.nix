@@ -14,7 +14,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --remember --user-menu --asterisks --cmd sway";
+          command = "${pkgs.tuigreet}/bin/tuigreet --remember --asterisks --cmd sway";
           user = "${user}";
         };
       };
