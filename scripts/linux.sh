@@ -12,6 +12,5 @@ if ! grep -qi "nixos" /etc/os-release; then
         git clone https://github.com/alanfzf/dotfiles $HOME/.dotfiles \
         && home-manager switch --flake $HOME/.dotfiles/config/nixos -b bckp"
 else
-    # *** nixos! ***
-
+    echo "not done yet"
 fi
