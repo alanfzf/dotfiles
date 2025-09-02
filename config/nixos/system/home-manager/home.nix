@@ -191,7 +191,7 @@ in
         forwardAgent = true;
       };
       "corpo" = {
-        hostname = "172.31.91.113";
+        hostname = "172.31.89.33";
         user = "ubuntu";
         identitiesOnly = true;
         identityFile = "~/.ssh/Corposistemas.pem";
