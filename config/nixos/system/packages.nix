@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    ghostty
+    foot
     grim
     jetbrains.datagrip
     libnotify
