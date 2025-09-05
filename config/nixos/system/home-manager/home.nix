@@ -58,6 +58,9 @@ in
   ];
 
   home.file = {
+    ".config/qtile".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/qtile"
+    );
     ".config/sway".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/sway"
     );

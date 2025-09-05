@@ -1,29 +1,20 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    mako
-    slurp
-    wl-clipboard
-    rofi-wayland
-    waypaper
-    swaybg
-    mako
+    ghostty
+    grim
+    jetbrains.datagrip
     libnotify
-    wdisplays
-    playerctl
+    mako
     microsoft-edge
     openvpn
-    jetbrains.datagrip
+    playerctl
+    rofi-wayland
+    slurp
+    waypaper
+    wdisplays
+    wl-clipboard
   ];
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
-  programs.waybar = {
-    enable = true;
-  };
 
   programs.thunar = {
     enable = true;
@@ -32,5 +23,4 @@
   programs.zsh = {
     enable = true;
   };
-
 }
