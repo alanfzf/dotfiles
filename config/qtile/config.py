@@ -34,7 +34,7 @@ wmname = "LG3D"
 @hook.subscribe.startup_once
 def autostart():
     processes = [
-        ['swaync'],
+        ['waypaper', '--restore'],
     ]
 
     for p in processes:

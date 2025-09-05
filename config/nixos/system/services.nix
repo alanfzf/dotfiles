@@ -15,14 +15,8 @@
       wayland.enable = true;
     };
 
-    greetd = {
-      enable = false;
-      settings = {
-        default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --remember --asterisks --cmd sway";
-          user = "${user}";
-        };
-      };
+    xserver.windowManager = {
+      qtile.enable = true;
     };
   };
 

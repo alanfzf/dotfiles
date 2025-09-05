@@ -83,7 +83,7 @@ primary_widgets = [
 
     # CURRENT LAYOUT
     powerline('color2', 'color3'),
-    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.55),
+    # widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.55),
     widget.CurrentLayout(**base(bg='color2'), padding=5),
 
     # CALENDAR
@@ -107,7 +107,7 @@ secondary_widgets = [
     *workspaces(),
     separator(),
     powerline('color1', 'dark'),
-    widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
+    # widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
     widget.CurrentLayout(**base(bg='color1'), padding=5),
     powerline('color2', 'color1'),
 
