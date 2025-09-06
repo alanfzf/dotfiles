@@ -177,22 +177,22 @@ in
 
   programs.ssh = {
     enable = true;
-    serverAliveInterval = 240;
     includes = [ "*.conf" ];
+    enableDefaultConfig = false;
     matchBlocks = {
+      "*" = {
+        serverAliveInterval = 240;
+        forwardAgent = true;
+      };
       "github.com" = {
         hostname = "github.com";
         user = "git";
-        identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519.pub";
-        forwardAgent = true;
       };
       "corpo" = {
         hostname = "172.31.89.33";
         user = "ubuntu";
-        identitiesOnly = true;
         identityFile = "~/.ssh/Corposistemas.pem";
-        forwardAgent = true;
       };
     };
   };
