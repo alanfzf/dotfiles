@@ -10,12 +10,12 @@ from settings.path import qtile_path
 from libqtile.backend.wayland import InputConfig
 
 wl_input_rules = {
-    "*": InputConfig(pointer_accel=False),
-    "type:keyboard": InputConfig(
-        kb_options="ctrl:nocaps",
-        kb_layout="us",
-        kb_variant="altgr-intl"
-    ),
+  "*": InputConfig(pointer_accel=False),
+  "type:keyboard": InputConfig(
+    kb_options="ctrl:nocaps",
+    kb_layout="us",
+    kb_variant="altgr-intl"
+  ),
 }
 
 # Drag floating layouts.
@@ -33,9 +33,27 @@ wmname = "LG3D"
 
 @hook.subscribe.startup_once
 def autostart():
-    processes = [
-        ['waypaper', '--restore'],
-    ]
+  processes = [
+    ['waypaper', '--restore'],
+    [
+      "systemctl",
+      "--user",
+      "import-environment",
+      "WAYLAND_DISPLAY",
+      "XDG_CURRENT_DESKTOP",
+    ],
+    [
+      "dbus-update-activation-environment",
+      "--systemd",
+      "WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlr",
+    ],
+    [
+      "systemctl",
+      "--user",
+      "restart",
+      "xdg-desktop-portal",
+    ],
+  ]
 
-    for p in processes:
-        subprocess.Popen(p)
+  for p in processes:
+    subprocess.Popen(p)

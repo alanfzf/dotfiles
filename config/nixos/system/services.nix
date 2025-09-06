@@ -18,6 +18,24 @@
     xserver.windowManager = {
       qtile.enable = true;
     };
+
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+      alsa.enable = true;
+    };
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr = {
+      enable = true;
+    };
+    config = {
+      common = {
+        default = [ "wlr" ];
+      };
+    };
   };
 
   virtualisation.docker = {
