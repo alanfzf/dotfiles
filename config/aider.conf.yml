@@ -1,0 +1,69 @@
+##########
+# options:
+
+#############
+# Main model:
+openai-api-base: https://api.githubcopilot.com
+model:           openai/gpt-4o
+weak-model:      openai/gpt-4o-mini
+show-model-warnings: false
+
+##################
+# Output settings:
+dark-mode: true
+
+show-diffs: false
+
+###############
+# Git settings:
+git: true
+
+gitignore: true
+
+## Enable/disable auto commit of LLM changes (default: True)
+auto-commits: false
+
+## Attribute aider code changes in the git author name (default: True). If explicitly set to True, overrides --attribute-co-authored-by precedence.
+attribute-author: false
+
+## Attribute aider commits in the git committer name (default: True). If explicitly set to True, overrides --attribute-co-authored-by precedence for aider edits.
+attribute-committer: false
+
+## Prefix commit messages with 'aider: ' if aider authored the changes (default: False)
+attribute-commit-message-author: false
+
+## Attribute aider edits using the Co-authored-by trailer in the commit message (default: True). If True, this takes precedence over default --attribute-author and --attribute-committer behavior unless they are explicitly set to True.
+attribute-co-authored-by: false
+
+## Perform a dry run without modifying files (default: False)
+dry-run: true
+
+## Enable/disable watching files for ai coding comments (default: False)
+watch-files: false
+
+########################
+# Fixing and committing:
+
+## Lint and fix provided files, or dirty files if none provided
+lint: false
+
+## Enable/disable automatic linting after changes (default: True)
+auto-lint: false
+
+#################
+# Other settings:
+
+## Never prompt for or attempt to install Playwright for web scraping (default: False).
+disable-playwright: true
+
+## Use VI editing mode in the terminal (default: False)
+vim: true
+
+## Specify the language to use in the chat (default: None, uses system settings)
+chat-language: en
+
+## Specify the language to use in the commit message (default: None, user language)
+commit-language: en
+
+## Always say yes to every confirmation
+yes-always: true
