@@ -21,7 +21,7 @@ git: true
 gitignore: true
 
 ## Enable/disable auto commit of LLM changes (default: True)
-auto-commits: false
+auto-commits: True
 
 ## Attribute aider code changes in the git author name (default: True). If explicitly set to True, overrides --attribute-co-authored-by precedence.
 attribute-author: false
@@ -36,7 +36,7 @@ attribute-commit-message-author: false
 attribute-co-authored-by: false
 
 ## Perform a dry run without modifying files (default: False)
-dry-run: true
+dry-run: false
 
 ## Enable/disable watching files for ai coding comments (default: False)
 watch-files: false

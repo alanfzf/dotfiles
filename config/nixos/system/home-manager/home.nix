@@ -100,6 +100,9 @@ in
     ".config/swaylock".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/swaylock"
     );
+    ".aider.conf.yml".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/aider.conf.yml"
+    );
   };
 
   programs.home-manager = {
