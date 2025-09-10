@@ -11,10 +11,20 @@
     playerctl
     rofi-wayland
     slurp
+    swaybg
     waypaper
     wdisplays
     wl-clipboard
   ];
+
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
+  programs.waybar = {
+    enable = true;
+  };
 
   programs.thunar = {
     enable = true;

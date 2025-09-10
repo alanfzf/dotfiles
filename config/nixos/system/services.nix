@@ -20,7 +20,7 @@
     };
 
     xserver.windowManager = {
-      qtile.enable = true;
+      qtile.enable = false;
     };
 
     pipewire = {
