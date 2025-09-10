@@ -55,6 +55,19 @@ in
     tree-sitter
     copilot-language-server-fhs
     aider-chat
+
+    (pkgs.writeShellApplication {
+      name = "calc";
+      text = ''
+        if [ -z "$1" ]; then
+          echo "Usage: $0 \"EXPRESSION\""
+          exit 1
+        fi
+
+        awk "BEGIN { print $1 }"
+      '';
+    })
+
   ];
 
   home.file = {
