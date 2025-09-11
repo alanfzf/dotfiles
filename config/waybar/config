@@ -1,20 +1,7 @@
-/* =============================================================================
- * Waybar configuration
- * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
- * =============================================================================
-*/
-
 {
-  /* 
-  * -------------------------------------------------------------------------
-  * Global configuration
-  * -------------------------------------------------------------------------
-  */
-
   "layer": "top",
   "position": "top",
-  "height": 30,
-
+  "height": 35,
   "modules-left": [
     "sway/workspaces",
     "sway/mode"
@@ -26,16 +13,12 @@
     "network",
     "memory",
     "cpu",
-    "temperature",
     "battery",
-    "tray",
     "clock#date",
     "clock#time",
+    "tray",
   ],
 
-  // -------------------------------------------------------------------------
-  // Modules
-  // -------------------------------------------------------------------------
   "battery": {
     "interval": 10,
     "states": {
@@ -97,58 +80,37 @@
   },
 
   "network": {
-    "interval": 5,
+    "interval": 30,
     "format-wifi": "󰖩 {essid} ({signalStrength}%)",
-    "format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}",
-    "format-disconnected": "󰖪 Disconnected",
+    "format-ethernet": "󰈀 {ifname}",
+    "format-disconnected": "󰖪 ",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
   },
-
   "sway/mode": {
-    "format": "<span style=\"italic\">  {}</span>",
+    "format": "  {}",
     "tooltip": false
   },
-
   "sway/window": {
     "format": "{}",
-    "max-length": 80
+    "max-length": 75
   },
-
   "sway/workspaces": {
     "all-outputs": false,
     "disable-scroll": true,
     "format": "{icon}",
-    "format-icons": {}
-  },
-
-  //"pulseaudio": {
-  //    "format": "{icon} {volume}%",
-  //    "format-bluetooth": "{icon} {volume}%",
-  //    "format-muted": "",
-  //    "format-icons": {
-  //        "headphones": "",
-  //        "handsfree": "",
-  //        "headset": "",
-  //        "phone": "",
-  //        "portable": "",
-  //        "car": "",
-  //        "default": ["", ""]
-  //    },
-  //    "on-click": "pavucontrol"
-  //},
-
-  "temperature": {
-    "critical-threshold": 80,
-    "interval": 5,
-    "format": "{icon} {temperatureC}°C",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
-    "tooltip": true
+    "format-icons": {},
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
+    }
   },
   "tray": {
     "icon-size": 21,
