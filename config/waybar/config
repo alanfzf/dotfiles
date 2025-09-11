@@ -99,6 +99,7 @@
     "disable-scroll": true,
     "format": "{icon}",
     "format-icons": {},
+    /*
     "persistent-workspaces": {
       "1": [],
       "2": [],
@@ -111,6 +112,7 @@
       "9": [],
       "10": []
     }
+    */
   },
   "tray": {
     "icon-size": 21,
