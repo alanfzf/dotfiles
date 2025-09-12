@@ -13,7 +13,7 @@ conform.setup({
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
     json = { "prettier", "jq" },
-    jsonc = { "prettier", "jq" },
+    jsonc = { "prettier" },
     scss = { "prettier" },
     css = { "prettier" },
     lua = { "stylua" },

@@ -1,3 +1,4 @@
+/* comeback https://github.com/mxkrsv/dotfiles-old/blob/master/.config/waybar/config */
 {
   "layer": "top",
   "position": "top",
@@ -10,24 +11,37 @@
     "sway/window"
   ],
   "modules-right": [
+    "custom/arrow1",
+    "custom/weather",
+    "custom/arrow1",
     "network",
-    "memory",
-    "cpu",
-    "battery",
-    "clock#date",
-    "clock#time",
+    // "memory",
+    // "cpu",
+    "custom/arrow1",
+    "clock",
+    "custom/arrow1",
     "tray",
   ],
 
+  "custom/arrow1": {
+    "format": "  ",
+    "tooltip": false
+  },
+  "custom/weather": {
+    "exec": "~/.config/waybar/scripts/weather.sh",
+    "interval": 600,
+    "return-type": "plain",
+    "tooltip": false,
+  },
   "battery": {
-    "interval": 10,
+    "interval": 60,
     "states": {
       "warning": 30,
       "critical": 15
     },
     "tooltip": true,
-    "format": "  {icon}  {capacity}%",
-    "format-discharging": "{icon}  {capacity}%",
+    "format": " {icon} {capacity}%",
+    "format-discharging": "{icon} {capacity}%",
     "format-icons": [
       "",
       "",
@@ -36,21 +50,14 @@
       ""
     ],
   },
-
-  "clock#time": {
+  "clock": {
     "interval": 60,
-    "format": "  {:%H:%M}",
-    "tooltip": false
-  },
-
-  "clock#date": {
-    "interval": 10,
-    "format": "󰃭 {:%e %b %Y}",
+    "format": "󰃰  {:%Y/%m/%d - %H:%M}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
-      "mode"          : "month",
-      "mode-mon-col"  : 3,
-      "on-scroll"     : 1,
+      "mode":         "month",
+      "mode-mon-col": 3,
+      "on-scroll":    1,
     },
     "actions":  {
       "on-click-right": "mode",
@@ -60,7 +67,6 @@
       "on-scroll-down": "shift_down"
     }
   },
-
   "cpu": {
     "interval": 5,
     "format": "  {usage}% ({load})",
@@ -78,13 +84,14 @@
       "critical": 90
     }
   },
-
   "network": {
     "interval": 30,
+    "format": "{ifname}",
     "format-wifi": "󰖩 {essid} ({signalStrength}%)",
     "format-ethernet": "󰈀 {ifname}",
-    "format-disconnected": "󰖪 ",
-    "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    "format-disconnected": "󰪎",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr} via {gwaddr}",
+    "max-length": 50
   },
   "sway/mode": {
     "format": "  {}",
@@ -98,21 +105,6 @@
     "all-outputs": false,
     "disable-scroll": true,
     "format": "{icon}",
-    "format-icons": {},
-    /*
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": [],
-      "10": []
-    }
-    */
   },
   "tray": {
     "icon-size": 21,
