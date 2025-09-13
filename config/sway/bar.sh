@@ -24,7 +24,7 @@ while :; do
 
   echo "[
     {\"name\":\"arrow1\", \"full_text\":\"\", \"color\":\"#fabd2f\", \"separator\":false, \"separator_block_width\":0},
-    {\"name\":\"weather\", \"full_text\":\"$weather\", \"background\":\"#fabd2f\", \"color\":\"#1d2021\", \"separator\":false, \"separator_block_width\":0},
+    {\"name\":\"weather\", \"full_text\":\" $weather\", \"background\":\"#fabd2f\", \"color\":\"#1d2021\", \"separator\":false, \"separator_block_width\":0},
     {\"name\":\"arrow2\", \"full_text\":\"\", \"color\":\"#fe8019\", \"background\":\"#fabd2f\", \"separator\":false, \"separator_block_width\":0},
     {\"name\":\"net\", \"full_text\":\" 󰈀  $net \", \"background\":\"#fe8019\", \"color\":\"#1d2021\", \"separator\":false, \"separator_block_width\":0},
     {\"name\":\"arrow3\", \"full_text\":\"\", \"color\":\"#fb4934\", \"background\":\"#fe8019\", \"separator\":false, \"separator_block_width\":0},

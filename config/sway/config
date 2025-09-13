@@ -105,12 +105,12 @@ bindsym $mod+bracketright exec playerctl next
 exec waypaper --restore
 
 # ** [THEME] **
-set $base00 #282828
-set $base01 #504945
-set $base02 #928374
+set $black #282828
+set $inactive #504945
+set $grey #928374
 set $white #ebdbb2
-set $base08 #fb4934
-set $base0B #8ec07c
+set $red #fb4934
+set $green #8ec07c
 set $purple #b16286
 
 gaps inner 5
@@ -120,26 +120,25 @@ default_floating_border pixel 2
 titlebar_border_thickness 2
 
 #client.class           border   bckgrod  text     indictor child_border
-client.focused          $purple  $base00  $white  $purple  $purple
-client.focused_inactive $base01  $base00  $white  $base02  $base01
-client.unfocused        $base01  $base00  $white  $base02  $base01
-client.urgent           $base08  $base00  $base08  $base0B  $base02
-client.placeholder      $base02  $base00  $white  $base03  $white
-client.background       $base00
+client.focused          $purple  $black  $white  $purple  $purple
+client.focused_inactive $inactive  $black  $white  $grey  $inactive
+client.unfocused        $inactive  $black  $white  $grey  $inactive
+client.urgent           $red  $black  $red  $green  $grey
+client.placeholder      $grey $black  $white  $base03  $white
+client.background       $black
 
 # ** [BAR] **
-
 bar {
     position top
     status_command ~/.config/sway/bar.sh
     font pango:'JetBrainsMono Nerd Font':monospace 12
     colors {
         statusline $white
-        background $base00
-        focused_workspace  $purple $purple $white
-        active_workspace   #333333 #5f676a $white
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2f343a #900000 $white
+        background $black
+        focused_workspace  $purple  $purple $white
+        active_workspace   $black   $black  $grey
+        inactive_workspace $black   $black  $grey
+        urgent_workspace   $red     $red    $white
     }
 }
 
