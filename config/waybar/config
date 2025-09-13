@@ -2,7 +2,6 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 35,
   "modules-left": [
     "sway/workspaces",
     "sway/mode"
@@ -13,20 +12,38 @@
   "modules-right": [
     "custom/arrow1",
     "custom/weather",
-    "custom/arrow1",
+    "custom/arrow2",
     "network",
-    // "memory",
-    // "cpu",
-    "custom/arrow1",
+    "custom/arrow3",
+    "memory",
+    "cpu",
+    "custom/arrow4",
     "clock",
-    "custom/arrow1",
+    "custom/arrow5",
     "tray",
   ],
 
   "custom/arrow1": {
-    "format": "  ",
+    "format": "",
     "tooltip": false
   },
+  "custom/arrow2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/arrow3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/arrow4": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/arrow5": {
+    "format": "",
+    "tooltip": false
+  },
+
   "custom/weather": {
     "exec": "~/.config/waybar/scripts/weather.sh",
     "interval": 600,
@@ -69,7 +86,7 @@
   },
   "cpu": {
     "interval": 5,
-    "format": "  {usage}% ({load})",
+    "format": " {usage}%",
     "states": {
       "warning": 70,
       "critical": 90
@@ -99,12 +116,11 @@
   },
   "sway/window": {
     "format": "{}",
-    "max-length": 75
+    "max-length": 60
   },
   "sway/workspaces": {
     "all-outputs": false,
     "disable-scroll": true,
-    "format": "{icon}",
   },
   "tray": {
     "icon-size": 21,

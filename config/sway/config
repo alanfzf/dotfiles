@@ -1,3 +1,4 @@
+# ** [VARIABLES] **
 set $mod Mod4
 set $term foot
 set $browser microsoft-edge
@@ -7,17 +8,7 @@ set $down j
 set $up k
 set $right l
 
-# Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-# Move the focused window with the same, but add Shift
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-# Workspaces:
+# WORKSPACES:
 # >> Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -76,35 +67,33 @@ bindsym $mod+r mode "resize"
 bindsym $mod+f fullscreen
 floating_modifier $mod normal
 
-# >> layouts
-bindsym $mod+Tab toggle_layouts
-# You can "split" the current object of your focus with
-# $mod+b or $mod+v, for horizontal and vertical splits
-# respectively.
-# bindsym $mod+m splith
-# bindsym $mod+v splitv
+# ** [FOCUS & MOVE] **
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
 
-# Switch the current container between different layout styles
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
-# Toggle the current focus between tiling and floating mode
+# ** [LAYOUTS] **
+bindsym $mod+Tab layout toggle all
+bindsym $mod+x splith
+bindsym $mod+y splitv
 bindsym $mod+t floating toggle
-# bindsym $mod+space focus mode_toggle
-bindsym $mod+a focus parent
-# >> scratchpad
+bindsym $mod+m workspace back_and_forth
 bindsym $mod+Shift+o move scratchpad
 bindsym $mod+o scratchpad show
+bindsym $mod+a focus parent
 
-# >> [[ MISC ]]
-# >>> screenshots
+# ** [SCREENSHOTS] **
 bindsym $mod+s exec grim - | wl-copy
 bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy
-
-# >>> brightnessctl
+# ** [BRIGHTNESS ] **
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
-# >>> audio
+# ** [AUDIO] **
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -112,32 +101,30 @@ bindsym $mod+p exec playerctl play-pause
 bindsym $mod+bracketleft exec playerctl previous
 bindsym $mod+bracketright exec playerctl next
 
-# executables
+# ** [STARTUP] **
 exec waypaper --restore
 
-# theme
+# ** [THEME] **
 set $base00 #282828
-set $base01 #3c3836
-set $base02 #504945
-set $base04 #d5c4a1
-set $base06 #fbf1c7
-set $base07 #ebdbb2
-set $base08 #cc241d
-set $base0B #98971a
-set $base0C #458588
+set $base01 #504945
+set $base02 #928374
+set $base06 #ebdbb2
+set $base08 #fb4934
+set $base0B #8ec07c
+set $base0C #b16286
 
-
-# smart_borders on
 gaps inner 5
 gaps outer 3
-default_border pixel 3
+default_border pixel 2
+default_floating_border pixel 2
+titlebar_border_thickness 2
 
 #client.class           border   bckgrod  text     indictor child_border
 client.focused          $base0C  $base00  $base06  $base0C  $base0C
-client.focused_inactive $base02  $base00  $base06  $base02  $base02
-client.unfocused        $base01  $base00  $base06  $base02  $base02
-client.urgent           $base07  $base00  $base08  $base0B  $base02
-client.placeholder      $base02  $base00  $base06  $base03  $base04
+client.focused_inactive $base01  $base00  $base06  $base02  $base01
+client.unfocused        $base01  $base00  $base06  $base02  $base01
+client.urgent           $base08  $base00  $base08  $base0B  $base02
+client.placeholder      $base02  $base00  $base06  $base03  $base06
 client.background       $base00
 
 include ~/.screens.conf
