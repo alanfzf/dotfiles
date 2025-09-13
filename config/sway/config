@@ -108,10 +108,10 @@ exec waypaper --restore
 set $base00 #282828
 set $base01 #504945
 set $base02 #928374
-set $base06 #ebdbb2
+set $white #ebdbb2
 set $base08 #fb4934
 set $base0B #8ec07c
-set $base0C #b16286
+set $purple #b16286
 
 gaps inner 5
 gaps outer 3
@@ -120,12 +120,28 @@ default_floating_border pixel 2
 titlebar_border_thickness 2
 
 #client.class           border   bckgrod  text     indictor child_border
-client.focused          $base0C  $base00  $base06  $base0C  $base0C
-client.focused_inactive $base01  $base00  $base06  $base02  $base01
-client.unfocused        $base01  $base00  $base06  $base02  $base01
+client.focused          $purple  $base00  $white  $purple  $purple
+client.focused_inactive $base01  $base00  $white  $base02  $base01
+client.unfocused        $base01  $base00  $white  $base02  $base01
 client.urgent           $base08  $base00  $base08  $base0B  $base02
-client.placeholder      $base02  $base00  $base06  $base03  $base06
+client.placeholder      $base02  $base00  $white  $base03  $white
 client.background       $base00
+
+# ** [BAR] **
+
+bar {
+    position top
+    status_command ~/.config/sway/bar.sh
+    font pango:'JetBrainsMono Nerd Font':monospace 12
+    colors {
+        statusline $white
+        background $base00
+        focused_workspace  $purple $purple $white
+        active_workspace   #333333 #5f676a $white
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 $white
+    }
+}
 
 include ~/.screens.conf
 include /etc/sway/config.d/*
