@@ -101,9 +101,6 @@ in
     ".config/foot".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/foot"
     );
-    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink (
-      config.home.homeDirectory + "/.dotfiles/config/waybar"
-    );
     ".config/mako".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/mako"
     );

@@ -22,10 +22,6 @@
     wrapperFeatures.gtk = true;
   };
 
-  programs.waybar = {
-    enable = true;
-  };
-
   programs.thunar = {
     enable = true;
   };
