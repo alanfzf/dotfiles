@@ -93,7 +93,6 @@
         wpc = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            nixos-wsl.nixosModules.default
             {
               nixpkgs.overlays = overlays;
             }

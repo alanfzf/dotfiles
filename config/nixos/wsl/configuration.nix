@@ -3,11 +3,13 @@
   lib,
   pkgs,
   user,
+  inputs,
   ...
 }:
 {
 
   imports = [
+    inputs.nixos-wsl.nixosModules.default
     ./hm.nix
     ./services.nix
     ./programs.nix
