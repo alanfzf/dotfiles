@@ -13,6 +13,11 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # wsl
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # neovim overlay
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
@@ -21,8 +26,9 @@
     {
       self,
       nixpkgs,
-      home-manager,
       nix-darwin,
+      nixos-wsl,
+      home-manager,
       ...
     }@inputs:
     let
@@ -71,13 +77,27 @@
     {
       # NixOS
       nixosConfigurations = {
-        "nixos" = nixpkgs.lib.nixosSystem {
+        nixos = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             {
               nixpkgs.overlays = overlays;
             }
             ./nix/configuration.nix
+          ];
+          specialArgs = {
+            inherit inputs user;
+          };
+        };
+
+        wpc = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            nixos-wsl.nixosModules.default
+            {
+              nixpkgs.overlays = overlays;
+            }
+            ./wsl/configuration.nix
           ];
           specialArgs = {
             inherit inputs user;
