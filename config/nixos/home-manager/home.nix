@@ -59,8 +59,6 @@ in
     (writeShellApplication {
       name = "calc";
       text = ''
-        #!/bin/sh
-
         while true; do
             echo -n "calc> "
             read -r expr
