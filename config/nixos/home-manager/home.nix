@@ -53,18 +53,17 @@ in
     unzip
     # new stuff
     tree-sitter
-    copilot-language-server-fhs
+    copilot-language-server
     aider-chat
 
-    (pkgs.writeShellApplication {
+    (writeShellApplication {
       name = "calc";
       text = ''
-        if [ -z "$1" ]; then
-          echo "Usage: $0 \"EXPRESSION\""
-          exit 1
-        fi
-
-        awk "BEGIN { print $1 }"
+        while true; do
+            echo -n "calc> "
+            read -r expr
+            awk "BEGIN { print ($expr) }"
+        done
       '';
     })
 

@@ -13,6 +13,11 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # wsl
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # neovim overlay
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
@@ -21,8 +26,9 @@
     {
       self,
       nixpkgs,
-      home-manager,
       nix-darwin,
+      nixos-wsl,
+      home-manager,
       ...
     }@inputs:
     let
@@ -53,7 +59,7 @@
             {
               nixpkgs.overlays = overlays;
             }
-            ./system/home-manager/home.nix
+            ./home-manager/home.nix
           ];
           extraSpecialArgs = {
             homeUser = user;
@@ -69,15 +75,28 @@
 
     in
     {
-      # Native Nix machine
+      # NixOS
       nixosConfigurations = {
-        "nixos" = nixpkgs.lib.nixosSystem {
+        nixos = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             {
               nixpkgs.overlays = overlays;
             }
-            ./system/configuration.nix
+            ./nix/configuration.nix
+          ];
+          specialArgs = {
+            inherit inputs user;
+          };
+        };
+
+        wpc = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            {
+              nixpkgs.overlays = overlays;
+            }
+            ./wsl/configuration.nix
           ];
           specialArgs = {
             inherit inputs user;
@@ -89,12 +108,12 @@
       darwinConfigurations = {
         "mb-pro-m3" = nix-darwin.lib.darwinSystem {
           system = aarchSystem;
-          modules = [ ./system/darwin/darwin.nix ];
+          modules = [ ./darwin/darwin.nix ];
           specialArgs = { inherit inputs; };
         };
       };
 
-      # home-manager
+      # HM
       homeConfigurations = {
         "${user}" = homeConfig user system pkgs;
         "${workUser}" = homeConfig workUser system pkgs;

@@ -9,7 +9,7 @@
     microsoft-edge
     openvpn
     playerctl
-    rofi-wayland
+    rofi
     slurp
     swaybg
     waypaper
