@@ -53,7 +53,7 @@
             {
               nixpkgs.overlays = overlays;
             }
-            ./system/home-manager/home.nix
+            ./home-manager/home.nix
           ];
           extraSpecialArgs = {
             homeUser = user;
@@ -69,7 +69,7 @@
 
     in
     {
-      # Native Nix machine
+      # NixOS
       nixosConfigurations = {
         "nixos" = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -77,7 +77,7 @@
             {
               nixpkgs.overlays = overlays;
             }
-            ./system/configuration.nix
+            ./nix/configuration.nix
           ];
           specialArgs = {
             inherit inputs user;
@@ -89,12 +89,12 @@
       darwinConfigurations = {
         "mb-pro-m3" = nix-darwin.lib.darwinSystem {
           system = aarchSystem;
-          modules = [ ./system/darwin/darwin.nix ];
+          modules = [ ./darwin/darwin.nix ];
           specialArgs = { inherit inputs; };
         };
       };
 
-      # home-manager
+      # HM
       homeConfigurations = {
         "${user}" = homeConfig user system pkgs;
         "${workUser}" = homeConfig workUser system pkgs;

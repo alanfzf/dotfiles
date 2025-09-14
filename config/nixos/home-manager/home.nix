@@ -53,7 +53,7 @@ in
     unzip
     # new stuff
     tree-sitter
-    copilot-language-server-fhs
+    copilot-language-server
     aider-chat
 
     (pkgs.writeShellApplication {
