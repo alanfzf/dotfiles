@@ -55,6 +55,7 @@ in
     tree-sitter
     copilot-language-server
     aider-chat
+    devpod
 
     (writeShellApplication {
       name = "calc";
@@ -207,5 +208,8 @@ in
         identityFile = "~/.ssh/Corposistemas.pem";
       };
     };
+    extraConfig = ''
+      Include ~/.ssh/devpod
+    '';
   };
 }

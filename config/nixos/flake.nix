@@ -117,6 +117,7 @@
       homeConfigurations = {
         "${user}" = homeConfig user system pkgs;
         "${workUser}" = homeConfig workUser system pkgs;
+        "dev" = homeConfig "dev" system pkgs;
       };
     };
 }
