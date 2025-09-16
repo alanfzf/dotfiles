@@ -31,3 +31,4 @@ set scrolloff=8
 set ideajoin
 set smartcase
 set ignorecase
+set visualbell!

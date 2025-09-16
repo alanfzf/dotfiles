@@ -6,7 +6,6 @@
     jetbrains.datagrip
     libnotify
     mako
-    microsoft-edge
     openvpn
     playerctl
     rofi
@@ -23,6 +22,10 @@
   };
 
   programs.thunar = {
+    enable = true;
+  };
+
+  programs.firefox = {
     enable = true;
   };
 

@@ -1,7 +1,7 @@
 # ** [VARIABLES] **
 set $mod Mod4
 set $term foot
-set $browser microsoft-edge
+set $browser firefox
 set $menu dmenu_path | rofi -show drun | xargs swaymsg exec --
 set $left h
 set $down j
