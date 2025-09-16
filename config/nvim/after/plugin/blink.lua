@@ -36,7 +36,9 @@ blink.setup({
   -- fuzzy
   fuzzy = {
     implementation = "prefer_rust",
-    use_frecency = true,
+    frecency = {
+      enabled = true,
+    },
     use_proximity = true,
     sorts = { "exact", "score", "sort_text" },
   },
