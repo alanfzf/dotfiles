@@ -181,7 +181,7 @@ in
     ];
   };
 
-  programs.keychain = {
+  programs.keychain = lib.mkIf (homeUser != "dev") {
     enable = true;
     keys = [
       "id_ed25519"
