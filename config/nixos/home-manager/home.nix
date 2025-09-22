@@ -54,7 +54,6 @@ in
     # new stuff
     tree-sitter
     copilot-language-server
-    aider-chat
     devpod
 
     (writeShellApplication {
@@ -109,9 +108,6 @@ in
     );
     ".config/swaylock".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/swaylock"
-    );
-    ".aider.conf.yml".source = config.lib.file.mkOutOfStoreSymlink (
-      config.home.homeDirectory + "/.dotfiles/config/aider.conf.yml"
     );
   };
 
