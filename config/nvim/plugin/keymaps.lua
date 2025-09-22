@@ -8,7 +8,6 @@ vim.g.maplocalleader = vim.keycode("<space>")
 --[[ * ALL MODES * ]]
 keymap("", "<S-h>", "^", { remap = true })
 keymap("", "<S-l>", "$", { remap = true })
-keymap("", "q", "<Nop>", { remap = true })
 
 --[[ * COMMAND MODE *  ]]
 keymap("c", "<C-a>", "<Home>", { noremap = true })
@@ -98,3 +97,5 @@ keymap("n", "<leader>2", "<cmd>diffget BASE<CR>", opts)
 keymap("n", "<leader>3", "<cmd>diffget REMOTE<CR>", opts)
 keymap("n", "<leader>df", "<cmd>windo diffthis<CR>", opts)
 keymap("n", "<leader>do", "<cmd>windo diffoff<CR>", opts)
+
+keymap("n", "<leader>q", "@q<CR>", opts)

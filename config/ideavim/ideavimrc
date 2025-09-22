@@ -9,6 +9,7 @@ map <Leader>ff <Action>(GotoFile)
 map <Leader>fg <Action>(FindInPath)
 map <Leader>rn <Action>(RenameElement)
 map <Leader>la <Action>(ShowIntentionActions)
+map <Leader>q @q<CR>
 
 map <S-l> $
 map <S-h> ^
