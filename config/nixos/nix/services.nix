@@ -18,8 +18,18 @@
       gnome-keyring.enable = true;
     };
 
-    displayManager.sddm = {
+    greetd = {
       enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.sway}/bin/sway";
+          user = "${user}";
+        };
+      };
+    };
+
+    displayManager.sddm = {
+      enable = false;
       wayland.enable = true;
     };
 
@@ -46,11 +56,8 @@
     };
   };
 
-  virtualisation.docker = {
-    enable = true;
-  };
-
-  virtualisation.waydroid = {
-    enable = true;
+  virtualisation = {
+    docker.enable = true;
+    waydroid.enable = true;
   };
 }
