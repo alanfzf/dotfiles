@@ -184,6 +184,13 @@ in
     ];
   };
 
+  programs.btop = {
+    enable = true;
+    settings = {
+      vim_keys = true;
+    };
+  };
+
   programs.ssh = {
     enable = true;
     includes = [ "*.conf" ];
