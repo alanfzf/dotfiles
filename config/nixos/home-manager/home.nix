@@ -55,6 +55,7 @@ in
     tree-sitter
     copilot-language-server
     devpod
+    dconf
 
     (writeShellApplication {
       name = "calc";
