@@ -24,7 +24,6 @@ for _, v in ipairs(vim.api.nvim_get_runtime_file("lsp/*", true)) do
 end
 
 vim.lsp.enable(vim.tbl_keys(configs))
-vim.lsp.inline_completion.enable(true)
 
 vim.lsp.config("*", {
   capabilities = {
@@ -66,14 +65,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap("gl", "<cmd>lua vim.diagnostic.open_float()<CR>", "Diagnostics")
 
     -- copilot specific code handling
-    vim.keymap.set("i", "<A-o>", function()
-      if not vim.lsp.inline_completion.get() then
-        return "<A-o>"
-      end
-    end, {
-      expr = true,
-      replace_keycodes = true,
-      desc = "Get the current inline completion",
-    })
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, bufnr) then
+      vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
+
+      vim.keymap.set(
+        "i",
+        "<A-o>",
+        vim.lsp.inline_completion.get,
+        { desc = "LSP: accept inline completion", buffer = bufnr }
+      )
+      vim.keymap.set(
+        "i",
+        "<C-G>",
+        vim.lsp.inline_completion.select,
+        { desc = "LSP: switch inline completion", buffer = bufnr }
+      )
+    end
   end,
 })

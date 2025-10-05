@@ -110,6 +110,9 @@ in
     ".config/swaylock".source = config.lib.file.mkOutOfStoreSymlink (
       config.home.homeDirectory + "/.dotfiles/config/swaylock"
     );
+    ".config/emacs".source = config.lib.file.mkOutOfStoreSymlink (
+      config.home.homeDirectory + "/.dotfiles/config/emacs"
+    );
   };
 
   programs.home-manager = {
