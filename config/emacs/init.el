@@ -4,13 +4,8 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
-
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
 (require 'use-package)
 (setq use-package-always-ensure t)
-
 
 ;; other settings
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -58,3 +53,13 @@
   :config
   (global-disable-mouse-mode)
   )
+
+(use-package fzf
+  :ensure t
+  :bind
+  (("C-c f" . fzf)
+   ("C-c g" . fzf-git)
+   ("C-c p" . fzf-projectile)
+   ))
+
+(load "~/.config/emacs/treesitter/tree-sitter.el")
