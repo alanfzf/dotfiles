@@ -11,8 +11,10 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+
 ;; other settings
-(setq custom-file "~/.emacs.custom.el")
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file 'noerror 'nomessage)
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
@@ -23,8 +25,8 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (set-face-attribute 'default nil
-  :font "JetBrainsMono Nerd Font"
-  :height 140)
+		    :font "JetBrainsMono Nerd Font"
+		    :height 140)
 
 ;; misc settings
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -55,4 +57,4 @@
 (use-package disable-mouse
   :config
   (global-disable-mouse-mode)
-)
+  )
