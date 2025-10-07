@@ -38,10 +38,13 @@
       "nngceckbapebfimnlniiiahkandclblb"
     ];
     extraOpts = {
-      "PasswordManagerEnabled" = false;
-      "BraveWalletDisabled" = true;
-      "BraveRewardsDisabled" = true;
+      "AutoFillEnabled" = false;
+      "BraveAIChatEnabled" = false;
       "BraveNewsDisabled" = true;
+      "BraveRewardsDisabled" = true;
+      "BraveWalletDisabled" = true;
+      "PasswordManagerEnabled" = false;
+      "PromotionalTabsEnabled" = false;
     };
   };
 
