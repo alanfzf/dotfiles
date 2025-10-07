@@ -14,6 +14,7 @@
     waypaper
     wdisplays
     wl-clipboard
+    mysql-client
   ];
 
   programs.sway = {
