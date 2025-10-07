@@ -3,3 +3,4 @@
 (load "~/.config/emacs/emacs.d/keybinds.el")
 (load "~/.config/emacs/emacs.d/lsp.el")
 (load "~/.config/emacs/emacs.d/tree-sitter.el")
+(load "~/.config/emacs/emacs.d/org.el")

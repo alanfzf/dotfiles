@@ -5,7 +5,6 @@
 ;;   (treesit-auto-add-to-auto-mode-alist 'all)
 ;;   (global-treesit-auto-mode))
 
-
 (setq treesit-language-source-alist
       '(
 	(bash        "https://github.com/tree-sitter/tree-sitter-bash"       nil      "src")
@@ -38,16 +37,22 @@
 (treesit-install-grammars)
 
 (require 'treesit)
+(setq major-mode-remap-alist
+      '(
+	(c-mode          . c-ts-mode)
+        (c++-mode        . c++-ts-mode)
+        (c-or-c++-mode   . c-or-c++-ts-mode)
+        (conf-toml-mode  . toml-ts-mode)
+        (css-mode        . css-ts-mode)
+        (js-mode         . js-ts-mode)
+        (javascript-mode . js-ts-mode)
+        (js-json-mode    . json-ts-mode)
+        (json-mode       . json-ts-mode)
+        (python-mode     . python-ts-mode)
+        (sh-mode         . bash-ts-mode)
+        (typescript-mode . typescript-ts-mode)
+        (yaml-mode       . yaml-ts-mode)
+        )
+      )
 
-
-
-;; (setq major-mode-remap-defaults t)
-;; (setq treesit-language-source-alist '(
-;; 	(org "https://github.com/emiasims/tree-sitter-org")
-;; 	(lua  "https://github.com/tree-sitter-grammars/tree-sitter-lua")
-;; 	(elisp "https://github.com/Wilfred/tree-sitter-elisp")
-;;   )
-;; )
-;; (add-to-list 'major-mode-remap-alist '(
-;; (lua-mode . lua-ts-mode)
-;; ))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-ts-mode))

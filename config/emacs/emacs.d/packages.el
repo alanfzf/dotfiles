@@ -24,3 +24,10 @@
    ("C-c f" . fzf-here)
    ("C-c g" . fzf-git))
   )
+
+(use-package projectile
+  :diminish projectile-mode
+  :config
+  (projectile-mode +1)
+  ;; Recommended keymap prefix
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
