@@ -15,6 +15,7 @@
     wdisplays
     wl-clipboard
     mysql-client
+    brave
   ];
 
   programs.sway = {
@@ -24,6 +25,24 @@
 
   programs.thunar = {
     enable = true;
+  };
+
+  programs.chromium = {
+    enable = true;
+    extensions = [
+      # vimium
+      "dbepggeogbaibhgnhhndojpepiihcmeb"
+      # dark reader
+      "eimadpbcbfnmbkopoojfekhnkhdbieeh"
+      # bitwarden
+      "nngceckbapebfimnlniiiahkandclblb"
+    ];
+    extraOpts = {
+      "PasswordManagerEnabled" = false;
+      "BraveWalletDisabled" = true;
+      "BraveRewardsDisabled" = true;
+      "BraveNewsDisabled" = true;
+    };
   };
 
   programs.firefox = {
