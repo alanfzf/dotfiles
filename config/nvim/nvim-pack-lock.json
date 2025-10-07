@@ -1,0 +1,29 @@
+{
+  "plugins": {
+    "LuaSnip": [],
+    "arrow.nvim": [],
+    "blink.cmp": {
+      "version": ">=0.0.0"
+    },
+    "conform.nvim": [],
+    "friendly-snippets": [],
+    "fzf-lua": [],
+    "gitsigns.nvim": [],
+    "kulala.nvim": [],
+    "lush.nvim": [],
+    "neovim-ayu": [],
+    "nvim-autopairs": [],
+    "nvim-dap": [],
+    "nvim-highlight-colors": [],
+    "nvim-treesitter": {
+      "version": "'main'"
+    },
+    "nvim-ts-autotag": [],
+    "nvim-ts-context-commentstring": [],
+    "nvim-web-devicons": [],
+    "oil.nvim": [],
+    "onedark.nvim": [],
+    "orgmode": [],
+    "vim-easy-align": []
+  }
+}

@@ -56,6 +56,7 @@ in
     copilot-language-server
     devpod
     dconf
+    emacs
 
     (writeShellApplication {
       name = "calc";
