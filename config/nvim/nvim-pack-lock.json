@@ -1,29 +1,90 @@
 {
   "plugins": {
-    "LuaSnip": [],
-    "arrow.nvim": [],
+    "LuaSnip": {
+      "rev": "7381330",
+      "src": "https://github.com/L3MON4D3/LuaSnip"
+    },
+    "arrow.nvim": {
+      "rev": "6e0f726",
+      "src": "https://github.com/otavioschwanck/arrow.nvim"
+    },
     "blink.cmp": {
+      "rev": "327fff9",
+      "src": "https://github.com/saghen/blink.cmp",
       "version": ">=0.0.0"
     },
-    "conform.nvim": [],
-    "friendly-snippets": [],
-    "fzf-lua": [],
-    "gitsigns.nvim": [],
-    "kulala.nvim": [],
-    "lush.nvim": [],
-    "neovim-ayu": [],
-    "nvim-autopairs": [],
-    "nvim-dap": [],
-    "nvim-highlight-colors": [],
+    "conform.nvim": {
+      "rev": "9d859cb",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "friendly-snippets": {
+      "rev": "572f566",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "fzf-lua": {
+      "rev": "c0c0926",
+      "src": "https://github.com/ibhagwan/fzf-lua"
+    },
+    "gitsigns.nvim": {
+      "rev": "1ee5c1f",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "kulala.nvim": {
+      "rev": "0d50e9c",
+      "src": "https://github.com/mistweaverco/kulala.nvim"
+    },
+    "lush.nvim": {
+      "rev": "9c60ec2",
+      "src": "https://github.com/rktjmp/lush.nvim"
+    },
+    "neovim-ayu": {
+      "rev": "cc78e88",
+      "src": "https://github.com/Shatur/neovim-ayu"
+    },
+    "nvim-autopairs": {
+      "rev": "23320e7",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
+    "nvim-dap": {
+      "rev": "881f7dc",
+      "src": "https://github.com/mfussenegger/nvim-dap"
+    },
+    "nvim-highlight-colors": {
+      "rev": "e0c4a58",
+      "src": "https://github.com/brenoprata10/nvim-highlight-colors"
+    },
     "nvim-treesitter": {
+      "rev": "3ab4f2d2",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
-    "nvim-ts-autotag": [],
-    "nvim-ts-context-commentstring": [],
-    "nvim-web-devicons": [],
-    "oil.nvim": [],
-    "onedark.nvim": [],
-    "orgmode": [],
-    "vim-easy-align": []
+    "nvim-ts-autotag": {
+      "rev": "c4ca798",
+      "src": "https://github.com/windwp/nvim-ts-autotag"
+    },
+    "nvim-ts-context-commentstring": {
+      "rev": "1b212c2",
+      "src": "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
+    },
+    "nvim-web-devicons": {
+      "rev": "b8221e4",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "oil.nvim": {
+      "rev": "919e155",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "onedark.nvim": {
+      "rev": "40f3aa6",
+      "src": "https://github.com/alanfzf/onedark.nvim"
+    },
+    "orgmode": {
+      "rev": "03777ca",
+      "src": "https://github.com/nvim-orgmode/orgmode"
+    },
+    "vim-easy-align": {
+      "rev": "9815a55",
+      "src": "https://github.com/junegunn/vim-easy-align"
+    }
   }
 }
