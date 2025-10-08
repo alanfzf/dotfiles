@@ -29,7 +29,7 @@ keymap("n", "k", "gk")
 keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 -- Go to specific directories
-keymap("n", "<leader>c", "<cmd>e $MYVIMRC<CR>")
+keymap("n", "<leader>c", "<cmd>tabnew $MYVIMRC<CR>:tcd %:p:h<CR>")
 keymap("n", "<leader>n", "<cmd>e ~/Dropbox/org/README.org<CR>")
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>")
@@ -44,7 +44,7 @@ keymap("n", "<C-Down>", "<cmd>resize +2<CR>")
 keymap("n", "<C-Right>", "<cmd>vertical resize -2<CR>")
 keymap("n", "<C-Left>", "<cmd>vertical resize +2<CR>")
 -- Navigate tabs
-keymap("n", "<leader>tn", "<cmd>tabnew %<CR>")
+keymap("n", "<leader>tn", "<cmd>tabnew<CR>")
 keymap("n", "<C-f>", "q:i")
 
 --[[ * VISUAL MODE * ]]

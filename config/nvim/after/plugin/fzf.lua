@@ -34,6 +34,11 @@ fzf.setup({
   files = {
     cwd_header = false,
   },
+  zoxide = {
+    scope = "tab",
+    git_root = false,
+    -- actions = { enter = actions.cd },
+  },
   -- git start
   -- i stole this from here: https://github.com/gennaro-tedesco/dotfiles/blob/86cf4de5870a64aa8c5fad2269248db9521a1c2d/nvim/lua/plugins/fzf.lua#L45-L56
   git = {

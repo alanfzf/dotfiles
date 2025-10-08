@@ -14,6 +14,7 @@ vim.pack.add({
   "https://github.com/windwp/nvim-ts-autotag",
   "https://github.com/windwp/nvim-autopairs",
   "https://github.com/JoosepAlviste/nvim-ts-context-commentstring",
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
   -- autocompletion
   { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("*") },
   "https://github.com/L3MON4D3/LuaSnip",
