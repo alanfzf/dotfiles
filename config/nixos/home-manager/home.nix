@@ -51,24 +51,9 @@ in
     stylua
     tmux
     unzip
-    # new stuff
     tree-sitter
     copilot-language-server
-    devpod
     dconf
-    emacs
-
-    (writeShellApplication {
-      name = "calc";
-      text = ''
-        while true; do
-            echo -n "calc> "
-            read -r expr
-            awk "BEGIN { print ($expr) }"
-        done
-      '';
-    })
-
   ];
 
   home.file = {

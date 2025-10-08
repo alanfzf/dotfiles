@@ -22,6 +22,9 @@
 
 ;; misc settings
 (fset 'yes-or-no-p 'y-or-n-p)
+(setq read-file-name-completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
+(setq completion-ignore-case t)
 
 ;; adjust directories
 (make-directory "~/.local/share/emacs/eln-cache" t)

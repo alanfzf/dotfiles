@@ -1,12 +1,10 @@
-;; (use-package treesit-auto
-;;   :custom
-;;   (treesit-auto-install 'prompt)
-;;   :config
-;;   (treesit-auto-add-to-auto-mode-alist 'all)
-;;   (global-treesit-auto-mode))
-
 (setq treesit-language-source-alist
       '(
+	;; required grammars for php
+	(jsdoc       "https://github.com/tree-sitter/tree-sitter-jsdoc" nil "src")
+	(phpdoc      "https://github.com/claytonrcarter/tree-sitter-phpdoc"  nil      "src")
+	(php         "https://github.com/tree-sitter/tree-sitter-php"        nil      "php/src")
+	;; other grammars
 	(bash        "https://github.com/tree-sitter/tree-sitter-bash"       nil      "src")
         (c           "https://github.com/tree-sitter/tree-sitter-c"          nil      "src")
         (cpp         "https://github.com/tree-sitter/tree-sitter-cpp"        nil      "src")
@@ -35,7 +33,6 @@
 
 ;; Call this function to install missing grammars
 (treesit-install-grammars)
-
 (require 'treesit)
 (setq major-mode-remap-alist
       '(
@@ -55,4 +52,6 @@
         )
       )
 
-(add-to-list 'auto-mode-alist '("\\.php\\'" . php-ts-mode))
+(add-to-list 'auto-mode-alist
+'("\\.php\\'" . php-ts-mode)
+)
