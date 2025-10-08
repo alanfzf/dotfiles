@@ -1,6 +1,5 @@
 local keymap = vim.keymap.set
 local opts = { silent = true }
-local helper = require("utils.helper")
 
 vim.g.mapleader = vim.keycode("<space>")
 vim.g.maplocalleader = vim.keycode("<space>")
@@ -64,17 +63,14 @@ keymap("x", "<A-k>", "<cmd>move '<-2<CR>gv-gv", opts)
 
 --[[ * OTHER PLUGINS *  ]]
 -- FZF LUA
-keymap("n", "<leader>ff", function()
-  require("fzf-lua").files({ cwd = helper.get_root_dir() })
-end, opts)
-keymap("n", "<leader>fg", function()
-  require("fzf-lua").live_grep({ cwd = helper.get_root_dir() })
-end, opts)
+keymap("n", "<leader>ff", "<cmd>FzfLua files<CR>", opts)
+keymap("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>", opts)
 keymap("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", opts)
 keymap("n", "<leader>fc", "<cmd>FzfLua colorschemes<CR>", opts)
 keymap("n", "<leader>fs", "<cmd>FzfLua git_status<CR>", opts)
 keymap("n", "<leader>fh", "<cmd>FzfLua git_bcommits<CR>", opts)
 keymap("n", "<leader>fr", "<cmd>FzfLua resume<CR>", opts)
+keymap("n", "<leader>fz", "<cmd>FzfLua zoxide<CR>", opts)
 -- OIL NVIM
 keymap("n", "<leader>e", "<cmd>Oil<CR>", opts)
 -- LSP
@@ -97,5 +93,5 @@ keymap("n", "<leader>2", "<cmd>diffget BASE<CR>", opts)
 keymap("n", "<leader>3", "<cmd>diffget REMOTE<CR>", opts)
 keymap("n", "<leader>df", "<cmd>windo diffthis<CR>", opts)
 keymap("n", "<leader>do", "<cmd>windo diffoff<CR>", opts)
-
+-- MACROS
 keymap("n", "<leader>q", "@q<CR>", opts)

@@ -6,6 +6,7 @@ vim.pack.add({
   "https://github.com/otavioschwanck/arrow.nvim",
   "https://github.com/mistweaverco/kulala.nvim",
   "https://github.com/nvim-orgmode/orgmode",
+  "https://github.com/NotAShelf/direnv.nvim",
   -- git
   "https://github.com/lewis6991/gitsigns.nvim",
   -- treesitter
