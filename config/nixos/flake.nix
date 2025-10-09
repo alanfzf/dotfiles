@@ -34,7 +34,6 @@
     let
       # users
       user = "alan";
-      workUser = "corpo";
 
       # overlay
       overlays = [
@@ -45,10 +44,8 @@
       importPkgs =
         system:
         import nixpkgs {
-          system = system;
-          config = {
-            allowUnfree = true;
-          };
+          inherit system overlays;
+          config.allowUnfree = true;
         };
 
       homeConfig =
@@ -56,9 +53,6 @@
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            {
-              nixpkgs.overlays = overlays;
-            }
             ./home-manager/home.nix
           ];
           extraSpecialArgs = {
@@ -78,26 +72,16 @@
       # NixOS
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            {
-              nixpkgs.overlays = overlays;
-            }
-            ./nix/configuration.nix
-          ];
+          inherit system pkgs;
+          modules = [ ./nix/configuration.nix ];
           specialArgs = {
             inherit inputs user;
           };
         };
 
         wpc = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            {
-              nixpkgs.overlays = overlays;
-            }
-            ./wsl/configuration.nix
-          ];
+          inherit system pkgs;
+          modules = [ ./wsl/configuration.nix ];
           specialArgs = {
             inherit inputs user;
           };
@@ -116,8 +100,6 @@
       # HM
       homeConfigurations = {
         "${user}" = homeConfig user system pkgs;
-        "${workUser}" = homeConfig workUser system pkgs;
-        "dev" = homeConfig "dev" system pkgs;
       };
     };
 }

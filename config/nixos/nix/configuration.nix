@@ -9,21 +9,15 @@
     ./locale.nix
     ./bootloader.nix
     ./network.nix
-    ./users.nix
     ./services.nix
     ./packages.nix
     ./hardware-configuration.nix
     ./hardware.nix
-    ./hm.nix
+    ../common/hm.nix
+    ../common/users.nix
   ];
 
   system.stateVersion = "24.05";
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
 
   nix = {
     gc = {
@@ -39,5 +33,4 @@
       ];
     };
   };
-
 }

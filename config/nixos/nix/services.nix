@@ -28,15 +28,6 @@
       };
     };
 
-    displayManager.sddm = {
-      enable = false;
-      wayland.enable = true;
-    };
-
-    xserver.windowManager = {
-      qtile.enable = false;
-    };
-
     pipewire = {
       enable = true;
       pulse.enable = true;

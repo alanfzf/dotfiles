@@ -9,11 +9,11 @@
   environment.systemPackages = [
     pkgs.aerospace
     pkgs.alacritty
-    pkgs.discord
     pkgs.mkalias
     pkgs.jetbrains.datagrip
-    pkgs.qemu
-    pkgs.spotify
+    pkgs.colima
+    pkgs.docker
+    pkgs.docker-compose
   ];
 
   nix.settings.experimental-features = "nix-command flakes";
@@ -23,8 +23,7 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
 
-  # fix for spotlight
-  # https://github.com/LnL7/nix-darwin/issues/139#issuecomment-1230728610
+  # fix for spotlight: https://github.com/LnL7/nix-darwin/issues/139#issuecomment-1230728610
   system.activationScripts.applications.text =
     let
       env = pkgs.buildEnv {

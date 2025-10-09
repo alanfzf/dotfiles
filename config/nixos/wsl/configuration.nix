@@ -10,18 +10,12 @@
 
   imports = [
     inputs.nixos-wsl.nixosModules.default
-    ./hm.nix
     ./services.nix
     ./packages.nix
-    ./users.nix
     ./wsl.nix
+    ../common/hm.nix
+    ../common/users.nix
   ];
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
 
   system.stateVersion = "25.05";
 }

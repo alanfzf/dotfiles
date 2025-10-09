@@ -31,9 +31,10 @@ in
   };
 
   home.packages = with pkgs; [
-    neovim
     awscli2
     bat
+    copilot-language-server
+    dconf
     eza
     fd
     fzf
@@ -46,14 +47,14 @@ in
     kubernetes-helm
     lazygit
     lua-language-server
+    neovim
     nerd-fonts.jetbrains-mono
     nixfmt-rfc-style
     stylua
     tmux
-    unzip
     tree-sitter
-    copilot-language-server
-    dconf
+    unzip
+    zip
   ];
 
   home.file = {
@@ -116,7 +117,7 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     defaultKeymap = "emacs";
-    autocd = false;
+    autocd = true;
     completionInit = ''
       autoload -Uz compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -145,10 +146,13 @@ in
     silent = true;
     config = {
       global = {
-        warn_timeout = "1m";
+        warn_timeout = "5m";
       };
       whitelist = {
-        prefix = [ "~/projects" ];
+        prefix = [
+          "~/projects"
+          "~/Projects"
+        ];
       };
     };
   };
@@ -167,7 +171,7 @@ in
     ];
   };
 
-  programs.keychain = lib.mkIf (homeUser != "dev") {
+  programs.keychain = {
     enable = true;
     keys = [
       "id_ed25519"

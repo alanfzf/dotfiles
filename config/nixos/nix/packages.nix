@@ -1,11 +1,13 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    brave
     foot
     grim
     jetbrains.datagrip
     libnotify
     mako
+    mysql-client
     openvpn
     playerctl
     rofi
@@ -14,8 +16,6 @@
     waypaper
     wdisplays
     wl-clipboard
-    mysql-client
-    brave
   ];
 
   programs.sway = {
