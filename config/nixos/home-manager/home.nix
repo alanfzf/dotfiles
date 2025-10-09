@@ -32,6 +32,7 @@ in
 
   home.packages = with pkgs; [
     awscli2
+    ssm-session-manager-plugin
     bat
     copilot-language-server
     dconf
@@ -200,6 +201,12 @@ in
         identityFile = "~/.ssh/id_ed25519.pub";
       };
       "corpo" = {
+        hostname = "localhost";
+        user = "ubuntu";
+        identityFile = "~/.ssh/Corposistemas.pem";
+        port = 2222;
+      };
+      "old-corpo" = {
         hostname = "172.31.89.33";
         user = "ubuntu";
         identityFile = "~/.ssh/Corposistemas.pem";
