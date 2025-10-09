@@ -5,7 +5,35 @@
   ...
 }:
 {
+
+  fileSystems."/home/${user}/webdav" = {
+    device = "https://app.koofr.net/dav/Koofr/";
+    fsType = "davfs";
+    options = [
+      "rw"
+      "user"
+      "noauto"
+    ];
+  };
+
   services = {
+    davfs2 = {
+      enable = true;
+      davUser = user;
+      settings = {
+        globalSection = {
+          gui_optimize = true;
+          file_refresh = 30;
+        };
+        sections = {
+          "/home/${user}/webdav" = {
+            gui_optimize = true;
+            file_refresh = 30;
+          };
+        };
+      };
+    };
+
     gvfs = {
       enable = true;
     };
