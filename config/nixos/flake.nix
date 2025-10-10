@@ -92,8 +92,9 @@
       darwinConfigurations = {
         "mb-pro-m3" = nix-darwin.lib.darwinSystem {
           system = aarchSystem;
+          pkgs = aarchPkgs;
           modules = [ ./darwin/darwin.nix ];
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs user; };
         };
       };
 

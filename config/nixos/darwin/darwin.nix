@@ -3,9 +3,15 @@
   pkgs,
   lib,
   inputs,
+  user,
   ...
 }:
 {
+
+  imports = [
+    ../common/hm-darwin.nix
+  ];
+
   environment.systemPackages = [
     pkgs.aerospace
     pkgs.alacritty
@@ -16,12 +22,15 @@
     pkgs.docker-compose
   ];
 
-  nix.settings.experimental-features = "nix-command flakes";
+  # users
+  users.users."${user}".home = "/Users/${user}";
+
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   system.stateVersion = 5;
+  system.primaryUser = user;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
-  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = "nix-command flakes";
 
   # fix for spotlight: https://github.com/LnL7/nix-darwin/issues/139#issuecomment-1230728610
   system.activationScripts.applications.text =
@@ -59,7 +68,7 @@
       NSAutomaticWindowAnimationsEnabled = false;
       NSDocumentSaveNewDocumentsToCloud = false;
       # 120, 90, 60, 30, 12, 6, 2
-      KeyRepeat = 2;
+      KeyRepeat = 12;
       # 120, 94, 68, 35, 25, 15
       InitialKeyRepeat = 15;
     };
