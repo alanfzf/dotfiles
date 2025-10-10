@@ -29,8 +29,8 @@ keymap("n", "k", "gk")
 keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 -- Go to specific directories
-keymap("n", "<leader>c", "<cmd>tabnew $MYVIMRC<CR>:tcd %:p:h<CR>")
-keymap("n", "<leader>n", "<cmd>e ~/Dropbox/org/README.org<CR>")
+keymap("n", "<leader>c", "<CMD>tabnew $MYVIMRC<CR><cmd>tcd %:p:h<CR>")
+keymap("n", "<leader>n", "<CMD>tabnew ~/webdav/org/README.org<CR><CMD>tcd %:p:h<CR>")
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>")
 -- Better window navigation
